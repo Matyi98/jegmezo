@@ -7,4 +7,5 @@ public abstract class PlayerState {
     public abstract void makePlayerWalk();
     public abstract void swapDivingSuit();
     public abstract void makePLayerDrowning();
+
 }
