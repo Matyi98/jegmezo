@@ -1,8 +1,10 @@
 package player;
 
-public interface PlayerState {
-    void drown();
-    void makePlayerWalk();
-    void swapDivingSuit();
-    void makePLayerDrowning();
+public abstract class PlayerState {
+    private Player player;
+
+    public abstract void drown();
+    public abstract void makePlayerWalk();
+    public abstract void swapDivingSuit();
+    public abstract void makePLayerDrowning();
 }

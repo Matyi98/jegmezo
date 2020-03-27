@@ -1,11 +1,14 @@
 package player;
 import enums.Direction;
+import main.GameController;
 
 public abstract class Player {
     protected int maxHealthPoints;
     protected int healthPoints;
     private Direction actualDirection;
+    private PlayerState actualState;
     private int actionPoints;
+    private GameController gameController;
 
     public Player(int maxHealthPoints){
 
