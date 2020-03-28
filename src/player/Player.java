@@ -1,6 +1,10 @@
 package player;
 import enums.Direction;
+import items.Item;
 import main.GameController;
+import items.Inventory;
+
+import java.util.List;
 
 public abstract class Player {
     protected int maxHealthPoints;
@@ -9,6 +13,7 @@ public abstract class Player {
     private PlayerState actualState;
     private int actionPoints;
     private GameController gameController;
+    private Inventory inventory;
 
     public Player(int maxHealthPoints){
 
@@ -66,7 +71,9 @@ public abstract class Player {
 
     }
 
-    //Collection<Item> getItems()
+    List<Item> getItems(){
+        return null;
+    }
 
     public void rescueFriend(Direction rescueFromDirection){
 
