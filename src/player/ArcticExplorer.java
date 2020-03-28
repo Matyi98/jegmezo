@@ -6,6 +6,7 @@ public class ArcticExplorer extends Player {
         super(4);
     }
 
+    @Override
     public void specialPower() {
 
     }

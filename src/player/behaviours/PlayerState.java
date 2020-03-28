@@ -1,4 +1,6 @@
-package player;
+package player.behaviours;
+
+import player.Player;
 
 public abstract class PlayerState {
     private Player player;

@@ -3,6 +3,7 @@ import enums.Direction;
 import items.Item;
 import main.GameController;
 import items.Inventory;
+import player.behaviours.PlayerState;
 
 import java.util.List;
 

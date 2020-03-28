@@ -6,6 +6,7 @@ public class Eskimo extends Player {
         super(5);
     }
 
+    @Override
     public void specialPower() {
 
     }
