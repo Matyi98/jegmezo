@@ -64,6 +64,11 @@ public abstract class Field {
     public boolean changeSnowLevel(int delta){ return false; }
 
     public void snow(){
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        for(Player p: players)
+        {
+            p.decrementHP();
+        }
 
     }
 

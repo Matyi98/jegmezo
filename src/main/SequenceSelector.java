@@ -36,7 +36,8 @@ public class SequenceSelector {
         System.out.println("5.: Sarkkutató UnstableIceFieldről StableIceFieldre lép sikeresen");
         System.out.println("6: Item felvétele");
         System.out.println("7: QuestItem felvétele");
-        System.out.println("8: Evés");
+        System.out.println("8: QuestItem használata");
+        System.out.println("9: Játékos sebzése/hóvihar");
     }
 
     public void selectSequence(){
@@ -53,16 +54,16 @@ public class SequenceSelector {
                     checkStability();
                     break;
                 case 2:
-                    buildIgloo();
+                    buildIglu();
                     break;
                 case 3:
                     changeSnowLevel();
                     break;
                 case 4:
-                    moveUnsuccessful();
+                    moveUnsuccesfull();
                     break;
                 case 5:
-                    moveSuccessful();
+                moveSuccesfull();
                     break;
                 case 6:
                     pickUpItem();
@@ -74,7 +75,7 @@ public class SequenceSelector {
                     useQuestItem();
                     break;
                 case 9:
-                    eating();
+                    damagePlayer();
                     break;
                 default:
                     break;
@@ -164,8 +165,6 @@ public class SequenceSelector {
         IceField f = new StableIceField(new Shovel());
         Player p = new Eskimo(gc, f);
 
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-
         p.pickUpItem();
     }
 
@@ -173,8 +172,6 @@ public class SequenceSelector {
         GameController gc = new GameController();
         IceField f = new StableIceField(new Flare());
         Player p = new Eskimo(gc, f);
-
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
 
         p.pickUpItem();
     }
@@ -184,13 +181,20 @@ public class SequenceSelector {
         IceField f = new StableIceField(new Flare());
         Player p = new Eskimo(gc, f);
         p.pickUpItem();
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
 
         p.pickUpItem();
     }
 
-    public void eating(){
-
-
+    public void damagePlayer()
+    {
+        GameController gc = new GameController();
+        Field f1 = new StableIceField();
+        //A playert létrehozzuk, és beállítjuk a hozzá tartozó gc-t és fieldet
+        Player e1 = new Eskimo(gc, f1);
+        //A fieldre rátesszük a playert
+        f1.acceptPlayer(e1);
+        //A fielden havazást idézünk elő
+        f1.snow();
     }
+
 }
