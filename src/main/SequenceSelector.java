@@ -1,8 +1,6 @@
 package main;
 import fields.*;
-import items.Flare;
-import items.Inventory;
-import items.Shovel;
+import items.*;
 import player.ArcticExplorer;
 import player.Eskimo;
 import player.Player;
@@ -182,7 +180,25 @@ public class SequenceSelector {
         Player p = new Eskimo(gc, f);
         p.pickUpItem();
 
-        p.pickUpItem();
+        IceField f1 = new StableIceField(new Cartridge());
+        Player p1= new Eskimo(gc, f1);
+        p1.pickUpItem();
+
+        IceField f2 = new StableIceField(new Pistol());
+        Player p2 = new Eskimo(gc, f2);
+        p2.pickUpItem();
+
+        f2._AddPlayer(p);
+        f2._AddPlayer(p1);
+        f2._AddPlayer(p2);
+
+        gc.addPlayer(p);
+        gc.addPlayer(p1);
+        gc.addPlayer(p2);
+
+        System.out.println("<<useQuestItem releváns rész kezdete:>>");
+
+        p2.useItem(0);
     }
 
     public void damagePlayer()
