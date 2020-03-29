@@ -5,10 +5,7 @@ import player.Player;
 
 public abstract class IceField extends Field {
     public IceField(){
-    }
-
-    public IceField(Field aboveNeighbor){
-        super(aboveNeighbor);
+        super();
     }
 
     @Override

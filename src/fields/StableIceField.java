@@ -7,19 +7,18 @@ import player.Player;
 public class StableIceField extends IceField{
 
     public StableIceField(){
+        super();
     }
 
     public StableIceField(Item i) {
+        super();
         item = i;
-    }
-
-    public StableIceField(Field aboveNeighbor){
-        super(aboveNeighbor);
     }
 
     @Override
     public boolean acceptPlayer(Player player) {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        players.add(player);
         return true;
     }
 

@@ -16,7 +16,7 @@ public class SequenceSelector {
 
     public int getUserInput(){
         Scanner s = new Scanner(System.in);
-        int inp = 200;
+        int inp = NO_INPUT;
         try {
             inp = Integer.parseInt(s.nextLine());
         } catch (NumberFormatException e){
@@ -36,6 +36,8 @@ public class SequenceSelector {
         System.out.println("5.: Sarkkutató UnstableIceFieldről StableIceFieldre lép sikeresen");
         System.out.println("6: Item felvétele");
         System.out.println("7: QuestItem felvétele");
+        System.out.println("8: QuestItem használata");
+        System.out.println("9: Játékos sebzése/hóvihar");
     }
 
     public void selectSequence(){
@@ -73,7 +75,7 @@ public class SequenceSelector {
                     useQuestItem();
                     break;
                 case 9:
-                    useQuestItemFail();
+                    damagePlayer();
                     break;
                 default:
                     break;
@@ -94,11 +96,11 @@ public class SequenceSelector {
         // Szomszédos mező, amin el szeretnénk végezni a stabilitás vizsgálatot.
         Field neighbourField = new UnstableIceField();
 
-        /** Mező, amin a játékos áll.
-         *  Konstruktorban kapott Fieldet beállítja minden irányba szomszédnak.
-          */
+        // Mező, amin a játékos áll.
+        Field fieldUnderPlayer = new StableIceField();
 
-        Field fieldUnderPlayer = new StableIceField(neighbourField);
+        //Beállítjuk, hogy a 2 létrehozott mező szomszédos legyen
+        fieldUnderPlayer.setNeighborAbove(neighbourField);
 
         // Stabilitás vizsgálatot csak kutató tudja végrehajtani.
         Player player = new ArcticExplorer(fieldUnderPlayer);
@@ -108,7 +110,7 @@ public class SequenceSelector {
 
         /** Paraméterként kapja meg most a gamecontroller a user inputot.
          *  'p' mint speciális képesség meghívása.
-          */
+         */
         gameController.start('p');
     }
 
@@ -148,7 +150,9 @@ public class SequenceSelector {
         // Szomszédos OceanField, amire nem tudunk rálépni.
         Field neighbourField = new OceanField();
 
-        Field fieldUnderPlayer = new UnstableIceField(neighbourField);
+        Field fieldUnderPlayer = new UnstableIceField();
+
+        fieldUnderPlayer.setNeighborAbove(neighbourField);
 
         // Stabilitás vizsgálatot csak kutató tudja végrehajtani.
         Player player = new Eskimo(fieldUnderPlayer);
@@ -166,7 +170,9 @@ public class SequenceSelector {
         // Szomszédos OceanField, amire nem tudunk rálépni.
         Field neighbourField = new StableIceField();
 
-        Field fieldUnderPlayer = new UnstableIceField(neighbourField);
+        Field fieldUnderPlayer = new UnstableIceField();
+
+        fieldUnderPlayer.setNeighborAbove(neighbourField);
 
         // Stabilitás vizsgálatot csak kutató tudja végrehajtani.
         Player player = new ArcticExplorer(fieldUnderPlayer);
@@ -208,17 +214,19 @@ public class SequenceSelector {
         p.pickUpItem();
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
 
-        p.useItem(0);
+        p.pickUpItem();
     }
 
-    public void useQuestItemFail() {
+    public void damagePlayer()
+    {
         GameController gc = new GameController();
-        IceField f = new StableIceField(new Flare());
-        Player p = new Eskimo(gc, f);
-        p.pickUpItem();
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-
-        p.useItem(0);
+        Field f1 = new StableIceField();
+        //A playert létrehozzuk, és beállítjuk a hozzá tartozó gc-t és fieldet
+        Player e1 = new Eskimo(gc, f1);
+        //A fieldre rátesszük a playert
+        f1.acceptPlayer(e1);
+        //A fielden havazást idézünk elő
+        f1.snow();
     }
 
 }
