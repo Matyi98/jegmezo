@@ -83,6 +83,9 @@ public class SequenceSelector {
                 case 10:
                     eating();
                     break;
+                case 11:
+                    digByHand();
+                    break;
                 default:
                     break;
             }
