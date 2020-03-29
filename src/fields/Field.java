@@ -44,10 +44,12 @@ public abstract class Field {
         neighbors.put(Direction.RIGHT, field);
     }
 
+    //Ezen fielden lévő player átmozgatása egy szomszédos fieldre
     public boolean placePlayerToNextField(Direction direction, Player player){
         return false;
     }
 
+    //Áthúz egy playert egy szomszédos mezőről saját magához
     public boolean pullOutPlayerFrom(Direction direction, Player player){
         return false;
     }
@@ -83,7 +85,6 @@ public abstract class Field {
         {
             p.decrementHP();
         }
-
     }
 
     //Megmondja, hogy hány játékos áll a mezőn.
@@ -92,14 +93,18 @@ public abstract class Field {
         return players.size();
     }
 
+    //Egy játékos kiválasztása a fielden
     public Player selectPlayer() {
         return null;
     }
 
+    //Adott playert helyez a mezőre
     public abstract boolean acceptPlayer(Player player);
 
+    //Iglut épít a mezőre
     public abstract boolean buildIgloo();
 
+    //Megnézi a mező stabilitását
     public abstract String checkStability();
 
     public abstract String checkStability(Direction direction);
