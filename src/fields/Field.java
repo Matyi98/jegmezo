@@ -15,15 +15,32 @@ public abstract class Field {
     protected Item item;
 
     public Field(){
-    }
-
-    public Field(Field neighbour){
         neighbors = new EnumMap<>(Direction.class);
 
-        neighbors.put(Direction.UP, neighbour);
-        neighbors.put(Direction.DOWN, neighbour);
-        neighbors.put(Direction.LEFT, neighbour);
-        neighbors.put(Direction.RIGHT, neighbour);
+        neighbors.put(Direction.UP, null);
+        neighbors.put(Direction.DOWN, null);
+        neighbors.put(Direction.LEFT, null);
+        neighbors.put(Direction.RIGHT, null);
+    }
+
+    //Felső szomszédmező beállítása
+    public void setNeighborAbove( Field field ){
+        neighbors.put(Direction.UP, field);
+    }
+
+    //Alsó szomszédmező beállítása
+    public void setNeighborBelow( Field field ){
+        neighbors.put(Direction.DOWN, field);
+    }
+
+    //Baloldali szomszédmező beállítása
+    public void setNeighbourLeftSide( Field field ){
+        neighbors.put(Direction.LEFT, field);
+    }
+
+    //Jobboldali szomszédmező beállítása
+    public void setNeighbourRightSide( Field field ){
+        neighbors.put(Direction.RIGHT, field);
     }
 
     public boolean placePlayerToNextField(Direction direction, Player player){

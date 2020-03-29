@@ -16,7 +16,7 @@ public class SequenceSelector {
 
     public int getUserInput(){
         Scanner s = new Scanner(System.in);
-        int inp = 200;
+        int inp = NO_INPUT;
         try {
             inp = Integer.parseInt(s.nextLine());
         } catch (NumberFormatException e){
@@ -59,9 +59,10 @@ public class SequenceSelector {
                     moveUnsuccesfull();
                     break;
                 case 5:
-                moveSuccesfull();
+                    moveSuccesfull();
                     break;
-                default:
+                case 6:
+                    eating();
                     break;
             }
 
@@ -80,11 +81,11 @@ public class SequenceSelector {
         // Szomszédos mező, amin el szeretnénk végezni a stabilitás vizsgálatot.
         Field neighbourField = new UnstableIceField();
 
-        /** Mező, amin a játékos áll.
-         *  Konstruktorban kapott Fieldet beállítja minden irányba szomszédnak.
-          */
+        // Mező, amin a játékos áll.
+        Field fieldUnderPlayer = new StableIceField();
 
-        Field fieldUnderPlayer = new StableIceField(neighbourField);
+        //Beállítjuk, hogy a 2 létrehozott mező szomszédos legyen
+        fieldUnderPlayer.setNeighborAbove(neighbourField);
 
         // Stabilitás vizsgálatot csak kutató tudja végrehajtani.
         Player player = new ArcticExplorer(fieldUnderPlayer);
@@ -94,7 +95,7 @@ public class SequenceSelector {
 
         /** Paraméterként kapja meg most a gamecontroller a user inputot.
          *  'p' mint speciális képesség meghívása.
-          */
+         */
         gameController.start('p');
     }
 
@@ -134,7 +135,9 @@ public class SequenceSelector {
         // Szomszédos OceanField, amire nem tudunk rálépni.
         Field neighbourField = new OceanField();
 
-        Field fieldUnderPlayer = new UnstableIceField(neighbourField);
+        Field fieldUnderPlayer = new UnstableIceField();
+
+        fieldUnderPlayer.setNeighborAbove(neighbourField);
 
         // Stabilitás vizsgálatot csak kutató tudja végrehajtani.
         Player player = new Eskimo(fieldUnderPlayer);
@@ -152,7 +155,9 @@ public class SequenceSelector {
         // Szomszédos OceanField, amire nem tudunk rálépni.
         Field neighbourField = new StableIceField();
 
-        Field fieldUnderPlayer = new UnstableIceField(neighbourField);
+        Field fieldUnderPlayer = new UnstableIceField();
+
+        fieldUnderPlayer.setNeighborAbove(neighbourField);
 
         // Stabilitás vizsgálatot csak kutató tudja végrehajtani.
         Player player = new ArcticExplorer(fieldUnderPlayer);
@@ -164,5 +169,9 @@ public class SequenceSelector {
          *  'p' mint speciális képesség meghívása.
          */
         gameController.start('w');
+    }
+
+    public void eating(){
+
     }
 }

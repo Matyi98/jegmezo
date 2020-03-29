@@ -31,6 +31,10 @@ public abstract class Player {
 
     }
 
+    private void incrementHP(){
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+    }
+
     public void swapDivingSuit() {
 
     }
@@ -81,6 +85,7 @@ public abstract class Player {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         if(healthPoints < maxHealthPoints){
             inventory.removeSpecificItem( food );
+            this.incrementHP();
         }
     }
 

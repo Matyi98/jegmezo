@@ -6,7 +6,7 @@ import fields.Field;
 public class Eskimo extends Player {
 
     public Eskimo() {
-        super(4);
+        super(5);
     }
 
     public Eskimo(Field fieldUnderPlayer) {

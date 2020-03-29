@@ -6,13 +6,6 @@ import player.Player;
 public class UnstableIceField extends IceField{
     private int stability;
 
-    public UnstableIceField(){
-    }
-
-    public UnstableIceField(Field aboveNeighbor){
-        super(aboveNeighbor);
-    }
-
     @Override
     public boolean buildIgloo(){
         return false;
