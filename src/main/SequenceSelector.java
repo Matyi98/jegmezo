@@ -54,16 +54,16 @@ public class SequenceSelector {
                     checkStability();
                     break;
                 case 2:
-                    buildIglu();
+                    buildIgloo();
                     break;
                 case 3:
                     changeSnowLevel();
                     break;
                 case 4:
-                    moveUnsuccesfull();
+                    moveUnsuccessful();
                     break;
                 case 5:
-                moveSuccesfull();
+                    moveSuccessful();
                     break;
                 case 6:
                     pickUpItem();
