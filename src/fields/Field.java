@@ -44,6 +44,7 @@ public abstract class Field {
         neighbors.put(Direction.RIGHT, field);
     }
 
+
     public boolean placePlayerToNextField(Direction direction, Player player){
         return false;
     }

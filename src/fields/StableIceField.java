@@ -10,9 +10,13 @@ public class StableIceField extends IceField{
         super();
     }
 
-    public StableIceField(Item i) {
+    public StableIceField(Item item) {
         super();
-        item = i;
+        setItem(item);
+    }
+
+    public void setItem(Item item){
+        this.item = item;
     }
 
     @Override
