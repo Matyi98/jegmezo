@@ -4,6 +4,7 @@ import enums.Direction;
 import items.Item;
 import player.Player;
 
+import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public abstract class Field {
     private int snowLevel;
     private static int MAX_SNOWLEVEL;
     protected EnumMap<Direction, Field> neighbors;
-    protected List<Player> players;
+    protected List<Player> players = new ArrayList<>();
     protected Item item;
 
     public Field(){

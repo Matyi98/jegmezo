@@ -13,7 +13,7 @@ import java.util.List;
 
 public class GameController {
     private int questItemCount = 0;
-    private List<Player> players;
+    private List<Player> players = new ArrayList<>();
     private Board board;
 
     GameController(){
@@ -46,8 +46,12 @@ public class GameController {
 
     }
 
-    public void win(){
-
+    public void win(int count){
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        if(count == players.size() && questItemCount == 3)
+            System.out.println("WIN");
+        else
+            System.out.println("not WIN");
     }
 
     public void gameOver()
@@ -56,7 +60,7 @@ public class GameController {
     }
 
     public void questItemFound() {
-        questItemCount = questItemCount + 1;
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        questItemCount = questItemCount + 1;
     }
 }

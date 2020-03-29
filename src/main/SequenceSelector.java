@@ -69,6 +69,12 @@ public class SequenceSelector {
                 case 7:
                     pickUpQuestItem();
                     break;
+                case 8:
+                    useQuestItem();
+                    break;
+                case 9:
+                    useQuestItemFail();
+                    break;
                 default:
                     break;
             }
@@ -193,6 +199,26 @@ public class SequenceSelector {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
 
         p.pickUpItem();
+    }
+
+    public void useQuestItem() {
+        GameController gc = new GameController();
+        IceField f = new StableIceField(new Flare());
+        Player p = new Eskimo(gc, f);
+        p.pickUpItem();
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+
+        p.useItem(0);
+    }
+
+    public void useQuestItemFail() {
+        GameController gc = new GameController();
+        IceField f = new StableIceField(new Flare());
+        Player p = new Eskimo(gc, f);
+        p.pickUpItem();
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+
+        p.useItem(0);
     }
 
 }
