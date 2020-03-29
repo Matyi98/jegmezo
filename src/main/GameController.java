@@ -18,7 +18,7 @@ public class GameController {
 
     GameController(){
         board = new Board();
-        players = new ArrayList<>();
+        players = new ArrayList<Player>();
     }
 
     public void addPlayer( Player player ){

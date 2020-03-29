@@ -1,5 +1,9 @@
 package main;
 import fields.*;
+import items.Flare;
+import items.Food;
+import items.Inventory;
+import items.Shovel;
 import items.*;
 import player.ArcticExplorer;
 import player.Eskimo;
@@ -36,6 +40,7 @@ public class SequenceSelector {
         System.out.println("7: QuestItem felvétele");
         System.out.println("8: QuestItem használata");
         System.out.println("9: Játékos sebzése/hóvihar");
+        System.out.println("10: Evés");
     }
 
     public void selectSequence(){
@@ -75,6 +80,9 @@ public class SequenceSelector {
                 case 9:
                     damagePlayer();
                     break;
+                case 10:
+                    eating();
+                    break;
                 default:
                     break;
             }
@@ -91,19 +99,34 @@ public class SequenceSelector {
     }
 
     public GameController initOneEskimoWithAFieldAboveThem( Field fieldAbove){
+        //Field amin a player áll
         Field fieldUnderPlayer = new StableIceField();
+        //GameController, amely irányítja a playert
         GameController gc = new GameController();
+        //ArcticExplorer player létrehozása
         Player player = new Eskimo(gc, fieldUnderPlayer);
+        //GameControllerhez hozzáadjuk a játékost
+        gc.addPlayer(player);
+        //Beállítjuk, hogy a mezők szomszédosak legyenek
         fieldUnderPlayer.setNeighborAbove(fieldAbove);
 
         return gc;
     }
 
     public GameController initOneArcticExplorerWithAFieldAboveThem( Field fieldAbove){
+        //Field amin a player áll
         Field fieldUnderPlayer = new StableIceField();
+
+        //GameController, amely irányítja a playert
         GameController gc = new GameController();
+
+        //ArcticExplorer player létrehozása
         Player player = new ArcticExplorer(gc, fieldUnderPlayer);
+
+        //GameControllerhez hozzáadjuk a játékost
         gc.addPlayer(player);
+
+        //Beállítjuk, hogy a mezők szomszédosak legyenek
         fieldUnderPlayer.setNeighborAbove(fieldAbove);
 
         return gc;
@@ -134,7 +157,7 @@ public class SequenceSelector {
         GameController gameController = initOneArcticExplorerWithAFieldAboveThem( new UnstableIceField() );
 
         /** Paraméterként kapja meg most a gamecontroller a user inputot.
-         *  'p' mint speciális képesség meghívása.
+         *  'c' mint speciális képesség meghívása.
          */
         gameController.start('c');
     }
@@ -143,7 +166,7 @@ public class SequenceSelector {
         GameController gameController = initOneArcticExplorerWithAFieldAboveThem( new UnstableIceField() );
 
         /** Paraméterként kapja meg most a gamecontroller a user inputot.
-         *  'p' mint speciális képesség meghívása.
+         *  'w' mint speciális képesség meghívása.
          */
         gameController.start('w');
     }
@@ -152,7 +175,7 @@ public class SequenceSelector {
         GameController gameController = initOneArcticExplorerWithAFieldAboveThem( new StableIceField() );
 
         /** Paraméterként kapja meg most a gamecontroller a user inputot.
-         *  'p' mint speciális képesség meghívása.
+         *  'w' mint speciális képesség meghívása.
          */
         gameController.start('w');
     }
@@ -282,6 +305,14 @@ public class SequenceSelector {
         f1.acceptPlayer(e1);
         //A fielden havazást idézünk elő
         f1.snow();
+    }
+
+    public void eating(){
+        GameController gc = new GameController();
+        Field fieldUnderPlayer = new StableIceField(new Food());
+        Player player = new Eskimo(gc, fieldUnderPlayer);
+        player.pickUpItem();
+        player.useItem(0);
     }
 
 }
