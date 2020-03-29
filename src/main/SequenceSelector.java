@@ -1,6 +1,9 @@
 package main;
 import fields.*;
 import items.*;
+import items.quest.Cartridge;
+import items.quest.Flare;
+import items.quest.Pistol;
 import player.*;
 
 import java.util.Scanner;
