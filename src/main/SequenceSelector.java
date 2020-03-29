@@ -29,6 +29,7 @@ public class SequenceSelector {
         System.out.println("Egy szám megnyomásával majd az Enter leütésével válassz teszt szekvenciát!");
         System.out.println("1.: Sarkkutató jégtáblát vizsgál.");
         System.out.println("2.: Eskimo iglu épít");
+        System.out.println("3.: Eskimo havat takarít");
     }
 
     public void selectSequence(){
@@ -46,6 +47,9 @@ public class SequenceSelector {
                     break;
                 case 2:
                     buildIglu();
+                    break;
+                case 3:
+                    changeSnowLevel();
                     break;
                 default:
                     break;
@@ -98,5 +102,21 @@ public class SequenceSelector {
          *  'p' mint speciális képesség meghívása.
          */
         gameController.start('p');
+    }
+
+    public void changeSnowLevel(){
+
+        Field fieldUnderPlayer = new StableIceField();
+
+        // Stabilitás vizsgálatot csak kutató tudja végrehajtani.
+        Player player = new Eskimo(fieldUnderPlayer);
+
+        // GameController beteszi a listájába a lokálisan inicializált kutatót.
+        GameController gameController = new GameController(player);
+
+        /** Paraméterként kapja meg most a gamecontroller a user inputot.
+         *  'p' mint speciális képesség meghívása.
+         */
+        gameController.start('c');
     }
 }

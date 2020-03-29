@@ -36,4 +36,10 @@ public class UnstableIceField extends IceField{
         neighbour.checkStability();
         return "";
     }
+
+    @Override
+    public boolean changeSnowLevel(int delta){
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        return false;
+    }
 }

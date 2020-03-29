@@ -23,4 +23,5 @@ public class Hole extends Field {
     public String checkStability(Direction direction) {
         return null;
     }
+
 }

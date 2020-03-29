@@ -38,4 +38,10 @@ public class StableIceField extends IceField{
         return true;
     }
 
+    @Override
+    public boolean changeSnowLevel(int delta){
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        return false;
+    }
+
 }

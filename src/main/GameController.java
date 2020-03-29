@@ -32,6 +32,9 @@ public class GameController {
             case 'p':
                 players.get(0).specialPower();
                 break;
+            case 'c':
+                players.get(0).shovel(1);
+                break;
             default:
                 break;
         }

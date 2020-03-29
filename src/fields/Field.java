@@ -38,9 +38,7 @@ public abstract class Field {
         return item;
     }
 
-    public boolean changeSnowLevel(int delta){
-        return false;
-    }
+    public boolean changeSnowLevel(int delta){ return false; }
 
     public void snow(){
 

@@ -71,7 +71,8 @@ public abstract class Player {
     }
 
     public void shovel(int snowLevel){
-
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        fieldUnderPlayer.changeSnowLevel(-1);
     }
 
     public void eat(int foodCalorie){
