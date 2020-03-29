@@ -1,13 +1,8 @@
 package main;
 import fields.*;
-import items.Flare;
-import items.Food;
-import items.Inventory;
-import items.Shovel;
 import items.*;
-import player.ArcticExplorer;
-import player.Eskimo;
-import player.Player;
+import items.*;
+import player.*;
 
 import java.util.Scanner;
 
