@@ -32,9 +32,10 @@ public abstract class Player {
 
     }
 
-    public Player(int i, int j) {
+    public Player(GameController gc, Field f) {
+        gameController = gc;
+        fieldUnderPlayer = f;
         inventory = new Inventory(this);
-
     }
 
 
@@ -76,6 +77,16 @@ public abstract class Player {
     }
 
     public boolean pickUpItem(){
+        Item i = fieldUnderPlayer.getItem();
+
+        boolean accepted = inventory.add(i);
+
+        if(accepted) {
+            fieldUnderPlayer.removeItem();
+            i.setOwner(this);
+        }
+
+
         return false;
     }
 
@@ -116,5 +127,9 @@ public abstract class Player {
     }
 
     public abstract void specialPower();
+
+    public void questItemFound() {
+        gameController.questItemFound();
+    }
 
 }

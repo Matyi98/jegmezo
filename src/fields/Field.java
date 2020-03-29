@@ -38,6 +38,10 @@ public abstract class Field {
         return item;
     }
 
+    public void removeItem() {
+
+    }
+
     public boolean changeSnowLevel(int delta){ return false; }
 
     public void snow(){

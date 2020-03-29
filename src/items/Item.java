@@ -8,6 +8,7 @@ public abstract class Item {
     public abstract void use();
 
     public boolean setOwner(Player owner){
+        this.owner = owner;
         return false;
     }
 }

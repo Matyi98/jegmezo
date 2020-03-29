@@ -1,8 +1,5 @@
 package main;
-import fields.Field;
-import fields.OceanField;
-import fields.StableIceField;
-import fields.UnstableIceField;
+import fields.*;
 import items.Inventory;
 import player.ArcticExplorer;
 import player.Eskimo;
@@ -169,8 +166,12 @@ public class SequenceSelector {
 
     public void pickUpItem() {
         GameController gc = new GameController();
-        Player p = new Eskimo();
+        IceField f = new StableIceField();
 
+
+        Player p = new Eskimo(gc, f);
+
+        p.pickUpItem();
 
     }
 

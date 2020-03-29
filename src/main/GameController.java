@@ -55,4 +55,7 @@ public class GameController {
         
     }
 
+    public void questItemFound() {
+        questItemCount = questItemCount + 1;
+    }
 }
