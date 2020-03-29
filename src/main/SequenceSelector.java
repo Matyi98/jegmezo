@@ -157,27 +157,50 @@ public class SequenceSelector {
         gameController.start('w');
     }
 
+    //Item felvétele szekvencia.
     public void pickUpItem() {
-
+        //Szekvencia inicializálása.
+        System.out.println("<<pickUpItem Inicializálás kezdete:>>");
+        //Teszt gameController létrehozása.
         GameController gc = new GameController();
+        //Ideiglenes mező létrehozása, egy sima Itemmel.
         IceField f = new StableIceField(new Shovel());
+        //Player Inicializálása.
         Player p = new Eskimo(gc, f);
 
+        System.out.println("<<pickUpItem szekvencia kezdete:>>");
+        //Szekvencia kezdete.
         p.pickUpItem();
     }
 
+    //Quest Item felvétele szekvencia.
     public void pickUpQuestItem() {
+        //Szekvencia inicializálása.
+        System.out.println("<<pickUpQuestItem Inicializálás kezdete:>>");
+        //Teszt gameController létrehozása.
         GameController gc = new GameController();
+        //Ideiglenes mező létrehozása, egy QuestItemmel.
         IceField f = new StableIceField(new Flare());
+        //Player Inicializálása.
         Player p = new Eskimo(gc, f);
 
+        System.out.println("<<pickUpQuestItem szekvencia kezdete:>>");
+
+        //Szekvencia kezdete.
         p.pickUpItem();
     }
 
+    //Quest Item használata szekvencia.
     public void useQuestItem() {
+        //Szekvencia inicializálása.
+        System.out.println("<<useQuestItem Inicializálás kezdete:>>");
+        //Teszt gameController létrehozása.
         GameController gc = new GameController();
+        //Ideiglenes mező létrehozása, egy QuestItemmel.
         IceField f = new StableIceField(new Flare());
+        //Player Inicializálása.
         Player p = new Eskimo(gc, f);
+        //Quest Item felvétele a p inventoryjába.
         p.pickUpItem();
 
         IceField f1 = new StableIceField(new Cartridge());
@@ -188,16 +211,22 @@ public class SequenceSelector {
         Player p2 = new Eskimo(gc, f2);
         p2.pickUpItem();
 
+        //Playerek ráhelyezése a f2 mezőre.
         f2._AddPlayer(p);
         f2._AddPlayer(p1);
         f2._AddPlayer(p2);
 
+        /*
+            Playerek beregisztrálása a gameControllerbe.
+            Ez egy ideiglenes megoldás az egyszerű inicializálás és tesztelés érdekében.
+        */
         gc.addPlayer(p);
         gc.addPlayer(p1);
         gc.addPlayer(p2);
 
-        System.out.println("<<useQuestItem releváns rész kezdete:>>");
+        System.out.println("<<useQuestItem szekvencia kezdete:>>");
 
+        //Szekvencia kezdete.
         p2.useItem(0);
     }
 
