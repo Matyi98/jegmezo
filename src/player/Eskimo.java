@@ -2,6 +2,7 @@ package player;
 
 import enums.Direction;
 import fields.Field;
+import main.GameController;
 
 public class Eskimo extends Player {
 
@@ -11,6 +12,10 @@ public class Eskimo extends Player {
 
     public Eskimo(Field fieldUnderPlayer) {
         super(fieldUnderPlayer, 5);
+    }
+
+    public Eskimo(GameController gc, Field f) {
+        super(gc, f);
     }
 
     @Override

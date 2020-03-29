@@ -1,9 +1,15 @@
 package fields;
 
 import enums.Direction;
+import items.Item;
 import player.Player;
 
 public class StableIceField extends IceField{
+
+
+    public StableIceField(Item i) {
+        item = i;
+    }
 
     @Override
     public boolean acceptPlayer(Player player) {

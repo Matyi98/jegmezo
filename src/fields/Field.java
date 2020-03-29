@@ -52,7 +52,12 @@ public abstract class Field {
     }
 
     public Item getItem(){
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         return item;
+    }
+
+    public void removeItem() {
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
     }
 
     public boolean changeSnowLevel(int delta){ return false; }

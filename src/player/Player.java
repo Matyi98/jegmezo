@@ -6,6 +6,7 @@ import main.GameController;
 import items.Inventory;
 import player.behaviours.PlayerState;
 
+import javax.crypto.spec.IvParameterSpec;
 import java.util.List;
 
 public abstract class Player {
@@ -30,6 +31,13 @@ public abstract class Player {
     public Player(int maxHealthPoints){
 
     }
+
+    public Player(GameController gc, Field f) {
+        gameController = gc;
+        fieldUnderPlayer = f;
+        inventory = new Inventory(this);
+    }
+
 
     private void incrementHP(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
@@ -73,6 +81,15 @@ public abstract class Player {
     }
 
     public boolean pickUpItem(){
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        Item i = fieldUnderPlayer.getItem();
+
+        boolean accepted = inventory.add(i);
+
+        if(accepted) {
+            fieldUnderPlayer.removeItem();
+            i.setOwner(this);
+        }
         return false;
     }
 
@@ -114,5 +131,10 @@ public abstract class Player {
     }
 
     public abstract void specialPower();
+
+    public void questItemFound() {
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        gameController.questItemFound();
+    }
 
 }

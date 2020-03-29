@@ -8,6 +8,8 @@ public abstract class Item {
     public abstract void use();
 
     public boolean setOwner(Player owner){
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        this.owner = owner;
         return false;
     }
 }

@@ -55,4 +55,8 @@ public class GameController {
         
     }
 
+    public void questItemFound() {
+        questItemCount = questItemCount + 1;
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+    }
 }
