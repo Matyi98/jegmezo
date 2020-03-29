@@ -73,7 +73,9 @@ public abstract class Field {
 
     }
 
+    //Megmondja, hogy hány játékos áll a mezőn.
     public int getPlayerCount(){
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         return players.size();
     }
 
@@ -88,4 +90,10 @@ public abstract class Field {
     public abstract String checkStability();
 
     public abstract String checkStability(Direction direction);
+
+    //Ideiglenes függvény, szekvenciák inicializálásának segítésére.
+    public void _AddPlayer(Player p) {
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        players.add(p);
+    }
 }

@@ -87,10 +87,9 @@ public abstract class Player {
 
         boolean accepted = inventory.add(i);
 
-        if(accepted) {
+        if(accepted)
             fieldUnderPlayer.removeItem();
-            i.setOwner(this);
-        }
+
         return false;
     }
 

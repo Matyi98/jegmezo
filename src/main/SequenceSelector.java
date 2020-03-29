@@ -4,6 +4,7 @@ import items.Flare;
 import items.Food;
 import items.Inventory;
 import items.Shovel;
+import items.*;
 import player.ArcticExplorer;
 import player.Eskimo;
 import player.Player;
@@ -179,30 +180,77 @@ public class SequenceSelector {
         gameController.start('w');
     }
 
+    //Item felvétele szekvencia.
     public void pickUpItem() {
-
+        //Szekvencia inicializálása.
+        System.out.println("<<pickUpItem Inicializálás kezdete:>>");
+        //Teszt gameController létrehozása.
         GameController gc = new GameController();
+        //Ideiglenes mező létrehozása, egy sima Itemmel.
         IceField f = new StableIceField(new Shovel());
+        //Player Inicializálása.
         Player p = new Eskimo(gc, f);
 
+        System.out.println("<<pickUpItem szekvencia kezdete:>>");
+        //Szekvencia kezdete.
         p.pickUpItem();
     }
 
+    //Quest Item felvétele szekvencia.
     public void pickUpQuestItem() {
+        //Szekvencia inicializálása.
+        System.out.println("<<pickUpQuestItem Inicializálás kezdete:>>");
+        //Teszt gameController létrehozása.
         GameController gc = new GameController();
+        //Ideiglenes mező létrehozása, egy QuestItemmel.
         IceField f = new StableIceField(new Flare());
+        //Player Inicializálása.
         Player p = new Eskimo(gc, f);
 
+        System.out.println("<<pickUpQuestItem szekvencia kezdete:>>");
+
+        //Szekvencia kezdete.
         p.pickUpItem();
     }
 
+    //Quest Item használata szekvencia.
     public void useQuestItem() {
+        //Szekvencia inicializálása.
+        System.out.println("<<useQuestItem Inicializálás kezdete:>>");
+        //Teszt gameController létrehozása.
         GameController gc = new GameController();
+        //Ideiglenes mező létrehozása, egy QuestItemmel.
         IceField f = new StableIceField(new Flare());
+        //Player Inicializálása.
         Player p = new Eskimo(gc, f);
+        //Quest Item felvétele a p inventoryjába.
         p.pickUpItem();
 
-        p.pickUpItem();
+        IceField f1 = new StableIceField(new Cartridge());
+        Player p1= new Eskimo(gc, f1);
+        p1.pickUpItem();
+
+        IceField f2 = new StableIceField(new Pistol());
+        Player p2 = new Eskimo(gc, f2);
+        p2.pickUpItem();
+
+        //Playerek ráhelyezése a f2 mezőre.
+        f2._AddPlayer(p);
+        f2._AddPlayer(p1);
+        f2._AddPlayer(p2);
+
+        /*
+            Playerek beregisztrálása a gameControllerbe.
+            Ez egy ideiglenes megoldás az egyszerű inicializálás és tesztelés érdekében.
+        */
+        gc.addPlayer(p);
+        gc.addPlayer(p1);
+        gc.addPlayer(p2);
+
+        System.out.println("<<useQuestItem szekvencia kezdete:>>");
+
+        //Szekvencia kezdete.
+        p2.useItem(0);
     }
 
     public void damagePlayer()
