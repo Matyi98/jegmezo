@@ -44,7 +44,6 @@ public abstract class Field {
         neighbors.put(Direction.RIGHT, field);
     }
 
-
     public boolean placePlayerToNextField(Direction direction, Player player){
         return false;
     }
@@ -53,17 +52,21 @@ public abstract class Field {
         return false;
     }
 
+    //Visszaadja a fielden lévő itemet
     public Item getItem(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         return item;
     }
 
+    //Item eltávolítása a fieldről
     public void removeItem() {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
     }
 
+    //Megváltoztatja a hó szintjét egy adott értékkel
     public boolean changeSnowLevel(int delta){ return false; }
 
+    //Havazik az adott mezőn
     public void snow(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         for(Player p: players)
