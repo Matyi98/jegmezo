@@ -41,6 +41,8 @@ public class SequenceSelector {
         System.out.println("8: QuestItem használata");
         System.out.println("9: Játékos sebzése/hóvihar");
         System.out.println("10: Evés");
+        System.out.println("11: Ásás kézzel.");
+        System.out.println("12: Ásás lapáttal.");
     }
 
     public void selectSequence(){
@@ -85,6 +87,9 @@ public class SequenceSelector {
                     break;
                 case 11:
                     digByHand();
+                    break;
+                case 12:
+                    useShovel();
                     break;
                 default:
                     break;
@@ -283,19 +288,17 @@ public class SequenceSelector {
         //Teszt gameController létrehozása.
         GameController gc = new GameController();
         //Ideiglenes mező létrehozása, egy tetszőleges Itemmel.
-        IceField f = new StableIceField(new Rope());
+        IceField f = new StableIceField(new Shovel());
         //Alap hószint beállítása.
-        f.changeSnowLevel(1);
+        f.changeSnowLevel(2);
         //Player Inicializálása.
         Player p = new Eskimo(gc, f);
+        p.pickUpItem();
 
         System.out.println("<<useShovel szekvencia kezdete:>>");
         //Szekvencia kezdete.
 
-        //Ásás kézzel
-        p.shovel(1);
-        //Ásás kézzel, hó nélküli mezőn.
-        p.shovel(1);
+        p.useItem(0);
     }
 
     public void damagePlayer()
