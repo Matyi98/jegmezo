@@ -1,5 +1,6 @@
 package main;
 
+import enums.Direction;
 import fields.Board;
 import player.ArcticExplorer;
 import player.Player;
@@ -7,6 +8,7 @@ import player.Player;
 import java.io.IOException;
 import java.lang.invoke.ConstantBootstraps;
 import java.util.ArrayList;
+import java.util.Dictionary;
 import java.util.List;
 
 public class GameController {
@@ -34,6 +36,9 @@ public class GameController {
                 break;
             case 'c':
                 players.get(0).shovel(1);
+                break;
+            case 'w':
+                players.get(0).move();
                 break;
             default:
                 break;
