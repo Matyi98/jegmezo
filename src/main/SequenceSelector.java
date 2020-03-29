@@ -1,8 +1,8 @@
 package main;
-import fields.Field;
-import fields.OceanField;
-import fields.StableIceField;
-import fields.UnstableIceField;
+import fields.*;
+import items.Flare;
+import items.Inventory;
+import items.Shovel;
 import player.ArcticExplorer;
 import player.Eskimo;
 import player.Player;
@@ -68,6 +68,12 @@ public class SequenceSelector {
                     break;
                 case 7:
                     pickUpQuestItem();
+                    break;
+                case 8:
+                    useQuestItem();
+                    break;
+                case 9:
+                    useQuestItemFail();
                     break;
                 default:
                     break;
@@ -199,8 +205,14 @@ public class SequenceSelector {
         p.pickUpItem();
     }
 
+    public void useQuestItem() {
+        GameController gc = new GameController();
+        IceField f = new StableIceField(new Flare());
+        Player p = new Eskimo(gc, f);
+        p.pickUpItem();
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
 
-    public void eating(){
-
+        p.pickUpItem();
     }
+
 }

@@ -41,6 +41,7 @@ public class Inventory {
     }
 
     public void useItem(int itemIndex){
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         items.get(itemIndex).use();
     }
 }

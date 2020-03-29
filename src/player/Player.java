@@ -61,7 +61,8 @@ public abstract class Player {
     }
 
     public void useItem(int itemIndex){
-
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        inventory.useItem(itemIndex);
     }
 
     public void makePlayerDrowning(){
@@ -127,7 +128,9 @@ public abstract class Player {
     }
 
     public void useFlareGun(){
-
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        int count = fieldUnderPlayer.getPlayerCount();
+        gameController.win(count);
     }
 
     public abstract void specialPower();
