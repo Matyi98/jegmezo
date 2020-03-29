@@ -3,6 +3,7 @@ import fields.Field;
 import fields.StableIceField;
 import fields.UnstableIceField;
 import player.ArcticExplorer;
+import player.Eskimo;
 import player.Player;
 
 import java.util.Scanner;
@@ -26,7 +27,8 @@ public class SequenceSelector {
 
     public void showSequenceCases(){
         System.out.println("Egy szám megnyomásával majd az Enter leütésével válassz teszt szekvenciát!");
-        System.out.println("1.: Jégtábla vizsgálata");
+        System.out.println("1.: Sarkkutató jégtáblát vizsgál.");
+        System.out.println("2.: Eskimo iglu épít");
     }
 
     public void selectSequence(){
@@ -41,6 +43,9 @@ public class SequenceSelector {
                     break;
                 case 1:
                     checkStability();
+                    break;
+                case 2:
+                    buildIglu();
                     break;
                 default:
                     break;
@@ -76,6 +81,22 @@ public class SequenceSelector {
         /** Paraméterként kapja meg most a gamecontroller a user inputot.
          *  'p' mint speciális képesség meghívása.
           */
+        gameController.start('p');
+    }
+
+    public void buildIglu(){
+
+        Field fieldUnderPlayer = new StableIceField();
+
+        // Stabilitás vizsgálatot csak kutató tudja végrehajtani.
+        Player player = new Eskimo(fieldUnderPlayer);
+
+        // GameController beteszi a listájába a lokálisan inicializált kutatót.
+        GameController gameController = new GameController(player);
+
+        /** Paraméterként kapja meg most a gamecontroller a user inputot.
+         *  'p' mint speciális képesség meghívása.
+         */
         gameController.start('p');
     }
 }

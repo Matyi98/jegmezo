@@ -9,8 +9,8 @@ public class ArcticExplorer extends Player {
         super(4);
     }
 
-    public ArcticExplorer(Field underPlayer) {
-        fieldUnderPlayer = underPlayer;
+    public ArcticExplorer(Field fieldUnderPlayer) {
+        super(fieldUnderPlayer, 4);
     }
 
     @Override

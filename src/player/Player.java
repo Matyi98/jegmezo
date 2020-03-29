@@ -22,6 +22,10 @@ public abstract class Player {
 
     }
 
+    public Player(Field fieldUnderPlayer, int maxHealthPoints){
+        this.fieldUnderPlayer = fieldUnderPlayer;
+    }
+
     public Player(int maxHealthPoints){
 
     }

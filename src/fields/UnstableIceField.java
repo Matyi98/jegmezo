@@ -10,7 +10,7 @@ public class UnstableIceField extends IceField{
     }
 
     public UnstableIceField(Field aboveNeighbor){
-        neighbors.put(Direction.UP, aboveNeighbor);
+        super(aboveNeighbor);
     }
 
     @Override
@@ -23,15 +23,17 @@ public class UnstableIceField extends IceField{
         return false;
     }
 
-    /**
     @Override
     public String checkStability() {
-        return null;
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        return "";
     }
 
     @Override
     public String checkStability(Direction direction) {
-        return null;
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        Field neighbour = neighbors.get(direction);
+        neighbour.checkStability();
+        return "";
     }
-     */
 }

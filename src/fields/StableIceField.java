@@ -17,15 +17,25 @@ public class StableIceField extends IceField{
         return false;
     }
 
-    /**
+
     @Override
     public String checkStability() {
-        return null;
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        return "";
     }
 
     @Override
     public String checkStability(Direction direction) {
-        return null;
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        Field neighbour = neighbors.get(direction);
+        neighbour.checkStability();
+        return "";
     }
-    */
+
+    @Override
+    public boolean buildIgloo(){
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        return true;
+    }
+
 }

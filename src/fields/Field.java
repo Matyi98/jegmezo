@@ -58,19 +58,7 @@ public abstract class Field {
 
     public abstract boolean buildIgloo();
 
-    public String checkStability(){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+    public abstract String checkStability();
 
-        return  "";
-    }
-
-    public String checkStability(Direction direction){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-
-        Field neighbour = neighbors.get(direction);
-        neighbour.checkStability();
-        return "";
-    }
-
-
+    public abstract String checkStability(Direction direction);
 }
