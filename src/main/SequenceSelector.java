@@ -36,6 +36,8 @@ public class SequenceSelector {
         System.out.println("5.: Sarkkutató UnstableIceFieldről StableIceFieldre lép sikeresen");
         System.out.println("6: Item felvétele");
         System.out.println("7: QuestItem felvétele");
+        System.out.println("8: QuestItem használata");
+        System.out.println("9: Játékos sebzése/hóvihar");
     }
 
     public void selectSequence(){
@@ -71,6 +73,9 @@ public class SequenceSelector {
                     break;
                 case 8:
                     useQuestItem();
+                    break;
+                case 9:
+                    damagePlayer();
                     break;
                 default:
                     break;
@@ -210,6 +215,18 @@ public class SequenceSelector {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
 
         p.pickUpItem();
+    }
+
+    public void damagePlayer()
+    {
+        GameController gc = new GameController();
+        Field f1 = new StableIceField();
+        //A playert létrehozzuk, és beállítjuk a hozzá tartozó gc-t és fieldet
+        Player e1 = new Eskimo(gc, f1);
+        //A fieldre rátesszük a playert
+        f1.acceptPlayer(e1);
+        //A fielden havazást idézünk elő
+        f1.snow();
     }
 
 }

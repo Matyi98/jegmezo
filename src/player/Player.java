@@ -108,6 +108,7 @@ public abstract class Player {
     }
 
     public void decrementHP(){
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
 
     }
 
