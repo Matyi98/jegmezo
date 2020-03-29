@@ -6,6 +6,7 @@ import main.GameController;
 import items.Inventory;
 import player.behaviours.PlayerState;
 
+import javax.crypto.spec.IvParameterSpec;
 import java.util.List;
 
 public abstract class Player {
@@ -30,6 +31,12 @@ public abstract class Player {
     public Player(int maxHealthPoints){
 
     }
+
+    public Player(int i, int j) {
+        inventory = new Inventory(this);
+
+    }
+
 
     public void swapDivingSuit() {
 

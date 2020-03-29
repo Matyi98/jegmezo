@@ -3,6 +3,7 @@ import fields.Field;
 import fields.OceanField;
 import fields.StableIceField;
 import fields.UnstableIceField;
+import items.Inventory;
 import player.ArcticExplorer;
 import player.Eskimo;
 import player.Player;
@@ -165,4 +166,12 @@ public class SequenceSelector {
          */
         gameController.start('w');
     }
+
+    public void pickUpItem() {
+        GameController gc = new GameController();
+        Player p = new Eskimo();
+
+
+    }
+
 }

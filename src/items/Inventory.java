@@ -8,6 +8,15 @@ public class Inventory {
     private Player owner;
     List<Item> items;
 
+    public Inventory() {
+
+    }
+
+    public Inventory(Player owner) {
+        this.owner = owner;
+    }
+
+
     public void removeByIndex(int itemIndex){
         items.remove(itemIndex);
     }
