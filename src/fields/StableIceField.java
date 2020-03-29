@@ -14,7 +14,8 @@ public class StableIceField extends IceField{
 
     @Override
     public boolean acceptPlayer(Player player) {
-        return false;
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        return true;
     }
 
 

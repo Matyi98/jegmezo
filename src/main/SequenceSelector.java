@@ -33,6 +33,7 @@ public class SequenceSelector {
         System.out.println("2.: Eskimo iglu épít");
         System.out.println("3.: Eskimo havat takarít");
         System.out.println("4.: Eskimo UnstableIceFieldről OceanFieldre lép sikertelenül");
+        System.out.println("5.: Sarkkutató UnstableIceFieldről StableIceFieldre lép sikeresen");
     }
 
     public void selectSequence(){
@@ -56,6 +57,9 @@ public class SequenceSelector {
                     break;
                 case 4:
                     moveUnsuccesfull();
+                    break;
+                case 5:
+                moveSuccesfull();
                     break;
                 default:
                     break;
@@ -134,6 +138,24 @@ public class SequenceSelector {
 
         // Stabilitás vizsgálatot csak kutató tudja végrehajtani.
         Player player = new Eskimo(fieldUnderPlayer);
+
+        // GameController beteszi a listájába a lokálisan inicializált kutatót.
+        GameController gameController = new GameController(player);
+
+        /** Paraméterként kapja meg most a gamecontroller a user inputot.
+         *  'p' mint speciális képesség meghívása.
+         */
+        gameController.start('w');
+    }
+
+    public void moveSuccesfull(){
+        // Szomszédos OceanField, amire nem tudunk rálépni.
+        Field neighbourField = new StableIceField();
+
+        Field fieldUnderPlayer = new UnstableIceField(neighbourField);
+
+        // Stabilitás vizsgálatot csak kutató tudja végrehajtani.
+        Player player = new ArcticExplorer(fieldUnderPlayer);
 
         // GameController beteszi a listájába a lokálisan inicializált kutatót.
         GameController gameController = new GameController(player);
