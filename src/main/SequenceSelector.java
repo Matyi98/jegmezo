@@ -192,8 +192,6 @@ public class SequenceSelector {
         IceField f = new StableIceField(new Shovel());
         Player p = new Eskimo(gc, f);
 
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-
         p.pickUpItem();
     }
 
@@ -201,8 +199,6 @@ public class SequenceSelector {
         GameController gc = new GameController();
         IceField f = new StableIceField(new Flare());
         Player p = new Eskimo(gc, f);
-
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
 
         p.pickUpItem();
     }
@@ -212,7 +208,6 @@ public class SequenceSelector {
         IceField f = new StableIceField(new Flare());
         Player p = new Eskimo(gc, f);
         p.pickUpItem();
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
 
         p.pickUpItem();
     }
