@@ -1,7 +1,6 @@
 package main;
 import fields.*;
 import items.*;
-import items.*;
 import player.*;
 
 import java.util.Scanner;
@@ -314,6 +313,23 @@ public class SequenceSelector {
         Player player = new Eskimo(gc, fieldUnderPlayer);
         player.pickUpItem();
         player.useItem(0);
+    }
+
+    public void divingSuit() {
+        //Szekvencia inicializálása.
+        System.out.println("<<divingSuit Inicializálás kezdete:>>");
+        //Teszt gameController létrehozása.
+        GameController gc = new GameController();
+        //Ideiglenes mező létrehozása, egy tetszőleges Itemmel.
+        IceField f = new StableIceField(new DivingSuit());
+        //Player Inicializálása.
+        Player p = new Eskimo(gc, f);
+        p.pickUpItem();
+
+        System.out.println("<<divingSuit szekvencia kezdete:>>");
+        //Szekvencia kezdete.
+
+        p.useItem(0);
     }
 
 }

@@ -44,7 +44,7 @@ public abstract class Player {
     }
 
     public void swapDivingSuit() {
-
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
     }
 
     public void setState(PlayerState nextState){
