@@ -13,7 +13,9 @@ public class UnstableIceField extends IceField{
 
     @Override
     public boolean acceptPlayer(Player player) {
-        return false;
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        players.add(player);
+        return true;
     }
 
     @Override

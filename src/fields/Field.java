@@ -49,9 +49,22 @@ public abstract class Field {
         return false;
     }
 
+    //Visszaadja a fielden lévő itemet
+    public boolean placePlayerToNextField(Direction direction){
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        //Áthelyezi a játékost az adott irányban lévő mezőre
+        boolean success = neighbors.get(Direction.RIGHT).acceptPlayer(players.get(0));
+        return success;
+    }
+
     //Áthúz egy playert egy szomszédos mezőről saját magához
-    public boolean pullOutPlayerFrom(Direction direction, Player player){
-        return false;
+    public boolean pullOutPlayerFrom(Direction direction){
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        //A kijelölt szomszédban lévő mezőt felszólítja, hogy adja át valamelyik játékosát
+        boolean success = neighbors.get(direction).placePlayerToNextField(Direction.RIGHT);
+        //A játékos állapotváltozását idézi elő
+        players.get(1).makePlayerWalk();
+        return success;
     }
 
     //Visszaadja a fielden lévő itemet
@@ -81,10 +94,13 @@ public abstract class Field {
     //Havazik az adott mezőn
     public void snow(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        //A fielden lévő játékosok életének csökkentése
         for(Player p: players)
         {
             p.decrementHP();
         }
+        //Hotakaro ratevese a fieldre
+        this.changeSnowLevel(3);
     }
 
     //Megmondja, hogy hány játékos áll a mezőn.

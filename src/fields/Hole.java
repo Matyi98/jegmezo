@@ -6,7 +6,9 @@ import player.Player;
 public class Hole extends Field {
     @Override
     public boolean acceptPlayer(Player player) {
-        return false;
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        players.add(player);
+        return true;
     }
 
     @Override

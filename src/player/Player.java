@@ -65,12 +65,9 @@ public abstract class Player {
         inventory.useItem(itemIndex);
     }
 
-    public void makePlayerDrowning(){
-
-    }
-
     public void makePlayerWalk(){
-
+        //A játékos state változását valósítja meg
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
     }
 
     public void drown(){
@@ -123,7 +120,9 @@ public abstract class Player {
     }
 
     public void rescueFriend(Direction rescueFromDirection){
-
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        //Szól a mezőjének, hogy a kijelölt irányban akar kihúzni valakit
+        fieldUnderPlayer.pullOutPlayerFrom(rescueFromDirection);
     }
 
     public void pulledOut(){

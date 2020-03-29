@@ -40,6 +40,7 @@ public class SequenceSelector {
         System.out.println("10: Evés");
         System.out.println("11: Ásás kézzel.");
         System.out.println("12: Ásás lapáttal.");
+        System.out.println("13: Kötél használata");
     }
 
     public void selectSequence(){
@@ -87,6 +88,9 @@ public class SequenceSelector {
                     break;
                 case 12:
                     useShovel();
+                    break;
+                case 13:
+                    useRope();
                     break;
                 default:
                     break;
@@ -333,6 +337,30 @@ public class SequenceSelector {
         //Szekvencia kezdete.
 
         p.useItem(0);
+    }
+
+    public void useRope()
+    {
+        System.out.println(("Szekvencia inicializalasa: "));
+        //A kötél használatában lévő mezők inicializálása
+        Field f2 = new Hole();
+        Field f1 = new StableIceField(new Rope());
+        //A mezők szomszédainak beállítása
+        f1.setNeighbourLeftSide(f2);
+        f2.setNeighbourRightSide(f1);
+        //Controller inicializálása
+        GameController gc = new GameController();
+        //A kötél használatában résztvevő játékosok inicializálása
+        Player p1 = new Eskimo(gc, f1);
+        Player p2 = new ArcticExplorer(gc, f2);
+        //A játékosok mezőre helyezése
+        f1.acceptPlayer(p1);
+        f2.acceptPlayer(p2);
+        //Az első játékosnak a kötél odaadása
+        p1.pickUpItem();
+        //lényegi működés
+        System.out.println("Kotel hasznalata: ");
+        p1.useItem(0);
     }
 
 }
