@@ -72,9 +72,6 @@ public class SequenceSelector {
                 case 8:
                     useQuestItem();
                     break;
-                case 9:
-                    useQuestItemFail();
-                    break;
                 default:
                     break;
             }

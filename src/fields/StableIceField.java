@@ -6,8 +6,12 @@ import player.Player;
 
 public class StableIceField extends IceField{
 
+    public StableIceField(){
+        super();
+    }
 
     public StableIceField(Item i) {
+        super();
         item = i;
     }
 
