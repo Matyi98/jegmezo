@@ -13,17 +13,16 @@ import java.util.List;
 
 public class GameController {
     private int questItemCount = 0;
-    private List<Player> players = new ArrayList<>();
+    private ArrayList<Player> players;
     private Board board;
 
     GameController(){
-
-    }
-
-    GameController(Player testPlayer) {
         board = new Board();
         players = new ArrayList<>();
-        players.add(testPlayer);
+    }
+
+    public void addPlayer( Player player ){
+        players.add(player);
     }
 
     public void start(char userInput)

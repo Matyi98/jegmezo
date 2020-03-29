@@ -36,6 +36,7 @@ public class SequenceSelector {
         System.out.println("5.: Sarkkutató UnstableIceFieldről StableIceFieldre lép sikeresen");
         System.out.println("6: Item felvétele");
         System.out.println("7: QuestItem felvétele");
+        System.out.println("8: Evés");
     }
 
     public void selectSequence(){
@@ -52,16 +53,16 @@ public class SequenceSelector {
                     checkStability();
                     break;
                 case 2:
-                    buildIglu();
+                    buildIgloo();
                     break;
                 case 3:
                     changeSnowLevel();
                     break;
                 case 4:
-                    moveUnsuccesfull();
+                    moveUnsuccessful();
                     break;
                 case 5:
-                moveSuccesfull();
+                    moveSuccessful();
                     break;
                 case 6:
                     pickUpItem();
@@ -71,6 +72,9 @@ public class SequenceSelector {
                     break;
                 case 8:
                     useQuestItem();
+                    break;
+                case 9:
+                    eating();
                     break;
                 default:
                     break;
@@ -87,21 +91,28 @@ public class SequenceSelector {
         }
     }
 
-    public void checkStability(){
-        // Szomszédos mező, amin el szeretnénk végezni a stabilitás vizsgálatot.
-        Field neighbourField = new UnstableIceField();
-
-        // Mező, amin a játékos áll.
+    public GameController initOneEskimoWithAFieldAboveThem( Field fieldAbove){
         Field fieldUnderPlayer = new StableIceField();
+        GameController gc = new GameController();
+        Player player = new Eskimo(gc, fieldUnderPlayer);
+        fieldUnderPlayer.setNeighborAbove(fieldAbove);
 
-        //Beállítjuk, hogy a 2 létrehozott mező szomszédos legyen
-        fieldUnderPlayer.setNeighborAbove(neighbourField);
+        return gc;
+    }
 
-        // Stabilitás vizsgálatot csak kutató tudja végrehajtani.
-        Player player = new ArcticExplorer(fieldUnderPlayer);
+    public GameController initOneArcticExplorerWithAFieldAboveThem( Field fieldAbove){
+        Field fieldUnderPlayer = new StableIceField();
+        GameController gc = new GameController();
+        Player player = new ArcticExplorer(gc, fieldUnderPlayer);
+        gc.addPlayer(player);
+        fieldUnderPlayer.setNeighborAbove(fieldAbove);
 
-        // GameController beteszi a listájába a lokálisan inicializált kutatót.
-        GameController gameController = new GameController(player);
+        return gc;
+    }
+
+    public void checkStability(){
+
+        GameController gameController = initOneArcticExplorerWithAFieldAboveThem( new UnstableIceField() );
 
         /** Paraméterként kapja meg most a gamecontroller a user inputot.
          *  'p' mint speciális képesség meghívása.
@@ -109,15 +120,9 @@ public class SequenceSelector {
         gameController.start('p');
     }
 
-    public void buildIglu(){
+    public void buildIgloo(){
 
-        Field fieldUnderPlayer = new StableIceField();
-
-        // Stabilitás vizsgálatot csak kutató tudja végrehajtani.
-        Player player = new Eskimo(fieldUnderPlayer);
-
-        // GameController beteszi a listájába a lokálisan inicializált kutatót.
-        GameController gameController = new GameController(player);
+        GameController gameController = initOneArcticExplorerWithAFieldAboveThem( new UnstableIceField() );
 
         /** Paraméterként kapja meg most a gamecontroller a user inputot.
          *  'p' mint speciális képesség meghívása.
@@ -127,13 +132,7 @@ public class SequenceSelector {
 
     public void changeSnowLevel(){
 
-        Field fieldUnderPlayer = new StableIceField();
-
-        // Stabilitás vizsgálatot csak kutató tudja végrehajtani.
-        Player player = new Eskimo(fieldUnderPlayer);
-
-        // GameController beteszi a listájába a lokálisan inicializált kutatót.
-        GameController gameController = new GameController(player);
+        GameController gameController = initOneArcticExplorerWithAFieldAboveThem( new UnstableIceField() );
 
         /** Paraméterként kapja meg most a gamecontroller a user inputot.
          *  'p' mint speciális képesség meghívása.
@@ -141,19 +140,8 @@ public class SequenceSelector {
         gameController.start('c');
     }
 
-    public void moveUnsuccesfull(){
-        // Szomszédos OceanField, amire nem tudunk rálépni.
-        Field neighbourField = new OceanField();
-
-        Field fieldUnderPlayer = new UnstableIceField();
-
-        fieldUnderPlayer.setNeighborAbove(neighbourField);
-
-        // Stabilitás vizsgálatot csak kutató tudja végrehajtani.
-        Player player = new Eskimo(fieldUnderPlayer);
-
-        // GameController beteszi a listájába a lokálisan inicializált kutatót.
-        GameController gameController = new GameController(player);
+    public void moveUnsuccessful(){
+        GameController gameController = initOneArcticExplorerWithAFieldAboveThem( new UnstableIceField() );
 
         /** Paraméterként kapja meg most a gamecontroller a user inputot.
          *  'p' mint speciális képesség meghívása.
@@ -161,19 +149,8 @@ public class SequenceSelector {
         gameController.start('w');
     }
 
-    public void moveSuccesfull(){
-        // Szomszédos OceanField, amire nem tudunk rálépni.
-        Field neighbourField = new StableIceField();
-
-        Field fieldUnderPlayer = new UnstableIceField();
-
-        fieldUnderPlayer.setNeighborAbove(neighbourField);
-
-        // Stabilitás vizsgálatot csak kutató tudja végrehajtani.
-        Player player = new ArcticExplorer(fieldUnderPlayer);
-
-        // GameController beteszi a listájába a lokálisan inicializált kutatót.
-        GameController gameController = new GameController(player);
+    public void moveSuccessful(){
+        GameController gameController = initOneArcticExplorerWithAFieldAboveThem( new StableIceField() );
 
         /** Paraméterként kapja meg most a gamecontroller a user inputot.
          *  'p' mint speciális képesség meghívása.
@@ -212,4 +189,8 @@ public class SequenceSelector {
         p.pickUpItem();
     }
 
+    public void eating(){
+
+
+    }
 }
