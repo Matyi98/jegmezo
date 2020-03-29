@@ -7,6 +7,7 @@ public class Shovel extends Item {
 
     //Lapát használata.
     public void use(){
-
+        owner.shovel(shovelSpeedIncrease);
     }
+
 }

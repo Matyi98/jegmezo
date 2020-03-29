@@ -230,6 +230,48 @@ public class SequenceSelector {
         p2.useItem(0);
     }
 
+    public void digByHand() {
+        //Szekvencia inicializálása.
+        System.out.println("<<digByHand Inicializálás kezdete:>>");
+        //Teszt gameController létrehozása.
+        GameController gc = new GameController();
+        //Ideiglenes mező létrehozása, egy tetszőleges Itemmel.
+        IceField f = new StableIceField(new Rope());
+        //Alap hószint beállítása.
+        f.changeSnowLevel(1);
+        //Player Inicializálása.
+        Player p = new Eskimo(gc, f);
+
+        System.out.println("<<digByHand szekvencia kezdete:>>");
+        //Szekvencia kezdete.
+
+        //Ásás kézzel
+        p.shovel(1);
+        //Ásás kézzel, hó nélküli mezőn.
+        p.shovel(1);
+    }
+
+    public void useShovel() {
+        //Szekvencia inicializálása.
+        System.out.println("<<useShovel Inicializálás kezdete:>>");
+        //Teszt gameController létrehozása.
+        GameController gc = new GameController();
+        //Ideiglenes mező létrehozása, egy tetszőleges Itemmel.
+        IceField f = new StableIceField(new Rope());
+        //Alap hószint beállítása.
+        f.changeSnowLevel(1);
+        //Player Inicializálása.
+        Player p = new Eskimo(gc, f);
+
+        System.out.println("<<useShovel szekvencia kezdete:>>");
+        //Szekvencia kezdete.
+
+        //Ásás kézzel
+        p.shovel(1);
+        //Ásás kézzel, hó nélküli mezőn.
+        p.shovel(1);
+    }
+
     public void damagePlayer()
     {
         GameController gc = new GameController();

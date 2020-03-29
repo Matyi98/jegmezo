@@ -61,7 +61,16 @@ public abstract class Field {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
     }
 
-    public boolean changeSnowLevel(int delta){ return false; }
+    //Hószint megváltoztatása.
+    public boolean changeSnowLevel(int delta){
+        //Ha ásni próbálnak, de már nincs több hó, akkor hamissal visszatér.
+        if (snowLevel <= 0 && delta < 0)
+            return false;
+
+        //Változtatja a hószintet.
+        snowLevel = snowLevel + delta;
+        return true;
+    }
 
     public void snow(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");

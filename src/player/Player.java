@@ -14,7 +14,7 @@ public abstract class Player {
     protected int healthPoints;
     private Direction actualDirection;
     private PlayerState actualState;
-    private int actionPoints;
+    private int actionPoints = 4;
     private GameController gameController;
     private Inventory inventory;
     protected Field fieldUnderPlayer;
@@ -81,23 +81,30 @@ public abstract class Player {
 
     }
 
+    //Eszköz felvétele.
     public boolean pickUpItem(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        //Kiveszi az itemet a mezőből.
         Item i = fieldUnderPlayer.getItem();
-
+        //Beleteszi az Inventoryba.
         boolean accepted = inventory.add(i);
 
+        //Ha az Inventory befogadta, akkor törli a mezőről.
         if(accepted)
             fieldUnderPlayer.removeItem();
 
         return false;
     }
 
+    //Ennyi hószintet takarít el a mezőről.
     public void shovel(int snowLevel){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        fieldUnderPlayer.changeSnowLevel(-1);
+        //Ha sikeres volt, akkor csökkenti az akciópontot.
+        if(fieldUnderPlayer.changeSnowLevel(-snowLevel))
+            actionPoints--;
     }
 
+    //Evés.
     public void eat(Item food){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         if(healthPoints < maxHealthPoints){
