@@ -8,8 +8,13 @@ public class Inventory {
     private Player owner;
     List<Item> items;
 
-    public void remove(int itemIndex){
+    public void removeByIndex(int itemIndex){
+        items.remove(itemIndex);
+    }
 
+    public void removeSpecificItem(Item item){
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        items.remove(item);
     }
 
     public boolean add(Item newItem) {
@@ -17,6 +22,6 @@ public class Inventory {
     }
 
     public void useItem(int itemIndex){
-
+        items.get(itemIndex).use();
     }
 }

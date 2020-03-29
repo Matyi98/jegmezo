@@ -75,8 +75,11 @@ public abstract class Player {
         fieldUnderPlayer.changeSnowLevel(-1);
     }
 
-    public void eat(int foodCalorie){
-
+    public void eat(Item food){
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        if(healthPoints < maxHealthPoints){
+            inventory.removeSpecificItem( food );
+        }
     }
 
     public void decrementHP(){
