@@ -42,4 +42,12 @@ public class UnstableIceField extends IceField{
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         return false;
     }
+
+    @Override
+    public boolean placePlayerToNextField(Direction direction, Player player){
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        Field neighbour = neighbors.get(direction);
+        neighbour.acceptPlayer(player);
+        return false;
+    }
 }

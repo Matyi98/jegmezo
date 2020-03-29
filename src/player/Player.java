@@ -19,10 +19,11 @@ public abstract class Player {
     protected Field fieldUnderPlayer;
 
     public Player(){
-
+        this.actualDirection = Direction.UP;
     }
 
     public Player(Field fieldUnderPlayer, int maxHealthPoints){
+        this.actualDirection = Direction.UP;
         this.fieldUnderPlayer = fieldUnderPlayer;
     }
 
@@ -43,7 +44,8 @@ public abstract class Player {
     }
 
     public void move(){
-
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        fieldUnderPlayer.placePlayerToNextField(Direction.UP, this);
     }
 
     public void useItem(int itemIndex){
