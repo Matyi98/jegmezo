@@ -1,11 +1,16 @@
 package fields;
 
 import enums.Direction;
+import items.Item;
 import player.Player;
 
 public class StableIceField extends IceField{
 
     public StableIceField(){
+    }
+
+    public StableIceField(Item i) {
+        item = i;
     }
 
     public StableIceField(Field aboveNeighbor){

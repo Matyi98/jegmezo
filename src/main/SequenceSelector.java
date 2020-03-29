@@ -1,6 +1,8 @@
 package main;
 import fields.*;
+import items.Flare;
 import items.Inventory;
+import items.Shovel;
 import player.ArcticExplorer;
 import player.Eskimo;
 import player.Player;
@@ -32,6 +34,8 @@ public class SequenceSelector {
         System.out.println("3.: Eskimo havat takarít");
         System.out.println("4.: Eskimo UnstableIceFieldről OceanFieldre lép sikertelenül");
         System.out.println("5.: Sarkkutató UnstableIceFieldről StableIceFieldre lép sikeresen");
+        System.out.println("6: Item felvétele");
+        System.out.println("7: QuestItem felvétele");
     }
 
     public void selectSequence(){
@@ -58,6 +62,12 @@ public class SequenceSelector {
                     break;
                 case 5:
                 moveSuccesfull();
+                    break;
+                case 6:
+                    pickUpItem();
+                    break;
+                case 7:
+                    pickUpQuestItem();
                     break;
                 default:
                     break;
@@ -165,14 +175,24 @@ public class SequenceSelector {
     }
 
     public void pickUpItem() {
+
         GameController gc = new GameController();
-        IceField f = new StableIceField();
-
-
+        IceField f = new StableIceField(new Shovel());
         Player p = new Eskimo(gc, f);
 
-        p.pickUpItem();
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
 
+        p.pickUpItem();
+    }
+
+    public void pickUpQuestItem() {
+        GameController gc = new GameController();
+        IceField f = new StableIceField(new Flare());
+        Player p = new Eskimo(gc, f);
+
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+
+        p.pickUpItem();
     }
 
 }

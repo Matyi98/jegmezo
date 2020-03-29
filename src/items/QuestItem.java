@@ -7,9 +7,10 @@ public abstract class QuestItem extends Item{
 
     }
 
+    @Override
     public boolean setOwner(Player owner){
         this.owner = owner;
-
+        this.owner.questItemFound();
         return true;
     }
 

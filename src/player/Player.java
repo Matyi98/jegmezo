@@ -77,6 +77,7 @@ public abstract class Player {
     }
 
     public boolean pickUpItem(){
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         Item i = fieldUnderPlayer.getItem();
 
         boolean accepted = inventory.add(i);
@@ -85,8 +86,6 @@ public abstract class Player {
             fieldUnderPlayer.removeItem();
             i.setOwner(this);
         }
-
-
         return false;
     }
 
@@ -129,6 +128,7 @@ public abstract class Player {
     public abstract void specialPower();
 
     public void questItemFound() {
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         gameController.questItemFound();
     }
 
