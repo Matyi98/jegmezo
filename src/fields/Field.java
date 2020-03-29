@@ -10,9 +10,21 @@ import java.util.List;
 public abstract class Field {
     private int snowLevel;
     private static int MAX_SNOWLEVEL;
-    private EnumMap<Direction, Field> neighbors;
+    protected EnumMap<Direction, Field> neighbors;
     protected List<Player> players;
     protected Item item;
+
+    public Field(){
+    }
+
+    public Field(Field neighbour){
+        neighbors = new EnumMap<>(Direction.class);
+
+        neighbors.put(Direction.UP, neighbour);
+        neighbors.put(Direction.DOWN, neighbour);
+        neighbors.put(Direction.LEFT, neighbour);
+        neighbors.put(Direction.RIGHT, neighbour);
+    }
 
     public boolean placePlayerToNextField(Direction direction, Player player){
         return false;
@@ -46,7 +58,19 @@ public abstract class Field {
 
     public abstract boolean buildIgloo();
 
-    public abstract String checkStability();
+    public String checkStability(){
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
 
-    public abstract String checkStability(Direction direction);
+        return  "";
+    }
+
+    public String checkStability(Direction direction){
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+
+        Field neighbour = neighbors.get(direction);
+        neighbour.checkStability();
+        return "";
+    }
+
+
 }

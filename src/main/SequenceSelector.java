@@ -5,25 +5,35 @@ import fields.UnstableIceField;
 import player.ArcticExplorer;
 import player.Player;
 
-import java.io.IOException;
+import java.util.Scanner;
 
-public class Sequence {
+public class SequenceSelector {
 
     final int NO_INPUT = 200;
     final int EXIT = 0;
 
     public int getUserInput(){
-        int input = NO_INPUT;
-        try{
-            input = System.in.read();
-        } catch (IOException e){
+        Scanner s = new Scanner(System.in);
+        int inp = 200;
+        try {
+            inp = Integer.parseInt(s.nextLine());
+        } catch (NumberFormatException e){
 
         }
-        return input;
+
+        return inp;
     }
 
-    public void seqSelector(){
-        int userInput;
+    public void showSequenceCases(){
+        System.out.println("Egy szám megnyomásával majd az Enter leütésével válassz teszt szekvenciát!");
+        System.out.println("1.: Jégtábla vizsgálata");
+    }
+
+    public void selectSequence(){
+        int userInput = NO_INPUT;
+
+        showSequenceCases();
+
         while(EXIT != (userInput = getUserInput())){
 
             switch (userInput) {
@@ -32,7 +42,18 @@ public class Sequence {
                 case 1:
                     checkStability();
                     break;
+                default:
+                    break;
             }
+
+            System.out.println("\n");
+            System.out.println("Egy gomb megnyomásával, majd az Enter leütésével újra indíthatod a programot.");
+            System.out.println("A " + "0 + Enter" + " leütésével pedig kiléphetsz a programból.");
+            if(0 == getUserInput())
+                break;
+
+            System.out.println("\n\n\n\n\n\n\n\n");
+            showSequenceCases();
         }
     }
 

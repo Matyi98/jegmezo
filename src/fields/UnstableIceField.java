@@ -6,6 +6,13 @@ import player.Player;
 public class UnstableIceField extends IceField{
     private int stability;
 
+    public UnstableIceField(){
+    }
+
+    public UnstableIceField(Field aboveNeighbor){
+        neighbors.put(Direction.UP, aboveNeighbor);
+    }
+
     @Override
     public boolean buildIgloo(){
         return false;
@@ -16,6 +23,7 @@ public class UnstableIceField extends IceField{
         return false;
     }
 
+    /**
     @Override
     public String checkStability() {
         return null;
@@ -25,4 +33,5 @@ public class UnstableIceField extends IceField{
     public String checkStability(Direction direction) {
         return null;
     }
+     */
 }

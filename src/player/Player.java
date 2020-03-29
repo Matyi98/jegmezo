@@ -1,5 +1,6 @@
 package player;
 import enums.Direction;
+import fields.Field;
 import items.Item;
 import main.GameController;
 import items.Inventory;
@@ -15,6 +16,11 @@ public abstract class Player {
     private int actionPoints;
     private GameController gameController;
     private Inventory inventory;
+    protected Field fieldUnderPlayer;
+
+    public Player(){
+
+    }
 
     public Player(int maxHealthPoints){
 
