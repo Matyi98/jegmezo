@@ -1,9 +1,10 @@
-package items;
+package items.quest;
 
+import items.Item;
 import player.Player;
 
 //QuestItemeket reprezentáló osztály.
-public abstract class QuestItem extends Item{
+public abstract class QuestItem extends Item {
 
     //QuestItem használata.
     @Override

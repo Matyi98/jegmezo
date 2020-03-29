@@ -1,13 +1,10 @@
 package main;
 import fields.*;
-import items.Flare;
-import items.Food;
-import items.Inventory;
-import items.Shovel;
 import items.*;
-import player.ArcticExplorer;
-import player.Eskimo;
-import player.Player;
+import items.quest.Cartridge;
+import items.quest.Flare;
+import items.quest.Pistol;
+import player.*;
 
 import java.util.Scanner;
 
@@ -41,6 +38,8 @@ public class SequenceSelector {
         System.out.println("8: QuestItem használata");
         System.out.println("9: Játékos sebzése/hóvihar");
         System.out.println("10: Evés");
+        System.out.println("11: Ásás kézzel.");
+        System.out.println("12: Ásás lapáttal.");
     }
 
     public void selectSequence(){
@@ -82,6 +81,12 @@ public class SequenceSelector {
                     break;
                 case 10:
                     eating();
+                    break;
+                case 11:
+                    digByHand();
+                    break;
+                case 12:
+                    useShovel();
                     break;
                 default:
                     break;
@@ -253,6 +258,46 @@ public class SequenceSelector {
         p2.useItem(0);
     }
 
+    public void digByHand() {
+        //Szekvencia inicializálása.
+        System.out.println("<<digByHand Inicializálás kezdete:>>");
+        //Teszt gameController létrehozása.
+        GameController gc = new GameController();
+        //Ideiglenes mező létrehozása, egy tetszőleges Itemmel.
+        IceField f = new StableIceField(new Rope());
+        //Alap hószint beállítása.
+        f.changeSnowLevel(1);
+        //Player Inicializálása.
+        Player p = new Eskimo(gc, f);
+
+        System.out.println("<<digByHand szekvencia kezdete:>>");
+        //Szekvencia kezdete.
+
+        //Ásás kézzel
+        p.shovel(1);
+        //Ásás kézzel, hó nélküli mezőn.
+        p.shovel(1);
+    }
+
+    public void useShovel() {
+        //Szekvencia inicializálása.
+        System.out.println("<<useShovel Inicializálás kezdete:>>");
+        //Teszt gameController létrehozása.
+        GameController gc = new GameController();
+        //Ideiglenes mező létrehozása, egy tetszőleges Itemmel.
+        IceField f = new StableIceField(new Shovel());
+        //Alap hószint beállítása.
+        f.changeSnowLevel(2);
+        //Player Inicializálása.
+        Player p = new Eskimo(gc, f);
+        p.pickUpItem();
+
+        System.out.println("<<useShovel szekvencia kezdete:>>");
+        //Szekvencia kezdete.
+
+        p.useItem(0);
+    }
+
     public void damagePlayer()
     {
         GameController gc = new GameController();
@@ -271,6 +316,23 @@ public class SequenceSelector {
         Player player = new Eskimo(gc, fieldUnderPlayer);
         player.pickUpItem();
         player.useItem(0);
+    }
+
+    public void divingSuit() {
+        //Szekvencia inicializálása.
+        System.out.println("<<divingSuit Inicializálás kezdete:>>");
+        //Teszt gameController létrehozása.
+        GameController gc = new GameController();
+        //Ideiglenes mező létrehozása, egy tetszőleges Itemmel.
+        IceField f = new StableIceField(new DivingSuit());
+        //Player Inicializálása.
+        Player p = new Eskimo(gc, f);
+        p.pickUpItem();
+
+        System.out.println("<<divingSuit szekvencia kezdete:>>");
+        //Szekvencia kezdete.
+
+        p.useItem(0);
     }
 
 }

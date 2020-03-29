@@ -63,8 +63,18 @@ public abstract class Field {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
     }
 
-    //Megváltoztatja a hó szintjét egy adott értékkel
-    public boolean changeSnowLevel(int delta){ return false; }
+
+    //Hószint megváltoztatása.
+    public boolean changeSnowLevel(int delta){
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        //Ha ásni próbálnak, de már nincs több hó, akkor hamissal visszatér.
+        if (snowLevel <= 0 && delta < 0)
+            return false;
+
+        //Változtatja a hószintet.
+        snowLevel = snowLevel + delta;
+        return true;
+    }
 
     //Havazik az adott mezőn
     public void snow(){
