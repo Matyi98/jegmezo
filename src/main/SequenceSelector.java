@@ -43,17 +43,16 @@ public class SequenceSelector {
         System.out.println("A " + "0 + Enter" + " leütésével pedig kiléphetsz a programból.");
         System.out.println("1.: Sarkkutató jégtáblát vizsgál.");
         System.out.println("2.: Eskimo iglu épít");
-        System.out.println("3.: Eskimo havat takarít");
-        System.out.println("4.: Eskimo UnstableIceFieldről OceanFieldre lép sikertelenül");
-        System.out.println("5.: Sarkkutató UnstableIceFieldről StableIceFieldre lép sikeresen");
-        System.out.println("6: Item felvétele");
-        System.out.println("7: QuestItem felvétele");
-        System.out.println("8: QuestItem használata");
-        System.out.println("9: Játékos sebzése/hóvihar");
-        System.out.println("10: Evés");
-        System.out.println("11: Ásás kézzel.");
-        System.out.println("12: Ásás lapáttal.");
-        System.out.println("13: Kötél használata");
+        System.out.println("3.: Eskimo UnstableIceFieldről OceanFieldre lép sikertelenül");
+        System.out.println("4.: Sarkkutató UnstableIceFieldről StableIceFieldre lép sikeresen");
+        System.out.println("5: Item felvétele");
+        System.out.println("6: QuestItem felvétele");
+        System.out.println("7: QuestItem használata");
+        System.out.println("8: Játékos sebzése/hóvihar");
+        System.out.println("9: Evés");
+        System.out.println("10: Ásás kézzel.");
+        System.out.println("11: Ásás lapáttal.");
+        System.out.println("12: Kötél használata");
     }
 
     /*
@@ -71,54 +70,50 @@ public class SequenceSelector {
                 case NO_INPUT:
                     break;
                 case 1:
-                    //Jégtábla stabilitás ellenőrzés.
+                    //Jégtábla stabilitás ellenőrzés. 5.3.1-es szekvencia
                     checkStability();
                     break;
                 case 2:
-                    //Iglu építés
+                    //Iglu építés //5.3.2-es szekvencia
                     buildIgloo();
                     break;
                 case 3:
-                    //Havazás.
-                    changeSnowLevel();
-                    break;
-                case 4:
                     //Sikertelen mozgás
                     moveUnsuccessful();
                     break;
-                case 5:
+                case 4:
                     //Sikeres mozgás.
                     moveSuccessful();
                     break;
-                case 6:
+                case 5:
                     //Eszkösz felvétele.
                     pickUpItem();
                     break;
-                case 7:
+                case 6:
                     //Küldetési eszküöz felvétele.
                     pickUpQuestItem();
                     break;
-                case 8:
+                case 7:
                     //küldetési eszköz használata.
                     useQuestItem();
                     break;
-                case 9:
+                case 8:
                     //játékosok sebzése.
                     damagePlayer();
                     break;
-                case 10:
+                case 9:
                     //Evés.
                     eating();
                     break;
-                case 11:
+                case 10:
                     //Ásás kézzel.
                     digByHand();
                     break;
-                case 12:
+                case 11:
                     //Ásó használata.
                     useShovel();
                     break;
-                case 13:
+                case 12:
                     //Kötél használata.
                     useRope();
                     break;
@@ -190,17 +185,7 @@ public class SequenceSelector {
          */
         gameController.start('p');
     }
-
-    public void changeSnowLevel(){
-
-        GameController gameController = initOneArcticExplorerWithAFieldAboveThem( new UnstableIceField() );
-
-        /** Paraméterként kapja meg most a gamecontroller a user inputot.
-         *  'c' mint speciális képesség meghívása.
-         */
-        gameController.start('c');
-    }
-
+    
     public void moveUnsuccessful(){
         GameController gameController = initOneArcticExplorerWithAFieldAboveThem( new UnstableIceField() );
 
