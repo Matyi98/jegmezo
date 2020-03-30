@@ -29,13 +29,14 @@ public class StableIceField extends IceField{
         return true;
     }
 
-    //
+    //Megadja a mező saját stabilitását.
     @Override
     public String checkStability() {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         return "Stable";
     }
 
+    //Iglu építése a mezőn.
     @Override
     public boolean buildIgloo(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
