@@ -46,10 +46,11 @@ public abstract class Field {
 
     //Ezen fielden lévő player átmozgatása egy szomszédos fieldre
     public boolean placePlayerToNextField(Direction direction, Player player){
-        return false;
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        return neighbors.get(direction).acceptPlayer(player);
     }
 
-    //Visszaadja a fielden lévő itemet
+    //Ezen fielden lévő player átmozgatása egy szomszédos fieldre user által kiválasztott alapon
     public boolean placePlayerToNextField(Direction direction){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //Áthelyezi a játékost az adott irányban lévő mezőre
