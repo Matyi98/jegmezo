@@ -22,10 +22,5 @@ public class Hole extends Field {
         return "Hole";
     }
 
-    @Override
-    public String checkStability(Direction direction) {
-        //MEgadja a szomszédos mező stabilitását.
-        return neighbors.get(direction).checkStability();
-    }
 
 }

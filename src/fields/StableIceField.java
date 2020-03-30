@@ -15,30 +15,25 @@ public class StableIceField extends IceField{
         setItem(item);
     }
 
+    //Mezőn tárolt tárgy beállíítása.
     public void setItem(Item item){
         this.item = item;
     }
 
+    //Játékos befogadása a mezőre.
     @Override
     public boolean acceptPlayer(Player player) {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        //Felvétel a belső Player listára.
         players.add(player);
         return true;
     }
 
-
+    //
     @Override
     public String checkStability() {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        return "";
-    }
-
-    @Override
-    public String checkStability(Direction direction) {
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        Field neighbour = neighbors.get(direction);
-        neighbour.checkStability();
-        return "";
+        return "Stable";
     }
 
     @Override

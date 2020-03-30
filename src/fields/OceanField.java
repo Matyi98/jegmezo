@@ -25,9 +25,5 @@ public class OceanField extends Field {
         return "Ocean";
     }
 
-    @Override
-    public String checkStability(Direction direction) {
-        return null;
-    }
 
 }

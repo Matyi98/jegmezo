@@ -24,12 +24,6 @@ public class UnstableIceField extends IceField{
         return "Unstable";
     }
 
-    @Override
-    public String checkStability(Direction direction) {
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        Field neighbour = neighbors.get(direction);
-        return neighbour.checkStability();
-    }
 
     @Override
     public boolean placePlayerToNextField(Direction direction, Player player){

@@ -124,7 +124,11 @@ public abstract class Field {
     public abstract String checkStability();
 
     //Megnézi szomszédos mező stabilitását.
-    public abstract String checkStability(Direction direction);
+    public final String checkStability(Direction direction) {
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        Field neighbour = neighbors.get(direction);
+        return neighbour.checkStability();
+    }
 
     //Ideiglenes függvény, szekvenciák inicializálásának segítésére.
     public void _AddPlayer(Player p) {
