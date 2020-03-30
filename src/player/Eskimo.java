@@ -6,16 +6,9 @@ import main.GameController;
 
 public class Eskimo extends Player {
 
-    public Eskimo() {
-        super(5);
-    }
-
-    public Eskimo(Field fieldUnderPlayer) {
-        super(fieldUnderPlayer, 5);
-    }
-
     public Eskimo(GameController gc, Field f) {
         super(gc, f);
+        maxHealthPoints = 5;
     }
 
     //Eszkimó mozog.

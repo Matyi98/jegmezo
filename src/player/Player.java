@@ -10,7 +10,7 @@ import java.util.List;
 public abstract class Player {
     protected int maxHealthPoints;
     protected int healthPoints;
-    private Direction actualDirection;
+    private Direction actualDirection = Direction.UP;
     private PlayerState actualState;
     private int actionPoints = 4;
     private GameController gameController;
@@ -18,16 +18,11 @@ public abstract class Player {
     protected Field fieldUnderPlayer;
 
     public Player(){
-        this.actualDirection = Direction.UP;
+
     }
 
     public Player(Field fieldUnderPlayer, int maxHealthPoints){
-        this.actualDirection = Direction.UP;
         this.fieldUnderPlayer = fieldUnderPlayer;
-    }
-
-    public Player(int maxHealthPoints){
-
     }
 
     public Player(GameController gc, Field f) {
