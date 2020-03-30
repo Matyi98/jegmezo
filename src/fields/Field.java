@@ -123,6 +123,7 @@ public abstract class Field {
     //Megnézi a mező stabilitását
     public abstract String checkStability();
 
+    //Megnézi szomszédos mező stabilitását.
     public abstract String checkStability(Direction direction);
 
     //Ideiglenes függvény, szekvenciák inicializálásának segítésére.

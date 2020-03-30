@@ -1,5 +1,13 @@
 package enums;
 
+//Irányokat reprezentáló enumeráció.
 public enum Direction {
-    UP, DOWN, LEFT, RIGHT
+    //Fel
+    UP,
+    //Le
+    DOWN,
+    //Balra
+    LEFT,
+    //Jobbra
+    RIGHT
 }

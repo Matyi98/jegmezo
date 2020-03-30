@@ -18,12 +18,14 @@ public class Hole extends Field {
 
     @Override
     public String checkStability() {
-        return null;
+        //Megadja a mező stabilitását.
+        return "Hole";
     }
 
     @Override
     public String checkStability(Direction direction) {
-        return null;
+        //MEgadja a szomszédos mező stabilitását.
+        return neighbors.get(direction).checkStability();
     }
 
 }

@@ -8,6 +8,7 @@ public abstract class IceField extends Field {
         super();
     }
 
+    //Iglu építése
     @Override
     public boolean buildIgloo() {
         return false;
