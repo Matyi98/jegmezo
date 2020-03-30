@@ -53,6 +53,7 @@ public class SequenceSelector {
         System.out.println("10: Ásás kézzel.");
         System.out.println("11: Ásás lapáttal.");
         System.out.println("12: Kötél használata");
+        System.out.println("13: Búvárruha használata");
     }
 
     /*
@@ -117,6 +118,9 @@ public class SequenceSelector {
                     //Kötél használata. 5.3.6-os szekvencia
                     useRope();
                     break;
+                case 13:
+                    //Búvárruha használata
+                    divingSuit();
                 default:
                     break;
             }
@@ -187,7 +191,7 @@ public class SequenceSelector {
     }
 
     public void moveUnsuccessful(){
-        GameController gameController = initOneArcticExplorerWithAFieldAboveThem( new UnstableIceField() );
+        GameController gameController = initOneArcticExplorerWithAFieldAboveThem( new OceanField() );
 
         /** Paraméterként kapja meg most a gamecontroller a user inputot.
          *  'w' mint speciális képesség meghívása.
