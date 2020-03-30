@@ -183,7 +183,7 @@ public class SequenceSelector {
 
     public void buildIgloo(){
 
-        GameController gameController = initOneArcticExplorerWithAFieldAboveThem( new UnstableIceField() );
+        GameController gameController = initOneEskimoWithAFieldAboveThem(new UnstableIceField() );
 
         /** Paraméterként kapja meg most a gamecontroller a user inputot.
          *  'p' mint speciális képesség meghívása.
