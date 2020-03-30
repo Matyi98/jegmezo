@@ -74,19 +74,19 @@ public class SequenceSelector {
                     checkStability();
                     break;
                 case 2:
-                    //Iglu építés //5.3.2-es szekvencia
+                    //Iglu építés 5.3.2-es szekvencia
                     buildIgloo();
                     break;
                 case 3:
-                    //Sikertelen mozgás
+                    //Sikertelen mozgás 5.3.5.1-ös szekvenica
                     moveUnsuccessful();
                     break;
                 case 4:
-                    //Sikeres mozgás.
+                    //Sikeres mozgás. 5.3.5.2-es szekvenica
                     moveSuccessful();
                     break;
                 case 5:
-                    //Eszkösz felvétele.
+                    //Eszkösz felvétele. 5.3.4-es szekvencia
                     pickUpItem();
                     break;
                 case 6:
@@ -94,27 +94,27 @@ public class SequenceSelector {
                     pickUpQuestItem();
                     break;
                 case 7:
-                    //küldetési eszköz használata.
+                    //küldetési eszköz használata. 5.3.10-es szekvencia
                     useQuestItem();
                     break;
                 case 8:
-                    //játékosok sebzése.
+                    //játékosok sebzése. 5.3.11-es szekvencia
                     damagePlayer();
                     break;
                 case 9:
-                    //Evés.
+                    //Evés. 5.3.7-es szekvencia
                     eating();
                     break;
                 case 10:
-                    //Ásás kézzel.
+                    //Ásás kézzel. 5.3.3-as szekvencia
                     digByHand();
                     break;
                 case 11:
-                    //Ásó használata.
+                    //Ásó használata. 5.3.8-as szekvencia
                     useShovel();
                     break;
                 case 12:
-                    //Kötél használata.
+                    //Kötél használata. 5.3.6-os szekvencia
                     useRope();
                     break;
                 default:
@@ -185,7 +185,7 @@ public class SequenceSelector {
          */
         gameController.start('p');
     }
-    
+
     public void moveUnsuccessful(){
         GameController gameController = initOneArcticExplorerWithAFieldAboveThem( new UnstableIceField() );
 
