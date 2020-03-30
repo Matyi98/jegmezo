@@ -9,6 +9,7 @@ public class Eskimo extends Player {
     public Eskimo(GameController gc, Field f) {
         super(gc, f);
         maxHealthPoints = 5;
+        healthPoints = maxHealthPoints;
     }
 
     //Eszkimó mozog.

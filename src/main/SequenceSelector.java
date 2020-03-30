@@ -334,6 +334,7 @@ public class SequenceSelector {
 
     public void damagePlayer()
     {
+        System.out.println("<<damagePlayer Inicializálás kezdete:>>");
         GameController gc = new GameController();
         Field f1 = new StableIceField();
         //A playert létrehozzuk, és beállítjuk a hozzá tartozó gc-t és fieldet
@@ -341,14 +342,19 @@ public class SequenceSelector {
         //A fieldre rátesszük a playert
         f1.acceptPlayer(e1);
         //A fielden havazást idézünk elő
-        f1.snow();
+        System.out.println("<<damagePlayer szekvencia kezdete:>>");
+        for (int i = 0; i<5; i++) {
+            f1.snow();
+        }
     }
 
     public void eating(){
+        System.out.println("<<eating Inicializálás kezdete:>>");
         GameController gc = new GameController();
         Field fieldUnderPlayer = new StableIceField(new Food());
         Player player = new Eskimo(gc, fieldUnderPlayer);
         player.pickUpItem();
+        System.out.println("<<eating szekvencia kezdete:>>");
         player.useItem(0);
     }
 
@@ -371,7 +377,7 @@ public class SequenceSelector {
 
     public void useRope()
     {
-        System.out.println(("Szekvencia inicializalasa: "));
+        System.out.println("<<useRope Inicializálás kezdete:>>");
         //A kötél használatában lévő mezők inicializálása
         Field f2 = new Hole();
         Field f1 = new StableIceField(new Rope());
@@ -389,7 +395,7 @@ public class SequenceSelector {
         //Az első játékosnak a kötél odaadása
         p1.pickUpItem();
         //lényegi működés
-        System.out.println("Kotel hasznalata: ");
+        System.out.println("<<useRope szekvencia kezdete:>>");
         p1.useItem(0);
     }
 

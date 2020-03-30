@@ -48,7 +48,8 @@ public class GameController {
 
     public void gameOver()
     {
-        
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        System.out.println("Lose");
     }
 
     public void questItemFound() {

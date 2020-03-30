@@ -114,6 +114,10 @@ public abstract class Player {
     //Játékos életének csökkentése.
     public void decrementHP(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        System.out.println("healthPoints: "+ healthPoints);
+        healthPoints--;
+        if(healthPoints == 0)
+            gameController.gameOver();
 
     }
 

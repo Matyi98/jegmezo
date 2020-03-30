@@ -94,13 +94,15 @@ public abstract class Field {
     //Havazik az adott mezőn
     public void snow(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        //Hotakaro ratevese a fieldre
+        this.changeSnowLevel(3);
         //A fielden lévő játékosok életének csökkentése
         for(Player p: players)
         {
             p.decrementHP();
         }
-        //Hotakaro ratevese a fieldre
-        this.changeSnowLevel(3);
+
+
     }
 
     //Megmondja, hogy hány játékos áll a mezőn.
