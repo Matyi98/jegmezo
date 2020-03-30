@@ -18,15 +18,19 @@ public class Eskimo extends Player {
         super(gc, f);
     }
 
+    //Eszkimó mozog.
     @Override
     public void move(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        //Mozgatás.
         fieldUnderPlayer.placePlayerToNextField(Direction.UP, this);
     }
 
+    //Eszkimó speciális képessége.
     @Override
     public void specialPower() {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        //iglut épít.
         fieldUnderPlayer.buildIgloo();
     }
 }

@@ -4,6 +4,7 @@ import fields.Field;
 import items.Item;
 import main.GameController;
 import items.Inventory;
+import player.behaviours.CanSwimState;
 import player.behaviours.PlayerState;
 
 import javax.crypto.spec.IvParameterSpec;
@@ -38,13 +39,15 @@ public abstract class Player {
         inventory = new Inventory(this);
     }
 
-
+    //Megnöveli a játékos életét.
     private void incrementHP(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
     }
 
+    //Átöltözés búvárruhba.
     public void swapDivingSuit() {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        actualState = new CanSwimState();
     }
 
     public void setState(PlayerState nextState){
@@ -55,25 +58,31 @@ public abstract class Player {
 
     }
 
+    //Játékos mozgása.
     public void move(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         fieldUnderPlayer.placePlayerToNextField(Direction.UP, this);
     }
 
+    //Eszkösz használat az inventoryban elfoglalt index szerint.
     public void useItem(int itemIndex){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        //inventoryn kesresztül item használata.
         inventory.useItem(itemIndex);
     }
 
+    //Játékos elhagyja a vizet.
     public void makePlayerWalk(){
         //A játékos state változását valósítja meg
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
     }
 
+    //Játékos megfullad.
     public void drown(){
 
     }
 
+    //Játékos meghal.
     public void die(){
 
     }
@@ -110,11 +119,15 @@ public abstract class Player {
         }
     }
 
+    //Játékos életének csökkentése.
     public void decrementHP(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
 
     }
 
+    /*
+    Visszaadja a játékos itemeit.
+     */
     List<Item> getItems(){
         return null;
     }
@@ -125,24 +138,35 @@ public abstract class Player {
         fieldUnderPlayer.pullOutPlayerFrom(rescueFromDirection);
     }
 
+    //Játékost kimentették a lyukból.
     public void pulledOut(){
 
     }
 
+    //Akciópontok állítása, adott értékkel.
     public void changeActionPointsBy(int difference){
 
     }
 
+    //Jelzőpiyztoly használata.
     public void useFlareGun(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        //Megszámolja hány játékos áll a mezőn.
         int count = fieldUnderPlayer.getPlayerCount();
+        /*
+            Átadja a gc-nek, hogy hányan vannak.
+            Arról, hogy valóban nyertek-e, a gc dönt.
+        * */
         gameController.win(count);
     }
 
+    //Speciális képesség használata.
     public abstract void specialPower();
 
+    //A talált item egy quest item.
     public void questItemFound() {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        //Jelez a gc-nek, hogy quest itemet találtak.
         gameController.questItemFound();
     }
 
