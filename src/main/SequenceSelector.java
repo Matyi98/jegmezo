@@ -41,10 +41,10 @@ public class SequenceSelector {
     public void showSequenceCases(){
         System.out.println("Egy szám megnyomásával majd az Enter leütésével válassz teszt szekvenciát!");
         System.out.println("A " + "0 + Enter" + " leütésével pedig kiléphetsz a programból.");
-        System.out.println("1.: Sarkkutató jégtáblát vizsgál.");
-        System.out.println("2.: Eskimo iglu épít");
-        System.out.println("3.: Eskimo UnstableIceFieldről OceanFieldre lép sikertelenül");
-        System.out.println("4.: Sarkkutató UnstableIceFieldről StableIceFieldre lép sikeresen");
+        System.out.println("1: Sarkkutató jégtáblát vizsgál.");
+        System.out.println("2: Eskimo iglu épít");
+        System.out.println("3: Eskimo UnstableIceFieldről OceanFieldre lép sikertelenül");
+        System.out.println("4: Sarkkutató UnstableIceFieldről StableIceFieldre lép sikeresen");
         System.out.println("5: Item felvétele");
         System.out.println("6: QuestItem felvétele");
         System.out.println("7: QuestItem használata");

@@ -100,7 +100,7 @@ public abstract class Player {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //Ha sikeres volt, akkor csökkenti az akciópontot.
         if(fieldUnderPlayer.changeSnowLevel(-snowLevel)) {
-            System.out.println("Siekres hotakaritas");
+            System.out.println("Sikeres hotakaritas");
             actionPoints--;
         }
     }
