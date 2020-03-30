@@ -23,6 +23,7 @@ public class StableIceField extends IceField{
     @Override
     public boolean acceptPlayer(Player player) {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        System.out.println("Sikeres a jatekos befogadasa");
         //Felvétel a belső Player listára.
         players.add(player);
         return true;
@@ -32,6 +33,7 @@ public class StableIceField extends IceField{
     @Override
     public String checkStability() {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        System.out.println("sikeres stabilitás vizsgálat: stableIceField. ");
         return "Stable";
     }
 
@@ -39,6 +41,7 @@ public class StableIceField extends IceField{
     @Override
     public boolean buildIgloo(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        System.out.println("Sikeres iglu epites. ");
         return true;
     }
 

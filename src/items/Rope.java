@@ -9,6 +9,7 @@ public class Rope extends Item {
             System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
             //A játékos kimentés függvényének hívása
             owner.rescueFriend(Direction.LEFT);
+            System.out.println("Sikeres kotel hasznalat");
 
         }
 }

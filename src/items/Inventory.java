@@ -40,6 +40,7 @@ public class Inventory {
             items.add(newItem);
             //beállítja az Item tulajdonságát,
             newItem.setOwner(owner);
+            System.out.println("Sikeres item hozzaadas. ");
             //és igazzal tér vissza, ezáltal jelezve a playernek, hogy sikeres volt a felvétel.
             return true;
         } else {

@@ -9,6 +9,7 @@ public class Shovel extends Item {
     public void use(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         owner.shovel(shovelSpeedIncrease);
+        System.out.println("Sikeres aso hasznalat");
     }
 
 }

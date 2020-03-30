@@ -17,6 +17,7 @@ public class UnstableIceField extends IceField{
     @Override
     public boolean acceptPlayer(Player player) {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        System.out.println("Sikeres a jatekos befogadasa");
         players.add(player);
         return true;
     }
@@ -25,6 +26,8 @@ public class UnstableIceField extends IceField{
     @Override
     public String checkStability() {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        stability = 3;
+        System.out.println("sikeres stabilitás vizsgálat: unstableIceField: "+stability);
         //A stabilitását adja vissza.
         return String.valueOf(stability);
     }

@@ -9,5 +9,6 @@ public class Food extends Item {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //Étel elfogyasztása.
         owner.eat(this);
+        System.out.println("Sikeres eves");
     }
 }

@@ -10,6 +10,7 @@ public class OceanField extends Field {
     public boolean acceptPlayer(Player player) {
         //Minden játékost elutasít, mert a pálya széle.
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        System.out.println("A jatekos befogadasa sikertelen. ");
         return false;
     }
 

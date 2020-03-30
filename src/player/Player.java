@@ -76,6 +76,8 @@ public abstract class Player {
 
     //Játékos meghal.
     public void die(){
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        gameController.gameOver();
 
     }
 
@@ -90,7 +92,6 @@ public abstract class Player {
         //Ha az Inventory befogadta, akkor törli a mezőről.
         if(accepted)
             fieldUnderPlayer.removeItem();
-
         return false;
     }
 
@@ -98,8 +99,10 @@ public abstract class Player {
     public void shovel(int snowLevel){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //Ha sikeres volt, akkor csökkenti az akciópontot.
-        if(fieldUnderPlayer.changeSnowLevel(-snowLevel))
+        if(fieldUnderPlayer.changeSnowLevel(-snowLevel)) {
+            System.out.println("Siekres hotakaritas");
             actionPoints--;
+        }
     }
 
     //Evés.
@@ -117,7 +120,7 @@ public abstract class Player {
         System.out.println("healthPoints: "+ healthPoints);
         healthPoints--;
         if(healthPoints == 0)
-            gameController.gameOver();
+            this.die();
 
     }
 
