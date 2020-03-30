@@ -187,7 +187,7 @@ public class SequenceSelector {
     }
     
     public void moveUnsuccessful(){
-        GameController gameController = initOneArcticExplorerWithAFieldAboveThem( new UnstableIceField() );
+        GameController gameController = initOneArcticExplorerWithAFieldAboveThem( new OceanField() );
 
         /** Paraméterként kapja meg most a gamecontroller a user inputot.
          *  'w' mint speciális képesség meghívása.
