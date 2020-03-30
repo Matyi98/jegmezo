@@ -80,7 +80,7 @@ public abstract class Field {
 
 
     //Hószint megváltoztatása.
-    public boolean changeSnowLevel(int delta){
+    public final boolean changeSnowLevel(int delta){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //Ha ásni próbálnak, de már nincs több hó, akkor hamissal visszatér.
         if (snowLevel <= 0 && delta < 0)

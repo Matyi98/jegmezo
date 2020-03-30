@@ -21,21 +21,14 @@ public class UnstableIceField extends IceField{
     @Override
     public String checkStability() {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        return "";
+        return "Unstable";
     }
 
     @Override
     public String checkStability(Direction direction) {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         Field neighbour = neighbors.get(direction);
-        neighbour.checkStability();
-        return "";
-    }
-
-    @Override
-    public boolean changeSnowLevel(int delta){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        return false;
+        return neighbour.checkStability();
     }
 
     @Override
