@@ -11,5 +11,6 @@ public abstract class SnowingBehaviour {
         this.snowDamageValue = snowDamageValue;
     }
 
+    //Havazás elvégzése a játékosokon
     public abstract void performSnow(List<Player> players);
 }
