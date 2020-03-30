@@ -1,13 +1,10 @@
 package player;
 import enums.Direction;
 import fields.Field;
-import items.Item;
+import items.*;
 import main.GameController;
-import items.Inventory;
-import player.behaviours.CanSwimState;
-import player.behaviours.PlayerState;
+import player.behaviours.*;
 
-import javax.crypto.spec.IvParameterSpec;
 import java.util.List;
 
 public abstract class Player {

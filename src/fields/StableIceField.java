@@ -1,6 +1,5 @@
 package fields;
 
-import enums.Direction;
 import items.Item;
 import player.Player;
 

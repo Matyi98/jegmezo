@@ -1,6 +1,5 @@
 package fields;
 
-import enums.Direction;
 import player.Player;
 
 //A Pálalya szélét reprezentáló mező.

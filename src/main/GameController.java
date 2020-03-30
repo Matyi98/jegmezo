@@ -1,15 +1,8 @@
 package main;
 
-import enums.Direction;
-import fields.Board;
-import player.ArcticExplorer;
-import player.Player;
-
-import java.io.IOException;
-import java.lang.invoke.ConstantBootstraps;
+import fields.*;
+import player.*;
 import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.List;
 
 public class GameController {
     private int questItemCount = 0;

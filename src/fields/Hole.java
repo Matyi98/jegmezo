@@ -1,6 +1,5 @@
 package fields;
 
-import enums.Direction;
 import player.Player;
 
 public class Hole extends Field {
