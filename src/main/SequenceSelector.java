@@ -53,6 +53,7 @@ public class SequenceSelector {
         System.out.println("10: Ásás kézzel.");
         System.out.println("11: Ásás lapáttal.");
         System.out.println("12: Kötél használata");
+        System.out.println("13: Búvárruha használata");
     }
 
     /*
@@ -117,6 +118,9 @@ public class SequenceSelector {
                     //Kötél használata.
                     useRope();
                     break;
+                case 13:
+                    //Búvárruha használata
+                    divingSuit();
                 default:
                     break;
             }

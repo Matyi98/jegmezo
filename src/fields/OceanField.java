@@ -9,18 +9,21 @@ public class OceanField extends Field {
     @Override
     public boolean acceptPlayer(Player player) {
         //Minden játékost elutasít, mert a pálya széle.
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         return false;
     }
 
     @Override
     public boolean buildIgloo(){
         //Nem lehet rá Iglut építeni.
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         return false;
     }
 
     @Override
     public String checkStability() {
         //A mező stabilitása.
+        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         return "Ocean";
     }
 
