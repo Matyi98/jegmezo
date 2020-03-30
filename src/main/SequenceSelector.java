@@ -6,11 +6,22 @@ import player.*;
 
 import java.util.Scanner;
 
+/*
+* Szkeleton tesztelésre szolgáló osztály
+* A felhasználónak kiírja, hogy milyen szekvenciákat lehet tesztelni.
+* A felhasználó megadja szekvencia sorszámát.
+*  Majd lefut a szekvencia.
+* A Futás eredménye a sztenderd outputon látható.
+* A függvény hívások kiírják: csomag.Osztály.függvény formátumban a nevüket.
+* Előbbi alapján visszakövethető a szekvenciák helyes lefutása.
+* */
+
 public class SequenceSelector {
 
     final int NO_INPUT = 200;
     final int EXIT = 0;
 
+    //felhasználói bemenet kérése.
     public int getUserInput(){
         Scanner s = new Scanner(System.in);
         int inp = NO_INPUT;
@@ -23,6 +34,10 @@ public class SequenceSelector {
         return inp;
     }
 
+    /*
+    Kommunikác a felhasználóval.
+    Kiírja, hogy milyen szekvenciákat lehet tesztelni.
+     */
     public void showSequenceCases(){
         System.out.println("Egy szám megnyomásával majd az Enter leütésével válassz teszt szekvenciát!");
         System.out.println("A " + "0 + Enter" + " leütésével pedig kiléphetsz a programból.");
@@ -41,9 +56,13 @@ public class SequenceSelector {
         System.out.println("13: Kötél használata");
     }
 
+    /*
+    Szekvencia választó.
+    A kiválsztott szekvenciákat ez a függvény futtatja.
+     */
     public void selectSequence(){
         int userInput = NO_INPUT;
-
+        //Lehetséges szekvenciák kilistázása.
         showSequenceCases();
 
         while(EXIT != (userInput = getUserInput())){
@@ -52,42 +71,55 @@ public class SequenceSelector {
                 case NO_INPUT:
                     break;
                 case 1:
+                    //Jégtábla stabilitás ellenőrzés.
                     checkStability();
                     break;
                 case 2:
+                    //Iglu építés
                     buildIgloo();
                     break;
                 case 3:
+                    //Havazás.
                     changeSnowLevel();
                     break;
                 case 4:
+                    //Sikertelen mozgás
                     moveUnsuccessful();
                     break;
                 case 5:
+                    //Sikeres mozgás.
                     moveSuccessful();
                     break;
                 case 6:
+                    //Eszkösz felvétele.
                     pickUpItem();
                     break;
                 case 7:
+                    //Küldetési eszküöz felvétele.
                     pickUpQuestItem();
                     break;
                 case 8:
+                    //küldetési eszköz használata.
                     useQuestItem();
                     break;
                 case 9:
+                    //játékosok sebzése.
                     damagePlayer();
                     break;
                 case 10:
+                    //Evés.
                     eating();
                     break;
                 case 11:
+                    //Ásás kézzel.
                     digByHand();
                     break;
                 case 12:
+                    //Ásó használata.
                     useShovel();
                     break;
                 case 13:
+                    //Kötél használata.
                     useRope();
                     break;
                 default:

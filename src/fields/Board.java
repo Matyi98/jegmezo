@@ -12,6 +12,7 @@ public class Board {
 
     }
 
+    //Behavaztat mezőket.
     public void letItSnow(){
 
     }
