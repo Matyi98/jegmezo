@@ -7,13 +7,8 @@ import scene.GameController;
 public class ArcticExplorer extends Player {
 
     public ArcticExplorer() {
-
-    }
-
-    public ArcticExplorer(GameController gc, Field f) {
-        super(gc, f);
         maxHealthPoints = 4;
-        healthPoints = 4;
+        healthPoints = maxHealthPoints;
     }
 
     //Mozgatás.

@@ -6,7 +6,7 @@ public class NormalState extends PlayerState {
 
     }
     @Override
-    public void makePlayerDrowning(){
+    public void drown(){
 
     }
 }

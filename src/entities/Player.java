@@ -8,9 +8,9 @@ import entities.behaviours.*;
 import java.util.List;
 
 public abstract class Player extends Entity {
-    private int actualDirection;
     private PlayerState actualState;
-    private int actionPoints = 4;
+    private final int MAX_ACTION_POINTS = 4;
+    private int actionPoints = MAX_ACTION_POINTS;
     private Inventory inventory;
 
 
@@ -18,19 +18,6 @@ public abstract class Player extends Entity {
      * Létrehozza az objektumot.
      */
     public Player() {
-    }
-
-
-    //NE!!
-    public Player(Field fieldUnderPlayer, int maxHealthPoints){
-        fieldUnder = fieldUnderPlayer;
-    }
-
-    //NE!!
-    public Player(GameController gc, Field f) {
-        gameController = gc;
-        fieldUnder = f;
-        inventory = new Inventory(this);
     }
 
     //Megnöveli a játékos életét.
@@ -41,10 +28,10 @@ public abstract class Player extends Entity {
     //Átöltözés búvárruhba.
     public void swapDivingSuit() {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        actualState = new CanSwimState();
+        actualState.swapDivingSuit();
     }
 
-    public void setState(PlayerState nextState){
+    private void setState(PlayerState nextState){
 
     }
 
@@ -66,17 +53,20 @@ public abstract class Player extends Entity {
     }
 
     //Játékos elhagyja a vizet.
-    public void makePlayerWalk(){
-        //A játékos state változását valósítja meg
+    @Override
+    public void walk(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+        actualState.walk();
     }
 
     //Játékos megfullad.
+    @Override
     public void drown(){
-
+        actualState.drown();
     }
 
     //Játékos meghal.
+    @Override
     public void die(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         gameController.gameOver();
@@ -133,10 +123,10 @@ public abstract class Player extends Entity {
         return null;
     }
 
-    public void rescueFriend(int rescueFromDirection){
+    public void rescueFriend(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //Szól a mezőjének, hogy a kijelölt irányban akar kihúzni valakit
-        fieldUnder.pullOutPlayerFrom(rescueFromDirection);
+        fieldUnder.pullOutPlayerFrom(actualDirection);
     }
 
     //Játékost kimentették a lyukból.
@@ -169,6 +159,10 @@ public abstract class Player extends Entity {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //Jelez a gc-nek, hogy quest itemet találtak.
         gameController.questItemFound();
+    }
+
+    public void builtTent(){
+
     }
 
 }

@@ -6,7 +6,6 @@ import items.Item;
 import entities.Player;
 
 import java.util.ArrayList;
-import java.util.EnumMap;
 import java.util.List;
 
 public abstract class Field {
@@ -81,7 +80,7 @@ public abstract class Field {
         //A kijelölt szomszédban lévő mezőt felszólítja, hogy adja át valamelyik játékosát
         boolean success = neighbors.get(direction).placePlayerToNextField(fieldIndex);
         //A játékos állapotváltozását idézi elő
-        players.get(1).makePlayerWalk();
+        players.get(1).walk();
         return success;
     }
 

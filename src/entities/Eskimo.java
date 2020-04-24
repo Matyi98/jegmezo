@@ -7,11 +7,6 @@ import scene.GameController;
 public class Eskimo extends Player {
 
     public Eskimo() {
-
-    }
-
-    public Eskimo(GameController gc, Field f) {
-        super(gc, f);
         maxHealthPoints = 5;
         healthPoints = maxHealthPoints;
     }

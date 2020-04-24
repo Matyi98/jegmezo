@@ -2,7 +2,12 @@ package entities.behaviours;
 
 public class CanSwimState extends PlayerState{
     @Override
-    public void makePlayerDrowning(){
+    public void drown(){
+
+    }
+
+    @Override
+    public void swapDivingSuit(){
 
     }
 }

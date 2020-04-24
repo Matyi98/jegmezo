@@ -3,12 +3,14 @@ package entities;
 import fields.Field;
 import scene.GameController;
 
-public  class Entity {
+public abstract class Entity {
 
     protected Field fieldUnder;
     protected int maxHealthPoints;
     protected int healthPoints;
     protected GameController gameController;
+    protected int actualDirection;
+
 
     /**
      * Beállítja az entitás kezdőállapotát.
@@ -19,5 +21,39 @@ public  class Entity {
         this.gameController = gc;
         this.fieldUnder = f;
     }
+
+    public void step(){
+
+    }
+
+    public void decrementHP(){
+        --healthPoints;
+    }
+
+    public void drown() {
+
+    }
+
+    public void walk() {
+
+    }
+
+    public void die(){
+
+    }
+
+    public void turn(int index){
+        actualDirection = index;
+    }
+
+    public void move(){
+        fieldUnder.placePlayerToNextField(actualDirection);
+    }
+
+    public void collideWith(Entity otherEntity){
+
+    }
+
+
 
 }

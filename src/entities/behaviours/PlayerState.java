@@ -9,16 +9,11 @@ public abstract class PlayerState {
 
     }
 
-    public void makePlayerWalk(){
+    public void walk(){
 
     }
 
     public void swapDivingSuit(){
 
     }
-
-    public void makePlayerDrowning(){
-
-    }
-
 }

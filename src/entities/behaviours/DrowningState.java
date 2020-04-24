@@ -6,7 +6,7 @@ public class DrowningState extends PlayerState{
 
     }
     @Override
-    public void makePlayerWalk(){
+    public void walk(){
 
     }
 }
