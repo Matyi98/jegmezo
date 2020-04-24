@@ -1,8 +1,6 @@
 package entities;
 
-import fields.Field;
 import items.*;
-import scene.GameController;
 import entities.behaviours.*;
 
 import java.util.List;
@@ -143,7 +141,7 @@ public abstract class Player extends Entity {
     public void useFlareGun(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //Megszámolja hány játékos áll a mezőn.
-        int count = fieldUnder.getPlayerCount();
+        int count = fieldUnder.getEntityCount();
         /*
             Átadja a gc-nek, hogy hányan vannak.
             Arról, hogy valóban nyertek-e, a gc dönt.

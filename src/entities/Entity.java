@@ -47,7 +47,7 @@ public abstract class Entity {
     }
 
     public void move(){
-        fieldUnder.placePlayerToNextField(actualDirection);
+        fieldUnder.placeEntityToNextField(actualDirection);
     }
 
     public void collideWith(Entity otherEntity){

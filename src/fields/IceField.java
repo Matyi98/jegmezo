@@ -10,4 +10,11 @@ public abstract class IceField extends Field {
     public boolean buildIgloo() {
         return false;
     }
+
+    @Override
+    public boolean buildTent() {
+        return false;
+    }
+
+
 }

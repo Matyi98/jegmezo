@@ -30,15 +30,20 @@ public class Hole extends Field {
     }
 
     @Override
-    public boolean acceptPlayer(Player player) {
+    public boolean acceptEntity(Entity entity) {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         System.out.println("Sikertelen a jatekos befogadasa.");
-        players.add(player);
+        entities.add(entity);
         return true;
     }
 
     @Override
     public boolean buildIgloo() {
+        return false;
+    }
+
+    @Override
+    public boolean buildTent() {
         return false;
     }
 

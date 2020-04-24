@@ -28,11 +28,6 @@ public class StableIceField extends IceField{
 
     }
 
-    public StableIceField(Item item) {
-        super();
-        setItem(item);
-    }
-
     //Mezőn tárolt tárgy beállíítása.
     public void setItem(Item item){
         this.item = item;
@@ -40,11 +35,11 @@ public class StableIceField extends IceField{
 
     //Játékos befogadása a mezőre.
     @Override
-    public boolean acceptPlayer(Player player) {
+    public boolean acceptEntity(Entity entity) {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         System.out.println("Sikeres a jatekos befogadasa");
         //Felvétel a belső Player listára.
-        players.add(player);
+        entities.add(entity);
         return true;
     }
 
@@ -64,4 +59,8 @@ public class StableIceField extends IceField{
         return true;
     }
 
+    @Override
+    public boolean buildTent() {
+        return false;
+    }
 }
