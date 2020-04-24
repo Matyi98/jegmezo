@@ -1,9 +1,16 @@
 package fields;
 
-import player.Player;
+import entities.Entity;
+import entities.Player;
+import items.Item;
 
 //A Pálalya szélét reprezentáló mező.
 public class OceanField extends Field {
+
+    @Override
+    public void Setup(int w, int s, Item i, Entity e) {
+        //????????????????????????
+    }
 
     //Játékos befogadása a mezőre.
     @Override

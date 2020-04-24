@@ -1,4 +1,4 @@
-package player.behaviours;
+package entities.behaviours;
 
 public class DrowningState extends PlayerState{
     @Override

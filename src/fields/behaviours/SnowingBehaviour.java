@@ -1,6 +1,6 @@
 package fields.behaviours;
 
-import player.Player;
+import entities.Player;
 
 import java.util.List;
 

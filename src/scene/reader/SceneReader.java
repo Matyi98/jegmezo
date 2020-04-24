@@ -1,0 +1,163 @@
+package scene.reader;
+
+import entities.*;
+import fields.*;
+import items.*;
+import items.quest.*;
+import scene.GameController;
+import scene.Board;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+public class SceneReader {
+    private GameController gc;
+    private ArrayList<Field> fields = new ArrayList<>();
+    private ArrayList<Player> players = new ArrayList<>();
+
+    private BufferedReader reader;
+    public SceneReader(InputStream inputStream) {
+        this.reader =
+                new BufferedReader(new InputStreamReader(inputStream));
+    }
+
+    public GameController LoadScene() {
+        gc = new GameController();
+        try {
+            readAll();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                reader.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        gc.SetBoard(new Board(fields));
+        return gc;
+    }
+
+    private void readAll() throws IOException {
+        String sNodes = this.reader.readLine();
+        String sEdges = this.reader.readLine();
+
+        String[] aNodes = sNodes.split(";");
+        String[] aEdges = sEdges.split(";");
+
+        for (String i : aNodes)
+            fields.add(makeNode(i.trim()));
+
+        for (String i : aEdges) {
+            i = i.trim();
+            int a = Character.getNumericValue(i.charAt(0));
+            int b = Character.getNumericValue(i.charAt(2));
+            Field fA = fields.get(a);
+            Field fB = fields.get(b);
+            fA.ConnectTo(fB);
+            fB.ConnectTo(fA);
+        }
+    }
+
+    private Field makeNode(String sNode) {
+        Field f = null;
+        try {
+            f = parseField(sNode.charAt(0));
+            int w = Character.getNumericValue(sNode.charAt(1));
+            int s = Character.getNumericValue(sNode.charAt(2));
+            Item i = parseItem(sNode.charAt(3));
+            Entity e = parseEntity(sNode.charAt(4));
+            f.Setup(w,s,i,e);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+        return f;
+    }
+
+    private Field parseField(char c) throws Exception {
+        Field f;
+        switch (c) {
+            case 'S':
+                f = new StableIceField();
+                break;
+            case 'U':
+                f = new UnstableIceField();
+                break;
+            case 'H':
+                f = new Hole();
+                break;
+            default:
+                throw new Exception("Hibás input fájl. Értelmezhetetlen mezőtípus.");
+        }
+        return f;
+    }
+
+    private Item parseItem(char c) throws Exception {
+        Item i;
+        switch (c) {
+            case 'd':
+                i = new DivingSuit();
+                break;
+            case 'f':
+                i = new Food();
+                break;
+            case 'r':
+                i = new Rope();
+                break;
+            case 's':
+                i = new Shovel();
+                break;
+            case 'g':
+                i = new FragileShovel();
+                break;
+            case 'p':
+                i = new Pistol();
+                break;
+            case 'c':
+                i = new Cartridge();
+                break;
+            case 'e':
+                i = new Flare();
+                break;
+            case 't':
+                i = new Tent();
+                break;
+            case '0':
+                i = null;
+                break;
+            default:
+                throw new Exception("Hibás input fájl. Értelmezhetetlen item.");
+        }
+        return i;
+    }
+
+    private Entity parseEntity(char c) throws Exception {
+        Entity e;
+        Player p;
+        switch (c) {
+            case 'E':
+                p = new Eskimo();
+                players.add(p);
+                e = p;
+                break;
+            case 'K':
+                p = new ArcticExplorer();
+                players.add(p);
+                e = p;
+                break;
+            case 'M':
+                e = new Bear();
+                break;
+            case '0':
+                e = null;
+                break;
+            default:
+                throw new Exception("Hibás input fájl. Értelmezhetetlen entitás.");
+        }
+        return e;
+    }
+}

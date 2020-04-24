@@ -1,13 +1,13 @@
-package player;
+package entities;
 import enums.Direction;
 import fields.Field;
 import items.*;
-import main.GameController;
-import player.behaviours.*;
+import scene.GameController;
+import entities.behaviours.*;
 
 import java.util.List;
 
-public abstract class Player {
+public abstract class Player extends Entity {
     protected int maxHealthPoints;
     protected int healthPoints;
     private Direction actualDirection = Direction.UP;
@@ -17,14 +17,27 @@ public abstract class Player {
     private Inventory inventory;
     protected Field fieldUnderPlayer;
 
-    public Player(){
-
+    /**
+     * Létrehozza az objektumot.
+     */
+    public Player() {
     }
 
+    /**
+     * Beállítja a játékos kezdőállapotát.
+     * @param gc GameController
+     */
+    public void Setup(GameController gc, Field f) {
+        this.gameController = gc;
+        this.fieldUnderPlayer = f;
+    }
+
+    //NE!!
     public Player(Field fieldUnderPlayer, int maxHealthPoints){
         this.fieldUnderPlayer = fieldUnderPlayer;
     }
 
+    //NE!!
     public Player(GameController gc, Field f) {
         gameController = gc;
         fieldUnderPlayer = f;

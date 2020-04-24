@@ -1,16 +1,17 @@
 package fields;
 
+import entities.Entity;
 import enums.Direction;
 import items.Item;
-import player.Player;
+import entities.Player;
 
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
 
 public abstract class Field {
-    private int snowLevel;
-    private static int MAX_SNOWLEVEL;
+    protected int snowLevel;
+    private static int MAX_SNOWLEVEL = 9;
     protected EnumMap<Direction, Field> neighbors;
     protected List<Player> players = new ArrayList<>();
     protected Item item;
@@ -22,6 +23,23 @@ public abstract class Field {
         neighbors.put(Direction.DOWN, null);
         neighbors.put(Direction.LEFT, null);
         neighbors.put(Direction.RIGHT, null);
+    }
+
+    /**
+     *
+     * @param w A mező által elbírt entitások száma.
+     * @param s A mezőn lévő hószintek kezdeti értéke.
+     * @param i A mezőn lévő item.
+     * @param e A mezőn lévő entitás.
+     */
+    public abstract void Setup(int w, int s, Item i, Entity e);
+
+    /**
+     * Beregisztrál egy szomszédságot.
+     * @param neighbour A mező új szomszédja.
+     */
+    public void ConnectTo(Field neighbour) {
+        //TODO: implement connections
     }
 
     //Felső szomszédmező beállítása

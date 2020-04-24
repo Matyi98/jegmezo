@@ -1,10 +1,26 @@
 package fields;
 
+import entities.Entity;
 import enums.Direction;
-import player.Player;
+import entities.Player;
+import items.Item;
 
 public class UnstableIceField extends IceField{
     private int stability;
+
+    /**
+     * Inicializálja a mező kezdőállapotát.
+     * @param w A mező által elbírt entitások száma.
+     * @param s A mezőn lévő hószintek kezdeti értéke.
+     * @param i A mezőn lévő item.
+     * @param e A mezőn lévő entitás.
+     */
+    public void Setup(int w, int s, Item i, Entity e) {
+        stability = w;
+        snowLevel = s;
+        item = i;
+        //TODO: entity
+    }
 
     //Iglu építése.
     @Override

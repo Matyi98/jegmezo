@@ -2,7 +2,8 @@ package main;
 import fields.*;
 import items.*;
 import items.quest.*;
-import player.*;
+import entities.*;
+import scene.GameController;
 
 import java.util.Scanner;
 
@@ -136,7 +137,7 @@ public class SequenceSelector {
         }
     }
 
-    public GameController initOneEskimoWithAFieldAboveThem( Field fieldAbove){
+    public GameController initOneEskimoWithAFieldAboveThem(Field fieldAbove){
         //Field amin a player áll
         Field fieldUnderPlayer = new StableIceField();
         //GameController, amely irányítja a playert

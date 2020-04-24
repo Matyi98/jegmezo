@@ -1,7 +1,8 @@
-package main;
+package scene;
 
-import fields.*;
-import player.*;
+import scene.Board;
+import entities.*;
+
 import java.util.ArrayList;
 
 public class GameController {
@@ -9,12 +10,14 @@ public class GameController {
     private ArrayList<Player> players;
     private Board board;
 
-    GameController(){
-        board = new Board();
-        players = new ArrayList<Player>();
+    public GameController() {
     }
 
-    public void addPlayer( Player player ){
+    public void SetBoard(Board board) {
+        this.board = board;
+    }
+
+    public void AddPlayer( Player player ) {
         players.add(player);
     }
 

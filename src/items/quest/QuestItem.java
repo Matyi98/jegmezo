@@ -1,7 +1,7 @@
 package items.quest;
 
 import items.Item;
-import player.Player;
+import entities.Player;
 
 //QuestItemeket reprezentáló osztály.
 public abstract class QuestItem extends Item {

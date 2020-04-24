@@ -1,10 +1,14 @@
-package player;
+package entities;
 
 import enums.Direction;
 import fields.Field;
-import main.GameController;
+import scene.GameController;
 
 public class ArcticExplorer extends Player {
+
+    public ArcticExplorer() {
+
+    }
 
     public ArcticExplorer(GameController gc, Field f) {
         super(gc, f);

@@ -1,5 +1,5 @@
 package items;
-import player.Player;
+import entities.Player;
 
 public abstract class Item {
 
