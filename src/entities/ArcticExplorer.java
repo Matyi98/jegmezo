@@ -21,7 +21,7 @@ public class ArcticExplorer extends Player {
     public void move(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //Játékos áthelyezése másik mezőre.
-        fieldUnderPlayer.placePlayerToNextField(Direction.UP, this);
+        fieldUnder.placePlayerToNextField(Direction.UP, this);
     }
 
     //Speciális képesség használata.
@@ -29,7 +29,7 @@ public class ArcticExplorer extends Player {
     public void specialPower() {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //Stabilitás vizsgálat.
-        fieldUnderPlayer.checkStability(Direction.UP);
+        fieldUnder.checkStability(Direction.UP);
         /*
         * Itt valahogyan ki kell majd jelezni, a visszatérési értéket.
         * */

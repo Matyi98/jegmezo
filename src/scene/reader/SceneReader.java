@@ -4,13 +4,9 @@ import entities.*;
 import fields.*;
 import items.*;
 import items.quest.*;
-import scene.GameController;
-import scene.Board;
+import scene.*;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 
 public class SceneReader {
@@ -37,7 +33,7 @@ public class SceneReader {
                 e.printStackTrace();
             }
         }
-        gc.SetBoard(new Board(fields));
+        gc.Setup(new Board(fields), players);
         return gc;
     }
 
@@ -66,11 +62,13 @@ public class SceneReader {
         Field f = null;
         try {
             f = parseField(sNode.charAt(0));
-            int w = Character.getNumericValue(sNode.charAt(1));
-            int s = Character.getNumericValue(sNode.charAt(2));
-            Item i = parseItem(sNode.charAt(3));
-            Entity e = parseEntity(sNode.charAt(4));
-            f.Setup(w,s,i,e);
+            int wightLimit = Character.getNumericValue(sNode.charAt(1));
+            int snowLevel = Character.getNumericValue(sNode.charAt(2));
+            Item itwm = parseItem(sNode.charAt(3));
+            Entity entity = parseEntity(sNode.charAt(4));
+
+            entity.Setup(gc, f);
+            f.Setup(wightLimit, snowLevel, itwm, entity);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e.getMessage());

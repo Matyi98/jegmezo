@@ -3,7 +3,9 @@ import entities.Player;
 
 public abstract class Item {
 
-    //Item tulajdonosa.
+    /**
+     * Az item tulajdonosa
+     */
     protected Player owner;
 
     //Item használata.

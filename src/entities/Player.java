@@ -8,14 +8,12 @@ import entities.behaviours.*;
 import java.util.List;
 
 public abstract class Player extends Entity {
-    protected int maxHealthPoints;
-    protected int healthPoints;
+
     private Direction actualDirection = Direction.UP;
     private PlayerState actualState;
     private int actionPoints = 4;
-    private GameController gameController;
     private Inventory inventory;
-    protected Field fieldUnderPlayer;
+
 
     /**
      * Létrehozza az objektumot.
@@ -23,24 +21,16 @@ public abstract class Player extends Entity {
     public Player() {
     }
 
-    /**
-     * Beállítja a játékos kezdőállapotát.
-     * @param gc GameController
-     */
-    public void Setup(GameController gc, Field f) {
-        this.gameController = gc;
-        this.fieldUnderPlayer = f;
-    }
 
     //NE!!
     public Player(Field fieldUnderPlayer, int maxHealthPoints){
-        this.fieldUnderPlayer = fieldUnderPlayer;
+        fieldUnder = fieldUnderPlayer;
     }
 
     //NE!!
     public Player(GameController gc, Field f) {
         gameController = gc;
-        fieldUnderPlayer = f;
+        fieldUnder = f;
         inventory = new Inventory(this);
     }
 
@@ -66,7 +56,7 @@ public abstract class Player extends Entity {
     //Játékos mozgása.
     public void move(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        fieldUnderPlayer.placePlayerToNextField(Direction.UP, this);
+        fieldUnder.placePlayerToNextField(Direction.UP, this);
     }
 
     //Eszkösz használat az inventoryban elfoglalt index szerint.
@@ -98,13 +88,13 @@ public abstract class Player extends Entity {
     public boolean pickUpItem(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //Kiveszi az itemet a mezőből.
-        Item i = fieldUnderPlayer.getItem();
+        Item i = fieldUnder.getItem();
         //Beleteszi az Inventoryba.
         boolean accepted = inventory.add(i);
 
         //Ha az Inventory befogadta, akkor törli a mezőről.
         if(accepted)
-            fieldUnderPlayer.removeItem();
+            fieldUnder.removeItem();
         return false;
     }
 
@@ -112,7 +102,7 @@ public abstract class Player extends Entity {
     public void shovel(int snowLevel){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //Ha sikeres volt, akkor csökkenti az akciópontot.
-        if(fieldUnderPlayer.changeSnowLevel(-snowLevel)) {
+        if(fieldUnder.changeSnowLevel(-snowLevel)) {
             System.out.println("Sikeres hotakaritas");
             actionPoints--;
         }
@@ -147,7 +137,7 @@ public abstract class Player extends Entity {
     public void rescueFriend(Direction rescueFromDirection){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //Szól a mezőjének, hogy a kijelölt irányban akar kihúzni valakit
-        fieldUnderPlayer.pullOutPlayerFrom(rescueFromDirection);
+        fieldUnder.pullOutPlayerFrom(rescueFromDirection);
     }
 
     //Játékost kimentették a lyukból.
@@ -164,7 +154,7 @@ public abstract class Player extends Entity {
     public void useFlareGun(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //Megszámolja hány játékos áll a mezőn.
-        int count = fieldUnderPlayer.getPlayerCount();
+        int count = fieldUnder.getPlayerCount();
         /*
             Átadja a gc-nek, hogy hányan vannak.
             Arról, hogy valóban nyertek-e, a gc dönt.

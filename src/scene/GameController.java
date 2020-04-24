@@ -1,6 +1,5 @@
 package scene;
 
-import scene.Board;
 import entities.*;
 
 import java.util.ArrayList;
@@ -13,12 +12,14 @@ public class GameController {
     public GameController() {
     }
 
-    public void SetBoard(Board board) {
+    /**
+     * Beállítja a kezdőállapotot.
+     * @param board A pálya.
+     * @param players A játékosok listája.
+     */
+    public void Setup(Board board, ArrayList<Player> players) {
         this.board = board;
-    }
-
-    public void AddPlayer( Player player ) {
-        players.add(player);
+        this.players = players;
     }
 
     public void start(char userInput)

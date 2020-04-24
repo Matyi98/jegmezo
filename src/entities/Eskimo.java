@@ -21,7 +21,7 @@ public class Eskimo extends Player {
     public void move(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //Mozgatás.
-        fieldUnderPlayer.placePlayerToNextField(Direction.UP, this);
+        fieldUnder.placePlayerToNextField(Direction.UP, this);
     }
 
     //Eszkimó speciális képessége.
@@ -29,6 +29,6 @@ public class Eskimo extends Player {
     public void specialPower() {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //iglut épít.
-        fieldUnderPlayer.buildIgloo();
+        fieldUnder.buildIgloo();
     }
 }
