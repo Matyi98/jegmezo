@@ -1,6 +1,7 @@
 package items;
 
 import entities.Player;
+import scene.writer.SceneWriter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,4 +56,21 @@ public class Inventory {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         items.get(itemIndex).use();
     }
+
+    /**
+     * Megjeleníti az inventory tartalmát.
+     */
+    public void Show() {
+        SceneWriter.OutStream.println("Inventory content:");
+        int j = 0;
+        for (Item i : items) {
+            SceneWriter.OutStream.print(j);
+            SceneWriter.OutStream.print(": ");
+            i.Show();
+            SceneWriter.OutStream.println();
+            j++;
+        }
+    }
+
+
 }

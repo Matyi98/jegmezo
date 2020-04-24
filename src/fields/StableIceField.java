@@ -23,6 +23,11 @@ public class StableIceField extends IceField{
         super();
     }
 
+    @Override
+    public void Show() {
+
+    }
+
     public StableIceField(Item item) {
         super();
         setItem(item);

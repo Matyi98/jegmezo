@@ -20,4 +20,7 @@ public abstract class Item {
         this.owner = owner;
         return false;
     }
+
+    public abstract void Show();
+    public abstract void ShowShort();
 }

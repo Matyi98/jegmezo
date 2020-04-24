@@ -1,5 +1,5 @@
 package entities;
-import enums.Direction;
+
 import fields.Field;
 import items.*;
 import scene.GameController;
@@ -8,8 +8,7 @@ import entities.behaviours.*;
 import java.util.List;
 
 public abstract class Player extends Entity {
-
-    private Direction actualDirection = Direction.UP;
+    private int actualDirection;
     private PlayerState actualState;
     private int actionPoints = 4;
     private Inventory inventory;
@@ -49,14 +48,14 @@ public abstract class Player extends Entity {
 
     }
 
-    public void turn(Direction newDirection){
+    public void turn(int newDirection){
 
     }
 
     //Játékos mozgása.
     public void move(){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        fieldUnder.placePlayerToNextField(Direction.UP, this);
+//        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
+//        fieldUnder.placePlayerToNextField(Direction.UP, this);
     }
 
     //Eszkösz használat az inventoryban elfoglalt index szerint.
@@ -134,7 +133,7 @@ public abstract class Player extends Entity {
         return null;
     }
 
-    public void rescueFriend(Direction rescueFromDirection){
+    public void rescueFriend(int rescueFromDirection){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //Szól a mezőjének, hogy a kijelölt irányban akar kihúzni valakit
         fieldUnder.pullOutPlayerFrom(rescueFromDirection);

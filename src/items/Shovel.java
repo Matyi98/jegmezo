@@ -1,5 +1,7 @@
 package items;
 
+import scene.writer.SceneWriter;
+
 //Lapátot reprezentáló osztály.
 public class Shovel extends Item {
     //Ennyi hóréteget takarít el a lapát.
@@ -12,4 +14,9 @@ public class Shovel extends Item {
         System.out.println("Sikeres aso hasznalat");
     }
 
+
+    public void Show() {
+        SceneWriter.OutStream.print("Shovel");
+    }
+    public void ShowShort() { SceneWriter.OutStream.print("s"); }
 }

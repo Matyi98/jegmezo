@@ -1,12 +1,17 @@
 package fields;
 
 import entities.Entity;
-import enums.Direction;
+
 import entities.Player;
 import items.Item;
 
 public class UnstableIceField extends IceField{
     private int stability;
+
+    @Override
+    public void Show() {
+
+    }
 
     /**
      * Inicializálja a mező kezdőállapotát.
@@ -50,7 +55,7 @@ public class UnstableIceField extends IceField{
 
     //Játékos átadása a aszomszd mezőnek, a megadott irányba.
     @Override
-    public boolean placePlayerToNextField(Direction direction, Player player){
+    public boolean placePlayerToNextField(int direction, Player player){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //Szomszéd mező lekérése.
         Field neighbour = neighbors.get(direction);

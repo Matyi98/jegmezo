@@ -1,6 +1,6 @@
 package entities;
 
-import enums.Direction;
+//import enums.Direction;
 import fields.Field;
 import scene.GameController;
 
@@ -21,7 +21,7 @@ public class Eskimo extends Player {
     public void move(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //Mozgatás.
-        fieldUnder.placePlayerToNextField(Direction.UP, this);
+//        fieldUnder.placePlayerToNextField(Direction.UP, this);
     }
 
     //Eszkimó speciális képessége.

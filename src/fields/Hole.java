@@ -3,6 +3,7 @@ package fields;
 import entities.Entity;
 import entities.Player;
 import items.Item;
+import scene.writer.SceneWriter;
 
 public class Hole extends Field {
 
@@ -16,6 +17,16 @@ public class Hole extends Field {
     public void Setup(int w, int s, Item i, Entity e) {
         snowLevel = s;
         item = i;
+    }
+
+    /**
+     * Megjeleníti a Fieldet a SceneWirterben meghatározott folyamon.
+     */
+    public void Show() {
+        SceneWriter.OutStream.print('F');
+        SceneWriter.OutStream.print('0');
+        SceneWriter.OutStream.print(snowLevel);
+        item.ShowShort();
     }
 
     @Override

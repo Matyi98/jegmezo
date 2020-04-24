@@ -1,7 +1,7 @@
 package fields;
 
 import entities.Entity;
-import enums.Direction;
+
 import items.Item;
 import entities.Player;
 
@@ -12,17 +12,36 @@ import java.util.List;
 public abstract class Field {
     protected int snowLevel;
     private static int MAX_SNOWLEVEL = 9;
-    protected EnumMap<Direction, Field> neighbors;
+    protected ArrayList<Field> neighbors;
     protected List<Player> players = new ArrayList<>();
     protected Item item;
 
-    public Field(){
-        neighbors = new EnumMap<>(Direction.class);
+    private static int staticIndex = 0;
+    private int fieldIndex;
 
-        neighbors.put(Direction.UP, null);
-        neighbors.put(Direction.DOWN, null);
-        neighbors.put(Direction.LEFT, null);
-        neighbors.put(Direction.RIGHT, null);
+    public Field(){
+        fieldIndex = staticIndex++;
+    }
+
+    /**
+     * Megjeleníti a Fieldet a SceneWirterben meghatározott folyamon.
+     */
+    public abstract void Show();
+
+    /**
+     * Visszaadja a mező sorszámát. Ez a kirajzoláshoz fontos.
+     * @return A mező indexe-
+     */
+    public int GetIndex() {
+        return fieldIndex;
+    }
+
+    /**
+     * Lekérdezi a mező szomszédjait.
+     * @return A mező összes szomszédja.
+     */
+    public ArrayList<Field> GetNeighbours() {
+        return neighbors;
     }
 
     /**
@@ -42,45 +61,25 @@ public abstract class Field {
         //TODO: implement connections
     }
 
-    //Felső szomszédmező beállítása
-    public void setNeighborAbove( Field field ){
-        neighbors.put(Direction.UP, field);
-    }
-
-    //Alsó szomszédmező beállítása
-    public void setNeighborBelow( Field field ){
-        neighbors.put(Direction.DOWN, field);
-    }
-
-    //Baloldali szomszédmező beállítása
-    public void setNeighbourLeftSide( Field field ){
-        neighbors.put(Direction.LEFT, field);
-    }
-
-    //Jobboldali szomszédmező beállítása
-    public void setNeighbourRightSide( Field field ){
-        neighbors.put(Direction.RIGHT, field);
-    }
-
     //Ezen fielden lévő player átmozgatása egy szomszédos fieldre
-    public boolean placePlayerToNextField(Direction direction, Player player){
+    public boolean placePlayerToNextField(int direction, Player player){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         return neighbors.get(direction).acceptPlayer(player);
     }
 
     //Ezen fielden lévő player átmozgatása egy szomszédos fieldre user által kiválasztott alapon
-    public boolean placePlayerToNextField(Direction direction){
+    public boolean placePlayerToNextField(int direction){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //Áthelyezi a játékost az adott irányban lévő mezőre
-        boolean success = neighbors.get(Direction.RIGHT).acceptPlayer(players.get(0));
+        boolean success = neighbors.get(direction).acceptPlayer(players.get(0));
         return success;
     }
 
     //Áthúz egy playert egy szomszédos mezőről saját magához
-    public boolean pullOutPlayerFrom(Direction direction){
+    public boolean pullOutPlayerFrom(int direction){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //A kijelölt szomszédban lévő mezőt felszólítja, hogy adja át valamelyik játékosát
-        boolean success = neighbors.get(direction).placePlayerToNextField(Direction.RIGHT);
+        boolean success = neighbors.get(direction).placePlayerToNextField(fieldIndex);
         //A játékos állapotváltozását idézi elő
         players.get(1).makePlayerWalk();
         return success;
@@ -145,7 +144,7 @@ public abstract class Field {
     public abstract String checkStability();
 
     //Megnézi szomszédos mező stabilitását.
-    public final String checkStability(Direction direction) {
+    public final String checkStability(int direction) {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         Field neighbour = neighbors.get(direction);
         return neighbour.checkStability();
