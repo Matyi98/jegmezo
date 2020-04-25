@@ -5,6 +5,7 @@ import main.RandomNumber;
 import scene.writer.SceneWriter;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Board {
     private ArrayList<Field> fields;
@@ -15,6 +16,12 @@ public class Board {
 
     public void Show(boolean showEdges) {
         ArrayList<String> pairs = new ArrayList<>();
+        fields.sort(new Comparator<Field>() {
+            @Override
+            public int compare(Field t1, Field t2) {
+                return t1.GetUID() - t2.GetUID();
+            }
+        });
 
         for (int i = 0; i < fields.size(); i++) {
             Field f = fields.get(i);

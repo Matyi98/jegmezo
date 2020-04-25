@@ -92,7 +92,7 @@ public class Map0Tests {
 
         assertEquals("Successful turn: 12",scanner.nextLine());
         assertEquals("Successful move: 12",scanner.nextLine());
-        assertEquals("U20p0; S000M; H0000; H0000; S00c0; U3000; H0000; S00e0; S00s0; H0000; H0000; U200KEK; S0000;",scanner.nextLine());
+        assertEquals("U20p0; S000M; H0000; H0000; S00c0; U3000; H0000; S00e0; S00s0; H0000; H0000; H000KEK; S0000;",scanner.nextLine());
         assertEquals("Game Over",scanner.nextLine());
 
 
