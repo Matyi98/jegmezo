@@ -49,8 +49,9 @@ public class SceneReader {
 
         for (String i : aEdges) {
             i = i.trim();
-            int a = Character.getNumericValue(i.charAt(0));
-            int b = Character.getNumericValue(i.charAt(2));
+            String[] s = i.split(" ");
+            int a = Integer.parseInt(s[0])-1;
+            int b = Integer.parseInt(s[1])-1;
             Field fA = fields.get(a);
             Field fB = fields.get(b);
             fA.ConnectTo(fB);
@@ -67,7 +68,7 @@ public class SceneReader {
             Item itwm = parseItem(sNode.charAt(3));
             Entity entity = parseEntity(sNode.charAt(4));
 
-            entity.Setup(gc, f);
+            if (entity != null) entity.Setup(gc, f);
             f.Setup(wightLimit, snowLevel, itwm, entity);
         } catch (Exception e) {
             e.printStackTrace();
