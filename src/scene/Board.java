@@ -12,7 +12,7 @@ import java.util.List;
 public class Board {
     private ArrayList<Field> fields;
 
-    public Board(ArrayList<Field> fields) {
+    public void Setup(ArrayList<Field> fields) {
         this.fields = fields;
     }
 
@@ -26,9 +26,9 @@ public class Board {
             SceneWriter.OutStream.print("; ");
 
             ArrayList<Field> neighbours = f.GetNeighbours();
-            int myIndex = f.GetIndex();
+            int myIndex = f.GetUID();
             for (Field fi : neighbours) {
-                int ni = fi.GetIndex();
+                int ni = fi.GetUID();
                 if (ni > myIndex)
                     pairs.add(Integer.toString(myIndex) + " " + Integer.toString(ni) + "; ");
             }

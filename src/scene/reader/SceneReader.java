@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 public class SceneReader {
+    private Board board;
     private GameController gc;
     private ArrayList<Field> fields = new ArrayList<>();
     private ArrayList<Player> players = new ArrayList<>();
@@ -22,6 +23,7 @@ public class SceneReader {
     }
 
     public GameController LoadScene() {
+        board = new Board();
         gc = new GameController();
         try {
             readAll();
@@ -34,7 +36,8 @@ public class SceneReader {
                 e.printStackTrace();
             }
         }
-        gc.Setup(new Board(fields), players);
+        board.Setup(fields);
+        gc.Setup(board, players);
         return gc;
     }
 
@@ -72,7 +75,7 @@ public class SceneReader {
             if(entity != null)
                 entity.Setup(gc, f);
 
-            f.Setup(weightLimit, snowLevel, Optional.ofNullable(item), Optional.ofNullable(entity));
+            f.Setup(board, weightLimit, snowLevel, Optional.ofNullable(item), Optional.ofNullable(entity));
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e.getMessage());

@@ -38,7 +38,7 @@ public abstract class Field {
      * Visszaadja a mező sorszámát. Ez a kirajzoláshoz fontos.
      * @return A mező indexe-
      */
-    public int GetIndex() {
+    public int GetUID() {
         return UID;
     }
 
@@ -52,12 +52,13 @@ public abstract class Field {
 
     /**
      *
+     * @param b A pálya.
      * @param w A mező által elbírt entitások száma.
      * @param s A mezőn lévő hószintek kezdeti értéke.
      * @param i A mezőn lévő item.
      * @param e A mezőn lévő entitás.
      */
-    public abstract void Setup(int w, int s, Optional<Item> i, Optional<Entity> e);
+    public abstract void Setup(Board b, int w, int s, Optional<Item> i, Optional<Entity> e);
 
     /**
      * Beregisztrál egy szomszédságot.

@@ -2,6 +2,7 @@ package fields;
 
 import entities.Entity;
 import items.Item;
+import scene.Board;
 
 import java.util.Optional;
 
@@ -16,7 +17,8 @@ public abstract class IceField extends Field {
      * @param i A mezőn lévő item.
      * @param e A mezőn lévő entitás.                   Ignorált, hiszen lukon nem kezdhet entitás.
      */
-    public final void Setup(int w, int s, Optional<Item> i, Optional<Entity> e) {
+    public final void Setup(Board b, int w, int s, Optional<Item> i, Optional<Entity> e) {
+        board = b;
         this.weightLimit = w;
         this.snowLevel = s;
         i.ifPresent(value -> this.item = value);

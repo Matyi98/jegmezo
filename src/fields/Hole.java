@@ -2,6 +2,7 @@ package fields;
 
 import entities.Entity;
 import items.Item;
+import scene.Board;
 import scene.writer.SceneWriter;
 
 import java.util.Optional;
@@ -16,8 +17,8 @@ public class Hole extends Field {
      * @param i A mezőn lévő item.
      * @param e A mezőn lévő entitás.                   Ignorált, hiszen lukon nem kezdhet entitás.
      */
-    public final void Setup(int w, int s, Optional<Item> i, Optional<Entity> e) {
-        snowLevel = s;
+    public final void Setup(Board b, int w, int s, Optional<Item> i, Optional<Entity> e) {
+        board = b; snowLevel = s;
     }
 
     /**

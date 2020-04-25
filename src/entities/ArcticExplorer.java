@@ -16,10 +16,6 @@ public class ArcticExplorer extends Player {
         SceneWriter.OutStream.print("K");
     }
 
-    @Override
-    public void move(){
-    }
-
 
     @Override
     public void specialPower() {
