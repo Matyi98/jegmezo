@@ -76,14 +76,6 @@ public class UnstableIceField extends IceField{
     }
 
     @Override
-    public void step(){
-        super.step();
-        for(Entity e: entities){
-            e.makeDrown();
-        }
-    }
-
-    @Override
     public String checkStability() {
         return String.valueOf(weightLimit);
     }

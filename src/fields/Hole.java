@@ -118,4 +118,11 @@ public class Hole extends Field {
         return entities.get(indexOfSelected);
     }
 
+    @Override
+    public void step(){
+        super.step();
+        for(Entity e: entities){
+            e.makeDrown();
+        }
+    }
 }
