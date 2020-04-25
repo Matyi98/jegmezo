@@ -119,7 +119,6 @@ public abstract class Player extends Entity {
     @Override
     public void die(){
         gameController.gameOver();
-
     }
 
     /**

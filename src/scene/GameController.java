@@ -86,23 +86,17 @@ public class GameController {
     }
 
     public void win(int count) {
-        OutStream.println("[ " + new Object() {
-        }.getClass().getEnclosingMethod() + " ]");
         if (count == players.size() && questItemCount == 3)
-            OutStream.println("WIN");
+            OutStream.println("Victory");
         else
-            OutStream.println("not WIN");
+            OutStream.println("Win conditions not met");
     }
 
     public void gameOver() {
-        OutStream.println("[ " + new Object() {
-        }.getClass().getEnclosingMethod() + " ]");
-        OutStream.println("Lose");
+        OutStream.println("Game Over");
     }
 
     public void questItemFound() {
-        OutStream.println("[ " + new Object() {
-        }.getClass().getEnclosingMethod() + " ]");
         questItemCount = questItemCount + 1;
     }
 }
