@@ -16,7 +16,7 @@ public abstract class Field {
     protected ArrayList<Entity> entities = new ArrayList<>();
     protected Board board;
 
-    private static int autoIncrementID = 0;
+    private static int autoIncrementID = 1;
     private int UID;
     protected FieldBehaviour behaviour;
 

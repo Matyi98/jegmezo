@@ -222,7 +222,7 @@ public abstract class Player extends Entity {
     public void move(){
         if(fieldUnder.placeEntityToNextField(actualDirection, this))
             actionPoints--;
-        GameController.OutStream.println("Succesful move: " + fieldUnder.GetUID());
+        GameController.OutStream.println("Successful move: " + fieldUnder.GetUID());
     }
 
 }

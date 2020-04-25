@@ -56,12 +56,12 @@ public abstract class Entity {
         else if(actualDirection >= numOfIndices)
             actualDirection = actualDirection % numOfIndices;
 
-        GameController.OutStream.println("Succesful turn: " + fieldUnder.GetNeighbours().get(actualDirection).GetUID());
+        GameController.OutStream.println("Successful turn: " + fieldUnder.GetNeighbours().get(actualDirection).GetUID());
     }
 
     public void move() {
         fieldUnder.placeEntityToNextField(actualDirection, this);
-        GameController.OutStream.println("Succesful move: " + fieldUnder.GetUID());
+        GameController.OutStream.println("Successful move: " + fieldUnder.GetUID());
     }
 
     public void collideWith(Entity otherEntity){
