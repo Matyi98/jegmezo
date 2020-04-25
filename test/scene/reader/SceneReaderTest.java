@@ -30,8 +30,4 @@ public class SceneReaderTest {
         gc.ShowMap(true);
         assertNotNull(gc);
     }
-
-
-
-
 }
