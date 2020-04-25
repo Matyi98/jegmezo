@@ -1,8 +1,20 @@
 package main;
 
-public class main {
-    public static void main(String[] args){
+import scene.GameController;
+import scene.reader.SceneReader;
 
+import java.io.*;
+
+public class main {
+    public static void main(String[] args) throws FileNotFoundException {
+        System.out.print("A program elindult. Szia Uram!");
+
+        final String pwd = System.getProperty("user.dir");
+        File f = new File(pwd+"\\maps\\map0.txt");
+        FileInputStream fis = new FileInputStream(f);
+
+        SceneReader sceneReader = new SceneReader(fis);
+        GameController gc = sceneReader.LoadScene();
 //        SequenceSelector sequenceSelector = new SequenceSelector();
 //        sequenceSelector.selectSequence();
 

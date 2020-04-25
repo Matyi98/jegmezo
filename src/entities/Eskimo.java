@@ -3,12 +3,18 @@ package entities;
 //import enums.Direction;
 import fields.Field;
 import scene.GameController;
+import scene.writer.SceneWriter;
 
 public class Eskimo extends Player {
 
     public Eskimo() {
         maxHealthPoints = 5;
         healthPoints = maxHealthPoints;
+    }
+
+    @Override
+    public void ShowShort() {
+        SceneWriter.OutStream.print("E");
     }
 
     //Eszkimó mozog.

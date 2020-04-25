@@ -2,15 +2,20 @@ package entities;
 
 import fields.Field;
 import scene.GameController;
+import scene.writer.SceneWriter;
 
 public abstract class Entity {
 
     protected Field fieldUnder;
-    protected int maxHealthPoints;
-    protected int healthPoints;
+
     protected GameController gameController;
     protected int actualDirection;
 
+
+
+
+
+    public abstract void ShowShort() ;
 
     /**
      * Beállítja az entitás kezdőállapotát.
@@ -24,10 +29,6 @@ public abstract class Entity {
 
     public void step(){
 
-    }
-
-    public void decrementHP(){
-        --healthPoints;
     }
 
     public void drown() {
