@@ -1,6 +1,12 @@
 package entities.behaviours;
 
+import entities.Player;
+
 public class DrowningState extends PlayerState{
+    public DrowningState(Player player) {
+        super(player);
+    }
+
     @Override
     public void drown(){
         player.die();
@@ -8,6 +14,6 @@ public class DrowningState extends PlayerState{
 
     @Override
     public void walk(){
-        player.setState(new NormalState());
+        player.setState(new NormalState(player));
     }
 }

@@ -9,7 +9,7 @@ import scene.writer.SceneWriter;
 import java.util.List;
 
 public abstract class Player extends Entity {
-    private PlayerState currentState = new NormalState();
+    private PlayerState currentState = new NormalState(this);
     private final int MAX_ACTION_POINTS = 4;
     protected int actionPoints = MAX_ACTION_POINTS;
     private Inventory inventory = new Inventory(this);

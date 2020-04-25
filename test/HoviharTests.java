@@ -31,7 +31,7 @@ public class HoviharTests {
     }
 
     @Test
-    public void SatorHasznalata() throws UnsupportedEncodingException {
+    public void HoviharNoDMG() throws UnsupportedEncodingException {
         addCommand("tst loadmap stormtest.txt");
         addCommand("tst random");
 
@@ -55,7 +55,7 @@ public class HoviharTests {
         assertEquals("Successful tent use",scanner.nextLine());
         assertEquals("Skip",scanner.nextLine());
         assertEquals("Successful IgluBuild",scanner.nextLine());
-        assertEquals("Snow Storm dialog input required",scanner.nextLine());
+        //dialog here
         assertEquals("HP: 4",scanner.nextLine());
         assertEquals("AP: 4",scanner.nextLine());
         assertEquals("S010K; S01tK; S010K;",scanner.nextLine());
