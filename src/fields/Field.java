@@ -149,7 +149,6 @@ public abstract class Field {
 
     //Megnézi szomszédos mező stabilitását.
     public final String checkStability(int direction) {
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         Field neighbour = neighbors.get(direction);
         return neighbour.checkStability();
     }
