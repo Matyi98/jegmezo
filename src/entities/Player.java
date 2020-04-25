@@ -2,6 +2,7 @@ package entities;
 
 import items.*;
 import entities.behaviours.*;
+import scene.writer.SceneWriter;
 
 import java.util.List;
 
@@ -10,13 +11,20 @@ public abstract class Player extends Entity {
     private final int MAX_ACTION_POINTS = 4;
     private int actionPoints = MAX_ACTION_POINTS;
     private Inventory inventory;
-
+    protected int maxHealthPoints;
+    protected int healthPoints;
 
     /**
      * Létrehozza az objektumot.
      */
     public Player() {
     }
+
+    public void ShowStats() {
+        SceneWriter.OutStream.println("HP: " + String.valueOf(healthPoints));
+        SceneWriter.OutStream.println("AP: " + String.valueOf(actionPoints));
+    }
+
 
     //Megnöveli a játékos életét.
     private void incrementHP(){
