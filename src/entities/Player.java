@@ -127,7 +127,7 @@ public abstract class Player extends Entity {
      */
     public boolean pickUpItem(){
         boolean accepted = false; //bekerult-e az item az inventoryba
-        if(actionPoints != 0) {
+        if(actionPoints != 0 && fieldUnder.getSnowLevel() == 0) {
             Item i = fieldUnder.getItem(); //megprobalja kivenni az itemet a fieldrol
             if (i != null) {
                 accepted = inventory.add(i); //megprobalja az itemet betenni az inventoryba
@@ -213,7 +213,6 @@ public abstract class Player extends Entity {
             actionPoints--;
             GameController.OutStream.println("Successful tent use.");
         }
-
     }
 
     @Override

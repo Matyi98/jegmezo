@@ -79,14 +79,4 @@ public class UnstableIceField extends IceField{
     public String checkStability() {
         return String.valueOf(weightLimit);
     }
-
-    //Játékos átadása a aszomszd mezőnek, a megadott irányba.
-    @Override
-    public void placeEntityToNextField(int direction, Entity entity){
-        //Szomszéd mező lekérése.
-        Field neighbour = neighbors.get(direction);
-        //Átadás a szomszédnak.
-        neighbour.acceptEntity(entity);
-    }
-
 }
