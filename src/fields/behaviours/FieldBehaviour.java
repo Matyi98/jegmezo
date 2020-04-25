@@ -8,20 +8,23 @@ import java.util.Collection;
 public abstract class FieldBehaviour {
     protected Field field;
 
-    public void performSnow(Collection<Entity> entities){
+    public void performSnow(Collection<Entity> entities) {
 
     }
 
-    public abstract boolean buildTent();
+    public boolean buildTent() {
+        return false;
+    }
+
+    public boolean buildIgloo() {
+        return false;
+    }
+
     public void destroyTent(){
 
     }
 
-    public abstract boolean buildIgloo();
-
-    public void collideEntities(Entity enteringEntity){
-
-    }
+    public abstract void collideEntities(Entity enteringEntity);
 
     /**
      * Kiírja az állapot röviden.

@@ -14,7 +14,7 @@ public abstract class Field {
     protected int snowLevel;
     private static int MAX_SNOWLEVEL = 9;
     protected ArrayList<Field> neighbors = new ArrayList<>();
-    protected List<Entity> entities = new ArrayList<>();
+    protected ArrayList<Entity> entities = new ArrayList<>();
 
     private static int staticIndex = 0;
     private int fieldIndex;
@@ -67,6 +67,11 @@ public abstract class Field {
         this.neighbors.add(neighbour);
     }
 
+
+    public void setBehaviour(FieldBehaviour fb){
+        behaviour = fb;
+    }
+
     //Ezen fielden lévő player átmozgatása egy szomszédos fieldre
     public boolean placeEntityToNextField(int direction, Entity entity){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
@@ -101,13 +106,21 @@ public abstract class Field {
 
     //Hószint megváltoztatása.
     public final boolean changeSnowLevel(int delta){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        //Ha ásni próbálnak, de már nincs több hó, akkor hamissal visszatér.
-        if (snowLevel <= 0 && delta < 0)
+        if(snowLevel <= 0 && delta < 0){
             return false;
+        }
 
-        //Változtatja a hószintet.
-        snowLevel = snowLevel + delta;
+        int sum = snowLevel + delta;
+        if(sum < 0){
+            snowLevel = 0;
+        }
+        else if (sum > MAX_SNOWLEVEL){
+            snowLevel = MAX_SNOWLEVEL;
+        }
+        else{
+            snowLevel = sum;
+        }
+
         return true;
     }
 
@@ -142,7 +155,11 @@ public abstract class Field {
 
     public abstract boolean buildTent();
 
-    public void destroyTent() { }
+    public abstract void destroyTent();
+
+    public abstract void performSnow();
+
+    public abstract void collideEntities(Entity enteringEntity);
 
     //Megnézi a mező stabilitását
     public abstract String checkStability();

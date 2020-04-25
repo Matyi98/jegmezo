@@ -29,25 +29,13 @@ public abstract class IceField extends Field {
         return item;
     }
 
-
-    //Iglu építése
-    @Override
-    public boolean buildIgloo() {
-        return false;
-    }
-
-    @Override
-    public boolean buildTent() {
-        return false;
-    }
-
     public void removeItem() {
         item = null;
     }
 
     /**
      * Nincs értelme egyelőre IceFielden embert kiválasztani.
-     * @return
+     * @return kiválasztott entitás
      */
     public Entity selectEntity(){ return null;}
 

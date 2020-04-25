@@ -11,10 +11,6 @@ public abstract class Entity {
     protected GameController gameController;
     protected int actualDirection;
 
-
-
-
-
     public abstract void ShowShort() ;
 
     /**

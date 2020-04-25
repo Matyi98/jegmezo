@@ -6,8 +6,10 @@ import entities.Player;
 import items.Item;
 import scene.writer.SceneWriter;
 
+import java.util.Random;
+
 public class UnstableIceField extends IceField{
-    private int stability;
+    private int stability = new Random().nextInt(6);
 
     @Override
     public void Show() {
@@ -35,7 +37,22 @@ public class UnstableIceField extends IceField{
 
     @Override
     public boolean buildTent() {
-        return false;
+        return behaviour.buildTent();
+    }
+
+    @Override
+    public void destroyTent() {
+        behaviour.destroyTent();
+    }
+
+    @Override
+    public void performSnow() {
+        behaviour.performSnow(entities);
+    }
+
+    @Override
+    public void collideEntities(Entity enteringEntity) {
+        behaviour.collideEntities(enteringEntity);
     }
 
     //Jáékos befogadása a mezőre.
@@ -50,17 +67,12 @@ public class UnstableIceField extends IceField{
     //Megadja a mező saját stabilitását.
     @Override
     public String checkStability() {
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        stability = 3;
-        System.out.println("sikeres stabilitás vizsgálat: unstableIceField: "+stability);
-        //A stabilitását adja vissza.
         return String.valueOf(stability);
     }
 
     //Játékos átadása a aszomszd mezőnek, a megadott irányba.
     @Override
     public boolean placeEntityToNextField(int direction, Entity entity){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //Szomszéd mező lekérése.
         Field neighbour = neighbors.get(direction);
         //Átadás a szomszédnak.

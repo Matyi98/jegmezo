@@ -50,6 +50,21 @@ public class Hole extends Field {
     }
 
     @Override
+    public void destroyTent() {
+
+    }
+
+    @Override
+    public void performSnow() {
+
+    }
+
+    @Override
+    public void collideEntities(Entity enteringEntity) {
+
+    }
+
+    @Override
     public String checkStability() {
         //Megadja a mező stabilitását.
         return "Hole";

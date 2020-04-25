@@ -30,6 +30,8 @@ public class StableIceField extends IceField{
         this.item = item;
     }
 
+    public Item getItem(){ return item;}
+
     //Játékos befogadása a mezőre.
     @Override
     public boolean acceptEntity(Entity entity) {
@@ -51,15 +53,28 @@ public class StableIceField extends IceField{
     //Iglu építése a mezőn.
     @Override
     public boolean buildIgloo(){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        System.out.println("Sikeres iglu epites. ");
-        return (behaviour.buildIgloo());
+        return behaviour.buildIgloo();
     }
 
     @Override
     public boolean buildTent() {
-        return false;
+        return behaviour.buildTent();
     }
 
-    public Item getItem(){ return item;}
+    @Override
+    public void destroyTent() {
+        behaviour.destroyTent();
+    }
+
+    @Override
+    public void performSnow() {
+        behaviour.performSnow(entities);
+    }
+
+    @Override
+    public void collideEntities(Entity enteringEntity) {
+        behaviour.collideEntities(enteringEntity);
+    }
+
+
 }
