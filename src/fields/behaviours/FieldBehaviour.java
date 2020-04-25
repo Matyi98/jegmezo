@@ -12,10 +12,7 @@ public abstract class FieldBehaviour {
 
     }
 
-    public boolean buildTent(){
-        return false;
-    }
-
+    public abstract boolean buildTent();
     public void destroyTent(){
 
     }

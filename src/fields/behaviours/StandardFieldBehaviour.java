@@ -9,9 +9,7 @@ public class StandardFieldBehaviour extends FieldBehaviour {
     }
 
     @Override
-    public boolean buildIgloo() {
-        return true;
-    }
+    public boolean buildIgloo() { return true; }
 
     /**
      * Kiírja az állapot röviden. Ennek az állípotnak nincs rövid jele.

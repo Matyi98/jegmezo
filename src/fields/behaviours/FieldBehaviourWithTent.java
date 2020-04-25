@@ -8,13 +8,11 @@ public class FieldBehaviourWithTent extends FieldBehaviour{
     }
 
     public boolean buildTent() {
-        return true;
+        return false;
     }
 
     @Override
-    public boolean buildIgloo() {
-        return true;
-    }
+    public boolean buildIgloo() { return true; }
 
     /**
      * Kiírja az állapot röviden.

@@ -14,9 +14,7 @@ public class FieldBehaviourWithIgloo extends FieldBehaviour {
     }
 
     @Override
-    public boolean buildIgloo() {
-        return false;
-    }
+    public boolean buildIgloo() { return false; }
 
     /**
      * Kiírja az állapot röviden.
