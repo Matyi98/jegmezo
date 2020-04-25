@@ -48,6 +48,7 @@ public abstract class Player extends Entity {
                 this.specialPower();
                 break;
             case "skip":
+                GameController.OutStream.println("Skip");
                 return false;
             case "shovel":
                 this.shovel(1);

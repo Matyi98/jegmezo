@@ -64,6 +64,7 @@ public class Map0Tests {
     public void MezoBeszakadasa() throws UnsupportedEncodingException {
         addCommand("p turn d");
         addCommand("p turn d");
+        addCommand("p turn d");
         addCommand("p move");
         addCommand("p turn d");
         addCommand("p turn d");
@@ -81,6 +82,7 @@ public class Map0Tests {
         System.out.println(baos.toString());
 
         assertEquals("Successful turn: 5",scanner.nextLine());
+        assertEquals("Successful turn: 7",scanner.nextLine());
         assertEquals("Successful turn: 10",scanner.nextLine());
         assertEquals("Successful move: 10",scanner.nextLine());
         assertEquals("Successful turn: 9",scanner.nextLine());
