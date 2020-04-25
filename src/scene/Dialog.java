@@ -44,13 +44,10 @@ public class Dialog {
             int iAns = Integer.parseInt(sAns);
 
             if (iAns > 0 && iAns < options.size())
-                break;
+                return iAns;
             else
                 OutStream.println("Invalid answer.");
-
-            return iAns;
         }
-        return 0;
     }
 
 

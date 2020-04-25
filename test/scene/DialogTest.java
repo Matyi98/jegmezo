@@ -49,7 +49,7 @@ public class DialogTest {
         String input = "1";
         setInputString(input);
 
-        assertEquals(d.ShowDialog(),1);
+        assertEquals(1, d.ShowDialog());
     }
 
     @Test
@@ -57,7 +57,7 @@ public class DialogTest {
         String input = "2";
         setInputString(input);
 
-        assertEquals(d.ShowDialog(),2);
+        assertEquals(2, d.ShowDialog());
     }
 
 
