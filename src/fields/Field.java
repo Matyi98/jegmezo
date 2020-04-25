@@ -90,9 +90,15 @@ public abstract class Field {
         neighbors.get(direction).acceptEntity(entities.get(0));
     }
 
-    public void pullOutPlayerFrom(int direction){
-        neighbors.get(direction).placeEntityToNextField(UID);
-        entities.get(1).makeWalk();
+    public boolean pullOutPlayerFrom(int direction){
+        Entity entity = neighbors.get(direction).selectEntity();
+        if(entity != null)
+        {
+            neighbors.get(direction).placeEntityToNextField(UID, entity);
+            return true;
+        }
+        return false;
+
     }
 
     public void removeItem() {
@@ -167,6 +173,8 @@ public abstract class Field {
     public void step(){
         for(Entity e: entities)
             e.step();
+
+        destroyTent();
     }
 
     public int getNeighbourCount() {
