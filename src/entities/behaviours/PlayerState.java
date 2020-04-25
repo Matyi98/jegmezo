@@ -3,7 +3,7 @@ package entities.behaviours;
 import entities.Player;
 
 public abstract class PlayerState {
-    private Player player;
+    protected Player player;
 
     public void drown(){
 
