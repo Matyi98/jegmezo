@@ -64,7 +64,7 @@ public class UnstableIceField extends IceField{
         entities.add(entity);
         if(stability<entities.size())
         {
-            //board.changeField()
+            board.changeField(this, new Hole(), entities, neighbors);
         }
         return true;
     }

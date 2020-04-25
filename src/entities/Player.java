@@ -1,5 +1,6 @@
 package entities;
 
+import fields.Field;
 import items.*;
 import entities.behaviours.*;
 import scene.GameController;
@@ -167,12 +168,8 @@ public abstract class Player extends Entity {
         healthPoints--;
         if(healthPoints <= 0)
             this.die();
-
     }
 
-    /*
-    Visszaadja a játékos itemeit.
-     */
     List<Item> getItems(){
         return null;
     }

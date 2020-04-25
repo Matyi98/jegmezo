@@ -40,6 +40,7 @@ public class StableIceField extends IceField{
     public boolean acceptEntity(Entity entity) {
         entities.add(entity);
         entity.walk();
+        entity.changeField(this);
         return true;
     }
 

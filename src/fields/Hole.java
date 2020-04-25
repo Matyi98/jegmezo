@@ -42,6 +42,7 @@ public class Hole extends Field {
     public boolean acceptEntity(Entity entity) {
         entities.add(entity);
         entity.drown();
+        entity.changeField(this);
         return true;
     }
 
