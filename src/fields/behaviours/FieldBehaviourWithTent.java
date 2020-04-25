@@ -5,8 +5,14 @@ import scene.writer.SceneWriter;
 public class FieldBehaviourWithTent extends FieldBehaviour{
     @Override
     public void destroyTent(){
-
     }
+
+    public boolean buildTent() {
+        return false;
+    }
+
+    @Override
+    public boolean buildIgloo() { return true; }
 
     /**
      * Kiírja az állapot röviden.

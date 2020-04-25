@@ -9,7 +9,7 @@ import java.util.List;
 public abstract class Player extends Entity {
     private PlayerState actualState;
     private final int MAX_ACTION_POINTS = 4;
-    private int actionPoints = MAX_ACTION_POINTS;
+    protected int actionPoints = MAX_ACTION_POINTS;
     private Inventory inventory;
     protected int maxHealthPoints;
     protected int healthPoints;
