@@ -16,8 +16,8 @@ public abstract class Field {
     protected ArrayList<Entity> entities = new ArrayList<>();
     protected Board board;
 
-    private static int autoIncrementID = 1;
-    private int UID;
+    protected static int autoIncrementID = 0;
+    protected int UID;
     protected FieldBehaviour behaviour;
 
     public Field() {
@@ -74,25 +74,23 @@ public abstract class Field {
     }
 
     //Ezen fielden lévő player átmozgatása egy szomszédos fieldre
-    public boolean placeEntityToNextField(int direction, Entity entity){
-        return neighbors.get(direction).acceptEntity(entity);
+    public void placeEntityToNextField(int direction, Entity entity){
+         neighbors.get(direction).acceptEntity(entity);
+         this.entities.remove(entity);
     }
 
-    public boolean placeEntityToNextField(int direction){
-        boolean success = neighbors.get(direction).acceptEntity(entities.get(0));
-        return success;
+    public void placeEntityToNextField(int direction){
+        neighbors.get(direction).acceptEntity(entities.get(0));
     }
 
-    public boolean pullOutPlayerFrom(int direction){
-        boolean success = neighbors.get(direction).placeEntityToNextField(UID);
+    public void pullOutPlayerFrom(int direction){
+        neighbors.get(direction).placeEntityToNextField(UID);
         entities.get(1).walk();
-        return success;
     }
 
     public void removeItem() {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
     }
-
 
     public final boolean changeSnowLevel(int delta){
         if(snowLevel <= 0 && delta < 0){
@@ -126,7 +124,7 @@ public abstract class Field {
         return null;
     }
 
-    public abstract boolean acceptEntity(Entity entity);
+    public abstract void acceptEntity(Entity entity);
 
     public abstract boolean buildIgloo();
 

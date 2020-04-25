@@ -37,11 +37,10 @@ public class StableIceField extends IceField{
 
     //Játékos befogadása a mezőre.
     @Override
-    public boolean acceptEntity(Entity entity) {
+    public void acceptEntity(Entity entity) {
         entities.add(entity);
         entity.walk();
         entity.changeField(this);
-        return true;
     }
 
     //Megadja a mező saját stabilitását.

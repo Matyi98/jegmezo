@@ -1,5 +1,7 @@
 package entities;
 
+import fields.Field;
+import scene.GameController;
 import scene.writer.SceneWriter;
 
 public class ArcticExplorer extends Player {
