@@ -16,8 +16,8 @@ public class GameController {
     public GameController() {
     }
 
-    public void ShowMap() {
-        board.Show();
+    public void ShowMap(boolean showEdges) {
+        board.Show(showEdges);
     }
 
     /**
@@ -63,7 +63,7 @@ public class GameController {
                 String data = userInput.split(" ")[1].toLowerCase();
                 switch (data) {
                     case "map":
-                        this.ShowMap();
+                        this.ShowMap(false);
                         break;
                     case "stats":
                         players.get(currentPlayer).ShowStats();

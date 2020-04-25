@@ -21,7 +21,7 @@ public class Main {
         System.out.println("");
         System.out.println("Pálya betöltve Sikeresen");
 
-        gc.ShowMap();
+        gc.ShowMap(false);
 
         System.out.print("A program leáll, viszlát!");
     }

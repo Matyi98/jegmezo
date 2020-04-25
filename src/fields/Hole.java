@@ -5,6 +5,7 @@ import items.Item;
 import scene.Board;
 import scene.writer.SceneWriter;
 
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -17,7 +18,7 @@ public class Hole extends Field {
      * @param i A mezőn lévő item.
      * @param e A mezőn lévő entitás.                   Ignorált, hiszen lukon nem kezdhet entitás.
      */
-    public final void Setup(Board b, int w, int s, Optional<Item> i, Optional<Entity> e) {
+    public final void Setup(Board b, int w, int s, Optional<Item> i, ArrayList<Entity> e) {
         board = b; snowLevel = s;
     }
 

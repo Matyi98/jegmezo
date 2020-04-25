@@ -70,12 +70,16 @@ public class SceneReader {
             int weightLimit = Character.getNumericValue(sNode.charAt(1));
             int snowLevel = Character.getNumericValue(sNode.charAt(2));
             Item item = parseItem(sNode.charAt(3));
-            Entity entity = parseEntity(sNode.charAt(4));
 
-            if(entity != null)
-                entity.Setup(gc, f);
+            ArrayList<Entity> ents = new ArrayList<>();
+            for (int i = 4; i < sNode.length(); i++) {
+                Entity entity = parseEntity(sNode.charAt(i));
+                ents.add(entity);
+                if(entity != null)
+                    entity.Setup(gc, f);
+            }
 
-            f.Setup(board, weightLimit, snowLevel, Optional.ofNullable(item), Optional.ofNullable(entity));
+            f.Setup(board, weightLimit, snowLevel, Optional.ofNullable(item), ents);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e.getMessage());
