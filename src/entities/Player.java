@@ -97,8 +97,6 @@ public abstract class Player extends Entity {
 
     //Eszkösz használat az inventoryban elfoglalt index szerint.
     public void useItem(int itemIndex){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        //inventoryn kesresztül item használata.
         inventory.useItem(itemIndex);
     }
 
@@ -175,7 +173,7 @@ public abstract class Player extends Entity {
     }
 
     public void rescueFriend(){
-       fieldUnder.pullOutPlayerFrom(actualDirection);
+       if(fieldUnder.pullOutPlayerFrom(actualDirection));
             actionPoints--;
 
     }
