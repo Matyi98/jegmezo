@@ -63,15 +63,15 @@ public class SceneReader {
         Field f = null;
         try {
             f = parseField(sNode.charAt(0));
-            int wightLimit = Character.getNumericValue(sNode.charAt(1));
+            int weightLimit = Character.getNumericValue(sNode.charAt(1));
             int snowLevel = Character.getNumericValue(sNode.charAt(2));
-            Item itwm = parseItem(sNode.charAt(3));
+            Item item = parseItem(sNode.charAt(3));
             Entity entity = parseEntity(sNode.charAt(4));
-            entity.Setup(gc, f);
 
-            Optional<Item> itemNew = Optional.ofNullable(itwm);
-            Optional<Entity> entityNew = Optional.ofNullable(entity);
-            f.Setup(wightLimit, snowLevel, itemNew, entityNew);
+            if(entity != null)
+                entity.Setup(gc, f);
+
+            f.Setup(weightLimit, snowLevel, Optional.ofNullable(item), Optional.ofNullable(entity));
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e.getMessage());
