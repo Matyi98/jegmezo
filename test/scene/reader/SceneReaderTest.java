@@ -29,8 +29,4 @@ public class SceneReaderTest {
     public void loadScene() throws FileNotFoundException {
         assertNotNull(gc);
     }
-
-
-
-
 }
