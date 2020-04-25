@@ -26,7 +26,7 @@ public abstract class Field {
     }
 
     /**
-     * Megjeleníti a Fieldet a SceneWirterben meghatározott folyamon.
+     * Megjeleníti a Fieldet a SceneWriterben meghatározott folyamon.
      */
     public abstract void Show();
 

@@ -45,12 +45,6 @@ public abstract class Player extends Entity {
 
     }
 
-    //Játékos mozgása.
-    public void move(){
-//        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-//        fieldUnder.placePlayerToNextField(Direction.UP, this);
-    }
-
     //Eszkösz használat az inventoryban elfoglalt index szerint.
     public void useItem(int itemIndex){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
@@ -61,7 +55,6 @@ public abstract class Player extends Entity {
     //Játékos elhagyja a vizet.
     @Override
     public void walk(){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         actualState.walk();
     }
 
@@ -74,7 +67,6 @@ public abstract class Player extends Entity {
     //Játékos meghal.
     @Override
     public void die(){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         gameController.gameOver();
 
     }
@@ -84,7 +76,6 @@ public abstract class Player extends Entity {
      * @return a targyfelvetel sikeressege
      */
     public boolean pickUpItem(){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         boolean accepted = false; //bekerult-e az item az inventoryba
         if(actionPoints != 0) {
             Item i = fieldUnder.getItem(); //megprobalja kivenni az itemet a fieldrol
@@ -101,10 +92,8 @@ public abstract class Player extends Entity {
 
     //Ennyi hószintet takarít el a mezőről.
     public void shovel(int snowLevel){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //Ha sikeres volt, akkor csökkenti az akciópontot.
         if(fieldUnder.changeSnowLevel(-snowLevel)) {
-            System.out.println("Sikeres hotakaritas");
             actionPoints--;
         }
     }
@@ -113,9 +102,13 @@ public abstract class Player extends Entity {
     public void eat(Item food){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         if(healthPoints < maxHealthPoints){
-            inventory.removeSpecificItem( food );
+            removeItem(food);
             this.incrementHP();
         }
+    }
+
+    public void removeItem(Item item){
+        inventory.removeSpecificItem(item);
     }
 
     //Játékos életének csökkentése.
@@ -173,7 +166,7 @@ public abstract class Player extends Entity {
         gameController.questItemFound();
     }
 
-    public void builtTent(){
+    public void buildTent(){
 
     }
 

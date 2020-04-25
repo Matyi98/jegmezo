@@ -8,11 +8,17 @@ import java.util.List;
 
 //A játékos inventoryját megvalósító osztály
 public class Inventory {
-    //Maximum ennyi item lehet az inventoryban.
-    private int maxItemCount = 6;
-    //Az inventory tulajdonosa.
+    /**
+     * Maximum item-ek száma az inventory-ban
+     */
+    private final int maxItemCount = 6;
+    /**
+     * Invetory tulajdonosa
+     */
     private Player owner;
-    //Az inventoryban tráolt itemek száma.
+    /**
+     * Inventory-ban tárolt elemek
+     */
     List<Item> items = new ArrayList<>();
 
     //Létrehoz egy új inventoryt és beállítja a tulajdonosát.
@@ -27,21 +33,17 @@ public class Inventory {
 
     //Referencia alapján távolít el egy itemet az inventoryból.
     public void removeSpecificItem(Item item){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         items.remove(item);
     }
 
     //Új Item felvétele
     public boolean add(Item newItem) {
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-
         //Ha van még hely az inventoryban,
         if(maxItemCount-items.size() > 0) {
             //akkor beleteszi az itemet,
             items.add(newItem);
             //beállítja az Item tulajdonságát,
             newItem.setOwner(owner);
-            System.out.println("Sikeres item hozzaadas. ");
             //és igazzal tér vissza, ezáltal jelezve a playernek, hogy sikeres volt a felvétel.
             return true;
         } else {
@@ -53,7 +55,6 @@ public class Inventory {
 
     //Adott indexen lévő Item használata.
     public void useItem(int itemIndex){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         items.get(itemIndex).use();
     }
 
