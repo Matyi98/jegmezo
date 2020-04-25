@@ -1,6 +1,8 @@
+package scene;
+
 import main.Main;
+import org.junit.Before;
 import org.junit.Test;
-import scene.GameController;
 import scene.writer.SceneWriter;
 
 import java.io.*;
@@ -9,7 +11,7 @@ import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
 
-public class HoviharTests {
+public class PlayerRescueTest {
     Scanner InStream;
     ByteArrayOutputStream baos;
 
@@ -30,35 +32,30 @@ public class HoviharTests {
         sInput += s + '\n';
     }
 
-    @Test
-    public void HoviharNoDMG() throws UnsupportedEncodingException {
-        addCommand("tst loadmap stormtest.txt");
-        addCommand("tst random");
-
-        addCommand("p skip");
+    @Before
+    public void initialise() throws UnsupportedEncodingException {
+        addCommand("tst loadmap ropetest.txt");
         addCommand("p pickup");
+        addCommand("p skip");
+        addCommand("p move");
         addCommand("p use 0");
-        addCommand("p skip");
-        addCommand("p special");
-        addCommand("p skip");
-        addCommand("1 1 1");
+        addCommand("1");
         addCommand("s map");
-        addCommand("s stat");
         setInputString();
+    }
 
+    @Test
+    public void test() {
         Main.NewGame(InStream);
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
-        assertEquals("Skip",scanner.nextLine());
-        assertEquals("Tent picked up",scanner.nextLine());
-        assertEquals("Successful tent use",scanner.nextLine());
-        assertEquals("Skip",scanner.nextLine());
-        assertEquals("Successful IgluBuild",scanner.nextLine());
-        //dialog here
-        assertEquals("HP: 4",scanner.nextLine());
-        assertEquals("AP: 4",scanner.nextLine());
-        assertEquals("S010K; S01tK; S010K;",scanner.nextLine());
-    }
+        assertEquals("Rope picked up", scanner.nextLine());
+        assertEquals("Skip", scanner.nextLine());
+        assertEquals("Successful move: 2", scanner.nextLine());
+        // Rope Dialog
+        assertEquals("Successful rope usage", scanner.nextLine());
+        assertEquals("S00KK; H0000;", scanner.nextLine());
 
+    }
 }

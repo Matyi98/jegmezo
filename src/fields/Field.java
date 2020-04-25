@@ -68,7 +68,12 @@ public abstract class Field {
     public void ConnectTo(Field neighbour) {
         this.neighbors.add(neighbour);
     }
-
+    
+    public void changeNeighbor(Field newNeighbor, Field oldNeighbor)
+    {
+        this.neighbors.remove(oldNeighbor);
+        this.neighbors.add(newNeighbor);
+    }
 
     public void setBehaviour(FieldBehaviour fb){
         behaviour = fb;
