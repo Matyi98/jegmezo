@@ -9,7 +9,7 @@ import java.util.Random;
  * A játékban megadott randomizálásnak függően generál random számot
  */
 public class RandomNumber {
-    boolean isRandomEnabled;
+    static public boolean isRandomEnabled;
 
     /**
      * Létrehozza az objektumot

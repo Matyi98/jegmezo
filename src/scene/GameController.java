@@ -1,6 +1,7 @@
 package scene;
 
 import entities.*;
+import main.RandomNumber;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -58,6 +59,8 @@ public class GameController {
                 String command = userInput.split(" ")[1].toLowerCase();
                 if (command.equals("exit"))
                     return false;
+                if (command.equals("random"))
+                    RandomNumber.isRandomEnabled = true;
                 break;
             case "s":
                 String data = userInput.split(" ")[1].toLowerCase();
