@@ -3,6 +3,7 @@ package scene;
 import entities.*;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class GameController {
     private int questItemCount = 0;
@@ -26,67 +27,39 @@ public class GameController {
         this.players = players;
     }
 
-    public void start() {
+    private int currentPlayer = 0;
+    private void nextPlayer() {
+        currentPlayer++;
+        if (currentPlayer >= players.size())
+            currentPlayer = 0;
+    }
+
+    public void start(Scanner stdin) {
         while (true) {
-            
-
-
+            String next = stdin.nextLine();
+            interpretUserInput(next);
         }
     }
 
-    private void interpretUserInput(String userInput, int currentPlayer) {
+    private void interpretUserInput(String userInput) {
         String type = userInput.split(" ")[0].toLowerCase();
         switch (type) {
             case "p":
-                String action = userInput.split(" ")[1].toLowerCase();
-                switch (action) {
-                    case "turn":
-                        String parameter = userInput.split(" ")[2].toLowerCase();
-                        switch (parameter) {
-                            case "a":
-                                players.get(currentPlayer).turn(-1);
-                                break;
-                            case "b":
-                                players.get(currentPlayer).turn(1);
-                                break;
-                            default:
-                                System.out.println("bad parameter.");
-                        }
-                        break;
-                    case "move":
-                        players.get(currentPlayer).move();
-                        break;
-                    case "use":
-                        int itemIndex = Integer.parseInt(userInput.split(" ")[2]);
-                        players.get(currentPlayer).useItem(itemIndex);
-                        break;
-                    case "special":
-                        players.get(currentPlayer).specialPower();
-                        break;
-                    case "skip":
-                        // TODO players.get(currentPlayer).skip();
-                        break;
-                    case "shovel":
-                        players.get(currentPlayer).shovel(1);
-                        break;
-                    case "pickup":
-                        players.get(currentPlayer).pickUpItem();
-                        break;
-                    default:
-                        System.out.println("bad action");
-                }
+                boolean hasMorePoints = players.get(currentPlayer).Action(userInput.split(" ")[1].toLowerCase());
+                if (!hasMorePoints)
+                    nextPlayer();
                 break;
             case "s":
                 String data = userInput.split(" ")[1].toLowerCase();
                 switch (data) {
                     case "map":
-                        // TODO pálya kirajzolása
+                        this.ShowMap();
                         break;
                     case "stats":
-                        players.get(currentPlayer).showStats();
+                        players.get(currentPlayer).ShowStats();
                         break;
                     case "inv":
-                        players.get(currentPlayer).getInventory().show();
+                        players.get(currentPlayer).ShowInventory();
                         break;
                     default:
                         System.out.println("bad command.");
