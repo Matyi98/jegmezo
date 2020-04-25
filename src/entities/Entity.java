@@ -70,8 +70,8 @@ public abstract class Entity {
 
     public void move() {
         int oldUID = fieldUnder.GetUID();
-        this.actualDirection = 0;
         fieldUnder.placeEntityToNextField(actualDirection, this);
+        this.actualDirection = 0;
         GameController.OutStream.println("Successful move: " + fieldUnder.GetUID());
     }
 
