@@ -113,7 +113,6 @@ public abstract class Player extends Entity {
     @Override
     public void die(){
         gameController.gameOver();
-
     }
 
     /**
@@ -135,7 +134,7 @@ public abstract class Player extends Entity {
         return accepted;
     }
 
-    public void shovel(){
+    public void digByHand(){
         if(fieldUnder.changeSnowLevel(-1)) {
             actionPoints--;
         }
