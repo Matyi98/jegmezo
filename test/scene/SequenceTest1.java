@@ -1,5 +1,6 @@
 package scene;
 
+import main.Main;
 import org.junit.Before;
 import org.junit.Test;
 import scene.reader.SceneReader;
@@ -9,6 +10,7 @@ import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class SequenceTest1 {
@@ -24,18 +26,11 @@ public class SequenceTest1 {
     String sInput;
     private void addCommand(String s) {
         s = s.trim();
-        sInput += s;
+        sInput += s + '\n';
     }
 
     @Before
     public void initialise() throws FileNotFoundException, UnsupportedEncodingException {
-        final String pwd = System.getProperty("user.dir");
-        File f = new File(pwd+"/maps/map0.txt");
-        FileInputStream fis = new FileInputStream(f);
-
-        SceneReader sceneReader = new SceneReader(fis);
-        gc = sceneReader.LoadScene();
-
         GameController.OutStream = new PrintStream(
                 baos = new ByteArrayOutputStream(), true,
                 StandardCharsets.UTF_8.name()
@@ -54,8 +49,9 @@ public class SequenceTest1 {
 
     @Test
     public void test1() throws UnsupportedEncodingException {
-        gc.Start(InStream);
-        System.out.println(baos.toString(StandardCharsets.UTF_8.name()));
+        Main.NewGame(InStream);
+        Scanner scanner = new Scanner(baos.toString());
+        scanner.nextLine();
     }
 
 
