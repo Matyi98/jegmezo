@@ -66,13 +66,12 @@ public class Map0Tests {
         addCommand("p turn d");
         addCommand("p turn d");
         addCommand("p move");
-        addCommand("p turn d");
-        addCommand("p turn d");
+        addCommand("p turn a");
+        addCommand("p turn a");
         addCommand("p move");
         addCommand("p skip");
         addCommand("p skip");
-        addCommand("p turn d");
-        addCommand("p turn d");
+        addCommand("p turn a");
         addCommand("p move");
         addCommand("s map");
         setInputString();
@@ -85,13 +84,12 @@ public class Map0Tests {
         assertEquals("Successful turn: 7",scanner.nextLine());
         assertEquals("Successful turn: 10",scanner.nextLine());
         assertEquals("Successful move: 10",scanner.nextLine());
-        assertEquals("Successful turn: 9",scanner.nextLine());
+        assertEquals("Successful turn: 13",scanner.nextLine());
         assertEquals("Successful turn: 12",scanner.nextLine());
         assertEquals("Successful move: 12",scanner.nextLine());
         assertEquals("Skip",scanner.nextLine());
         assertEquals("Skip",scanner.nextLine());
 
-        assertEquals("Successful turn: 10",scanner.nextLine());
         assertEquals("Successful turn: 12",scanner.nextLine());
         assertEquals("Successful move: 12",scanner.nextLine());
         assertEquals("U20p0; S000M; H0000; H0000; S00c0; U3000; H0000; S00e0; S00s0; H0000; H0000; U200KEK; S0000;",scanner.nextLine());
