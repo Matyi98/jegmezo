@@ -1,7 +1,6 @@
-package scene;
-
 import org.junit.Before;
 import org.junit.Test;
+import scene.Dialog;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;

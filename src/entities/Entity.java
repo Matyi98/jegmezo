@@ -8,7 +8,7 @@ public abstract class Entity {
     protected Field fieldUnder;
 
     protected GameController gameController;
-    protected int actualDirection;
+    protected int actualDirection = 0;
 
     public abstract void ShowShort() ;
 
@@ -53,12 +53,13 @@ public abstract class Entity {
         else if (actualDirection > maxTurnableDirectionCount)
             actualDirection = 0;
 
-        GameController.OutStream.println("Succesful turn: " + fieldUnder.GetNeighbours().get(actualDirection).GetUID());
+        GameController.OutStream.println("Successful turn: " + fieldUnder.GetNeighbours().get(actualDirection).GetUID());
     }
 
     public void move() {
+        int oldUID = fieldUnder.GetUID();
         fieldUnder.placeEntityToNextField(actualDirection, this);
-        GameController.OutStream.println("Succesful move: " + fieldUnder.GetUID());
+        GameController.OutStream.println("Successful move: " + fieldUnder.GetUID());
     }
 
     public void collideWith(Entity otherEntity){
