@@ -65,5 +65,10 @@ public abstract class Entity {
 
     }
 
+    public void changeField(Field newField)
+    {
+        this.fieldUnder = newField;
+    }
+
     public abstract void decrementHP();
 }

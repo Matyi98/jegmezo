@@ -27,7 +27,6 @@ public class UnstableIceField extends IceField{
         else
         for (Entity e : entities)
             e.ShowShort();
-
         this.ShowState();
     }
 
