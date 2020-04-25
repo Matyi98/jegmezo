@@ -4,8 +4,9 @@ import scene.GameController;
 import scene.reader.SceneReader;
 
 import java.io.*;
+import java.util.Scanner;
 
-public class main {
+public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         System.out.print("A program elindult. Szia Uram!");
 
@@ -24,4 +25,18 @@ public class main {
 
         System.out.print("A program leáll, viszlát!");
     }
+
+    public static void NewGame(Scanner stdin) {
+        String first = stdin.nextLine();
+        String sMap = first.trim().split(" ")[2];
+        final String pwd = System.getProperty("user.dir");
+        File f = new File(pwd+"/maps/"+ sMap);
+        try {
+            FileInputStream fis = new FileInputStream(f);
+        }catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
+    }
+
 }

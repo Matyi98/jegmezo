@@ -40,17 +40,24 @@ public class GameController {
     public void Start(Scanner stdin) {
         while (stdin.hasNextLine()) {
             String next = stdin.nextLine();
-            interpretUserInput(next);
+            if (!interpretUserInput(next)) {
+                return;
+            }
         }
     }
 
-    private void interpretUserInput(String userInput) {
+    private boolean interpretUserInput(String userInput) {
         String type = userInput.split(" ")[0].toLowerCase();
         switch (type) {
             case "p":
                 boolean hasMorePoints = players.get(currentPlayer).Action(userInput.toLowerCase());
                 if (!hasMorePoints)
                     nextPlayer();
+                break;
+            case "tst":
+                String command = userInput.split(" ")[1].toLowerCase();
+                if (command.equals("exit"))
+                    return false;
                 break;
             case "s":
                 String data = userInput.split(" ")[1].toLowerCase();
@@ -72,6 +79,7 @@ public class GameController {
                 OutStream.println("bad command.");
                 break;
         }
+        return true;
     }
 
     public void win(int count) {

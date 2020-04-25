@@ -16,9 +16,15 @@ public class SequenceTest1 {
     Scanner InStream;
     ByteArrayOutputStream baos;
 
-    private void setInputString(String s) {
-        InputStream targetStream = new ByteArrayInputStream(s.getBytes());
+    private void setInputString() {
+        InputStream targetStream = new ByteArrayInputStream(sInput.getBytes());
         InStream = new Scanner(targetStream);
+    }
+
+    String sInput;
+    private void addCommand(String s) {
+        s = s.trim();
+        sInput += s;
     }
 
     @Before
@@ -35,7 +41,15 @@ public class SequenceTest1 {
                 StandardCharsets.UTF_8.name()
         );
 
-        setInputString("p turn a\np move\ns map\np move\np move\ns map\ns stats");
+        addCommand("tst loadmap map0.txt");
+        addCommand("p turn a");
+        addCommand("p move");
+        addCommand("s map");
+        addCommand("p move");
+        addCommand("s map");
+        addCommand("s stats");
+
+        setInputString();
     }
 
     @Test
