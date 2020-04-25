@@ -149,9 +149,9 @@ public class Map0Tests {
 
     @Test
     public void EszkimoSpecKepessege() throws UnsupportedEncodingException {
-        addCommand("p special");
         addCommand("p turn d");
         addCommand("p move");
+        addCommand("p special");
         addCommand("s map");
         setInputString();
 

@@ -23,7 +23,7 @@ public abstract class Field {
     protected FieldBehaviour behaviour;
 
     public Field() {
-        this.behaviour = new StandardFieldBehaviour();
+        this.behaviour = new StandardFieldBehaviour(this);
         this.UID = autoIncrementID++;
     }
 

@@ -57,7 +57,8 @@ public class UnstableIceField extends IceField{
     public void acceptEntity(Entity entity) {
         entities.add(entity);
         if(weightLimit < entities.size()) {
-            Hole hole = new Hole(this.neighbors, this.entities, this.board, this.autoIncrementID, this.UID, new StandardFieldBehaviour());
+            Hole hole = new Hole(this.neighbors, this.entities, this.board, this.autoIncrementID, this.UID);
+
             entity.changeField(hole);
             board.changeField(this,hole);
             for(Field field: neighbors)
