@@ -1,14 +1,12 @@
 package fields;
 
 import entities.Entity;
-
 import fields.behaviours.FieldBehaviour;
 import fields.behaviours.StandardFieldBehaviour;
 import items.Item;
 import scene.Board;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 public abstract class Field {
@@ -115,12 +113,7 @@ public abstract class Field {
     }
 
     public void snow(){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        this.changeSnowLevel(3);
-        for(Entity e: entities)
-        {
-            e.decrementHP();
-        }
+        behaviour.performSnow(entities);
     }
 
     public int getEntityCount(){

@@ -17,6 +17,7 @@ public class Board {
     }
 
     public void Show() {
+        boolean showEdges = false;
         ArrayList<String> pairs = new ArrayList<>();
 
         for (int i = 0; i < fields.size(); i++) {
@@ -32,11 +33,13 @@ public class Board {
                     pairs.add(Integer.toString(myIndex) + " " + Integer.toString(ni) + "; ");
             }
         }
+        SceneWriter.OutStream.println();
 
-        SceneWriter.OutStream.println();
-        for (String si : pairs)
-            SceneWriter.OutStream.print(si);
-        SceneWriter.OutStream.println();
+        if (showEdges) {
+            for (String si : pairs)
+                SceneWriter.OutStream.print(si);
+            SceneWriter.OutStream.println();
+        }
     }
 
     //Nándi: ez a függvény van az osztálydiagramon és nagyon furcsán néz ki, az argumentumok is indokolatlanok. Valószínűleg kell majd rajta változtatni.

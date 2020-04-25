@@ -22,6 +22,9 @@ public class UnstableIceField extends IceField{
         else
             SceneWriter.OutStream.print('0');
 
+        if (entities.size() == 0)
+            SceneWriter.OutStream.print('0');
+        else
         for (Entity e : entities)
             e.ShowShort();
 
