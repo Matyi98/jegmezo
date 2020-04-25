@@ -12,6 +12,10 @@ public class GameController {
     public GameController() {
     }
 
+    public void ShowMap() {
+        board.Show();
+    }
+
     /**
      * Beállítja a kezdőállapotot.
      * @param board A pálya.

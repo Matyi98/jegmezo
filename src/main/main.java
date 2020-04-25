@@ -15,8 +15,10 @@ public class main {
 
         SceneReader sceneReader = new SceneReader(fis);
         GameController gc = sceneReader.LoadScene();
-//        SequenceSelector sequenceSelector = new SequenceSelector();
-//        sequenceSelector.selectSequence();
+
+        System.out.println("almalafasdgfsadf");
+
+        gc.ShowMap();
 
         System.out.print("A program leáll, viszlát!");
     }

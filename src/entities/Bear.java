@@ -21,4 +21,9 @@ public class Bear extends Entity {
     public void collideWith(Entity otherEntity){
 
     }
+
+    @Override
+    public void decrementHP() {
+
+    }
 }

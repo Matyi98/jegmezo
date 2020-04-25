@@ -43,10 +43,6 @@ public abstract class Entity {
 
     }
 
-    public void decrementHP(){
-
-    }
-
     /**
      * Az Entityt forgatja a körülötte lévő szomszédos mezők irányába.
      * @param directionDelta 'A' betű lenyomására -1, 'D' betű lenyomására +1
@@ -72,6 +68,5 @@ public abstract class Entity {
 
     }
 
-
-
+    public abstract void decrementHP();
 }
