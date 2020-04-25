@@ -1,8 +1,7 @@
-package scene;
-
 import main.Main;
 import org.junit.Before;
 import org.junit.Test;
+import scene.GameController;
 import scene.writer.SceneWriter;
 
 import java.io.*;

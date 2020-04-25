@@ -1,8 +1,7 @@
-package scene;
-
 import main.Main;
 import org.junit.Before;
 import org.junit.Test;
+import scene.GameController;
 import scene.writer.SceneWriter;
 
 import java.io.*;
@@ -11,7 +10,7 @@ import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
 
-public class ArcticExplorerSpecialTest {
+public class DivingSuitTest {
     Scanner InStream;
     ByteArrayOutputStream baos;
 
@@ -34,8 +33,12 @@ public class ArcticExplorerSpecialTest {
 
     @Before
     public void initialise() throws UnsupportedEncodingException {
-        addCommand("tst loadmap kspec.txt");
-        addCommand("p special");
+        addCommand("tst loadmap suittest.txt");
+        addCommand("p pickup");
+        addCommand("p use 0");
+        addCommand("p move");
+        addCommand("p move");
+        addCommand("s map");
         setInputString();
     }
 
@@ -45,6 +48,10 @@ public class ArcticExplorerSpecialTest {
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
-        assertEquals("Stability of neighbor 0 : 2",scanner.nextLine());
+        assertEquals("Diving suit picked up", scanner.nextLine());
+        assertEquals("Diving suit used", scanner.nextLine());
+        assertEquals("Successful move: 2", scanner.nextLine());
+        assertEquals("Successful move: 3", scanner.nextLine());
+        assertEquals("S0000; H0000; S000K", scanner.nextLine());
     }
 }

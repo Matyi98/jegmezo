@@ -1,8 +1,7 @@
-package scene;
-
 import main.Main;
 import org.junit.Before;
 import org.junit.Test;
+import scene.GameController;
 import scene.writer.SceneWriter;
 
 import java.io.*;
@@ -11,7 +10,7 @@ import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
 
-public class DivingSuitTest {
+public class QuestItemTest {
     Scanner InStream;
     ByteArrayOutputStream baos;
 
@@ -34,12 +33,17 @@ public class DivingSuitTest {
 
     @Before
     public void initialise() throws UnsupportedEncodingException {
-        addCommand("tst loadmap suittest.txt");
+        addCommand("tst loadmap quest.txt");
+        addCommand("p pickup");
+        addCommand("p move");
+        addCommand("p move");
+        addCommand("p skip");
+        addCommand("p pickup");
+        addCommand("p move");
+        addCommand("p skip");
         addCommand("p pickup");
         addCommand("p use 0");
-        addCommand("p move");
-        addCommand("p move");
-        addCommand("s map");
+
         setInputString();
     }
 
@@ -49,10 +53,15 @@ public class DivingSuitTest {
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
-        assertEquals("Diving suit picked up", scanner.nextLine());
-        assertEquals("Diving suit used", scanner.nextLine());
+        assertEquals("Pistol picked up", scanner.nextLine());
         assertEquals("Successful move: 2", scanner.nextLine());
         assertEquals("Successful move: 3", scanner.nextLine());
-        assertEquals("S0000; H0000; S000K", scanner.nextLine());
+        assertEquals("Skip", scanner.nextLine());
+        assertEquals("Flare picked up", scanner.nextLine());
+        assertEquals("Successful move: 3", scanner.nextLine());
+        assertEquals("Skip", scanner.nextLine());
+        assertEquals("Cartridge picked up", scanner.nextLine());
+        assertEquals("Quest item used", scanner.nextLine());
+        assertEquals("Victory", scanner.nextLine());
     }
 }
