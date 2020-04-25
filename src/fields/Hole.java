@@ -6,6 +6,7 @@ import items.Item;
 import scene.writer.SceneWriter;
 
 import java.util.Optional;
+import java.util.Scanner;
 
 public class Hole extends Field {
 
@@ -57,5 +58,26 @@ public class Hole extends Field {
         return "Hole";
     }
 
+    public Entity selectEntity() {
+
+        System.out.println("Válassz alapján az alábbi megmenekítendő lények közül kit szeretnél kimenteni!");
+        System.out.println("A kiválasztáshoz add meg a sorszámát majd üss entert!");
+
+        for (int i = 0; i < entities.size(); i++)
+            System.out.println(i + ".: " + entities.get(i).toString());
+
+        Scanner s = new Scanner(System.in);
+
+        int NO_INPUT = -1;
+        int indexOfSelected = NO_INPUT;
+        try {
+            indexOfSelected = Integer.parseInt(s.nextLine());
+        } catch (NumberFormatException e){ }
+
+        if(indexOfSelected >= entities.size() || indexOfSelected < 0)
+            return null;
+
+        return entities.get(indexOfSelected);
+    }
 
 }

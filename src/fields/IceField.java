@@ -45,5 +45,9 @@ public abstract class IceField extends Field {
         item = null;
     }
 
-
+    /**
+     * Nincs értelme egyelőre IceFielden embert kiválasztani.
+     * @return
+     */
+    public Entity selectEntity(){ return null;}
     }

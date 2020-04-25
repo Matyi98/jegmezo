@@ -49,18 +49,18 @@ public abstract class Entity {
      * paraméterrel hívja a kontroller.
      */
     public final void turn(int directionDelta){
-        int maxTurableDirectionCount = fieldUnder.getNeighbourCount() - 1;
+        int maxTurnableDirectionCount = fieldUnder.getNeighbourCount() - 1;
 
         actualDirection += directionDelta;
 
         if(actualDirection < 0)
-            actualDirection = maxTurableDirectionCount;
-        else if (actualDirection > maxTurableDirectionCount)
+            actualDirection = maxTurnableDirectionCount;
+        else if (actualDirection > maxTurnableDirectionCount)
             actualDirection = 0;
     }
 
     public void move(){
-        fieldUnder.placeEntityToNextField(actualDirection);
+        fieldUnder.placeEntityToNextField(actualDirection, this);
     }
 
     public void collideWith(Entity otherEntity){
