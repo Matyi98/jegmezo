@@ -53,12 +53,7 @@ public class StableIceField extends IceField{
     public boolean buildIgloo(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         System.out.println("Sikeres iglu epites. ");
-        boolean success = behaviour.buildIgloo();
-        if(success)
-        {
-            behaviour = new FieldBehaviourWithIgloo();
-        }
-        return (success);
+        return (behaviour.buildIgloo(););
     }
 
     @Override
