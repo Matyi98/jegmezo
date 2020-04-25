@@ -3,29 +3,25 @@ package fields;
 import entities.Entity;
 import items.Item;
 import entities.Player;
+import scene.writer.SceneWriter;
 
 public class StableIceField extends IceField{
 
-    /**
-     * Inicializálja a mező kezdőállapotát.
-     * @param w A mező által elbírt entitások száma.    Ignorált, hiszen stabil.
-     * @param s A mezőn lévő hószintek kezdeti értéke.
-     * @param i A mezőn lévő item.
-     * @param e A mezőn lévő entitás.
-     */
-    public void Setup(int w, int s, Item i, Entity e) {
-        snowLevel = s;
-        item = i;
-        //TODO: entity
-    }
-
-    public StableIceField(){
-        super();
-    }
-
     @Override
     public void Show() {
+        SceneWriter.OutStream.print('S');
+        SceneWriter.OutStream.print('0');
+        SceneWriter.OutStream.print(snowLevel);
 
+        if (item != null)
+            item.ShowShort();
+        else
+            SceneWriter.OutStream.print('0');
+
+        for (Entity e : entities)
+            e.ShowShort();
+
+        this.ShowState();
     }
 
     //Mezőn tárolt tárgy beállíítása.

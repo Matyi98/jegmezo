@@ -9,10 +9,6 @@ public abstract class IceField extends Field {
     protected Item item;
     protected int weightLimit;
 
-    public IceField(){
-        super();
-    }
-
     /**
      * Inicializálja a mező kezdőállapotát.
      * @param w A mező által elbírt entitások száma.    Ignorált, hiszen ez egy luk.
@@ -20,7 +16,7 @@ public abstract class IceField extends Field {
      * @param i A mezőn lévő item.
      * @param e A mezőn lévő entitás.                   Ignorált, hiszen lukon nem kezdhet entitás.
      */
-    public void Setup(int w, int s, Optional<Item> i, Optional<Entity> e) {
+    public final void Setup(int w, int s, Optional<Item> i, Optional<Entity> e) {
         this.weightLimit = w;
         this.snowLevel = s;
         i.ifPresent(value -> this.item = value);

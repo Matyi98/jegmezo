@@ -28,5 +28,8 @@ public abstract class FieldBehaviour {
 
     }
 
-
+    /**
+     * Kiírja az állapot röviden.
+     */
+    public abstract void ShowShort();
 }

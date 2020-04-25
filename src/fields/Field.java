@@ -3,6 +3,7 @@ package fields;
 import entities.Entity;
 
 import fields.behaviours.FieldBehaviour;
+import fields.behaviours.StandardFieldBehaviour;
 import items.Item;
 import entities.Player;
 
@@ -13,7 +14,7 @@ import java.util.Optional;
 public abstract class Field {
     protected int snowLevel;
     private static int MAX_SNOWLEVEL = 9;
-    protected ArrayList<Field> neighbors;
+    protected ArrayList<Field> neighbors = new ArrayList<>();
     protected List<Entity> entities = new ArrayList<>();
 
 
@@ -22,13 +23,18 @@ public abstract class Field {
     protected FieldBehaviour behaviour;
 
     public Field(){
-        fieldIndex = staticIndex++;
+        this.behaviour = new StandardFieldBehaviour();
+        this.fieldIndex = staticIndex++;
     }
 
     /**
      * Megjeleníti a Fieldet a SceneWirterben meghatározott folyamon.
      */
     public abstract void Show();
+
+    public void ShowState() {
+        behaviour.ShowShort();
+    }
 
     /**
      * Visszaadja a mező sorszámát. Ez a kirajzoláshoz fontos.
@@ -60,7 +66,7 @@ public abstract class Field {
      * @param neighbour A mező új szomszédja.
      */
     public void ConnectTo(Field neighbour) {
-        //TODO: implement connections
+        this.neighbors.add(neighbour);
     }
 
     //Ezen fielden lévő player átmozgatása egy szomszédos fieldre

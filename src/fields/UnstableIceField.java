@@ -4,27 +4,26 @@ import entities.Entity;
 
 import entities.Player;
 import items.Item;
+import scene.writer.SceneWriter;
 
 public class UnstableIceField extends IceField{
     private int stability;
 
     @Override
     public void Show() {
+        SceneWriter.OutStream.print('U');
+        SceneWriter.OutStream.print('0');
+        SceneWriter.OutStream.print(snowLevel);
 
-    }
+        if (item != null)
+            item.ShowShort();
+        else
+            SceneWriter.OutStream.print('0');
 
-    /**
-     * Inicializálja a mező kezdőállapotát.
-     * @param w A mező által elbírt entitások száma.
-     * @param s A mezőn lévő hószintek kezdeti értéke.
-     * @param i A mezőn lévő item.
-     * @param e A mezőn lévő entitás.
-     */
-    public void Setup(int w, int s, Item i, Entity e) {
-        stability = w;
-        snowLevel = s;
-        item = i;
-        //TODO: entity
+        for (Entity e : entities)
+            e.ShowShort();
+
+        this.ShowState();
     }
 
     //Iglu építése.

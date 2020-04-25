@@ -16,7 +16,7 @@ public class Hole extends Field {
      * @param i A mezőn lévő item.
      * @param e A mezőn lévő entitás.                   Ignorált, hiszen lukon nem kezdhet entitás.
      */
-    public void Setup(int w, int s, Optional<Item> i, Optional<Entity> e) {
+    public final void Setup(int w, int s, Optional<Item> i, Optional<Entity> e) {
         snowLevel = s;
     }
 
@@ -27,6 +27,10 @@ public class Hole extends Field {
         SceneWriter.OutStream.print('F');
         SceneWriter.OutStream.print('0');
         SceneWriter.OutStream.print(snowLevel);
+        SceneWriter.OutStream.print(0);
+        for (Entity e : entities)
+            e.ShowShort();
+        this.ShowState();
     }
 
     @Override

@@ -28,12 +28,13 @@ public class Board {
             for (Field fi : neighbours) {
                 int ni = fi.GetIndex();
                 if (ni > myIndex)
-                     pairs.add(Integer.toString(myIndex) + " " + Integer.toString(ni) + "; ");
+                    pairs.add(Integer.toString(myIndex) + " " + Integer.toString(ni) + "; ");
             }
-            for (String si : pairs)
-                SceneWriter.OutStream.print(pairs);
-            SceneWriter.OutStream.println();
         }
+
+        SceneWriter.OutStream.println();
+        for (String si : pairs)
+            SceneWriter.OutStream.print(si);
         SceneWriter.OutStream.println();
     }
 
