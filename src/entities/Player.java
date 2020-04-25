@@ -70,10 +70,6 @@ public abstract class Player extends Entity {
         inventory.Show();
     }
 
-    public Inventory getInventory() {
-        return this.inventory;
-    }
-
     //Megnöveli a játékos életét.
     private void incrementHP(){
         healthPoints++;

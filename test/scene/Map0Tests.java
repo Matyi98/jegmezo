@@ -3,15 +3,10 @@ package scene;
 import main.Main;
 import org.junit.Before;
 import org.junit.Test;
-import scene.reader.SceneReader;
 import scene.writer.SceneWriter;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.nio.charset.StandardCharsets;
-
 import java.io.*;
-import java.util.Arrays;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
@@ -101,5 +96,53 @@ public class Map0Tests {
         assertEquals("Game Over",scanner.nextLine());
 
 
+    }
+
+    @Test
+    public void JegesmedveFunkcionalitasa() throws UnsupportedEncodingException {
+        addCommand("tst random");
+        addCommand("p special");
+        addCommand("p skip");
+        addCommand("p turn d");
+        addCommand("p turn d");
+        addCommand("p move");
+        addCommand("p skip");
+        addCommand("p move");
+        addCommand("p skip");
+        addCommand("5");
+        addCommand("p skip");
+        addCommand("p skip");
+        addCommand("p skip");
+        addCommand("6");
+        addCommand("p skip");
+        addCommand("p skip");
+        addCommand("p skip");
+        addCommand("13");
+        setInputString();
+
+        Main.NewGame(InStream);
+        Scanner scanner = new Scanner(baos.toString());
+        System.out.println(baos.toString());
+
+        assertEquals("RNG: off", scanner.nextLine());
+        assertEquals("Successful IglooBuild", scanner.nextLine());
+        assertEquals("Skip", scanner.nextLine());
+        assertEquals("Successful turn: 10", scanner.nextLine());
+        assertEquals("Successful turn: 13", scanner.nextLine());
+        assertEquals("Successful move: 13", scanner.nextLine());
+        assertEquals("Skip", scanner.nextLine());
+        assertEquals("Successful move: 6", scanner.nextLine());
+        assertEquals("Skip", scanner.nextLine());
+        // bear dialog
+        assertEquals("Skip", scanner.nextLine());
+        assertEquals("Skip", scanner.nextLine());
+        assertEquals("Skip", scanner.nextLine());
+        // bear dialog
+        assertEquals("Skip", scanner.nextLine());
+        assertEquals("Skip", scanner.nextLine());
+        assertEquals("Skip", scanner.nextLine());
+        assertEquals("U20p0; S0000; H0000; H0000; S00c0; U300EKMi; H0000; S00e0; S00s0; H0000; H0000; U2000; S000K", scanner.nextLine());
+        // bear dialog
+        assertEquals("Game Over", scanner.nextLine());
     }
 }
