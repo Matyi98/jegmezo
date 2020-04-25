@@ -20,11 +20,14 @@ public abstract class Player extends Entity {
     public Player() {
     }
 
-    public void ShowStats() {
+    public void showStats() {
         SceneWriter.OutStream.println("HP: " + String.valueOf(healthPoints));
         SceneWriter.OutStream.println("AP: " + String.valueOf(actionPoints));
     }
 
+    public Inventory getInventory() {
+        return this.inventory;
+    }
 
     //Megnöveli a játékos életét.
     private void incrementHP(){

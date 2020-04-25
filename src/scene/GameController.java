@@ -82,10 +82,10 @@ public class GameController {
                         // TODO pálya kirajzolása
                         break;
                     case "stats":
-                        // TODO játékos életerő és hátralévő akciópont kiírása
+                        players.get(currentPlayer).showStats();
                         break;
                     case "inv":
-                        // TODO játékos inventory tartalmának kiírása
+                        players.get(currentPlayer).getInventory().show();
                         break;
                     default:
                         System.out.println("bad command.");
