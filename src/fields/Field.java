@@ -16,7 +16,7 @@ public abstract class Field {
     protected ArrayList<Entity> entities = new ArrayList<>();
     protected Board board;
 
-    private static int autoIncrementID = 0;
+    private static int autoIncrementID = 1;
     private int UID;
     protected FieldBehaviour behaviour;
 
@@ -56,9 +56,9 @@ public abstract class Field {
      * @param w A mező által elbírt entitások száma.
      * @param s A mezőn lévő hószintek kezdeti értéke.
      * @param i A mezőn lévő item.
-     * @param e A mezőn lévő entitás.
+     * @param e A mezőn lévő entitások.
      */
-    public abstract void Setup(Board b, int w, int s, Optional<Item> i, Optional<Entity> e);
+    public abstract void Setup(Board b, int w, int s, Optional<Item> i, ArrayList<Entity> e);
 
     /**
      * Beregisztrál egy szomszédságot.

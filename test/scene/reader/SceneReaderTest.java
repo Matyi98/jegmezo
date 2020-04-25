@@ -27,6 +27,7 @@ public class SceneReaderTest {
 
     @Test
     public void loadScene() throws FileNotFoundException {
+        gc.ShowMap(true);
         assertNotNull(gc);
     }
 }

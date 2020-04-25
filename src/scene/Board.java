@@ -16,8 +16,7 @@ public class Board {
         this.fields = fields;
     }
 
-    public void Show() {
-        boolean showEdges = false;
+    public void Show(boolean showEdges) {
         ArrayList<String> pairs = new ArrayList<>();
 
         for (int i = 0; i < fields.size(); i++) {
