@@ -42,10 +42,6 @@ public abstract class Player extends Entity {
 
     }
 
-    public void turn(int newDirection){
-
-    }
-
     //Játékos mozgása.
     public void move(){
 //        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");

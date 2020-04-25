@@ -48,8 +48,7 @@ public abstract class Entity {
      * @param directionDelta 'A' betű lenyomására -1, 'D' betű lenyomására +1
      * paraméterrel hívja a kontroller.
      */
-    public void turn(int directionDelta){
-
+    public final void turn(int directionDelta){
         int maxTurableDirectionCount = fieldUnder.getNeighbourCount() - 1;
 
         actualDirection += directionDelta;
