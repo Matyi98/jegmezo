@@ -187,14 +187,8 @@ public abstract class Player extends Entity {
 
     //Jelzőpiyztoly használata.
     public void useFlareGun(){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        //Megszámolja hány játékos áll a mezőn.
-        int count = fieldUnder.getEntityCount();
-        /*
-            Átadja a gc-nek, hogy hányan vannak.
-            Arról, hogy valóban nyertek-e, a gc dönt.
-        * */
-        gameController.win(count);
+        int numOfPlayersOnField = fieldUnder.getEntityCount();
+        gameController.win(numOfPlayersOnField);
     }
 
     //Speciális képesség használata.

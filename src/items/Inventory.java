@@ -26,11 +26,6 @@ public class Inventory {
         this.owner = owner;
     }
 
-    //A sorszám alapján kivesz egy itemet az inventoryból.
-    public void removeByIndex(int itemIndex){
-        items.remove(itemIndex);
-    }
-
     //Referencia alapján távolít el egy itemet az inventoryból.
     public void removeSpecificItem(Item item){
         items.remove(item);
