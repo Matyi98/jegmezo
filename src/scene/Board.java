@@ -1,5 +1,6 @@
 package scene;
 
+import entities.Entity;
 import entities.Player;
 import fields.Field;
 import main.RandomNumber;
@@ -11,11 +12,12 @@ import java.util.List;
 public class Board {
     private ArrayList<Field> fields;
 
-    public Board(ArrayList<Field> fields) {
+    public void Setup(ArrayList<Field> fields) {
         this.fields = fields;
     }
 
     public void Show() {
+        boolean showEdges = false;
         ArrayList<String> pairs = new ArrayList<>();
 
         for (int i = 0; i < fields.size(); i++) {
@@ -24,22 +26,24 @@ public class Board {
             SceneWriter.OutStream.print("; ");
 
             ArrayList<Field> neighbours = f.GetNeighbours();
-            int myIndex = f.GetIndex();
+            int myIndex = f.GetUID();
             for (Field fi : neighbours) {
-                int ni = fi.GetIndex();
+                int ni = fi.GetUID();
                 if (ni > myIndex)
                     pairs.add(Integer.toString(myIndex) + " " + Integer.toString(ni) + "; ");
             }
         }
+        SceneWriter.OutStream.println();
 
-        SceneWriter.OutStream.println();
-        for (String si : pairs)
-            SceneWriter.OutStream.print(si);
-        SceneWriter.OutStream.println();
+        if (showEdges) {
+            for (String si : pairs)
+                SceneWriter.OutStream.print(si);
+            SceneWriter.OutStream.println();
+        }
     }
 
     //Nándi: ez a függvény van az osztálydiagramon és nagyon furcsán néz ki, az argumentumok is indokolatlanok. Valószínűleg kell majd rajta változtatni.
-    public void changeField(Field currentField, Field newField, List<Player> players) {
+    public void changeField(Field currentField, Field newField, List<Entity> entities, List<Field> fields) {
 
     }
 

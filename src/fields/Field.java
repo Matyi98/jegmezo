@@ -1,13 +1,12 @@
 package fields;
 
 import entities.Entity;
-
 import fields.behaviours.FieldBehaviour;
 import fields.behaviours.StandardFieldBehaviour;
 import items.Item;
+import scene.Board;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 public abstract class Field {
@@ -15,6 +14,7 @@ public abstract class Field {
     private static int MAX_SNOWLEVEL = 9;
     protected ArrayList<Field> neighbors = new ArrayList<>();
     protected ArrayList<Entity> entities = new ArrayList<>();
+    protected Board board;
 
     private static int autoIncrementID = 0;
     private int UID;
@@ -38,7 +38,7 @@ public abstract class Field {
      * Visszaadja a mező sorszámát. Ez a kirajzoláshoz fontos.
      * @return A mező indexe-
      */
-    public int GetIndex() {
+    public int GetUID() {
         return UID;
     }
 
@@ -52,12 +52,13 @@ public abstract class Field {
 
     /**
      *
+     * @param b A pálya.
      * @param w A mező által elbírt entitások száma.
      * @param s A mezőn lévő hószintek kezdeti értéke.
      * @param i A mezőn lévő item.
      * @param e A mezőn lévő entitás.
      */
-    public abstract void Setup(int w, int s, Optional<Item> i, Optional<Entity> e);
+    public abstract void Setup(Board b, int w, int s, Optional<Item> i, Optional<Entity> e);
 
     /**
      * Beregisztrál egy szomszédságot.
@@ -74,7 +75,6 @@ public abstract class Field {
 
     //Ezen fielden lévő player átmozgatása egy szomszédos fieldre
     public boolean placeEntityToNextField(int direction, Entity entity){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         return neighbors.get(direction).acceptEntity(entity);
     }
 
@@ -114,12 +114,7 @@ public abstract class Field {
     }
 
     public void snow(){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        this.changeSnowLevel(3);
-        for(Entity e: entities)
-        {
-            e.decrementHP();
-        }
+        behaviour.performSnow(entities);
     }
 
     public int getEntityCount(){

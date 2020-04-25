@@ -2,6 +2,7 @@ package fields;
 
 import entities.Entity;
 import items.Item;
+import scene.Board;
 import scene.writer.SceneWriter;
 
 import java.util.Optional;
@@ -16,8 +17,8 @@ public class Hole extends Field {
      * @param i A mezőn lévő item.
      * @param e A mezőn lévő entitás.                   Ignorált, hiszen lukon nem kezdhet entitás.
      */
-    public final void Setup(int w, int s, Optional<Item> i, Optional<Entity> e) {
-        snowLevel = s;
+    public final void Setup(Board b, int w, int s, Optional<Item> i, Optional<Entity> e) {
+        board = b; snowLevel = s;
     }
 
     /**
@@ -28,16 +29,19 @@ public class Hole extends Field {
         SceneWriter.OutStream.print('0');
         SceneWriter.OutStream.print(snowLevel);
         SceneWriter.OutStream.print(0);
-        for (Entity e : entities)
+
+        if (entities.size() == 0)
+            SceneWriter.OutStream.print('0');
+        else
+            for (Entity e : entities)
             e.ShowShort();
         this.ShowState();
     }
 
     @Override
     public boolean acceptEntity(Entity entity) {
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        System.out.println("Sikertelen a jatekos befogadasa.");
         entities.add(entity);
+        entity.drown();
         return true;
     }
 

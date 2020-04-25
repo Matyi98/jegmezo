@@ -17,13 +17,6 @@ public class Eskimo extends Player {
         SceneWriter.OutStream.print("E");
     }
 
-    //Eszkimó mozog.
-    @Override
-    public void move(){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        //Mozgatás.
-//        fieldUnder.placePlayerToNextField(Direction.UP, this);
-    }
 
     //Eszkimó speciális képessége.
     @Override

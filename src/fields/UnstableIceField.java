@@ -22,6 +22,9 @@ public class UnstableIceField extends IceField{
         else
             SceneWriter.OutStream.print('0');
 
+        if (entities.size() == 0)
+            SceneWriter.OutStream.print('0');
+        else
         for (Entity e : entities)
             e.ShowShort();
 
@@ -58,9 +61,11 @@ public class UnstableIceField extends IceField{
     //Jáékos befogadása a mezőre.
     @Override
     public boolean acceptEntity(Entity entity) {
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        System.out.println("Sikeres a jatekos befogadasa");
         entities.add(entity);
+        if(stability<entities.size())
+        {
+            //board.changeField()
+        }
         return true;
     }
 

@@ -19,7 +19,10 @@ public class StableIceField extends IceField{
         else
             SceneWriter.OutStream.print('0');
 
-        for (Entity e : entities)
+        if (entities.size() == 0)
+            SceneWriter.OutStream.print('0');
+        else
+            for (Entity e : entities)
             e.ShowShort();
 
         this.ShowState();
@@ -35,10 +38,8 @@ public class StableIceField extends IceField{
     //Játékos befogadása a mezőre.
     @Override
     public boolean acceptEntity(Entity entity) {
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        System.out.println("Sikeres a jatekos befogadasa");
-        //Felvétel a belső Player listára.
         entities.add(entity);
+        entity.walk();
         return true;
     }
 
