@@ -40,6 +40,7 @@ public abstract class IceField extends Field {
      * Nincs értelme egyelőre IceFielden embert kiválasztani.
      * @return kiválasztott entitás
      */
+    @Override
     public Entity selectEntity(){ return null;}
 
 }
