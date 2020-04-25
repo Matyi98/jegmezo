@@ -9,11 +9,8 @@ public class Shovel extends Item {
 
     //Lapát használata.
     public void use(){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         owner.shovel(shovelSpeedIncrease);
-        System.out.println("Sikeres aso hasznalat");
     }
-
 
     public void Show() {
         SceneWriter.OutStream.print("Shovel");

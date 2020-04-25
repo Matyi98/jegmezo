@@ -5,7 +5,7 @@ import scene.writer.SceneWriter;
 public class Tent extends Item {
     @Override
     public void use() {
-
+        owner.buildTent();
     }
 
     public void Show() {

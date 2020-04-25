@@ -8,10 +8,7 @@ public class Food extends Item {
 
     //Étel használata, növeli a játékos testhőpontját a kalória szintnek megfelelően.
     public void use(){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        //Étel elfogyasztása.
         owner.eat(this);
-        System.out.println("Sikeres eves");
     }
 
     public void Show() {

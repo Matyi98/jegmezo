@@ -16,7 +16,6 @@ public abstract class Item {
         ha QuestItem, akkor jelez a gameControllernek, hogy találtak új questItemet.
     */
     public boolean setOwner(Player owner){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         this.owner = owner;
         return false;
     }
