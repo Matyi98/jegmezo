@@ -9,6 +9,15 @@ public class FieldBehaviourWithIgloo extends FieldBehaviour {
         super.collideEntities(enteringEntity);
     }
 
+    public boolean buildTent() {
+        return false;
+    }
+
+    @Override
+    public boolean buildIgloo() {
+        return false;
+    }
+
     /**
      * Kiírja az állapot röviden.
      */

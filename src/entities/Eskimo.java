@@ -30,6 +30,10 @@ public class Eskimo extends Player {
     public void specialPower() {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //iglut épít.
-        fieldUnder.buildIgloo();
+        if(actionPoints != 0)
+        {
+            if (fieldUnder.buildIgloo())
+                actionPoints--;
+        }
     }
 }

@@ -43,9 +43,7 @@ public class Hole extends Field {
     }
 
     @Override
-    public boolean buildIgloo() {
-        return false;
-    }
+    public boolean buildIgloo() { return false; }
 
     @Override
     public boolean buildTent() {

@@ -20,9 +20,7 @@ public abstract class FieldBehaviour {
 
     }
 
-    public boolean buildIgloo(){
-        return false;
-    }
+    public abstract boolean buildIgloo();
 
     public void collideEntities(Entity enteringEntity){
 

@@ -1,6 +1,7 @@
 package fields;
 
 import entities.Entity;
+import fields.behaviours.FieldBehaviourWithIgloo;
 import items.Item;
 import entities.Player;
 import scene.writer.SceneWriter;
@@ -52,7 +53,12 @@ public class StableIceField extends IceField{
     public boolean buildIgloo(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         System.out.println("Sikeres iglu epites. ");
-        return true;
+        boolean success = behaviour.buildIgloo();
+        if(success)
+        {
+            behaviour = new FieldBehaviourWithIgloo();
+        }
+        return (success);
     }
 
     @Override

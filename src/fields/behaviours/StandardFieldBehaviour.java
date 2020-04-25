@@ -5,7 +5,12 @@ import scene.writer.SceneWriter;
 public class StandardFieldBehaviour extends FieldBehaviour {
     @Override
     public boolean buildTent() {
-        return super.buildTent();
+        return true;
+    }
+
+    @Override
+    public boolean buildIgloo() {
+        return true;
     }
 
     /**
