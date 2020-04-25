@@ -92,7 +92,7 @@ public class Map0Tests {
 
         assertEquals("Successful turn: 12",scanner.nextLine());
         assertEquals("Successful move: 12",scanner.nextLine());
-        assertEquals("U20p0; S000M; H0000; H0000; S00c0; U3000; H0000; S00e0; S00s0; H0000; H0000; U200KEK; S0000; ",scanner.nextLine());
+        assertEquals("U20p0; S000M; H0000; H0000; S00c0; U3000; H0000; S00e0; S00s0; H0000; H0000; H000KEK; S0000;",scanner.nextLine());
         assertEquals("Game Over",scanner.nextLine());
 
 
@@ -141,7 +141,7 @@ public class Map0Tests {
         assertEquals("Skip", scanner.nextLine());
         assertEquals("Skip", scanner.nextLine());
         assertEquals("Skip", scanner.nextLine());
-        assertEquals("U20p0; S0000; H0000; H0000; S00c0; U300EKMi; H0000; S00e0; S00s0; H0000; H0000; U2000; S000K ", scanner.nextLine());
+        assertEquals("U20p0; S0000; H0000; H0000; S00c0; U300EKMi; H0000; S00e0; S00s0; H0000; H0000; U2000; S000K", scanner.nextLine());
         // bear dialog
         assertEquals("Game Over", scanner.nextLine());
     }
@@ -150,8 +150,6 @@ public class Map0Tests {
     @Test
     public void EszkimoSpecKepessege() throws UnsupportedEncodingException {
         addCommand("p special");
-        addCommand("p turn d");
-        addCommand("p move");
         addCommand("s map");
         setInputString();
 
@@ -159,9 +157,7 @@ public class Map0Tests {
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
-        assertEquals("Successful turn: 5",scanner.nextLine());
-        assertEquals("Successful move: 5",scanner.nextLine());
         assertEquals("Successful IglooBuild",scanner.nextLine());
-        assertEquals("U20p0; S000M; H0000; H0000; S00c0; U300Ei; H0000; S00e0; S00s0; H0000; H0000; U200K; S000K; ",scanner.nextLine());
+        assertEquals("U20p0; S000M; H0000; H0000; S00c0; U300Ei; H0000; S00e0; S00s0; H0000; H0000; U200K; S000K;",scanner.nextLine());
     }
 }
