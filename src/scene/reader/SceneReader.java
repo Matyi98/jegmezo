@@ -74,9 +74,10 @@ public class SceneReader {
             ArrayList<Entity> ents = new ArrayList<>();
             for (int i = 4; i < sNode.length(); i++) {
                 Entity entity = parseEntity(sNode.charAt(i));
-                ents.add(entity);
-                if(entity != null)
+                if(entity != null) {
+                    ents.add(entity);
                     entity.Setup(gc, f);
+                }
             }
 
             f.Setup(board, weightLimit, snowLevel, Optional.ofNullable(item), ents);
