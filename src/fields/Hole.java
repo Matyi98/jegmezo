@@ -44,7 +44,7 @@ public class Hole extends Field {
      * Megjeleníti a Fieldet a SceneWirterben meghatározott folyamon.
      */
     public void Show() {
-        SceneWriter.OutStream.print('F');
+        SceneWriter.OutStream.print('H');
         SceneWriter.OutStream.print('0');
         SceneWriter.OutStream.print(snowLevel);
         SceneWriter.OutStream.print(0);

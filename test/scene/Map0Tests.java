@@ -53,9 +53,9 @@ public class Map0Tests {
 
         assertEquals("Successful turn: 5",scanner.nextLine());
         assertEquals("Successful move: 5",scanner.nextLine());
-        assertEquals("U20p0; S000M; H0000; H0000; S00cE; U3000; H0000; S00e0; S00s0; H0000; H0000; U200K; S000K;",scanner.nextLine());
+        assertEquals("U20p0; S000M; H0000; H0000; S00cE; U3000; H0000; S00e0; S00s0; H0000; H0000; U200K; S000K; ",scanner.nextLine());
         assertEquals("Successful move: 2",scanner.nextLine());
-        assertEquals("U20p0; S000ME; H0000; H0000; S00c0; U3000; H0000; S00e0; S00s0; H0000; H0000; U200K; S000K",scanner.nextLine());
+        assertEquals("U20p0; S000ME; H0000; H0000; S00c0; U3000; H0000; S00e0; S00s0; H0000; H0000; U200K; S000K; ",scanner.nextLine());
         assertEquals("HP: 5",scanner.nextLine());
         assertEquals("AP: 2",scanner.nextLine());
     }
