@@ -167,6 +167,8 @@ public abstract class Field {
     public void step(){
         for(Entity e: entities)
             e.step();
+
+        destroyTent();
     }
 
     public int getNeighbourCount() {
