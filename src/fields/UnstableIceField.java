@@ -54,7 +54,7 @@ public class UnstableIceField extends IceField{
         behaviour.collideEntities(enteringEntity, entities);
     }
 
-    //Jáékos befogadása a mezőre.
+    //Játékos befogadása a mezőre.
     @Override
     public void acceptEntity(Entity entity) {
         entities.add(entity);
@@ -79,4 +79,5 @@ public class UnstableIceField extends IceField{
     public String checkStability() {
         return String.valueOf(weightLimit);
     }
+
 }

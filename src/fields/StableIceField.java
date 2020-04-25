@@ -48,8 +48,6 @@ public class StableIceField extends IceField{
     //Megadja a mező saját stabilitását.
     @Override
     public String checkStability() {
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        System.out.println("sikeres stabilitás vizsgálat: stableIceField. ");
         return "Stable";
     }
 
@@ -78,6 +76,5 @@ public class StableIceField extends IceField{
     public void collideEntities(Entity enteringEntity, Collection<Entity> standingEntities) {
         behaviour.collideEntities(enteringEntity, entities);
     }
-
 
 }
