@@ -38,7 +38,7 @@ public class GameController {
     }
 
     public void Start(Scanner stdin) {
-        while (true) {
+        while (stdin.hasNextLine()) {
             String next = stdin.nextLine();
             interpretUserInput(next);
         }
@@ -48,7 +48,7 @@ public class GameController {
         String type = userInput.split(" ")[0].toLowerCase();
         switch (type) {
             case "p":
-                boolean hasMorePoints = players.get(currentPlayer).Action(userInput.split(" ")[1].toLowerCase());
+                boolean hasMorePoints = players.get(currentPlayer).Action(userInput.toLowerCase());
                 if (!hasMorePoints)
                     nextPlayer();
                 break;

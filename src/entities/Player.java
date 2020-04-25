@@ -22,7 +22,7 @@ public abstract class Player extends Entity {
     }
 
     public boolean Action(String action) {
-        switch (action) {
+        switch (action.split(" ")[1]) {
             case "turn":
                 String parameter = action.split(" ")[2].toLowerCase();
                 switch (parameter) {
