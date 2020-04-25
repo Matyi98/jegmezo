@@ -220,7 +220,6 @@ public abstract class Player extends Entity {
     public void move(){
         super.move();
         actionPoints--;
-        GameController.OutStream.println("Succesful move: " + fieldUnder.GetUID());
     }
 
 }
