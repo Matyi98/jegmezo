@@ -28,7 +28,11 @@ public class Hole extends Field {
         SceneWriter.OutStream.print('0');
         SceneWriter.OutStream.print(snowLevel);
         SceneWriter.OutStream.print(0);
-        for (Entity e : entities)
+
+        if (entities.size() == 0)
+            SceneWriter.OutStream.print('0');
+        else
+            for (Entity e : entities)
             e.ShowShort();
         this.ShowState();
     }
