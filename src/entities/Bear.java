@@ -11,7 +11,8 @@ public class Bear extends Entity {
 
     @Override
     public void step(){
-        int chosenDirection = new Random().nextInt(fieldUnder.getNeighbourCount());
+        int randomDirection = new Random().nextInt(fieldUnder.getNeighbourCount());
+        actualDirection = randomDirection;
         move();
         fieldUnder.destroyTent();
     }
