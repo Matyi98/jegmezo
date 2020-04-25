@@ -8,10 +8,10 @@ import scene.writer.SceneWriter;
 import java.util.List;
 
 public abstract class Player extends Entity {
-    private PlayerState actualState;
+    private PlayerState currentState = new NormalState();
     private final int MAX_ACTION_POINTS = 4;
     protected int actionPoints = MAX_ACTION_POINTS;
-    private Inventory inventory;
+    private Inventory inventory = new Inventory(this);
     protected int maxHealthPoints;
     protected int healthPoints;
 
@@ -83,11 +83,11 @@ public abstract class Player extends Entity {
     //Átöltözés búvárruhba.
     public void swapDivingSuit() {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        actualState.swapDivingSuit();
+        currentState.swapDivingSuit();
     }
 
-    private void setState(PlayerState nextState){
-
+    public void setState(PlayerState nextState){
+        currentState = nextState;
     }
 
     //Eszkösz használat az inventoryban elfoglalt index szerint.
@@ -100,13 +100,13 @@ public abstract class Player extends Entity {
     //Játékos elhagyja a vizet.
     @Override
     public void walk(){
-        actualState.walk();
+        currentState.walk();
     }
 
     //Játékos megfullad.
     @Override
     public void drown(){
-        actualState.drown();
+        currentState.drown();
     }
 
     //Játékos meghal.
