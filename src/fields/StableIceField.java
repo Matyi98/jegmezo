@@ -59,4 +59,6 @@ public class StableIceField extends IceField{
     public boolean buildTent() {
         return false;
     }
+
+    public Item getItem(){ return item;}
 }
