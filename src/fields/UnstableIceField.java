@@ -1,15 +1,9 @@
 package fields;
 
 import entities.Entity;
-
-import entities.Player;
-import items.Item;
 import scene.writer.SceneWriter;
 
-import java.util.Random;
-
 public class UnstableIceField extends IceField{
-    private int stability = new Random().nextInt(6);
 
     @Override
     public void Show() {
@@ -62,7 +56,7 @@ public class UnstableIceField extends IceField{
     @Override
     public boolean acceptEntity(Entity entity) {
         entities.add(entity);
-        if(stability<entities.size())
+        if(weightLimit<entities.size())
         {
             board.changeField(this, new Hole(), entities, neighbors);
         }
@@ -72,7 +66,7 @@ public class UnstableIceField extends IceField{
     //Megadja a mező saját stabilitását.
     @Override
     public String checkStability() {
-        return String.valueOf(stability);
+        return String.valueOf(weightLimit);
     }
 
     //Játékos átadása a aszomszd mezőnek, a megadott irányba.
