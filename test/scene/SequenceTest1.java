@@ -40,7 +40,7 @@ public class SequenceTest1 {
     @Before
     public void initialise() throws UnsupportedEncodingException {
         addCommand("tst loadmap map0.txt");
-        addCommand("p turn a");
+        addCommand("p turn d");
         addCommand("p move");
         addCommand("s map");
         addCommand("p move");
