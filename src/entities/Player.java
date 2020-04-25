@@ -141,6 +141,12 @@ public abstract class Player extends Entity {
         }
     }
 
+    public void shovel(int digValue){
+        if(fieldUnder.changeSnowLevel(-digValue)) {
+            actionPoints--;
+        }
+    }
+
     //Evés.
     public void eat(Item food){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
@@ -159,7 +165,7 @@ public abstract class Player extends Entity {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         System.out.println("healthPoints: "+ healthPoints);
         healthPoints--;
-        if(healthPoints == 0)
+        if(healthPoints <= 0)
             this.die();
 
     }

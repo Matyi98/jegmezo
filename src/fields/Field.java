@@ -153,7 +153,8 @@ public abstract class Field {
     }
 
     public void step(){
-
+        for(Entity e: entities)
+            e.step();
     }
 
     public int getNeighbourCount() {
