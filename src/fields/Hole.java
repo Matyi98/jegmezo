@@ -5,6 +5,7 @@ import fields.behaviours.FieldBehaviour;
 import fields.behaviours.StandardFieldBehaviour;
 import items.Item;
 import scene.Board;
+import scene.GameController;
 import scene.writer.SceneWriter;
 
 import java.util.ArrayList;
@@ -27,9 +28,9 @@ public class Hole extends Field {
 
     public Hole()
     {
-
+        super();
     }
-    
+
     public Hole(ArrayList<Field> _neighbors, ArrayList<Entity> _entities, Board _board, int _autoIncrementId, int _UID)
     {
         neighbors = _neighbors;
@@ -61,6 +62,7 @@ public class Hole extends Field {
     @Override
     public void acceptEntity(Entity entity) {
         entities.add(entity);
+        GameController.OutStream.println("Fell into hole");
         entity.makeDrown();
         entity.changeField(this);
     }

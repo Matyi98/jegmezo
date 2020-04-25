@@ -69,10 +69,9 @@ public abstract class Entity {
     }
 
     public void move() {
-        int oldUID = fieldUnder.GetUID();
         fieldUnder.placeEntityToNextField(actualDirection, this);
-        this.actualDirection = 0;
         GameController.OutStream.println("Successful move: " + fieldUnder.GetUID());
+        this.actualDirection = 0;
     }
 
     public void collideWith(Entity otherEntity){

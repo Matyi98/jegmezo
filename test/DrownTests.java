@@ -36,15 +36,14 @@ public class DrownTests {
 
         addCommand("p move");
         addCommand("p skip");
-        addCommand("s map");
         setInputString();
 
         Main.NewGame(InStream);
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
-        assertEquals("Successful move: 1",scanner.nextLine());
         assertEquals("Fell into hole",scanner.nextLine());
+        assertEquals("Successful move: 1",scanner.nextLine());
         assertEquals("Skip",scanner.nextLine());
         assertEquals("Game Over",scanner.nextLine());
     }
