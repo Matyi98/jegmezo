@@ -5,6 +5,8 @@ import entities.Entity;
 import fields.behaviours.StandardFieldBehaviour;
 import scene.writer.SceneWriter;
 
+import java.util.Collection;
+
 public class UnstableIceField extends IceField{
 
     @Override
@@ -48,8 +50,8 @@ public class UnstableIceField extends IceField{
     }
 
     @Override
-    public void collideEntities(Entity enteringEntity) {
-        behaviour.collideEntities(enteringEntity);
+    public void collideEntities(Entity enteringEntity, Collection<Entity> standingEntities) {
+        behaviour.collideEntities(enteringEntity, entities);
     }
 
     //Jáékos befogadása a mezőre.
