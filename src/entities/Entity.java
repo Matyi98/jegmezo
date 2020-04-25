@@ -56,14 +56,14 @@ public abstract class Entity {
      * paraméterrel hívja a kontroller.
      */
     public final void turn(int directionDelta){
-        int maxTurnableDirectionCount = fieldUnder.getNeighbourCount() - 1;
+        int numOfIndices = fieldUnder.getNeighbourCount();
 
         actualDirection += directionDelta;
 
         if(actualDirection < 0)
-            actualDirection = maxTurnableDirectionCount;
-        else if (actualDirection > maxTurnableDirectionCount)
-            actualDirection = 0;
+            actualDirection = actualDirection % numOfIndices + numOfIndices;
+        else if(actualDirection >= numOfIndices)
+            actualDirection = actualDirection % numOfIndices;
 
         GameController.OutStream.println("Successful turn: " + fieldUnder.GetNeighbours().get(actualDirection).GetUID());
     }
