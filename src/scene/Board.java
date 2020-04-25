@@ -1,10 +1,10 @@
 package scene;
 
-import fields.Field;
 import entities.Player;
+import fields.Field;
+import main.RandomNumber;
 import scene.writer.SceneWriter;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +44,14 @@ public class Board {
     }
 
     //Behavaztat mezőket.
-    public void letItSnow(){
+    public void letItSnow(RandomNumber rand) {
+        int chanceOfSnowing = 4; // 40% hogy esik-e a hó
 
+        for (Field field : fields) {
+            if (rand.getNumber(10) > chanceOfSnowing) {
+                field.snow();
+            }
+        }
     }
+
 }

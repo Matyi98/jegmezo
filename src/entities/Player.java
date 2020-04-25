@@ -2,6 +2,7 @@ package entities;
 
 import items.*;
 import entities.behaviours.*;
+import scene.GameController;
 import scene.writer.SceneWriter;
 
 import java.util.List;
@@ -21,18 +22,18 @@ public abstract class Player extends Entity {
     }
 
     public boolean Action(String action) {
-        switch (action) {
+        switch (action.split(" ")[1]) {
             case "turn":
                 String parameter = action.split(" ")[2].toLowerCase();
                 switch (parameter) {
                     case "a":
                         this.turn(-1);
                         break;
-                    case "b":
+                    case "d":
                         this.turn(1);
                         break;
                     default:
-                        System.out.println("bad parameter.");
+                        GameController.OutStream.println("bad parameter.");
                 }
                 break;
             case "move":
@@ -54,7 +55,7 @@ public abstract class Player extends Entity {
                 this.pickUpItem();
                 break;
             default:
-                System.out.println("bad action");
+                GameController.OutStream.println("bad action");
         }
         return actionPoints > 0;
     }
@@ -134,10 +135,8 @@ public abstract class Player extends Entity {
         return accepted;
     }
 
-    //Ennyi hószintet takarít el a mezőről.
-    public void shovel(int snowLevel){
-        //Ha sikeres volt, akkor csökkenti az akciópontot.
-        if(fieldUnder.changeSnowLevel(-snowLevel)) {
+    public void shovel(){
+        if(fieldUnder.changeSnowLevel(-1)) {
             actionPoints--;
         }
     }

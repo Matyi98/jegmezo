@@ -16,13 +16,13 @@ public abstract class Field {
     protected ArrayList<Field> neighbors = new ArrayList<>();
     protected ArrayList<Entity> entities = new ArrayList<>();
 
-    private static int staticIndex = 0;
-    private int fieldIndex;
+    private static int autoIncrementID = 0;
+    private int UID;
     protected FieldBehaviour behaviour;
 
     public Field() {
         this.behaviour = new StandardFieldBehaviour();
-        this.fieldIndex = staticIndex++;
+        this.UID = autoIncrementID++;
     }
 
     /**
@@ -39,7 +39,7 @@ public abstract class Field {
      * @return A mező indexe-
      */
     public int GetIndex() {
-        return fieldIndex;
+        return UID;
     }
 
     /**
@@ -78,33 +78,22 @@ public abstract class Field {
         return neighbors.get(direction).acceptEntity(entity);
     }
 
-    //Ezen fielden lévő player átmozgatása egy szomszédos fieldre user által kiválasztott alapon
     public boolean placeEntityToNextField(int direction){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        //Áthelyezi a játékost az adott irányban lévő mezőre
         boolean success = neighbors.get(direction).acceptEntity(entities.get(0));
         return success;
     }
 
-    //Áthúz egy playert egy szomszédos mezőről saját magához
     public boolean pullOutPlayerFrom(int direction){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        //A kijelölt szomszédban lévő mezőt felszólítja, hogy adja át valamelyik játékosát
-        boolean success = neighbors.get(direction).placeEntityToNextField(fieldIndex);
-        //A játékos állapotváltozását idézi elő
+        boolean success = neighbors.get(direction).placeEntityToNextField(UID);
         entities.get(1).walk();
         return success;
     }
 
-
-
-    //Item eltávolítása a fieldről
     public void removeItem() {
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
     }
 
 
-    //Hószint megváltoztatása.
     public final boolean changeSnowLevel(int delta){
         if(snowLevel <= 0 && delta < 0){
             return false;
@@ -124,33 +113,26 @@ public abstract class Field {
         return true;
     }
 
-    //Havazik az adott mezőn
     public void snow(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        //Hotakaro ratevese a fieldre
         this.changeSnowLevel(3);
-        //A fielden lévő játékosok életének csökkentése
         for(Entity e: entities)
         {
             e.decrementHP();
         }
     }
 
-    //Megmondja, hogy hány játékos áll a mezőn.
     public int getEntityCount(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         return entities.size();
     }
 
-    //Egy játékos kiválasztása a fielden
     public Entity selectEntity() {
         return null;
     }
 
-    //Adott playert helyez a mezőre
     public abstract boolean acceptEntity(Entity entity);
 
-    //Iglut épít a mezőre
     public abstract boolean buildIgloo();
 
     public abstract boolean buildTent();
@@ -178,7 +160,5 @@ public abstract class Field {
         return neighbors.size();
     }
 
-    //Visszaadja a fielden lévő itemet, alapertelmezetten nullt ad vissza,
-    // mert a Field tobb leszarmazottja nem tartalmazhat itemet
     public Item getItem(){ return null;}
 }
