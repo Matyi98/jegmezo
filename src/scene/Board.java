@@ -1,14 +1,10 @@
 package scene;
 
-import entities.Entity;
-import entities.Player;
 import fields.Field;
 import main.RandomNumber;
 import scene.writer.SceneWriter;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 public class Board {
     private ArrayList<Field> fields;
