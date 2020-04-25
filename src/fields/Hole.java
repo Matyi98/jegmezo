@@ -1,7 +1,6 @@
 package fields;
 
 import entities.Entity;
-import entities.Player;
 import items.Item;
 import scene.writer.SceneWriter;
 

@@ -5,7 +5,6 @@ import entities.Entity;
 import fields.behaviours.FieldBehaviour;
 import fields.behaviours.StandardFieldBehaviour;
 import items.Item;
-import entities.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +15,6 @@ public abstract class Field {
     private static int MAX_SNOWLEVEL = 9;
     protected ArrayList<Field> neighbors = new ArrayList<>();
     protected List<Entity> entities = new ArrayList<>();
-
 
     private static int staticIndex = 0;
     private int fieldIndex;
@@ -132,7 +130,7 @@ public abstract class Field {
     }
 
     //Egy játékos kiválasztása a fielden
-    public Player selectEntity() {
+    public Entity selectEntity() {
         return null;
     }
 

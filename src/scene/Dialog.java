@@ -6,18 +6,35 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Dialog {
+    /**
+     * Kimeneti folyam. Erre a folyamra írnak a dialógusok.
+     */
     public static PrintStream OutStream = System.out;
+    /**
+     * Bemeneti folyam. Erről a folyamról várnak inputot a dialógusok.
+     */
     public static Scanner InStream = new Scanner(System.in);
 
     private String question;
     private ArrayList<String> options;
 
+
+    /**
+     * Létrehoz egy új dialógust.
+     * @param question A feltett kérdés.
+     * @param options A lehetséges válaszok.
+     */
     public Dialog(String question, ArrayList<String> options) {
         this.question = question;
         this.options = options;
     }
 
-    public int Show() {
+
+    /**
+     * Kiírja a kérdést és a lehetséges opciókat. Számmal kell válaszolni az input streamen.
+     * @return A kiválasztott menüpont.
+     */
+    public int ShowDialog() {
         while (true) {
             OutStream.println(question);
             for (int i = 0; i < options.size(); i++)

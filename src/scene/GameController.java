@@ -26,11 +26,12 @@ public class GameController {
         this.players = players;
     }
 
-    public void start(String userInput) {
-        System.out.println("[ " + new Object() {
-        }.getClass().getEnclosingMethod() + " ]");
+    public void start() {
+        while (true) {
+            
 
 
+        }
     }
 
     private void interpretUserInput(String userInput, int currentPlayer) {
