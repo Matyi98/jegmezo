@@ -2,7 +2,6 @@ package scene;
 
 import fields.Field;
 import entities.Player;
-import javafx.scene.Scene;
 import scene.writer.SceneWriter;
 
 import java.lang.reflect.Array;

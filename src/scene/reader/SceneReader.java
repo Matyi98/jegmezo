@@ -8,6 +8,7 @@ import scene.*;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class SceneReader {
     private GameController gc;
@@ -66,9 +67,11 @@ public class SceneReader {
             int snowLevel = Character.getNumericValue(sNode.charAt(2));
             Item itwm = parseItem(sNode.charAt(3));
             Entity entity = parseEntity(sNode.charAt(4));
-
             entity.Setup(gc, f);
-            f.Setup(wightLimit, snowLevel, itwm, entity);
+
+            Optional<Item> itemNew = Optional.ofNullable(itwm);
+            Optional<Entity> entityNew = Optional.ofNullable(entity);
+            f.Setup(wightLimit, snowLevel, itemNew, entityNew);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e.getMessage());

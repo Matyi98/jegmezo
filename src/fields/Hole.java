@@ -5,6 +5,8 @@ import entities.Player;
 import items.Item;
 import scene.writer.SceneWriter;
 
+import java.util.Optional;
+
 public class Hole extends Field {
 
     /**
@@ -14,9 +16,8 @@ public class Hole extends Field {
      * @param i A mezőn lévő item.
      * @param e A mezőn lévő entitás.                   Ignorált, hiszen lukon nem kezdhet entitás.
      */
-    public void Setup(int w, int s, Item i, Entity e) {
+    public void Setup(int w, int s, Optional<Item> i, Optional<Entity> e) {
         snowLevel = s;
-        item = i;
     }
 
     /**
@@ -26,7 +27,7 @@ public class Hole extends Field {
         SceneWriter.OutStream.print('F');
         SceneWriter.OutStream.print('0');
         SceneWriter.OutStream.print(snowLevel);
-        item.ShowShort();
+        //item.ShowShort();
     }
 
     @Override

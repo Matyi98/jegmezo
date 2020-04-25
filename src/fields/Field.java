@@ -8,13 +8,14 @@ import entities.Player;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public abstract class Field {
     protected int snowLevel;
     private static int MAX_SNOWLEVEL = 9;
     protected ArrayList<Field> neighbors;
     protected List<Entity> entities = new ArrayList<>();
-    protected Item item;
+
 
     private static int staticIndex = 0;
     private int fieldIndex;
@@ -52,7 +53,7 @@ public abstract class Field {
      * @param i A mezőn lévő item.
      * @param e A mezőn lévő entitás.
      */
-    public abstract void Setup(int w, int s, Item i, Entity e);
+    public abstract void Setup(int w, int s, Optional<Item> i, Optional<Entity> e);
 
     /**
      * Beregisztrál egy szomszédságot.
@@ -86,11 +87,7 @@ public abstract class Field {
         return success;
     }
 
-    //Visszaadja a fielden lévő itemet
-    public Item getItem(){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        return item;
-    }
+
 
     //Item eltávolítása a fieldről
     public void removeItem() {
@@ -162,4 +159,7 @@ public abstract class Field {
     public int getNeighbourCount() {
         return neighbors.size();
     }
+
+    //Visszaadja a fielden lévő itemet
+    public Item getItem(){ return null;}
 }
