@@ -22,7 +22,7 @@ public abstract class Field {
     private int fieldIndex;
     protected FieldBehaviour behaviour;
 
-    public Field(){
+    public Field() {
         this.behaviour = new StandardFieldBehaviour();
         this.fieldIndex = staticIndex++;
     }

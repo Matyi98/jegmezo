@@ -10,7 +10,7 @@ public class main {
         System.out.print("A program elindult. Szia Uram!");
 
         final String pwd = System.getProperty("user.dir");
-        File f = new File(pwd+"\\maps\\map0.txt");
+        File f = new File(pwd+"/maps/map0.txt");
         FileInputStream fis = new FileInputStream(f);
 
         SceneReader sceneReader = new SceneReader(fis);
