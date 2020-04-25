@@ -135,10 +135,8 @@ public abstract class Player extends Entity {
         return accepted;
     }
 
-    //Ennyi hószintet takarít el a mezőről.
-    public void shovel(int snowLevel){
-        //Ha sikeres volt, akkor csökkenti az akciópontot.
-        if(fieldUnder.changeSnowLevel(-snowLevel)) {
+    public void shovel(){
+        if(fieldUnder.changeSnowLevel(-1)) {
             actionPoints--;
         }
     }
