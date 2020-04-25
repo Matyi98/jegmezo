@@ -12,7 +12,7 @@ public class UnstableIceField extends IceField{
     @Override
     public void Show() {
         SceneWriter.OutStream.print('U');
-        SceneWriter.OutStream.print('0');
+        SceneWriter.OutStream.print(weightLimit);
         SceneWriter.OutStream.print(snowLevel);
         if (item != null)
             item.ShowShort();
