@@ -118,6 +118,7 @@ public abstract class Player extends Entity {
     @Override
     public void die(){
         gameController.gameOver();
+
     }
 
     /**
@@ -175,9 +176,9 @@ public abstract class Player extends Entity {
     }
 
     public void rescueFriend(){
-        if(fieldUnder.pullOutPlayerFrom(actualDirection)){
+        fieldUnder.pullOutPlayerFrom(actualDirection);
             actionPoints--;
-        }
+
     }
 
     //Játékost kimentették a lyukból.
@@ -217,9 +218,9 @@ public abstract class Player extends Entity {
 
     @Override
     public void move(){
-        if(fieldUnder.placeEntityToNextField(actualDirection, this))
-            actionPoints--;
-        GameController.OutStream.println("Successful move: " + fieldUnder.GetUID());
+        super.move();
+        actionPoints--;
+        GameController.OutStream.println("Succesful move: " + fieldUnder.GetUID());
     }
 
 }

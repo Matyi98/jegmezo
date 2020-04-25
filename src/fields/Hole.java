@@ -1,6 +1,7 @@
 package fields;
 
 import entities.Entity;
+import fields.behaviours.FieldBehaviour;
 import items.Item;
 import scene.Board;
 import scene.writer.SceneWriter;
@@ -22,6 +23,22 @@ public class Hole extends Field {
         board = b; snowLevel = s;
     }
 
+    public Hole()
+    {
+
+    }
+    
+    public Hole(ArrayList<Field> _neighbors, ArrayList<Entity> _entities, Board _board, int _autoIncrementId, int _UID, FieldBehaviour _behaviour)
+    {
+        neighbors = _neighbors;
+        entities = _entities;
+        board = _board;
+        autoIncrementID = _autoIncrementId;
+        UID = _UID;
+        behaviour = _behaviour;
+    }
+
+
     /**
      * Megjeleníti a Fieldet a SceneWirterben meghatározott folyamon.
      */
@@ -40,11 +57,10 @@ public class Hole extends Field {
     }
 
     @Override
-    public boolean acceptEntity(Entity entity) {
+    public void acceptEntity(Entity entity) {
         entities.add(entity);
         entity.drown();
         entity.changeField(this);
-        return true;
     }
 
     @Override

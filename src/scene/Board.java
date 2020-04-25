@@ -8,6 +8,7 @@ import scene.writer.SceneWriter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Board {
     private ArrayList<Field> fields;
@@ -41,9 +42,9 @@ public class Board {
         }
     }
 
-    //Nándi: ez a függvény van az osztálydiagramon és nagyon furcsán néz ki, az argumentumok is indokolatlanok. Valószínűleg kell majd rajta változtatni.
-    public void changeField(Field currentField, Field newField, List<Entity> entities, List<Field> fields) {
-
+    public void changeField(Field currentField, Field newField) {
+        this.fields.remove(currentField);
+        this.fields.add(newField);
     }
 
     //Behavaztat mezőket.

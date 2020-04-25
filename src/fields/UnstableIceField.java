@@ -1,16 +1,22 @@
 package fields;
 
 import entities.Entity;
+
+import entities.Player;
+import fields.behaviours.StandardFieldBehaviour;
+import items.Item;
 import scene.writer.SceneWriter;
 
+import java.util.Random;
+
 public class UnstableIceField extends IceField{
+    private int stability = new Random().nextInt(6);
 
     @Override
     public void Show() {
         SceneWriter.OutStream.print('U');
         SceneWriter.OutStream.print('0');
         SceneWriter.OutStream.print(snowLevel);
-
         if (item != null)
             item.ShowShort();
         else
@@ -54,29 +60,34 @@ public class UnstableIceField extends IceField{
 
     //Jáékos befogadása a mezőre.
     @Override
-    public boolean acceptEntity(Entity entity) {
+    public void acceptEntity(Entity entity) {
         entities.add(entity);
-        if(weightLimit<entities.size())
-        {
-            board.changeField(this, new Hole(), entities, neighbors);
+        if(stability<entities.size()) {
+            Hole hole = new Hole(this.neighbors, this.entities, this.board, this.autoIncrementID, this.UID, new StandardFieldBehaviour());
+            entity.changeField(hole);
+            board.changeField(this,hole);
+            entity.drown();
         }
-        return true;
+        else {
+            entity.changeField(this);
+            entity.walk();
+
+        }
     }
 
     //Megadja a mező saját stabilitását.
     @Override
     public String checkStability() {
-        return String.valueOf(weightLimit);
+        return String.valueOf(stability);
     }
 
     //Játékos átadása a aszomszd mezőnek, a megadott irányba.
     @Override
-    public boolean placeEntityToNextField(int direction, Entity entity){
+    public void placeEntityToNextField(int direction, Entity entity){
         //Szomszéd mező lekérése.
         Field neighbour = neighbors.get(direction);
         //Átadás a szomszédnak.
         neighbour.acceptEntity(entity);
-        return false;
     }
 
 }
