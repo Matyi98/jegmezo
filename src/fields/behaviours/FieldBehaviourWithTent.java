@@ -3,6 +3,8 @@ package fields.behaviours;
 import entities.Entity;
 import scene.writer.SceneWriter;
 
+import java.util.Collection;
+
 public class FieldBehaviourWithTent extends FieldBehaviour{
     @Override
     public void destroyTent(){
@@ -16,8 +18,10 @@ public class FieldBehaviourWithTent extends FieldBehaviour{
     }
 
     @Override
-    public void collideEntities(Entity enteringEntity) {
-
+    public void collideEntities(Entity enteringEntity, Collection<Entity> standingEntities) {
+        for(Entity e : standingEntities){
+            enteringEntity.collideWith(e);
+        }
     }
 
     /**

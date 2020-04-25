@@ -24,7 +24,7 @@ public abstract class FieldBehaviour {
 
     }
 
-    public abstract void collideEntities(Entity enteringEntity);
+    public abstract void collideEntities(Entity enteringEntity, Collection<Entity> standingEntities);
 
     /**
      * Kiírja az állapot röviden.

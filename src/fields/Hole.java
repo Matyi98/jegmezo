@@ -7,6 +7,7 @@ import scene.Board;
 import scene.writer.SceneWriter;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -82,7 +83,7 @@ public class Hole extends Field {
     }
 
     @Override
-    public void collideEntities(Entity enteringEntity) {
+    public void collideEntities(Entity enteringEntity, Collection<Entity> standingEntities) {
 
     }
 

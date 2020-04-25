@@ -7,6 +7,7 @@ import items.Item;
 import scene.Board;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Optional;
 
 public abstract class Field {
@@ -139,7 +140,7 @@ public abstract class Field {
 
     public abstract void performSnow();
 
-    public abstract void collideEntities(Entity enteringEntity);
+    public abstract void collideEntities(Entity enteringEntity, Collection<Entity> standingEntities);
 
     //Megnézi a mező stabilitását
     public abstract String checkStability();

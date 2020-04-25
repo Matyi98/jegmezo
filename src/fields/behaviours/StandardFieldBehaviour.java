@@ -27,8 +27,10 @@ public class StandardFieldBehaviour extends FieldBehaviour {
     }
 
     @Override
-    public void collideEntities(Entity enteringEntity) {
-
+    public void collideEntities(Entity enteringEntity, Collection<Entity> standingEntities) {
+        for(Entity e : standingEntities){
+            enteringEntity.collideWith(e);
+        }
     }
 
     /**

@@ -8,7 +8,7 @@ import java.util.Collection;
 public class FieldBehaviourWithIgloo extends FieldBehaviour {
 
     @Override
-    public void collideEntities(Entity enteringEntity) {
+    public void collideEntities(Entity enteringEntity, Collection<Entity> standingEntities) {
 
     }
 

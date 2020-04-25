@@ -6,6 +6,8 @@ import items.Item;
 import entities.Player;
 import scene.writer.SceneWriter;
 
+import java.util.Collection;
+
 public class StableIceField extends IceField{
 
     @Override
@@ -73,8 +75,8 @@ public class StableIceField extends IceField{
     }
 
     @Override
-    public void collideEntities(Entity enteringEntity) {
-        behaviour.collideEntities(enteringEntity);
+    public void collideEntities(Entity enteringEntity, Collection<Entity> standingEntities) {
+        behaviour.collideEntities(enteringEntity, entities);
     }
 
 
