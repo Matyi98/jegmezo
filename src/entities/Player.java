@@ -2,6 +2,7 @@ package entities;
 
 import items.*;
 import entities.behaviours.*;
+import scene.GameController;
 import scene.writer.SceneWriter;
 
 import java.util.List;
@@ -28,11 +29,11 @@ public abstract class Player extends Entity {
                     case "a":
                         this.turn(-1);
                         break;
-                    case "b":
+                    case "d":
                         this.turn(1);
                         break;
                     default:
-                        System.out.println("bad parameter.");
+                        GameController.OutStream.println("bad parameter.");
                 }
                 break;
             case "move":
@@ -54,7 +55,7 @@ public abstract class Player extends Entity {
                 this.pickUpItem();
                 break;
             default:
-                System.out.println("bad action");
+                GameController.OutStream.println("bad action");
         }
         return actionPoints > 0;
     }

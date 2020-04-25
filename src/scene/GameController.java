@@ -2,6 +2,7 @@ package scene;
 
 import entities.*;
 
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,6 +10,8 @@ public class GameController {
     private int questItemCount = 0;
     private ArrayList<Player> players;
     private Board board;
+
+    static public PrintStream OutStream = System.out;
 
     public GameController() {
     }
@@ -34,7 +37,7 @@ public class GameController {
             currentPlayer = 0;
     }
 
-    public void start(Scanner stdin) {
+    public void Start(Scanner stdin) {
         while (true) {
             String next = stdin.nextLine();
             interpretUserInput(next);
@@ -62,32 +65,32 @@ public class GameController {
                         players.get(currentPlayer).ShowInventory();
                         break;
                     default:
-                        System.out.println("bad command.");
+                        OutStream.println("bad command.");
                 }
                 break;
             default:
-                System.out.println("bad command.");
+                OutStream.println("bad command.");
                 break;
         }
     }
 
     public void win(int count) {
-        System.out.println("[ " + new Object() {
+        OutStream.println("[ " + new Object() {
         }.getClass().getEnclosingMethod() + " ]");
         if (count == players.size() && questItemCount == 3)
-            System.out.println("WIN");
+            OutStream.println("WIN");
         else
-            System.out.println("not WIN");
+            OutStream.println("not WIN");
     }
 
     public void gameOver() {
-        System.out.println("[ " + new Object() {
+        OutStream.println("[ " + new Object() {
         }.getClass().getEnclosingMethod() + " ]");
-        System.out.println("Lose");
+        OutStream.println("Lose");
     }
 
     public void questItemFound() {
-        System.out.println("[ " + new Object() {
+        OutStream.println("[ " + new Object() {
         }.getClass().getEnclosingMethod() + " ]");
         questItemCount = questItemCount + 1;
     }
