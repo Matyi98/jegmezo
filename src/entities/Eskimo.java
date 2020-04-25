@@ -1,7 +1,7 @@
 package entities;
 
 //import enums.Direction;
-import fields.Field;
+
 import scene.GameController;
 import scene.writer.SceneWriter;
 
