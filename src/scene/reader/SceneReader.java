@@ -50,8 +50,9 @@ public class SceneReader {
 
         for (String i : aEdges) {
             i = i.trim();
-            int a = Character.getNumericValue(i.charAt(0));
-            int b = Character.getNumericValue(i.charAt(2));
+            String[] s = i.split(" ");
+            int a = Integer.valueOf(s[0])-1;
+            int b = Integer.valueOf(s[1])-1;
             Field fA = fields.get(a);
             Field fB = fields.get(b);
             fA.ConnectTo(fB);

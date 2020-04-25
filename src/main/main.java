@@ -16,7 +16,9 @@ public class main {
         SceneReader sceneReader = new SceneReader(fis);
         GameController gc = sceneReader.LoadScene();
 
-        System.out.println("almalafasdgfsadf");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("Pálya betöltve Sikeresen");
 
         gc.ShowMap();
 
