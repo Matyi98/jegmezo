@@ -1,10 +1,8 @@
 package fields;
 
 import entities.Entity;
-
 import fields.behaviours.StandardFieldBehaviour;
 import scene.writer.SceneWriter;
-
 import java.util.Collection;
 
 public class UnstableIceField extends IceField{
@@ -74,7 +72,6 @@ public class UnstableIceField extends IceField{
         }
     }
 
-    //Megadja a mező saját stabilitását.
     @Override
     public String checkStability() {
         return String.valueOf(weightLimit);

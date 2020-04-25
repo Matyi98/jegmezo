@@ -176,7 +176,7 @@ public abstract class Player extends Entity {
     }
 
     public void rescueFriend(){
-        fieldUnder.pullOutPlayerFrom(actualDirection);
+       fieldUnder.pullOutPlayerFrom(actualDirection);
             actionPoints--;
 
     }
