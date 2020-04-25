@@ -159,4 +159,7 @@ public abstract class Field {
 
     }
 
+    public int getNeighbourCount() {
+        return neighbors.size();
+    }
 }
