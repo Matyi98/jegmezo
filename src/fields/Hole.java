@@ -35,9 +35,8 @@ public class Hole extends Field {
 
     @Override
     public boolean acceptEntity(Entity entity) {
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        System.out.println("Sikertelen a jatekos befogadasa.");
         entities.add(entity);
+        entity.drown();
         return true;
     }
 

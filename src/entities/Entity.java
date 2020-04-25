@@ -55,6 +55,7 @@ public abstract class Entity {
     }
 
     public void move(){
+
         fieldUnder.placeEntityToNextField(actualDirection, this);
     }
 

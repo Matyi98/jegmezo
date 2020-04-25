@@ -5,6 +5,7 @@ import entities.Entity;
 import fields.behaviours.FieldBehaviour;
 import fields.behaviours.StandardFieldBehaviour;
 import items.Item;
+import scene.Board;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,7 @@ public abstract class Field {
     private static int MAX_SNOWLEVEL = 9;
     protected ArrayList<Field> neighbors = new ArrayList<>();
     protected ArrayList<Entity> entities = new ArrayList<>();
+    protected Board board;
 
     private static int autoIncrementID = 0;
     private int UID;
@@ -74,7 +76,6 @@ public abstract class Field {
 
     //Ezen fielden lévő player átmozgatása egy szomszédos fieldre
     public boolean placeEntityToNextField(int direction, Entity entity){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         return neighbors.get(direction).acceptEntity(entity);
     }
 

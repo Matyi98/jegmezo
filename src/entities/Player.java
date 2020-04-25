@@ -219,4 +219,11 @@ public abstract class Player extends Entity {
 
     }
 
+    @Override
+    public void move(){
+
+        if(fieldUnder.placeEntityToNextField(actualDirection, this))
+            actionPoints--;
+    }
+
 }

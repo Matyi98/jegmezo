@@ -1,5 +1,6 @@
 package scene;
 
+import entities.Entity;
 import entities.Player;
 import fields.Field;
 import main.RandomNumber;
@@ -39,7 +40,7 @@ public class Board {
     }
 
     //Nándi: ez a függvény van az osztálydiagramon és nagyon furcsán néz ki, az argumentumok is indokolatlanok. Valószínűleg kell majd rajta változtatni.
-    public void changeField(Field currentField, Field newField, List<Player> players) {
+    public void changeField(Field currentField, Field newField, List<Entity> entities, List<Field> fields) {
 
     }
 
