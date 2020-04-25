@@ -3,6 +3,8 @@ package fields;
 import entities.Entity;
 import fields.behaviours.StandardFieldBehaviour;
 import scene.writer.SceneWriter;
+
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class UnstableIceField extends IceField{
@@ -70,6 +72,14 @@ public class UnstableIceField extends IceField{
         else {
             entity.changeField(this);
             entity.makeWalk();
+        }
+    }
+
+    @Override
+    public void step(){
+        super.step();
+        for(Entity e: entities){
+            e.makeDrown();
         }
     }
 
