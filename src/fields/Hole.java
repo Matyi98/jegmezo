@@ -27,7 +27,6 @@ public class Hole extends Field {
         SceneWriter.OutStream.print('F');
         SceneWriter.OutStream.print('0');
         SceneWriter.OutStream.print(snowLevel);
-        //item.ShowShort();
     }
 
     @Override
