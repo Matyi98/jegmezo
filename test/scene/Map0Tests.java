@@ -124,7 +124,7 @@ public class Map0Tests {
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
-        assertEquals("RNG: off", scanner.nextLine());
+        assertEquals("RNG: false", scanner.nextLine());
         assertEquals("Successful IglooBuild", scanner.nextLine());
         assertEquals("Skip", scanner.nextLine());
         assertEquals("Successful turn: 10", scanner.nextLine());

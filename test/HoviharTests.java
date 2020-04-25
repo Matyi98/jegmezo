@@ -50,6 +50,7 @@ public class HoviharTests {
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
+        assertEquals("RNG: false", scanner.nextLine());
         assertEquals("Skip",scanner.nextLine());
         assertEquals("Tent picked up",scanner.nextLine());
         assertEquals("Successful tent use",scanner.nextLine());

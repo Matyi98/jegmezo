@@ -59,8 +59,10 @@ public class GameController {
                 String command = userInput.split(" ")[1].toLowerCase();
                 if (command.equals("exit"))
                     return false;
-                if (command.equals("random"))
-                    RandomNumber.isRandomEnabled = true;
+                if (command.equals("random")) {
+                    RandomNumber.isRandomEnabled = !RandomNumber.isRandomEnabled;
+                    OutStream.println("RNG: " + RandomNumber.isRandomEnabled);
+                }
                 break;
             case "s":
                 String data = userInput.split(" ")[1].toLowerCase();
