@@ -28,6 +28,7 @@ public abstract class Player extends Entity {
 
     //Megnöveli a játékos életét.
     private void incrementHP(){
+        healthPoints++;
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
     }
 
@@ -79,18 +80,24 @@ public abstract class Player extends Entity {
 
     }
 
-    //Eszköz felvétele.
+    /**
+     *
+     * @return a targyfelvetel sikeressege
+     */
     public boolean pickUpItem(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        //Kiveszi az itemet a mezőből.
-        Item i = fieldUnder.getItem();
-        //Beleteszi az Inventoryba.
-        boolean accepted = inventory.add(i);
-
-        //Ha az Inventory befogadta, akkor törli a mezőről.
-        if(accepted)
-            fieldUnder.removeItem();
-        return false;
+        boolean accepted = false; //bekerult-e az item az inventoryba
+        if(actionPoints != 0) {
+            Item i = fieldUnder.getItem(); //megprobalja kivenni az itemet a fieldrol
+            if (i != null) {
+                accepted = inventory.add(i); //megprobalja az itemet betenni az inventoryba
+                if (accepted) {
+                    fieldUnder.removeItem(); //eltavolitja az itemet a fieldrol
+                    actionPoints--;//csokkenti az akciopontot
+                }
+            }
+        }
+        return accepted;
     }
 
     //Ennyi hószintet takarít el a mezőről.

@@ -45,5 +45,9 @@ public abstract class IceField extends Field {
         return false;
     }
 
+    public void removeItem() {
+        item = null;
+    }
 
-}
+
+    }

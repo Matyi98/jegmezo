@@ -117,8 +117,6 @@ public abstract class Field {
         {
             e.decrementHP();
         }
-
-
     }
 
     //Megmondja, hogy hány játékos áll a mezőn.
@@ -160,6 +158,7 @@ public abstract class Field {
         return neighbors.size();
     }
 
-    //Visszaadja a fielden lévő itemet
+    //Visszaadja a fielden lévő itemet, alapertelmezetten nullt ad vissza,
+    // mert a Field tobb leszarmazottja nem tartalmazhat itemet
     public Item getItem(){ return null;}
 }
