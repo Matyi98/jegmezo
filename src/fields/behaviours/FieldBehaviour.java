@@ -8,6 +8,10 @@ import java.util.Collection;
 public abstract class FieldBehaviour {
     protected Field field;
 
+    public FieldBehaviour(Field f) {
+        this.field = f;
+    }
+
     public void performSnow(Collection<Entity> entities) {
 
     }

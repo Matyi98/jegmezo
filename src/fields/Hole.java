@@ -2,6 +2,7 @@ package fields;
 
 import entities.Entity;
 import fields.behaviours.FieldBehaviour;
+import fields.behaviours.StandardFieldBehaviour;
 import items.Item;
 import scene.Board;
 import scene.writer.SceneWriter;
@@ -29,14 +30,14 @@ public class Hole extends Field {
 
     }
     
-    public Hole(ArrayList<Field> _neighbors, ArrayList<Entity> _entities, Board _board, int _autoIncrementId, int _UID, FieldBehaviour _behaviour)
+    public Hole(ArrayList<Field> _neighbors, ArrayList<Entity> _entities, Board _board, int _autoIncrementId, int _UID)
     {
         neighbors = _neighbors;
         entities = _entities;
         board = _board;
         autoIncrementID = _autoIncrementId;
         UID = _UID;
-        behaviour = _behaviour;
+        behaviour = new StandardFieldBehaviour(this);
     }
 
 
