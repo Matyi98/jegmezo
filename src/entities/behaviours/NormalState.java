@@ -13,7 +13,7 @@ public class NormalState extends PlayerState {
     }
 
     @Override
-    public void drown(){
+    public void makeDrown(){
         player.setState(new DrowningState(player));
     }
 }

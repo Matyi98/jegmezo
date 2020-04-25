@@ -8,12 +8,12 @@ public class DrowningState extends PlayerState{
     }
 
     @Override
-    public void drown(){
+    public void makeDrown(){
         player.die();
     }
 
     @Override
-    public void walk(){
+    public void makeWalk(){
         player.setState(new NormalState(player));
     }
 }

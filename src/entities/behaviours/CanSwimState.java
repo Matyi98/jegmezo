@@ -8,7 +8,7 @@ public class CanSwimState extends PlayerState{
     }
 
     @Override
-    public void drown(){
+    public void makeDrown(){
         player.setState(new SwimmingState(player));
     }
 

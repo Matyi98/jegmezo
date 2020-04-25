@@ -9,7 +9,7 @@ public class SwimmingState extends PlayerState{
     }
 
     @Override
-    public void walk(){
+    public void makeWalk(){
         player.setState(new CanSwimState(player));
     }
 }

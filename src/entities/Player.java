@@ -1,6 +1,5 @@
 package entities;
 
-import fields.Field;
 import items.*;
 import entities.behaviours.*;
 import scene.GameController;
@@ -106,13 +105,13 @@ public abstract class Player extends Entity {
     //Játékos elhagyja a vizet.
     @Override
     public void makeWalk(){
-        currentState.walk();
+        currentState.makeWalk();
     }
 
     //Játékos megfullad.
     @Override
     public void makeDrown(){
-        currentState.drown();
+        currentState.makeDrown();
     }
 
     //Játékos meghal.

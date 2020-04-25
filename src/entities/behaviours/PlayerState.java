@@ -9,11 +9,11 @@ public abstract class PlayerState {
         this.player = player;
     }
 
-    public void drown(){
+    public void makeDrown(){
 
     }
 
-    public void walk(){
+    public void makeWalk(){
 
     }
 
