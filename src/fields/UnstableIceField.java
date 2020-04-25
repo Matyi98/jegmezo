@@ -22,7 +22,7 @@ public class UnstableIceField extends IceField{
         else
         for (Entity e : entities)
             e.ShowShort();
-        this.ShowState();
+            this.ShowState();
     }
 
     //Iglu építése.
@@ -60,12 +60,15 @@ public class UnstableIceField extends IceField{
             Hole hole = new Hole(this.neighbors, this.entities, this.board, this.autoIncrementID, this.UID, new StandardFieldBehaviour());
             entity.changeField(hole);
             board.changeField(this,hole);
+            for(Field field: neighbors)
+            {
+                field.changeNeighbor(this, hole);
+            }
             entity.drown();
         }
         else {
             entity.changeField(this);
             entity.walk();
-
         }
     }
 
