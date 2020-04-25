@@ -16,13 +16,13 @@ public abstract class Field {
     protected ArrayList<Field> neighbors = new ArrayList<>();
     protected List<Entity> entities = new ArrayList<>();
 
-    private static int staticIndex = 0;
-    private int fieldIndex;
+    private static int autoIncrementID = 0;
+    private int UID;
     protected FieldBehaviour behaviour;
 
     public Field() {
         this.behaviour = new StandardFieldBehaviour();
-        this.fieldIndex = staticIndex++;
+        this.UID = autoIncrementID++;
     }
 
     /**
@@ -39,7 +39,7 @@ public abstract class Field {
      * @return A mező indexe-
      */
     public int GetIndex() {
-        return fieldIndex;
+        return UID;
     }
 
     /**
@@ -78,7 +78,7 @@ public abstract class Field {
     }
 
     public boolean pullOutPlayerFrom(int direction){
-        boolean success = neighbors.get(direction).placeEntityToNextField(fieldIndex);
+        boolean success = neighbors.get(direction).placeEntityToNextField(UID);
         entities.get(1).walk();
         return success;
     }
