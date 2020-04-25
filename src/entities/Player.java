@@ -74,6 +74,10 @@ public abstract class Player extends Entity {
         return this.inventory;
     }
 
+    public void resetActionPoints(){
+        actionPoints = MAX_ACTION_POINTS;
+    }
+
     //Megnöveli a játékos életét.
     private void incrementHP(){
         healthPoints++;
@@ -148,7 +152,6 @@ public abstract class Player extends Entity {
 
     //Evés.
     public void eat(Item food){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         if(healthPoints < maxHealthPoints){
             removeItem(food);
             this.incrementHP();
@@ -161,8 +164,6 @@ public abstract class Player extends Entity {
 
     //Játékos életének csökkentése.
     public void decrementHP(){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        System.out.println("healthPoints: "+ healthPoints);
         healthPoints--;
         if(healthPoints <= 0)
             this.die();
@@ -177,18 +178,13 @@ public abstract class Player extends Entity {
     }
 
     public void rescueFriend(){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        //Szól a mezőjének, hogy a kijelölt irányban akar kihúzni valakit
-        fieldUnder.pullOutPlayerFrom(actualDirection);
+        if(fieldUnder.pullOutPlayerFrom(actualDirection)){
+            actionPoints--;
+        }
     }
 
     //Játékost kimentették a lyukból.
     public void pulledOut(){
-
-    }
-
-    //Akciópontok állítása, adott értékkel.
-    public void changeActionPointsBy(int difference){
 
     }
 
@@ -209,12 +205,16 @@ public abstract class Player extends Entity {
 
     //A talált item egy quest item.
     public void questItemFound() {
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         //Jelez a gc-nek, hogy quest itemet találtak.
         gameController.questItemFound();
     }
 
-    public void buildTent(){
+    public void buildTent(Item tent){
+        if(fieldUnder.buildTent()){
+            inventory.removeSpecificItem(tent);
+            actionPoints--;
+            GameController.OutStream.println("Successful tent use.");
+        }
 
     }
 
