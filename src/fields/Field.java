@@ -130,6 +130,10 @@ public abstract class Field {
         return null;
     }
 
+    public int getSnowLevel(){
+        return snowLevel;
+    }
+
     public abstract void acceptEntity(Entity entity);
 
     public abstract boolean buildIgloo();

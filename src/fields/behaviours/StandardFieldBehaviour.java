@@ -16,14 +16,20 @@ public class StandardFieldBehaviour extends FieldBehaviour {
 
     @Override
     public boolean buildTent() {
-        field.setBehaviour(new FieldBehaviourWithTent());
-        return true;
+        if(field.getSnowLevel() == 0){
+            field.setBehaviour(new FieldBehaviourWithTent());
+            return true;
+        }
+        return false;
     }
 
     @Override
     public boolean buildIgloo() {
-        field.setBehaviour(new FieldBehaviourWithIgloo());
-        return true;
+        if(field.getSnowLevel() == 0){
+            field.setBehaviour(new FieldBehaviourWithIgloo());
+            return true;
+        }
+        return false;
     }
 
     @Override
