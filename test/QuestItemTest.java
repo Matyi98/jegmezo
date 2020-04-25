@@ -40,6 +40,7 @@ public class QuestItemTest {
         addCommand("p skip");
         addCommand("p pickup");
         addCommand("p move");
+        addCommand("p use 0");
         addCommand("p skip");
         addCommand("p pickup");
         addCommand("p use 0");
@@ -59,6 +60,7 @@ public class QuestItemTest {
         assertEquals("Skip", scanner.nextLine());
         assertEquals("Flare picked up", scanner.nextLine());
         assertEquals("Successful move: 3", scanner.nextLine());
+        assertEquals("Win conditions not met", scanner.nextLine());
         assertEquals("Skip", scanner.nextLine());
         assertEquals("Cartridge picked up", scanner.nextLine());
         assertEquals("Quest item used", scanner.nextLine());
