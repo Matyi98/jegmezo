@@ -5,6 +5,7 @@ import fields.behaviours.FieldBehaviour;
 import fields.behaviours.StandardFieldBehaviour;
 import items.Item;
 import scene.Board;
+import scene.Dialog;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -127,7 +128,15 @@ public abstract class Field {
     }
 
     public Entity selectEntity() {
-        return null;
+        ArrayList<String> names = new ArrayList<>();
+        for(Entity e : entities){
+            names.add(e.getName());
+        }
+
+        Dialog popup = new Dialog("Who will you rescue?", names);
+        int choice = popup.ShowDialog();
+
+        return entities.get(choice);
     }
 
     public int getSnowLevel(){

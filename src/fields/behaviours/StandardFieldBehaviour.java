@@ -10,8 +10,8 @@ public class StandardFieldBehaviour extends FieldBehaviour {
     public void performSnow(Collection<Entity> entities) {
         for(Entity e: entities){
             e.decrementHP();
-            field.changeSnowLevel(2);
         }
+        field.changeSnowLevel(2);
     }
 
     @Override
@@ -19,8 +19,8 @@ public class StandardFieldBehaviour extends FieldBehaviour {
         if(field.getSnowLevel() == 0){
             field.setBehaviour(new FieldBehaviourWithTent());
             return true;
-        }
-        return false;
+        } else
+            return false;
     }
 
     @Override
@@ -28,8 +28,8 @@ public class StandardFieldBehaviour extends FieldBehaviour {
         if(field.getSnowLevel() == 0){
             field.setBehaviour(new FieldBehaviourWithIgloo());
             return true;
-        }
-        return false;
+        } else
+            return false;
     }
 
     @Override

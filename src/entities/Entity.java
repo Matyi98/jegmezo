@@ -10,6 +10,9 @@ public abstract class Entity {
     protected GameController gameController;
     protected int actualDirection = 0;
 
+    private static char autoIncrement = 'A';
+    protected String name;
+
     public abstract void ShowShort() ;
 
     /**
@@ -20,6 +23,15 @@ public abstract class Entity {
     public final void Setup(GameController gc, Field f) {
         this.gameController = gc;
         this.fieldUnder = f;
+    }
+
+    public Entity(){
+        name = String.valueOf(autoIncrement);
+        ++autoIncrement;
+    }
+
+    public String getName(){
+        return name;
     }
 
     public void step(){
