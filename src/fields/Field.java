@@ -81,8 +81,8 @@ public abstract class Field {
 
     //Ezen fielden lévő player átmozgatása egy szomszédos fieldre
     public void placeEntityToNextField(int direction, Entity entity){
-         this.entities.remove(entity);
          neighbors.get(direction).acceptEntity(entity);
+         this.entities.remove(entity);
     }
 
     public void placeEntityToNextField(int direction){
