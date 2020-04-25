@@ -1,9 +1,7 @@
 package fields;
 
 import entities.Entity;
-import fields.behaviours.FieldBehaviourWithIgloo;
 import items.Item;
-import entities.Player;
 import scene.writer.SceneWriter;
 
 import java.util.Collection;
@@ -41,7 +39,7 @@ public class StableIceField extends IceField{
     @Override
     public void acceptEntity(Entity entity) {
         entities.add(entity);
-        entity.walk();
+        entity.makeWalk();
         entity.changeField(this);
     }
 

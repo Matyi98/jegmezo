@@ -38,11 +38,11 @@ public abstract class Entity {
 
     }
 
-    public void drown() {
+    public void makeDrown() {
 
     }
 
-    public void walk() {
+    public void makeWalk() {
 
     }
 

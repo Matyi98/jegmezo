@@ -92,7 +92,7 @@ public abstract class Field {
 
     public void pullOutPlayerFrom(int direction){
         neighbors.get(direction).placeEntityToNextField(UID);
-        entities.get(1).walk();
+        entities.get(1).makeWalk();
     }
 
     public void removeItem() {

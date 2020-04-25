@@ -66,11 +66,11 @@ public class UnstableIceField extends IceField{
             {
                 field.changeNeighbor(this, hole);
             }
-            entity.drown();
+            entity.makeDrown();
         }
         else {
             entity.changeField(this);
-            entity.walk();
+            entity.makeWalk();
         }
     }
 

@@ -105,13 +105,13 @@ public abstract class Player extends Entity {
 
     //Játékos elhagyja a vizet.
     @Override
-    public void walk(){
+    public void makeWalk(){
         currentState.walk();
     }
 
     //Játékos megfullad.
     @Override
-    public void drown(){
+    public void makeDrown(){
         currentState.drown();
     }
 
