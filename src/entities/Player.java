@@ -20,9 +20,53 @@ public abstract class Player extends Entity {
     public Player() {
     }
 
-    public void showStats() {
+    public boolean Action(String action) {
+        switch (action) {
+            case "turn":
+                String parameter = action.split(" ")[2].toLowerCase();
+                switch (parameter) {
+                    case "a":
+                        this.turn(-1);
+                        break;
+                    case "b":
+                        this.turn(1);
+                        break;
+                    default:
+                        System.out.println("bad parameter.");
+                }
+                break;
+            case "move":
+                this.move();
+                break;
+            case "use":
+                int itemIndex = Integer.parseInt(action.split(" ")[2]);
+                this.useItem(itemIndex);
+                break;
+            case "special":
+                this.specialPower();
+                break;
+            case "skip":
+                return false;
+            case "shovel":
+                this.shovel(1);
+                break;
+            case "pickup":
+                this.pickUpItem();
+                break;
+            default:
+                System.out.println("bad action");
+        }
+        return actionPoints > 0;
+    }
+    
+    
+    public void ShowStats() {
         SceneWriter.OutStream.println("HP: " + String.valueOf(healthPoints));
         SceneWriter.OutStream.println("AP: " + String.valueOf(actionPoints));
+    }
+
+    public void ShowInventory() {
+        inventory.Show();
     }
 
     public Inventory getInventory() {
