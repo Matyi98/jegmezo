@@ -170,7 +170,7 @@ public abstract class Player extends Entity {
     }
 
     public void rescueFriend(){
-       if(fieldUnder.pullOutPlayerFrom(actualDirection));
+       if(fieldUnder.pullOutPlayerFrom(actualDirection))
             actionPoints--;
 
     }
