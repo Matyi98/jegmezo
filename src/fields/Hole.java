@@ -6,7 +6,6 @@ import fields.behaviours.StandardFieldBehaviour;
 import items.Item;
 import scene.Board;
 import scene.GameController;
-import scene.writer.SceneWriter;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -51,13 +50,13 @@ public class Hole extends Field {
      * Megjeleníti a Fieldet a SceneWirterben meghatározott folyamon.
      */
     public void Show() {
-        SceneWriter.OutStream.print('H');
-        SceneWriter.OutStream.print('0');
-        SceneWriter.OutStream.print(snowLevel);
-        SceneWriter.OutStream.print(0);
+        GameController.OutStream.print('H');
+        GameController.OutStream.print('0');
+        GameController.OutStream.print(snowLevel);
+        GameController.OutStream.print(0);
 
         if (entities.size() == 0)
-            SceneWriter.OutStream.print('0');
+            GameController.OutStream.print('0');
         else
             for (Entity e : entities)
             e.ShowShort();

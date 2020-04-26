@@ -3,7 +3,6 @@ package entities;
 import items.*;
 import entities.behaviours.*;
 import scene.GameController;
-import scene.writer.SceneWriter;
 
 import java.util.List;
 
@@ -47,7 +46,7 @@ public abstract class Player extends Entity {
                 this.specialPower();
                 break;
             case "skip":
-                GameController.OutStream.println("Skip");
+                GameController.OutStream.println(getName() + " skip");
                 return false;
             case "shovel":
                 this.shovel(1);
@@ -63,8 +62,8 @@ public abstract class Player extends Entity {
     
     
     public void ShowStats() {
-        SceneWriter.OutStream.println("HP: " + String.valueOf(healthPoints));
-        SceneWriter.OutStream.println("AP: " + String.valueOf(actionPoints));
+        GameController.OutStream.println("HP: " + String.valueOf(healthPoints));
+        GameController.OutStream.println("AP: " + String.valueOf(actionPoints));
     }
 
     public void ShowInventory() {
@@ -82,12 +81,10 @@ public abstract class Player extends Entity {
     //Megnöveli a játékos életét.
     private void incrementHP(){
         healthPoints++;
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
     }
 
     //Átöltözés búvárruhba.
     public void swapDivingSuit() {
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         currentState.swapDivingSuit();
     }
 

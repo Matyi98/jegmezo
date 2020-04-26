@@ -2,7 +2,6 @@ import main.Main;
 import org.junit.Before;
 import org.junit.Test;
 import scene.GameController;
-import scene.writer.SceneWriter;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -19,7 +18,6 @@ public class QuestItemTest {
                 baos = new ByteArrayOutputStream(), true,
                 StandardCharsets.UTF_8.name()
         );
-        SceneWriter.OutStream = GameController.OutStream;
 
         InputStream targetStream = new ByteArrayInputStream(sInput.getBytes());
         InStream = new Scanner(targetStream);
@@ -35,7 +33,6 @@ public class QuestItemTest {
     public void initialise() throws UnsupportedEncodingException {
         addCommand("tst loadmap quest.txt");
         addCommand("p pickup");
-        addCommand("p move");
         addCommand("p move");
         addCommand("p skip");
         addCommand("p pickup");
@@ -54,14 +51,17 @@ public class QuestItemTest {
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
+        assertEquals("A's turn", scanner.nextLine());
         assertEquals("Pistol picked up", scanner.nextLine());
-        assertEquals("Successful move: 2", scanner.nextLine());
-        assertEquals("Successful move: 3", scanner.nextLine());
-        assertEquals("Skip", scanner.nextLine());
+        assertEquals("A successful move: 3", scanner.nextLine());
+        assertEquals("A skip", scanner.nextLine());
+        assertEquals("B's turn", scanner.nextLine());
         assertEquals("Flare picked up", scanner.nextLine());
-        assertEquals("Successful move: 3", scanner.nextLine());
+        assertEquals("B successful move: 3", scanner.nextLine());
+        assertEquals("Quest item used", scanner.nextLine());
         assertEquals("Win conditions not met", scanner.nextLine());
-        assertEquals("Skip", scanner.nextLine());
+        assertEquals("B skip", scanner.nextLine());
+        assertEquals("C's turn", scanner.nextLine());
         assertEquals("Cartridge picked up", scanner.nextLine());
         assertEquals("Quest item used", scanner.nextLine());
         assertEquals("Victory", scanner.nextLine());

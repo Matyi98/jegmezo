@@ -19,7 +19,7 @@ public class DrowningState extends PlayerState{
      */
     @Override
     public void makeDrown(){
-        GameController.OutStream.println(player.getName() +" Drowned");
+        GameController.OutStream.println(player.getName() +" drowned");
         player.die();
     }
 
@@ -30,7 +30,7 @@ public class DrowningState extends PlayerState{
      */
     @Override
     public void makeWalk(){
-        GameController.OutStream.println(player.getName() +" Rescued");
+        GameController.OutStream.println(player.getName() +" rescued");
         player.setState(new NormalState(player));
     }
 }

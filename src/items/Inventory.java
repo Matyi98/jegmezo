@@ -1,7 +1,7 @@
 package items;
 
 import entities.Player;
-import scene.writer.SceneWriter;
+import scene.GameController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,14 +43,17 @@ public class Inventory {
             return true;
         } else {
             //különben jelez, hogy már tele van.
-            System.out.println("Inventory full");
+            GameController.OutStream.println("Inventory full");
             return false;
         }
     }
 
     //Adott indexen lévő Item használata.
-    public void useItem(int itemIndex){
-        items.get(itemIndex).use();
+    public void useItem(int itemIndex) {
+        if (itemIndex >= items.size() || itemIndex < 0)
+            GameController.OutStream.println("Invaild item index");
+        else
+             items.get(itemIndex).use();
     }
 
     /**
@@ -58,15 +61,15 @@ public class Inventory {
      */
     public void Show() {
         if (items.size() == 0)
-            SceneWriter.OutStream.println("Inventory empty");
+            GameController.OutStream.println("Inventory empty");
         else {
-            SceneWriter.OutStream.println("Inventory:");
+            GameController.OutStream.println("Inventory:");
             int j = 0;
             for (Item i : items) {
-                SceneWriter.OutStream.print(j);
-                SceneWriter.OutStream.print(": ");
+                GameController.OutStream.print(j);
+                GameController.OutStream.print(": ");
                 i.Show();
-                SceneWriter.OutStream.println();
+                GameController.OutStream.println();
                 j++;
             }
         }

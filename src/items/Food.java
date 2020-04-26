@@ -1,6 +1,6 @@
 package items;
 
-import scene.writer.SceneWriter;
+import scene.GameController;
 
 public class Food extends Item {
     //étel kalória szintje, ennyi testhőpontot gyógyít a játékoson
@@ -8,7 +8,7 @@ public class Food extends Item {
 
     @Override
     protected void showPickup() {
-        SceneWriter.OutStream.println("Food picked up");
+        GameController.OutStream.println("Food picked up");
     }
 
     //Étel használata, növeli a játékos testhőpontját a kalória szintnek megfelelően.
@@ -17,7 +17,7 @@ public class Food extends Item {
     }
 
     public void Show() {
-        SceneWriter.OutStream.print("Food");
+        GameController.OutStream.print("Food");
     }
-    public void ShowShort() { SceneWriter.OutStream.print("f"); }
+    public void ShowShort() { GameController.OutStream.print("f"); }
 }

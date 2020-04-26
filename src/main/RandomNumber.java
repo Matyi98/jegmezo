@@ -12,14 +12,6 @@ public class RandomNumber {
     static public boolean isRandomEnabled = true;
 
     /**
-     * Létrehozza az objektumot
-     * @param isRandomEnabled van-e randomizálás
-     */
-    public RandomNumber(boolean isRandomEnabled) {
-        this.isRandomEnabled = isRandomEnabled;
-    }
-
-    /**
      * visszatér egy számmal a randomizálásnak megfelelően, 0 <= x < maxNum
      * @param maxNum ennél csak kisebb számokkal tér vissza
      * @return a megadott szám
@@ -32,7 +24,7 @@ public class RandomNumber {
             for (int i = 0; i < maxNum; i++) {
                 numbers.add(String.valueOf(i));
             }
-            Dialog numberDialog = new Dialog("Pick a number.", numbers);
+            Dialog numberDialog = new Dialog("Manual random select", numbers);
             return numberDialog.ShowDialog();
         }
     }

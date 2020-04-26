@@ -2,7 +2,6 @@ import main.Main;
 import org.junit.Before;
 import org.junit.Test;
 import scene.GameController;
-import scene.writer.SceneWriter;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -19,7 +18,6 @@ public class ShovelingTest {
                 baos = new ByteArrayOutputStream(), true,
                 StandardCharsets.UTF_8.name()
         );
-        SceneWriter.OutStream = GameController.OutStream;
 
         InputStream targetStream = new ByteArrayInputStream(sInput.getBytes());
         InStream = new Scanner(targetStream);
@@ -52,7 +50,7 @@ public class ShovelingTest {
         Main.NewGame(InStream);
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
-
+        //TODO: fix this test
         assertEquals("Successful move: 2", scanner.nextLine());
         assertEquals("Successfully shoveled 1 layer of snow", scanner.nextLine());
         assertEquals("picked up fragile shovel", scanner.nextLine());
@@ -64,7 +62,6 @@ public class ShovelingTest {
         assertEquals("Successfully shoveled 2 layer of snow", scanner.nextLine());
         assertEquals("Failed food use", scanner.nextLine());
         assertEquals("Picked up shovel", scanner.nextLine());
-        assertEquals("S0000; S0000; S0000; S000K;", scanner.nextLine());
-
+        assertEquals("S0000; S0000; S0000; S000K; ", scanner.nextLine());
     }
 }

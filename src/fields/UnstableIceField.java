@@ -2,7 +2,7 @@ package fields;
 
 import entities.Entity;
 import fields.behaviours.StandardFieldBehaviour;
-import scene.writer.SceneWriter;
+import scene.GameController;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,16 +11,16 @@ public class UnstableIceField extends IceField{
 
     @Override
     public void Show() {
-        SceneWriter.OutStream.print('U');
-        SceneWriter.OutStream.print(weightLimit);
-        SceneWriter.OutStream.print(snowLevel);
+        GameController.OutStream.print('U');
+        GameController.OutStream.print(weightLimit);
+        GameController.OutStream.print(snowLevel);
         if (item != null)
             item.ShowShort();
         else
-            SceneWriter.OutStream.print('0');
+            GameController.OutStream.print('0');
 
         if (entities.size() == 0)
-            SceneWriter.OutStream.print('0');
+            GameController.OutStream.print('0');
         else
         for (Entity e : entities)
             e.ShowShort();

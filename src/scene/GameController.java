@@ -31,11 +31,15 @@ public class GameController {
         this.players = players;
     }
 
-    private int currentPlayer = 0;
+    private int currentPlayer = -1;
     private void nextPlayer() {
         currentPlayer++;
-        if (currentPlayer >= players.size())
+        if (currentPlayer >= players.size()) {
             currentPlayer = 0;
+            GameController.OutStream.println("End of round");
+            board.letItSnow(new RandomNumber());
+        }
+        OutStream.println(players.get(currentPlayer).getName()+"'s turn");
     }
 
     /**
@@ -48,6 +52,7 @@ public class GameController {
      * @param stdin
      */
     public void Start(Scanner stdin) {
+        nextPlayer();
         while (stdin.hasNextLine()) {
             String next = stdin.nextLine();
             if (!interpretUserInput(next)) {

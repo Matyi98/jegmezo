@@ -2,7 +2,6 @@ package entities;
 
 import fields.Field;
 import scene.GameController;
-import scene.writer.SceneWriter;
 
 public class ArcticExplorer extends Player {
 
@@ -13,7 +12,7 @@ public class ArcticExplorer extends Player {
 
     @Override
     public void ShowShort() {
-        SceneWriter.OutStream.print("K");
+        GameController.OutStream.print("K");
     }
 
 
@@ -21,7 +20,7 @@ public class ArcticExplorer extends Player {
     public void specialPower() {
         if(actionPoints != 0) {
             String stability = fieldUnder.checkStability(actualDirection);
-            SceneWriter.OutStream.println("Stability of neighbor " + actualDirection + " : " + stability);
+            GameController.OutStream.println("Stability of neighbor " + actualDirection + " : " + stability);
             actionPoints--;
         }
     }

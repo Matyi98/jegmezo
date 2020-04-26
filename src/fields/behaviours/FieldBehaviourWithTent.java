@@ -3,7 +3,6 @@ package fields.behaviours;
 import entities.Entity;
 import fields.Field;
 import scene.GameController;
-import scene.writer.SceneWriter;
 
 import java.util.Collection;
 
@@ -36,6 +35,6 @@ public class FieldBehaviourWithTent extends FieldBehaviour{
      */
     @Override
     public void ShowShort() {
-        SceneWriter.OutStream.print("t");
+        GameController.OutStream.print("t");
     }
 }

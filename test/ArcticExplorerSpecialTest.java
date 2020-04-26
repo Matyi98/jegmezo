@@ -2,7 +2,6 @@ import main.Main;
 import org.junit.Before;
 import org.junit.Test;
 import scene.GameController;
-import scene.writer.SceneWriter;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -19,7 +18,6 @@ public class ArcticExplorerSpecialTest {
                 baos = new ByteArrayOutputStream(), true,
                 StandardCharsets.UTF_8.name()
         );
-        SceneWriter.OutStream = GameController.OutStream;
 
         InputStream targetStream = new ByteArrayInputStream(sInput.getBytes());
         InStream = new Scanner(targetStream);
@@ -44,6 +42,7 @@ public class ArcticExplorerSpecialTest {
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
+        assertEquals("A's turn", scanner.nextLine());
         assertEquals("Stability of neighbor 0 : 2",scanner.nextLine());
     }
 }

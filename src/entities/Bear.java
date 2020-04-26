@@ -2,7 +2,6 @@ package entities;
 
 import fields.Field;
 import scene.GameController;
-import scene.writer.SceneWriter;
 
 import java.util.Random;
 
@@ -19,7 +18,7 @@ public class Bear extends Entity {
 
     @Override
     public void ShowShort() {
-        SceneWriter.OutStream.print("M");
+        GameController.OutStream.print("M");
     }
 
     @Override

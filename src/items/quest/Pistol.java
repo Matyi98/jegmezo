@@ -1,15 +1,15 @@
 package items.quest;
 
-import scene.writer.SceneWriter;
+import scene.GameController;
 
 //Jelzőpisztolyt reprezentáló osztály.
 public class Pistol extends QuestItem {
     @Override
     protected void showPickup() {
-        SceneWriter.OutStream.println("Pistol picked up");
+        GameController.OutStream.println("Pistol picked up");
     }
     public void Show() {
-        SceneWriter.OutStream.print("Pistol");
+        GameController.OutStream.print("Pistol");
     }
-    public void ShowShort() { SceneWriter.OutStream.print("p"); }
+    public void ShowShort() { GameController.OutStream.print("p"); }
 }

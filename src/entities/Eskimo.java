@@ -3,7 +3,7 @@ package entities;
 //import enums.Direction;
 
 import scene.GameController;
-import scene.writer.SceneWriter;
+
 
 public class Eskimo extends Player {
 
@@ -14,7 +14,7 @@ public class Eskimo extends Player {
 
     @Override
     public void ShowShort() {
-        SceneWriter.OutStream.print("E");
+        GameController.OutStream.print("E");
     }
 
 
