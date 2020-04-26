@@ -98,6 +98,12 @@ public abstract class Field {
          this.entities.remove(entity);
     }
 
+    public void placeEntityToNextField(Field toWhom, Entity entity){
+        int direction = neighbors.indexOf(toWhom);
+        neighbors.get(direction).acceptEntity(entity);
+        this.entities.remove(entity);
+    }
+
     /**
      * Argumentumként kapott irányba lévő Fieldről kezdeményi egy Entity
      * átmozgatását erre a Fieldre.
@@ -108,7 +114,7 @@ public abstract class Field {
         Entity entity = neighbors.get(direction).selectEntity();
         if(entity != null)
         {
-            neighbors.get(direction).placeEntityToNextField(UID, entity);
+            neighbors.get(direction).placeEntityToNextField(this, entity);
             return true;
         }
         return false;
