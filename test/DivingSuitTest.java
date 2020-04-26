@@ -37,6 +37,7 @@ public class DivingSuitTest {
         addCommand("p pickup");
         addCommand("p use 0");
         addCommand("p move");
+        addCommand("p turn d");
         addCommand("p move");
         addCommand("s map");
         setInputString();
@@ -48,10 +49,14 @@ public class DivingSuitTest {
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
+        assertEquals("A's turn", scanner.nextLine());
         assertEquals("DivingSuit picked up", scanner.nextLine());
         assertEquals("A equiped DivingSuit", scanner.nextLine());
-        assertEquals("Successful move: 2", scanner.nextLine());
-        assertEquals("Successful move: 3", scanner.nextLine());
-        assertEquals("S0000; H0000; S000K", scanner.nextLine());
+        assertEquals("A started swimming", scanner.nextLine());
+        assertEquals("A successful move: 2", scanner.nextLine());
+        assertEquals("A successful turn: 3", scanner.nextLine());
+        assertEquals("A climbed out", scanner.nextLine());
+        assertEquals("A successful move: 3", scanner.nextLine());
+        assertEquals("S0000; H0000; S000K; ", scanner.nextLine());
     }
 }

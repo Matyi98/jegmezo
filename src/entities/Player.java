@@ -82,12 +82,10 @@ public abstract class Player extends Entity {
     //Megnöveli a játékos életét.
     private void incrementHP(){
         healthPoints++;
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
     }
 
     //Átöltözés búvárruhba.
     public void swapDivingSuit() {
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         currentState.swapDivingSuit();
     }
 
