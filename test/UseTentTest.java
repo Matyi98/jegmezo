@@ -32,11 +32,12 @@ public class UseTentTest {
 
     @Test
     public void SatorHasznalata() throws UnsupportedEncodingException {
-        //TODO: helyesen implementálni ezt a tesztet.
-
         addCommand("tst loadmap sator.txt");
-
-        addCommand("p special");
+        addCommand("p pickup");
+        addCommand("s inv");
+        addCommand("p use 0");
+        addCommand("s inv");
+        addCommand("s stats");
         addCommand("s map");
         setInputString();
 
@@ -44,7 +45,13 @@ public class UseTentTest {
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
+        assertEquals("Tent picked up",scanner.nextLine());
+        assertEquals("Inventory: ",scanner.nextLine());
+        assertEquals("0: tent",scanner.nextLine());
         assertEquals("Successful TentBuild",scanner.nextLine());
-        assertEquals("U20p0; S000M; H0000; H0000; S00c0; U300Ei; H0000; S00e0; S00s0; H0000; H0000; U200K; S000K;",scanner.nextLine());
+        assertEquals("Inventory empty",scanner.nextLine());
+        assertEquals("HP: 5",scanner.nextLine());
+        assertEquals("AP: 2",scanner.nextLine());
+        assertEquals("S00tEt; ",scanner.nextLine());
     }
 }

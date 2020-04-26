@@ -6,6 +6,11 @@ public class Food extends Item {
     //étel kalória szintje, ennyi testhőpontot gyógyít a játékoson
     int calorieLevel = 1;
 
+    @Override
+    protected void showPickup() {
+        SceneWriter.OutStream.print("Food picked up");
+    }
+
     //Étel használata, növeli a játékos testhőpontját a kalória szintnek megfelelően.
     public void use(){
         owner.eat(this);

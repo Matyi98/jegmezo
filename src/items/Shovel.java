@@ -7,6 +7,11 @@ public class Shovel extends Item {
     //Ennyi hóréteget takarít el a lapát.
     private int shovelSpeedIncrease = 2;
 
+    @Override
+    protected void showPickup() {
+        SceneWriter.OutStream.print("Shovel picked up");
+    }
+
     //Lapát használata.
     public void use(){
         owner.shovel(shovelSpeedIncrease);

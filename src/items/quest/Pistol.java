@@ -4,7 +4,10 @@ import scene.writer.SceneWriter;
 
 //Jelzőpisztolyt reprezentáló osztály.
 public class Pistol extends QuestItem {
-
+    @Override
+    protected void showPickup() {
+        SceneWriter.OutStream.print("Pistol picked up");
+    }
     public void Show() {
         SceneWriter.OutStream.print("Pistol");
     }
