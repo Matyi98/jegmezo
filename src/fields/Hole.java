@@ -101,7 +101,7 @@ public class Hole extends Field {
     }
 
     public Entity selectEntity() {
-
+        //TODO: teljesen átírni, hogy a Dialoge osztályt használja
         System.out.println("Válassz alapján az alábbi megmenekítendő lények közül kit szeretnél kimenteni!");
         System.out.println("A kiválasztáshoz add meg a sorszámát majd üss entert!");
 
