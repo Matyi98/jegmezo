@@ -7,11 +7,11 @@ public class SwimmingState extends PlayerState{
 
     public SwimmingState(Player player) {
         super(player);
-        GameController.OutStream.println("Fell into hole");
     }
 
     @Override
     public void makeWalk(){
+        GameController.OutStream.println(player.getName() + " Climbed out");
         player.setState(new CanSwimState(player));
     }
 }

@@ -6,16 +6,17 @@ import scene.GameController;
 public class DrowningState extends PlayerState{
     public DrowningState(Player player) {
         super(player);
-        GameController.OutStream.println("Fell into hole");
     }
 
     @Override
     public void makeDrown(){
+        GameController.OutStream.println(player.getName() +" Drowned");
         player.die();
     }
 
     @Override
     public void makeWalk(){
+        GameController.OutStream.println(player.getName() +" Rescued");
         player.setState(new NormalState(player));
     }
 }

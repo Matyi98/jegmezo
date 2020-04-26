@@ -48,8 +48,8 @@ public class DivingSuitTest {
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
-        assertEquals("Diving suit picked up", scanner.nextLine());
-        assertEquals("Diving suit used", scanner.nextLine());
+        assertEquals("DivingSuit picked up", scanner.nextLine());
+        assertEquals("DivingSuit used", scanner.nextLine());
         assertEquals("Successful move: 2", scanner.nextLine());
         assertEquals("Successful move: 3", scanner.nextLine());
         assertEquals("S0000; H0000; S000K", scanner.nextLine());
