@@ -53,7 +53,8 @@ public class SceneReader {
      * Fájlból beolvasott adatok alapján Field objektumokat hoz létre,
      * amelyeket eltárol az osztály fields gyűjteményében. Ezen kívül
      * beállítja a Fieldek közötti szomszédsági kapcsolatokat is.
-     * @throws IOException
+     * @throws IOException A pálya leírást tartlamzó fájl beolvasása
+     *                      közben technikai jellegű hiba adódott.
      */
     private void readAll() throws IOException {
         String sNodes = this.reader.readLine();
@@ -68,8 +69,8 @@ public class SceneReader {
         for (String i : aEdges) {
             i = i.trim();
             String[] s = i.split(" ");
-            int a = Integer.valueOf(s[0])-1;
-            int b = Integer.valueOf(s[1])-1;
+            int a = Integer.parseInt(s[0])-1;
+            int b = Integer.parseInt(s[1])-1;
             Field fA = fields.get(a);
             Field fB = fields.get(b);
             fA.ConnectTo(fB);
@@ -119,7 +120,8 @@ public class SceneReader {
      *          leszármazott típusa.
      * @return  Az argumentumként meghatározott típusú,
      *          a metóduson belül példányosított Field.
-     * @throws Exception
+     * @throws Exception Szemantikailag vagy szintaktikailag
+     *                   hibás a pályát tartalmazó fájl.
      */
     private Field parseField(char c) throws Exception {
         Field f;
@@ -147,7 +149,8 @@ public class SceneReader {
      *          pontos leszármazott típusa.
      * @return  Az argumentumként meghatározott típusú.
      *          a metóduson belül példányosított Item.
-     * @throws Exception
+     * @throws Exception Szemantikailag vagy szintaktikailag
+     *                   hibás a pályát tartalmazó fájl.
      */
     private Item parseItem(char c) throws Exception {
         Item i;
@@ -196,7 +199,8 @@ public class SceneReader {
      *          pontos leszármazott típusa.
      * @return  Az argumentumként meghatározott típusú.
      *          a metóduson belül példányosított Item.
-     * @throws Exception
+     * @throws Exception Szemantikailag vagy szintaktikailag
+     *                   hibás a pályát tartalmazó fájl.
      */
     private Entity parseEntity(char c) throws Exception {
         Entity e;
