@@ -1,18 +1,21 @@
 package fields;
 
 import entities.Entity;
-import fields.behaviours.StandardFieldBehaviour;
 import scene.GameController;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
+/**
+ * UnstableIceField osztály. Csak adott számú Entity-t képes elbírni, ha túl sok Entity kerül rá
+ * akkor összetörik és Hole-á alakul.
+ */
 public class UnstableIceField extends IceField{
 
+    /**
+     * Megjeleníti a UnstableIceFieldet a SceneWriterben meghatározott folyamon.
+     */
     @Override
     public void Show() {
         GameController.OutStream.print('U');
-        GameController.OutStream.print(weightLimit);
+        GameController.OutStream.print(stability);
         GameController.OutStream.print(snowLevel);
         if (item != null)
             item.ShowShort();
@@ -27,35 +30,50 @@ public class UnstableIceField extends IceField{
             this.ShowState();
     }
 
-    //Iglu építése.
+    /**
+     * Iglu építése. Ha sikeres az építés True-val tér vissza.
+     * @return unstableIceField-re nem lehet iglut építeni.
+     */
     @Override
     public boolean buildIgloo(){
-        //Instabil mezőre ne lehet építeni Iglut.
         return false;
     }
 
+    /**
+     * Sátor építése. Ha sikeres az építés True-val tér vissza.
+     * @return sikeres építés.
+     */
     @Override
     public boolean buildTent() {
         return behaviour.buildTent();
     }
 
+    /**
+     * Sátor elpusztítása.
+     */
     @Override
     public void destroyTent() {
         behaviour.destroyTent();
     }
 
+    /**
+     * Havazás a Field-en.
+     */
     @Override
     public void performSnow() {
         behaviour.performSnow(entities);
     }
 
-    //Játékos befogadása a mezőre.
+    /**
+     * Új Entity befogadása.
+     * @param entity Field-re lépő Entity referenciája.
+     */
     @Override
     public void acceptEntity(Entity entity) {
         collideEntities(entity);
         entities.add(entity);
-        if(weightLimit < entities.size()) {
-            Hole hole = new Hole(this.neighbors, this.entities, this.board, this.autoIncrementID, this.UID);
+        if(stability < entities.size()) {
+            Hole hole = new Hole(this.neighbors, this.entities, this.board, this.UID);
 
             entity.changeField(hole);
             board.changeField(this,hole);
@@ -71,9 +89,13 @@ public class UnstableIceField extends IceField{
         }
     }
 
+    /**
+     * Lekérdezi a Field stabilitását.
+     * @return stabilitás.
+     */
     @Override
     public String checkStability() {
-        return String.valueOf(weightLimit);
+        return String.valueOf(stability);
     }
 
 }

@@ -10,6 +10,11 @@ import java.util.Collection;
  * A Fieldnek az tenttel rendelkező állapotának viselkedését implementáló osztály.
  */
 public class FieldBehaviourWithTent extends FieldBehaviour{
+
+    /**
+     * Konstruktor
+     * @param f referencia arra a Fieldre, amely ezt a FieldBehaviourt tartalmazza.
+     */
     public FieldBehaviourWithTent(Field f) {
         super(f);
         GameController.OutStream.println("Successful TentBuild");

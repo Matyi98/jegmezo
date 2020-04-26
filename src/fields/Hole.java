@@ -13,6 +13,9 @@ import java.util.Collection;
 import java.util.Optional;
 import java.util.Scanner;
 
+/**
+ * Lyuk, amiben víz van. Player-ek képesek belefulladni, ha nincs rajtuk búvárruha.
+ */
 public class Hole extends Field {
 
     /**
@@ -26,17 +29,26 @@ public class Hole extends Field {
         board = b; snowLevel = s;
     }
 
+    /**
+     * Default konstruktor.
+     */
     public Hole()
     {
         super();
     }
 
-    public Hole(ArrayList<Field> _neighbors, ArrayList<Entity> _entities, Board _board, int _autoIncrementId, int _UID)
+    /**
+     * Konstruktor inicializálásra.
+     * @param _neighbors Szomszédos mezők.
+     * @param _entities Entitások, amelyek ezen a mezőn állnak.
+     * @param _board Referencia a Board-ra, amely ezt a mezőt tartalmazza.
+     * @param _UID Egyedi azonosító.
+     */
+    public Hole(ArrayList<Field> _neighbors, ArrayList<Entity> _entities, Board _board, int _UID)
     {
         neighbors = _neighbors;
         entities = _entities;
         board = _board;
-        autoIncrementID = _autoIncrementId;
         UID = _UID;
         behaviour = new StandardFieldBehaviour(this);
     }
@@ -59,6 +71,10 @@ public class Hole extends Field {
         this.ShowState();
     }
 
+    /**
+     * Új Entity befogadása.
+     * @param entity Field-re lépő entity referenciája.
+     */
     @Override
     public void acceptEntity(Entity entity) {
         collideEntities(entity);
@@ -67,40 +83,73 @@ public class Hole extends Field {
         entity.changeField(this);
     }
 
+    /**
+     * Iglu építése. Ha sikeres az építés True-val tér vissza.
+     * @return False, mivel nem lehet építeni.
+     */
     @Override
     public boolean buildIgloo() { return false; }
 
+    /**
+     * Sátor építése. Ha sikeres az építés True-val tér vissza.
+     * @return False, mivel nem lehet építeni.
+     */
     @Override
     public boolean buildTent() {
         return false;
     }
 
+    /**
+     * Sátor elpusztítása.
+     * Hole-on nem lehet sátor, így nem történik semmi.
+     */
     @Override
     public void destroyTent() {
 
     }
 
+    /**
+     * Havazás a Hole-on.
+     * Mivel hó nem fedheti be a Hole-t, ezért nem történik semmi.
+     */
     @Override
     public void performSnow() {
 
     }
 
+    /**
+     * Visszaadja a stabilitást.
+     * @return "Hole" string, mivel stabilitás nem értelmezhető.
+     */
     @Override
     public String checkStability() {
         //Megadja a mező stabilitását.
         return "Hole";
     }
 
+    /**
+     * Hole-on lévő tárgy visszaadása.
+     * Ez mindig null, hiszen nem lehet tárgy a Hole-on.
+     * @return
+     */
     @Override
     public Item getItem() {
         return null;
     }
 
+    /**
+     * Hole-on lévő tárgy eltávolítása.
+     * Nem történik semmi, hiszen nem lehet Item, a Hole-on.
+     */
     @Override
     public void removeItem() {
 
     }
 
+    /**
+     * Felhasználói input hatására kiválaszt egy Entity-t, amely a Hole-on van.
+     * @return kiválaszott Entity.
+     */
     @Override
     public Entity selectEntity() {
         ArrayList<String> names = new ArrayList<>();

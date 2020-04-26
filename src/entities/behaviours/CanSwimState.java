@@ -9,6 +9,11 @@ import scene.GameController;
  * implementációs osztály.
  */
 public class CanSwimState extends PlayerState{
+
+    /**
+     * Konstruktor
+     * @param player Referencia ezzel a PlayerStattel rendelkező játékosra
+     */
     public CanSwimState(Player player) {
         super(player);
     }

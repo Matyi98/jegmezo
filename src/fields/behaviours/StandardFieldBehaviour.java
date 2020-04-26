@@ -9,6 +9,11 @@ import java.util.Collection;
  * A Fieldnek a sátorral rendelkező állapotának viselkedését implementáló osztály.
  */
 public class StandardFieldBehaviour extends FieldBehaviour {
+
+    /**
+     * Konstruktor
+     * @param f referencia arra a Fieldre, amely ezt a FieldBehaviourt tartalmazza.
+     */
     public StandardFieldBehaviour(Field f) {
         super(f);
     }

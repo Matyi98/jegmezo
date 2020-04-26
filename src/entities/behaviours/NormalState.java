@@ -8,6 +8,11 @@ import scene.GameController;
  * állapotának viselkedését reprezentáló implementációs osztály.
  */
 public class NormalState extends PlayerState {
+
+    /**
+     * Konstruktor
+     * @param player Referencia ezzel a PlayerStattel rendelkező játékosra
+     */
     public NormalState(Player player) {
         super(player);
     }

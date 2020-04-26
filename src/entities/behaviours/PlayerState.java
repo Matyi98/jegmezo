@@ -14,6 +14,10 @@ public abstract class PlayerState {
      */
     protected Player player;
 
+    /**
+     * Konstruktor
+     * @param player Referencia ezzel a PlayerStattel rendelkező játékosra
+     */
     public PlayerState(Player player) {
         this.player = player;
     }

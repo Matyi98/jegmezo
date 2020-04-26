@@ -11,6 +11,10 @@ import java.util.Collection;
  */
 public class FieldBehaviourWithIgloo extends FieldBehaviour {
 
+    /**
+     * Konstruktor
+     * @param f referencia arra a Fieldre, amely ezt a FieldBehaviourt tartalmazza.
+     */
     public FieldBehaviourWithIgloo(Field f) {
         super(f);
         GameController.OutStream.println("Successful IglooBuild");

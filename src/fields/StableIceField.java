@@ -1,13 +1,16 @@
 package fields;
 
 import entities.Entity;
-import items.Item;
 import scene.GameController;
 
-import java.util.Collection;
-
+/**
+ * StableIceField osztály. Bármennyi Entity-t képes elbírni.
+ */
 public class StableIceField extends IceField{
 
+    /**
+     * Megjeleníti a StableIceFieldet a SceneWriterben meghatározott folyamon.
+     */
     @Override
     public void Show() {
         GameController.OutStream.print('S');
@@ -28,12 +31,10 @@ public class StableIceField extends IceField{
         this.ShowState();
     }
 
-    //Mezőn tárolt tárgy beállíítása.
-    public void setItem(Item item){
-        this.item = item;
-    }
-
-    //Játékos befogadása a mezőre.
+    /**
+     * Új Entity befogadása.
+     * @param entity Field-re lépő Entity referenciája.
+     */
     @Override
     public void acceptEntity(Entity entity) {
         collideEntities(entity);
@@ -42,28 +43,44 @@ public class StableIceField extends IceField{
         entity.changeField(this);
     }
 
-    //Megadja a mező saját stabilitását.
+    /**
+     * Lekérdezi a Field stabilitását.
+     * @return "Stable" string, bármennyi Entity-t elbír.
+     */
     @Override
     public String checkStability() {
         return "Stable";
     }
 
-    //Iglu építése a mezőn.
+    /**
+     * Iglu építése. Ha sikeres az építés True-val tér vissza.
+     * @return sikeres építés.
+     */
     @Override
     public boolean buildIgloo(){
         return behaviour.buildIgloo();
     }
 
+    /**
+     * Sátor építése. Ha sikeres az építés True-val tér vissza.
+     * @return sikeres építés.
+     */
     @Override
     public boolean buildTent() {
         return behaviour.buildTent();
     }
 
+    /**
+     * Sátor elpusztítása.
+     */
     @Override
     public void destroyTent() {
         behaviour.destroyTent();
     }
 
+    /**
+     * Havazás a Field-en.
+     */
     @Override
     public void performSnow() {
         behaviour.performSnow(entities);

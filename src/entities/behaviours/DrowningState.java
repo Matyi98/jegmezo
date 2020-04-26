@@ -8,6 +8,11 @@ import scene.GameController;
  * fuldokló állapotának viselkedését reprezentáló implementációs osztály.
  */
 public class DrowningState extends PlayerState{
+
+    /**
+     * Konstruktor
+     * @param player Referencia ezzel a PlayerStattel rendelkező játékosra
+     */
     public DrowningState(Player player) {
         super(player);
     }

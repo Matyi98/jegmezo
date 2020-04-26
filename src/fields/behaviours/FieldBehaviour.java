@@ -16,6 +16,10 @@ public abstract class FieldBehaviour {
      */
     protected Field field;
 
+    /**
+     * Konstruktor
+     * @param f referencia arra a Fieldre, amely ezt a FieldBehaviourt tartalmazza.
+     */
     public FieldBehaviour(Field f) {
         this.field = f;
     }
