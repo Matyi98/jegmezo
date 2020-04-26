@@ -9,7 +9,7 @@ public class Bear extends Entity {
 
 
     @Override
-    public void step(){
+    public void step() {
         int randomDirection = new Random().nextInt(fieldUnder.getNeighbourCount());
         actualDirection = randomDirection;
         move();
@@ -22,12 +22,22 @@ public class Bear extends Entity {
     }
 
     @Override
-    public void collideWith(Entity otherEntity){
+    public void collideWith(Entity otherEntity) {
         otherEntity.die();
     }
 
     @Override
     public void decrementHP() {
+
+    }
+
+    public void startTurn()
+    {
+
+    }
+
+    public  void endTurn()
+    {
 
     }
 
