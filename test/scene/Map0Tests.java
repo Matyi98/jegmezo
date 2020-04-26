@@ -62,6 +62,7 @@ public class Map0Tests {
 
     @Test
     public void MezoBeszakadasa() throws UnsupportedEncodingException {
+        addCommand("tst random");
         addCommand("p turn a");
         addCommand("p move");
         addCommand("p turn a");
@@ -70,6 +71,11 @@ public class Map0Tests {
         addCommand("p skip");
         addCommand("p turn a");
         addCommand("p move");
+
+        for (int i = 0; i < 13; i++)
+            addCommand("0");
+
+        addCommand("2");
         setInputString();
 
         Main.NewGame(InStream);
@@ -77,6 +83,7 @@ public class Map0Tests {
         System.out.println(baos.toString());
 
         assertEquals("B's turn",scanner.nextLine());
+        assertEquals("RNG: false", scanner.nextLine());
         assertEquals("B successful turn: 13",scanner.nextLine());
         assertEquals("B successful move: 13",scanner.nextLine());
         assertEquals("B successful turn: 12",scanner.nextLine());
@@ -89,6 +96,7 @@ public class Map0Tests {
         assertEquals("D fell into hole",scanner.nextLine());
         assertEquals("D successful move: 12",scanner.nextLine());
         assertEquals("End of round",scanner.nextLine());
+        assertEquals("A successful move: 5",scanner.nextLine());
         assertEquals("B's turn",scanner.nextLine());
     }
 

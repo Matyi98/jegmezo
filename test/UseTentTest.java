@@ -1,5 +1,6 @@
 import main.Main;
 import org.junit.Test;
+import scene.Dialog;
 import scene.GameController;
 
 import java.io.*;
@@ -20,6 +21,7 @@ public class UseTentTest {
 
         InputStream targetStream = new ByteArrayInputStream(sInput.getBytes());
         InStream = new Scanner(targetStream);
+        Dialog.InStream = this.InStream;
     }
 
     String sInput = "";
@@ -31,12 +33,18 @@ public class UseTentTest {
     @Test
     public void SatorHasznalata() throws UnsupportedEncodingException {
         addCommand("tst loadmap sator.txt");
+        addCommand("tst random");
         addCommand("p pickup");
         addCommand("s inv");
         addCommand("p use 0");
         addCommand("s inv");
         addCommand("s stats");
         addCommand("s map");
+        addCommand("p skip");
+        addCommand("1");
+        addCommand("1");
+        addCommand("s map");
+        addCommand("s stats");
         setInputString();
 
         Main.NewGame(InStream);
@@ -44,6 +52,7 @@ public class UseTentTest {
         System.out.println(baos.toString());
 
         assertEquals("A's turn",scanner.nextLine());
+        assertEquals("RNG: false", scanner.nextLine());
         assertEquals("Tent picked up",scanner.nextLine());
         assertEquals("Inventory:",scanner.nextLine());
         assertEquals("0: Tent",scanner.nextLine());
@@ -52,5 +61,11 @@ public class UseTentTest {
         assertEquals("HP: 5",scanner.nextLine());
         assertEquals("AP: 2",scanner.nextLine());
         assertEquals("S000Et; S0000; ",scanner.nextLine());
+        assertEquals("A skip",scanner.nextLine());
+        assertEquals("End of round",scanner.nextLine());
+        assertEquals("A's turn",scanner.nextLine());
+        assertEquals("S000E; S0200; ",scanner.nextLine());
+        assertEquals("HP: 5",scanner.nextLine());
+        assertEquals("AP: 4",scanner.nextLine());
     }
 }

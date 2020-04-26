@@ -65,7 +65,7 @@ public class HoviharTests {
         assertEquals("End of round", scanner.nextLine());
         assertEquals("A's turn", scanner.nextLine());
         //dialog here
-        assertEquals("S020K; S000Et; S000Ei; ",scanner.nextLine());
+        assertEquals("S020K; S000E; S000Ei; ",scanner.nextLine());
         assertEquals("HP: 3",scanner.nextLine());
         assertEquals("AP: 4",scanner.nextLine());
 
