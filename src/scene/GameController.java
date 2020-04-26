@@ -34,8 +34,10 @@ public class GameController {
     private int currentPlayer = -1;
     private void nextPlayer() {
         currentPlayer++;
-        if (currentPlayer >= players.size())
+        if (currentPlayer >= players.size()) {
             currentPlayer = 0;
+            board.letItSnow(new RandomNumber());
+        }
         OutStream.println(players.get(currentPlayer).getName()+"'s turn");
     }
 

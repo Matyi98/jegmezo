@@ -1,7 +1,6 @@
 import main.Main;
 import org.junit.Test;
 import scene.GameController;
-import scene.writer.SceneWriter;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -18,7 +17,6 @@ public class UseTentTest {
                 baos = new ByteArrayOutputStream(), true,
                 StandardCharsets.UTF_8.name()
         );
-        SceneWriter.OutStream = GameController.OutStream;
 
         InputStream targetStream = new ByteArrayInputStream(sInput.getBytes());
         InStream = new Scanner(targetStream);

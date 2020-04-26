@@ -2,7 +2,6 @@ package fields.behaviours;
 
 import entities.Entity;
 import fields.Field;
-import scene.writer.SceneWriter;
 
 import java.util.Collection;
 

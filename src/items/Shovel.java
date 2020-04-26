@@ -1,6 +1,6 @@
 package items;
 
-import scene.writer.SceneWriter;
+import scene.GameController;
 
 //Lapátot reprezentáló osztály.
 public class Shovel extends Item {
@@ -9,7 +9,7 @@ public class Shovel extends Item {
 
     @Override
     protected void showPickup() {
-        SceneWriter.OutStream.println("Shovel picked up");
+        GameController.OutStream.println("Shovel picked up");
     }
 
     //Lapát használata.
@@ -18,7 +18,7 @@ public class Shovel extends Item {
     }
 
     public void Show() {
-        SceneWriter.OutStream.print("Shovel");
+        GameController.OutStream.print("Shovel");
     }
-    public void ShowShort() { SceneWriter.OutStream.print("s"); }
+    public void ShowShort() { GameController.OutStream.print("s"); }
 }

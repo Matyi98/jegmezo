@@ -1,7 +1,6 @@
 import main.Main;
 import org.junit.Test;
 import scene.GameController;
-import scene.writer.SceneWriter;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -18,7 +17,6 @@ public class HoviharTests {
                 baos = new ByteArrayOutputStream(), true,
                 StandardCharsets.UTF_8.name()
         );
-        SceneWriter.OutStream = GameController.OutStream;
 
         InputStream targetStream = new ByteArrayInputStream(sInput.getBytes());
         InStream = new Scanner(targetStream);
@@ -50,16 +48,19 @@ public class HoviharTests {
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
+        assertEquals("A's turn", scanner.nextLine());
         assertEquals("RNG: false", scanner.nextLine());
-        assertEquals("Skip",scanner.nextLine());
+        assertEquals("A skip",scanner.nextLine());
+        assertEquals("B's turn", scanner.nextLine());
         assertEquals("Tent picked up",scanner.nextLine());
         assertEquals("Successful TentBuild",scanner.nextLine());
-        assertEquals("Skip",scanner.nextLine());
-        assertEquals("Successful IgluBuild",scanner.nextLine());
+        assertEquals("B skip",scanner.nextLine());
+        assertEquals("C's turn", scanner.nextLine());
+        assertEquals("Successful IglooBuild",scanner.nextLine());
         //dialog here
         assertEquals("HP: 4",scanner.nextLine());
         assertEquals("AP: 4",scanner.nextLine());
-        assertEquals("S010K; S01tK; S010K;",scanner.nextLine());
+        assertEquals("S010K; S01tK; S010K; ",scanner.nextLine());
     }
 
 }

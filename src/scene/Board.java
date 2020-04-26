@@ -2,7 +2,6 @@ package scene;
 
 import fields.Field;
 import main.RandomNumber;
-import scene.writer.SceneWriter;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -26,7 +25,7 @@ public class Board {
         for (int i = 0; i < fields.size(); i++) {
             Field f = fields.get(i);
             f.Show();
-            SceneWriter.OutStream.print("; ");
+            GameController.OutStream.print("; ");
 
             ArrayList<Field> neighbours = f.GetNeighbours();
             int myIndex = f.GetUID();
@@ -36,12 +35,12 @@ public class Board {
                     pairs.add(Integer.toString(myIndex) + " " + Integer.toString(ni) + "; ");
             }
         }
-        SceneWriter.OutStream.println();
+        GameController.OutStream.println();
 
         if (showEdges) {
             for (String si : pairs)
-                SceneWriter.OutStream.print(si);
-            SceneWriter.OutStream.println();
+                GameController.OutStream.print(si);
+            GameController.OutStream.println();
         }
     }
 

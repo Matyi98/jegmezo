@@ -1,13 +1,13 @@
 package items;
 
-import scene.writer.SceneWriter;
+import scene.GameController;
 
 //Kötelet reprezentáló osztály.
 public class Rope extends Item {
 
     @Override
     protected void showPickup() {
-        SceneWriter.OutStream.println("Rope picked up");
+        GameController.OutStream.println("Rope picked up");
     }
 
     public void use() {
@@ -15,7 +15,7 @@ public class Rope extends Item {
     }
 
     public void Show() {
-        SceneWriter.OutStream.print("Rope");
+        GameController.OutStream.print("Rope");
     }
-    public void ShowShort() { SceneWriter.OutStream.print("r"); }
+    public void ShowShort() { GameController.OutStream.print("r"); }
 }

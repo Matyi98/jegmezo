@@ -1,6 +1,6 @@
 package items;
 
-import scene.writer.SceneWriter;
+import scene.GameController;
 
 public class FragileShovel extends Item {
 
@@ -9,7 +9,7 @@ public class FragileShovel extends Item {
 
     @Override
     protected void showPickup() {
-        SceneWriter.OutStream.println("FragileShovel picked up");
+        GameController.OutStream.println("FragileShovel picked up");
     }
 
 
@@ -22,7 +22,7 @@ public class FragileShovel extends Item {
     }
 
     public void Show() {
-        SceneWriter.OutStream.print("FragileShovel");
+        GameController.OutStream.print("FragileShovel");
     }
-    public void ShowShort() { SceneWriter.OutStream.print("g"); }
+    public void ShowShort() { GameController.OutStream.print("g"); }
 }

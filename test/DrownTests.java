@@ -1,7 +1,6 @@
 import main.Main;
 import org.junit.Test;
 import scene.GameController;
-import scene.writer.SceneWriter;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -18,7 +17,6 @@ public class DrownTests {
                 baos = new ByteArrayOutputStream(), true,
                 StandardCharsets.UTF_8.name()
         );
-        SceneWriter.OutStream = GameController.OutStream;
 
         InputStream targetStream = new ByteArrayInputStream(sInput.getBytes());
         InStream = new Scanner(targetStream);
@@ -42,9 +40,12 @@ public class DrownTests {
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
-        assertEquals("Fell into hole",scanner.nextLine());
-        assertEquals("Successful move: 1",scanner.nextLine());
-        assertEquals("Skip",scanner.nextLine());
+        assertEquals("A's turn",scanner.nextLine());
+        assertEquals("A fell into hole",scanner.nextLine());
+        assertEquals("A successful move: 1",scanner.nextLine());
+        assertEquals("A skip",scanner.nextLine());
+        assertEquals("A's turn",scanner.nextLine());
+        assertEquals("A drowned",scanner.nextLine());
         assertEquals("Game Over",scanner.nextLine());
     }
 

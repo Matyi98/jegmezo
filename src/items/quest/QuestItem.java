@@ -2,7 +2,7 @@ package items.quest;
 
 import items.Item;
 import entities.Player;
-import scene.writer.SceneWriter;
+import scene.GameController;
 
 //QuestItemeket reprezentáló osztály.
 public abstract class QuestItem extends Item {
@@ -10,7 +10,7 @@ public abstract class QuestItem extends Item {
     //QuestItem használata.
     @Override
     public void use(){
-        SceneWriter.OutStream.println("Quest item used");
+        GameController.OutStream.println("Quest item used");
         this.owner.useFlareGun();
     }
 

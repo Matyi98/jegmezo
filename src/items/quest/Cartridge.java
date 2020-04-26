@@ -1,15 +1,15 @@
 package items.quest;
 
-import scene.writer.SceneWriter;
+import scene.GameController;
 
 //Patront megvalósító osztály
 public class Cartridge extends QuestItem {
     @Override
     protected void showPickup() {
-        SceneWriter.OutStream.println("Cartridge picked up");
+        GameController.OutStream.println("Cartridge picked up");
     }
     public void Show() {
-        SceneWriter.OutStream.print("Cartridge");
+        GameController.OutStream.print("Cartridge");
     }
-    public void ShowShort() { SceneWriter.OutStream.print("c"); }
+    public void ShowShort() { GameController.OutStream.print("c"); }
 }

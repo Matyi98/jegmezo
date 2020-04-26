@@ -1,15 +1,15 @@
 package items.quest;
 
-import scene.writer.SceneWriter;
+import scene.GameController;
 
 //Jelzőfényt megvalósító osztály
 public class Flare extends QuestItem {
     @Override
     protected void showPickup() {
-        SceneWriter.OutStream.println("Flare picked up");
+        GameController.OutStream.println("Flare picked up");
     }
     public void Show() {
-        SceneWriter.OutStream.print("Flare");
+        GameController.OutStream.print("Flare");
     }
-    public void ShowShort() { SceneWriter.OutStream.print("e"); }
+    public void ShowShort() { GameController.OutStream.print("e"); }
 }

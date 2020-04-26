@@ -1,13 +1,13 @@
 package items;
 
-import scene.writer.SceneWriter;
+import scene.GameController;
 
 //Búvárruhát reprezentáló osztály.
 public class DivingSuit extends Item {
 
     @Override
     protected void showPickup() {
-        SceneWriter.OutStream.println("DivingSuit picked up");
+        GameController.OutStream.println("DivingSuit picked up");
     }
 
     public void use() {
@@ -15,7 +15,7 @@ public class DivingSuit extends Item {
     }
 
     public void Show() {
-        SceneWriter.OutStream.print("DivingSuit");
+        GameController.OutStream.print("DivingSuit");
     }
-    public void ShowShort() { SceneWriter.OutStream.print("d"); }
+    public void ShowShort() { GameController.OutStream.print("d"); }
 }

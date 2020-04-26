@@ -1,6 +1,6 @@
 package items;
 
-import scene.writer.SceneWriter;
+import scene.GameController;
 
 public class Tent extends Item {
     @Override
@@ -10,12 +10,12 @@ public class Tent extends Item {
 
     @Override
     protected void showPickup() {
-        SceneWriter.OutStream.println("Tent picked up");
+        GameController.OutStream.println("Tent picked up");
     }
 
     public void Show() {
-        SceneWriter.OutStream.print("Tent");
+        GameController.OutStream.print("Tent");
     }
 
-    public void ShowShort() { SceneWriter.OutStream.print("t"); }
+    public void ShowShort() { GameController.OutStream.print("t"); }
 }

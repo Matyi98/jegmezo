@@ -3,7 +3,6 @@ package entities;
 import items.*;
 import entities.behaviours.*;
 import scene.GameController;
-import scene.writer.SceneWriter;
 
 import java.util.List;
 
@@ -63,8 +62,8 @@ public abstract class Player extends Entity {
     
     
     public void ShowStats() {
-        SceneWriter.OutStream.println("HP: " + String.valueOf(healthPoints));
-        SceneWriter.OutStream.println("AP: " + String.valueOf(actionPoints));
+        GameController.OutStream.println("HP: " + String.valueOf(healthPoints));
+        GameController.OutStream.println("AP: " + String.valueOf(actionPoints));
     }
 
     public void ShowInventory() {

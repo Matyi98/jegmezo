@@ -1,9 +1,7 @@
-package scene;
-
 import main.Main;
 import org.junit.Before;
 import org.junit.Test;
-import scene.writer.SceneWriter;
+import scene.GameController;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -20,7 +18,6 @@ public class PlayerRescueTest {
                 baos = new ByteArrayOutputStream(), true,
                 StandardCharsets.UTF_8.name()
         );
-        SceneWriter.OutStream = GameController.OutStream;
 
         InputStream targetStream = new ByteArrayInputStream(sInput.getBytes());
         InStream = new Scanner(targetStream);

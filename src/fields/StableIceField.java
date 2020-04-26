@@ -2,7 +2,7 @@ package fields;
 
 import entities.Entity;
 import items.Item;
-import scene.writer.SceneWriter;
+import scene.GameController;
 
 import java.util.Collection;
 
@@ -10,17 +10,17 @@ public class StableIceField extends IceField{
 
     @Override
     public void Show() {
-        SceneWriter.OutStream.print('S');
-        SceneWriter.OutStream.print('0');
-        SceneWriter.OutStream.print(snowLevel);
+        GameController.OutStream.print('S');
+        GameController.OutStream.print('0');
+        GameController.OutStream.print(snowLevel);
 
         if (item != null)
             item.ShowShort();
         else
-            SceneWriter.OutStream.print('0');
+            GameController.OutStream.print('0');
 
         if (entities.size() == 0)
-            SceneWriter.OutStream.print('0');
+            GameController.OutStream.print('0');
         else
             for (Entity e : entities)
             e.ShowShort();

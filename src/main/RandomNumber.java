@@ -12,14 +12,6 @@ public class RandomNumber {
     static public boolean isRandomEnabled = true;
 
     /**
-     * Létrehozza az objektumot
-     * @param isRandomEnabled van-e randomizálás
-     */
-    public RandomNumber(boolean isRandomEnabled) {
-        this.isRandomEnabled = isRandomEnabled;
-    }
-
-    /**
      * visszatér egy számmal a randomizálásnak megfelelően, 0 <= x < maxNum
      * @param maxNum ennél csak kisebb számokkal tér vissza
      * @return a megadott szám
