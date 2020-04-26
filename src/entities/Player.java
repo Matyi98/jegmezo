@@ -6,12 +6,36 @@ import scene.GameController;
 
 import java.util.List;
 
+/**
+ * A játékban szereplő különböző emberi karakterek őse.
+ * Képes közlekedni a Fieldeken, Itemeket felvenni és használni azokat,
+ * illetve különböző speciális képességekkel is rendelkeznek a leszármazott
+ * típustól függően.
+ */
 public abstract class Player extends Entity {
+    /**
+     * A játékos jelenlegi állapota.
+     */
     private PlayerState currentState = new NormalState(this);
+    /**
+     * A Player maximális akciópontjainak száma.
+     */
     private final int MAX_ACTION_POINTS = 4;
+    /**
+     * A játékos akciópontjainak a száma, annyi tevékenységet tud végrehajtani, ahány pontja van.
+     */
     protected int actionPoints = MAX_ACTION_POINTS;
+    /**
+     * A játékos táskája, amiben tárgyakat tud tárolni.
+     */
     private Inventory inventory = new Inventory(this);
+    /**
+     * Ennyi életereje lehet. Leszármazott típusonként ez különbözhet.
+     */
     protected int maxHealthPoints;
+    /**
+     * Jelenlegi életerő pontjai.
+     */
     protected int healthPoints;
 
     /**
@@ -20,6 +44,12 @@ public abstract class Player extends Entity {
     public Player() {
     }
 
+    /**
+     * Az argumentumként kapott parancs alapján cselekszik.
+     * @param action A játékost különböző cselekvésre késztető adat vektor.
+     * @return  Amennyiben maradt még a cselekvése után akciópontja, úgy igaz,
+     * máskülönben hamis értékkel tér vissza.
+     */
     public boolean Action(String action) {
         switch (action.split(" ")[1]) {
             case "turn":
@@ -59,65 +89,86 @@ public abstract class Player extends Entity {
         }
         return actionPoints > 0;
     }
-    
-    
+
+    /**
+     * Kiiratja a GameController OutStreamjére a Player élet és akció pontjainak számát.
+     */
     public void ShowStats() {
         GameController.OutStream.println("HP: " + String.valueOf(healthPoints));
         GameController.OutStream.println("AP: " + String.valueOf(actionPoints));
     }
 
+    /**
+     * Kiiratja a GameController OutStreamjére a Player Inventoryjában található tárgyakat.
+     */
     public void ShowInventory() {
         inventory.Show();
-    }
-
-    public Inventory getInventory() {
-        return this.inventory;
     }
 
     public void resetActionPoints(){
         actionPoints = MAX_ACTION_POINTS;
     }
 
-    //Megnöveli a játékos életét.
+    /**
+     * Megnöveli a Player életét.
+     */
     private void incrementHP(){
         healthPoints++;
     }
 
-    //Átöltözés búvárruhba.
+    /**
+     * Átöltözeteti a Plyert búvárruhába, amit a currentState
+     * módosításával ér.
+     */
     public void swapDivingSuit() {
         currentState.swapDivingSuit();
     }
 
+    /**
+     * Ezzel a metódussal lehet átállítani a Player állapotát.
+     * @param nextState A Playernek beállítani kívánt állapot.
+     */
     public void setState(PlayerState nextState){
         currentState = nextState;
     }
 
-    //Eszkösz használat az inventoryban elfoglalt index szerint.
+    /**
+     * Eszkösz használat az inventoryban elfoglalt index szerint.
+     * @param itemIndex A használandó eszköz inventoryban lévő indexe.
+     */
     public void useItem(int itemIndex){
         inventory.useItem(itemIndex);
     }
 
-    //Játékos elhagyja a vizet.
+    /**
+     * A Player elhagyja a vizet, amit a currentState átállításával ér el.
+     */
     @Override
     public void makeWalk(){
         currentState.makeWalk();
     }
 
-    //Játékos megfullad.
+    /**
+     * A Player fulledó állapotba próbálja hozni. Amennyiben már
+     * fulladó állapotban van, úgy megfullasztja, azaz megöli.
+     */
     @Override
     public void makeDrown(){
         currentState.makeDrown();
     }
 
-    //Játékos meghal.
+    /**
+     * A Playert megöli.
+     */
     @Override
     public void die(){
         gameController.gameOver();
     }
 
     /**
-     *
-     * @return a targyfelvetel sikeressege
+     * Arról a mezőről amelyen a Player áll, megpróbál felvenni egy tárgyat.
+     * @return Amennyiben sikerült felvennie egy tárgyat, úgy true,
+     * máskülönben false értékkel tér vissza.
      */
     public boolean pickUpItem(){
         boolean accepted = false; //bekerult-e az item az inventoryba
@@ -134,19 +185,31 @@ public abstract class Player extends Entity {
         return accepted;
     }
 
+    /**
+     * A Player alapvető hótakarítási módszere.
+     */
     public void digByHand(){
         if(fieldUnder.changeSnowLevel(-1)) {
             actionPoints--;
         }
     }
 
+    /**
+     * A Player ásóval végez hótakarítást az argumentumként átvett
+     * értékkel csökkenti a hószintet azon a mezőn amin áll.
+     * @param digValue Annak értéke, hogy mennyivel próbálja meg csökkenteni
+     *                 a Player az alatta lévő Field hószintjét.
+     */
     public void shovel(int digValue){
         if(fieldUnder.changeSnowLevel(-digValue)) {
             actionPoints--;
         }
     }
 
-    //Evés.
+    /**
+     * A Player életerő pontjainak számát növeli.
+     * @param food Az étel amit megeszik evés közben.
+     */
     public void eat(Item food){
         if(healthPoints < maxHealthPoints){
             removeItem(food);
@@ -154,47 +217,66 @@ public abstract class Player extends Entity {
         }
     }
 
+    /**
+     * A Player Inventoryjából kitörli az argumentumként kapott Itemet.
+     * @param item Azon Item amit ki kell törölni a Player inventoryjából.
+     */
     public void removeItem(Item item){
         inventory.removeSpecificItem(item);
     }
 
-    //Játékos életének csökkentése.
+    /**
+     * Csökkenti a Player életét.
+     */
     public void decrementHP(){
         healthPoints--;
         if(healthPoints <= 0)
             this.die();
     }
 
+    /**
+     * A Player Inventoryjában lévő Itemek gyűjteményét adja vissza.
+     * @return A Player Inventoryjában lévő Itemek gyűjteményét adja vissza.
+     */
     List<Item> getItems(){
         return null;
     }
 
+    /**
+     * Megpróbál kiementi egy társat arról a mezőről, amelyik irányba néz.
+     */
     public void rescueFriend(){
        if(fieldUnder.pullOutPlayerFrom(actualDirection))
             actionPoints--;
 
     }
 
-    //Játékost kimentették a lyukból.
-    public void pulledOut(){
-
-    }
-
-    //Jelzőpiyztoly használata.
+    /**
+     * Jelzőpiyztoly használata.
+     */
     public void useFlareGun(){
         int numOfPlayersOnField = fieldUnder.getEntityCount();
         gameController.win(numOfPlayersOnField);
     }
 
-    //Speciális képesség használata.
+    /**
+     * Speciális képesség használata.
+     */
     public abstract void specialPower();
 
-    //A talált item egy quest item.
+    /**
+     * A talált item egy quest item.
+     */
     public void questItemFound() {
         //Jelez a gc-nek, hogy quest itemet találtak.
         gameController.questItemFound();
     }
 
+    /**
+     * Sátrat próbál építeni a Player alatti mezőre.
+     * @param tent A játékosnál lévő sátor, amelyet kitöröl
+     *             a Player Inventoryjából.
+     */
     public void buildTent(Item tent){
         if(fieldUnder.buildTent()){
             inventory.removeSpecificItem(tent);
@@ -202,20 +284,30 @@ public abstract class Player extends Entity {
         }
     }
 
+    /**
+     * Amikor elindul a játékos köre, akkor a
+     * maximálisan lehetséges akciópontokat állít be neki.
+     */
     public void startTurn()
     {
         this.actionPoints = MAX_ACTION_POINTS;
     }
 
+    /**
+     * A játékos körének véget szab, a Player
+     * akciópontjainak nullára állításával.
+     */
     public void endTurn()
     {
         this.actionPoints = 0;
     }
 
+    /**
+     * A Playert mozgásra készteti abban az irányban, amerre aktuálisan néz.
+     */
     @Override
     public void move(){
         super.move();
         actionPoints--;
     }
-
 }
