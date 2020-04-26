@@ -148,8 +148,8 @@ public class Map0Tests {
         assertEquals("D skip",scanner.nextLine());
         assertEquals("End of round", scanner.nextLine());
         // snow storm + bear dialog
-        assertEquals("A successful move: 6", scanner.nextLine());
         assertEquals("Game Over", scanner.nextLine());
+        assertEquals("A successful move: 6", scanner.nextLine());
     }
 
 

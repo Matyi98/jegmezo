@@ -41,8 +41,10 @@ public class GameController {
             board.letItSnow();
             board.stepEntities();
         }
-        players.get(currentPlayer).startTurn();
-        OutStream.println(players.get(currentPlayer).getName()+"'s turn");
+        if (gameRunning) {
+            players.get(currentPlayer).startTurn();
+            OutStream.println(players.get(currentPlayer).getName() + "'s turn");
+        }
         if(players.get(currentPlayer).isInHole())
             players.get(currentPlayer).makeDrown();
 
