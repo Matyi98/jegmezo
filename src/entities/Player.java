@@ -202,6 +202,16 @@ public abstract class Player extends Entity {
         }
     }
 
+    public void startTurn()
+    {
+        this.actionPoints = MAX_ACTION_POINTS;
+    }
+
+    public void endTurn()
+    {
+        this.actionPoints = 0;
+    }
+
     @Override
     public void move(){
         super.move();

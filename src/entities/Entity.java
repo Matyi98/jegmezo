@@ -34,6 +34,12 @@ public abstract class Entity {
         return name;
     }
 
+    public boolean isInHole()
+    {
+        return fieldUnder.checkStability() == "Hole";
+
+    }
+
     public void step(){
 
     }
@@ -73,6 +79,10 @@ public abstract class Entity {
         GameController.OutStream.println(getName() + " successful move: " + fieldUnder.GetUID());
         this.actualDirection = 0;
     }
+
+    public abstract void startTurn();
+    public abstract void endTurn();
+
 
     public void collideWith(Entity otherEntity){
 
