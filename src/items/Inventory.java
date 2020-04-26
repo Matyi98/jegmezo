@@ -43,14 +43,17 @@ public class Inventory {
             return true;
         } else {
             //különben jelez, hogy már tele van.
-            System.out.println("Inventory full");
+            SceneWriter.OutStream.println("Inventory full");
             return false;
         }
     }
 
     //Adott indexen lévő Item használata.
-    public void useItem(int itemIndex){
-        items.get(itemIndex).use();
+    public void useItem(int itemIndex) {
+        if (itemIndex >= items.size() || itemIndex < 0)
+            SceneWriter.OutStream.println("Invaild item index");
+        else
+             items.get(itemIndex).use();
     }
 
     /**

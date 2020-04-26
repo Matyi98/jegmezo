@@ -54,6 +54,7 @@ public class QuestItemTest {
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
+        assertEquals("A's turn", scanner.nextLine());
         assertEquals("Pistol picked up", scanner.nextLine());
         assertEquals("Successful move: 2", scanner.nextLine());
         assertEquals("Successful move: 3", scanner.nextLine());
