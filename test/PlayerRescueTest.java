@@ -1,6 +1,7 @@
 import main.Main;
 import org.junit.Before;
 import org.junit.Test;
+import scene.Dialog;
 import scene.GameController;
 
 import java.io.*;
@@ -21,6 +22,7 @@ public class PlayerRescueTest {
 
         InputStream targetStream = new ByteArrayInputStream(sInput.getBytes());
         InStream = new Scanner(targetStream);
+        Dialog.InStream = InStream;
     }
 
     String sInput = "";
