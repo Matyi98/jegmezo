@@ -38,7 +38,7 @@ public class PlayerRescueTest {
         addCommand("p skip");
         addCommand("p move");
         addCommand("p use 0");
-        addCommand("1");
+        addCommand("0");
         addCommand("s map");
         setInputString();
     }
@@ -58,8 +58,12 @@ public class PlayerRescueTest {
         assertEquals("End of round", scanner.nextLine());
         assertEquals("A's turn", scanner.nextLine());
         // Rope Dialog
-        assertEquals("Successful rope usage", scanner.nextLine());
-        assertEquals("S00KK; H0000; ", scanner.nextLine());
 
+        //assertEquals("Successful rope usage", scanner.nextLine());
+        assertEquals("B rescued", scanner.nextLine()); //"B rescueddel mükszik :)"
+
+        //assertEquals("S00KK; H0000; ", scanner.nextLine());
+        // sztem ennek kéne lennie a fenti sor helyett // by alex
+        assertEquals("S000K; H000K; ", scanner.nextLine());
     }
 }

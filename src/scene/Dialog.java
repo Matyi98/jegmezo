@@ -43,7 +43,7 @@ public class Dialog {
             String sAns = InStream.nextLine();
             int iAns = Integer.parseInt(sAns);
 
-            if (iAns > 0 && iAns < options.size())
+            if (iAns >= 0 && iAns < options.size())
                 return iAns;
             else
                 OutStream.println("Invalid answer.");
