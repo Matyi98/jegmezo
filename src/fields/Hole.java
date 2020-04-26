@@ -65,6 +65,7 @@ public class Hole extends Field {
 
     @Override
     public void acceptEntity(Entity entity) {
+
         entities.add(entity);
         entity.makeDrown();
         entity.changeField(this);

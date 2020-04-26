@@ -11,6 +11,7 @@ public abstract class PlayerState {
 
     public void makeDrown(){
 
+
     }
 
     public void makeWalk(){

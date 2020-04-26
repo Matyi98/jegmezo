@@ -74,6 +74,10 @@ public abstract class Entity {
         this.actualDirection = 0;
     }
 
+    public abstract void startTurn();
+    public abstract void endTurn();
+
+
     public void collideWith(Entity otherEntity){
 
     }
