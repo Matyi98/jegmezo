@@ -34,7 +34,7 @@ public abstract class IceField extends Field {
 
     @Override
     public void removeItem() {
-
+        this.item = null;
     }
 
     /**
