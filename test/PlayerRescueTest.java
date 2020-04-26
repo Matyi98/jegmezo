@@ -47,12 +47,15 @@ public class PlayerRescueTest {
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
+        assertEquals("A's turn", scanner.nextLine());
         assertEquals("Rope picked up", scanner.nextLine());
-        assertEquals("Skip", scanner.nextLine());
-        assertEquals("Successful move: 2", scanner.nextLine());
+        assertEquals("A skip", scanner.nextLine());
+        assertEquals("B's turn", scanner.nextLine());
+        assertEquals("B fell into hole", scanner.nextLine());
+        assertEquals("B successful move: 2", scanner.nextLine());
         // Rope Dialog
         assertEquals("Successful rope usage", scanner.nextLine());
-        assertEquals("S00KK; H0000;", scanner.nextLine());
+        assertEquals("S00KK; H0000; ", scanner.nextLine());
 
     }
 }
