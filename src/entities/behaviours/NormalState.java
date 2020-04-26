@@ -31,5 +31,6 @@ public class NormalState extends PlayerState {
     public void makeDrown() {
         GameController.OutStream.println(player.getName() + " fell into hole");
         player.setState(new DrowningState(player));
+        player.endTurn();
     }
 }

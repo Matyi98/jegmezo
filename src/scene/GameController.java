@@ -11,6 +11,7 @@ public class GameController {
     private int questItemCount = 0;
     private ArrayList<Player> players;
     private Board board;
+    private boolean gameRuning = true;
 
     static public PrintStream OutStream = System.out;
 
@@ -40,9 +41,10 @@ public class GameController {
             board.letItSnow(new RandomNumber());
         }
         players.get(currentPlayer).startTurn();
+        OutStream.println(players.get(currentPlayer).getName()+"'s turn");
         if(players.get(currentPlayer).isInHole())
             players.get(currentPlayer).makeDrown();
-        OutStream.println(players.get(currentPlayer).getName()+"'s turn");
+
     }
 
     /**
@@ -56,7 +58,7 @@ public class GameController {
      */
     public void Start(Scanner stdin) {
         nextPlayer();
-        while (stdin.hasNextLine()) {
+        while (stdin.hasNextLine() && gameRuning) {
             String next = stdin.nextLine();
             if (!interpretUserInput(next)) {
                 return;
@@ -127,7 +129,9 @@ public class GameController {
     }
 
     public void gameOver() {
+
         OutStream.println("Game Over");
+        gameRuning = false;
     }
 
     public void questItemFound() {
