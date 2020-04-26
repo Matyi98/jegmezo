@@ -148,17 +148,7 @@ public abstract class Field {
         return entities.size();
     }
 
-    public Entity selectEntity() {
-        ArrayList<String> names = new ArrayList<>();
-        for(Entity e : entities){
-            names.add(e.getName());
-        }
-
-        Dialog popup = new Dialog("Who will you rescue?", names);
-        int choice = popup.ShowDialog();
-
-        return entities.get(choice);
-    }
+    public abstract Entity selectEntity();
 
     public int getSnowLevel(){
         return snowLevel;
