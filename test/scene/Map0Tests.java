@@ -61,19 +61,14 @@ public class Map0Tests {
 
     @Test
     public void MezoBeszakadasa() throws UnsupportedEncodingException {
-        //TODO: fix dis test
-        addCommand("p turn d");
-        addCommand("p turn d");
-        addCommand("p turn d");
-        addCommand("p move");
         addCommand("p turn a");
+        addCommand("p move");
         addCommand("p turn a");
         addCommand("p move");
         addCommand("p skip");
         addCommand("p skip");
         addCommand("p turn a");
         addCommand("p move");
-        addCommand("s map");
         setInputString();
 
         Main.NewGame(InStream);
@@ -81,22 +76,19 @@ public class Map0Tests {
         System.out.println(baos.toString());
 
         assertEquals("B's turn",scanner.nextLine());
-        assertEquals("B successful turn: 5",scanner.nextLine());
-        assertEquals("B successful turn: 7",scanner.nextLine());
-        assertEquals("B successful turn: 10",scanner.nextLine());
-        assertEquals("B successful move: 10",scanner.nextLine());
         assertEquals("B successful turn: 13",scanner.nextLine());
+        assertEquals("B successful move: 13",scanner.nextLine());
         assertEquals("B successful turn: 12",scanner.nextLine());
         assertEquals("B successful move: 12",scanner.nextLine());
         assertEquals("B skip",scanner.nextLine());
-        assertEquals("B skip",scanner.nextLine());
-
-        assertEquals("Successful turn: 12",scanner.nextLine());
-        assertEquals("Successful move: 12",scanner.nextLine());
-        assertEquals("U20p0; S000M; H0000; H0000; S00c0; U3000; H0000; S00e0; S00s0; H0000; H0000; H000KEK; S0000; ",scanner.nextLine());
-        assertEquals("Game Over",scanner.nextLine()); // game over mert mindhárom játékos vízbe van
-
-
+        assertEquals("C's turn",scanner.nextLine());
+        assertEquals("C skip",scanner.nextLine());
+        assertEquals("D's turn",scanner.nextLine());
+        assertEquals("D successful turn: 12",scanner.nextLine());
+        assertEquals("D fell into hole",scanner.nextLine());
+        assertEquals("D successful move: 12",scanner.nextLine());
+        assertEquals("End of round",scanner.nextLine());
+        assertEquals("B's turn",scanner.nextLine());
     }
 
     @Test
