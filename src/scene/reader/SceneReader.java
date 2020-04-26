@@ -22,6 +22,14 @@ public class SceneReader {
                 new BufferedReader(new InputStreamReader(inputStream));
     }
 
+    /**
+     * Fájlból beolvas adatokat, amelyek alapján inicializálja
+     * a Boardot Fildekkel, Entitykkel és Itemekkel, valamint
+     * inicializálja a GameControllert.
+     * @return GameController objektummal, amely ütemezi,
+     *         értelmezi, majd a parancsokhoz hozzárendelt
+     *         metódusokat meghívja.
+     */
     public GameController LoadScene() {
         board = new Board();
         gc = new GameController();
@@ -41,6 +49,12 @@ public class SceneReader {
         return gc;
     }
 
+    /**
+     * Fájlból beolvasott adatok alapján Field objektumokat hoz létre,
+     * amelyeket eltárol az osztály fields gyűjteményében. Ezen kívül
+     * beállítja a Fieldek közötti szomszédsági kapcsolatokat is.
+     * @throws IOException
+     */
     private void readAll() throws IOException {
         String sNodes = this.reader.readLine();
         String sEdges = this.reader.readLine();
@@ -63,6 +77,15 @@ public class SceneReader {
         }
     }
 
+    /**
+     * Fildeket, Entityket és Itemeket hoz létre az argumentumként kapott
+     * adatok alapján. A Fieldeket az agrumentum alapján meghatározott
+     * állapotba inicializálja.
+     * @param sNode Egy fájlból beolvasott bemeneti adategység, ami
+     *              egy Field típust, annak snowLevel értékét, a Fielden
+     *              lévő Itemet és a Fielden lévő Entityket határozza meg.
+     * @return A paraméterként átvett adatok alapján példányosított Field.
+     */
     private Field makeNode(String sNode) {
         Field f = null;
         try {
@@ -88,6 +111,16 @@ public class SceneReader {
         return f;
     }
 
+    /**
+     * Az argumentum alapján azonosítható Field osztály
+     * egy leszármazott osztályából hoz létre példányt.
+     * @param c A beolvasott adategység egyik karaktere,
+     *          ami alapján meghatározható egy Field pontos
+     *          leszármazott típusa.
+     * @return  Az argumentumként meghatározott típusú,
+     *          a metóduson belül példányosított Field.
+     * @throws Exception
+     */
     private Field parseField(char c) throws Exception {
         Field f;
         switch (c) {
@@ -106,6 +139,16 @@ public class SceneReader {
         return f;
     }
 
+    /**
+     * Az argumentum alapján azonosítható Item osztály
+     * egy leszármazott osztályából hoz létre példányt.
+     * @param c A beolvasott adategység egyik karaktere,
+     *          ami alapján meghatározható egy Item
+     *          pontos leszármazott típusa.
+     * @return  Az argumentumként meghatározott típusú.
+     *          a metóduson belül példányosított Item.
+     * @throws Exception
+     */
     private Item parseItem(char c) throws Exception {
         Item i;
         switch (c) {
@@ -145,6 +188,16 @@ public class SceneReader {
         return i;
     }
 
+    /**
+     * Az argumentum alapján azonosítható Entity osztály
+     * egy leszármazott osztályából hoz létre példányt.
+     * @param c A beolvasott adategység egyik karaktere,
+     *          ami alapján meghatározható egy Entity
+     *          pontos leszármazott típusa.
+     * @return  Az argumentumként meghatározott típusú.
+     *          a metóduson belül példányosított Item.
+     * @throws Exception
+     */
     private Entity parseEntity(char c) throws Exception {
         Entity e;
         Player p;
