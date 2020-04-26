@@ -87,6 +87,10 @@ public abstract class Field {
          this.entities.remove(entity);
     }
 
+    public void placeEntityToNextField(int toWhom, Entity entity){
+        neighbors.get(toWhom).acceptEntity(entity);
+        this.entities.remove(entity);
+    }
 
     public boolean pullOutPlayerFrom(int direction){
         Entity entity = neighbors.get(direction).selectEntity();
