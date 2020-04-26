@@ -205,6 +205,7 @@ public abstract class Player extends Entity {
      */
     public void shovel(int digValue){
         if(fieldUnder.changeSnowLevel(-digValue)) {
+            GameController.OutStream.println("Successfully shoveled " + digValue + " layer of snow");
             actionPoints--;
         }
     }
@@ -217,6 +218,9 @@ public abstract class Player extends Entity {
         if(healthPoints < maxHealthPoints){
             removeItem(food);
             this.incrementHP();
+            GameController.OutStream.println("Successful food use");
+        } else {
+            GameController.OutStream.println("Failed food use");
         }
     }
 
