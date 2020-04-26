@@ -26,6 +26,11 @@ public class Hole extends Field {
         board = b; snowLevel = s;
     }
 
+    @Override
+    public void removeItem() {
+
+    }
+
     public Hole()
     {
         super();

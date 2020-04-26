@@ -9,7 +9,7 @@ public class Shovel extends Item {
 
     @Override
     protected void showPickup() {
-        SceneWriter.OutStream.print("Shovel picked up");
+        SceneWriter.OutStream.println("Shovel picked up");
     }
 
     //Lapát használata.

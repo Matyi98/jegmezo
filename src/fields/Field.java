@@ -101,9 +101,7 @@ public abstract class Field {
 
     }
 
-    public void removeItem() {
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-    }
+    public abstract void removeItem();
 
     public final boolean changeSnowLevel(int delta){
         if(snowLevel <= 0 && delta < 0){

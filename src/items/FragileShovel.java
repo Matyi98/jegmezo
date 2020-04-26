@@ -9,7 +9,7 @@ public class FragileShovel extends Item {
 
     @Override
     protected void showPickup() {
-        SceneWriter.OutStream.print("FragileShovel picked up");
+        SceneWriter.OutStream.println("FragileShovel picked up");
     }
 
 

@@ -7,7 +7,7 @@ public class Rope extends Item {
 
     @Override
     protected void showPickup() {
-        SceneWriter.OutStream.print("Rope picked up");
+        SceneWriter.OutStream.println("Rope picked up");
     }
 
     public void use() {

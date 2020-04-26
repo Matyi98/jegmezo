@@ -8,7 +8,7 @@ public class Food extends Item {
 
     @Override
     protected void showPickup() {
-        SceneWriter.OutStream.print("Food picked up");
+        SceneWriter.OutStream.println("Food picked up");
     }
 
     //Étel használata, növeli a játékos testhőpontját a kalória szintnek megfelelően.

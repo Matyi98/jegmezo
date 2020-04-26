@@ -6,7 +6,7 @@ import scene.writer.SceneWriter;
 public class Pistol extends QuestItem {
     @Override
     protected void showPickup() {
-        SceneWriter.OutStream.print("Pistol picked up");
+        SceneWriter.OutStream.println("Pistol picked up");
     }
     public void Show() {
         SceneWriter.OutStream.print("Pistol");

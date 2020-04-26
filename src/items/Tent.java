@@ -10,7 +10,7 @@ public class Tent extends Item {
 
     @Override
     protected void showPickup() {
-        SceneWriter.OutStream.print("Tent picked up");
+        SceneWriter.OutStream.println("Tent picked up");
     }
 
     public void Show() {

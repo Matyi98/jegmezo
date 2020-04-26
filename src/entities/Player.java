@@ -202,7 +202,6 @@ public abstract class Player extends Entity {
         if(fieldUnder.buildTent()){
             inventory.removeSpecificItem(tent);
             actionPoints--;
-            GameController.OutStream.println("Successful tent use.");
         }
     }
 

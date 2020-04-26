@@ -46,12 +46,12 @@ public class UseTentTest {
         System.out.println(baos.toString());
 
         assertEquals("Tent picked up",scanner.nextLine());
-        assertEquals("Inventory: ",scanner.nextLine());
-        assertEquals("0: tent",scanner.nextLine());
+        assertEquals("Inventory:",scanner.nextLine());
+        assertEquals("0: Tent",scanner.nextLine());
         assertEquals("Successful TentBuild",scanner.nextLine());
         assertEquals("Inventory empty",scanner.nextLine());
         assertEquals("HP: 5",scanner.nextLine());
         assertEquals("AP: 2",scanner.nextLine());
-        assertEquals("S00tEt; ",scanner.nextLine());
+        assertEquals("S00tEt; S0000; ",scanner.nextLine());
     }
 }

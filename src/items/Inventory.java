@@ -57,14 +57,18 @@ public class Inventory {
      * Megjeleníti az inventory tartalmát.
      */
     public void Show() {
-        SceneWriter.OutStream.println("Inventory:");
-        int j = 0;
-        for (Item i : items) {
-            SceneWriter.OutStream.print(j);
-            SceneWriter.OutStream.print(": ");
-            i.Show();
-            SceneWriter.OutStream.println();
-            j++;
+        if (items.size() == 0)
+            SceneWriter.OutStream.println("Inventory empty");
+        else {
+            SceneWriter.OutStream.println("Inventory:");
+            int j = 0;
+            for (Item i : items) {
+                SceneWriter.OutStream.print(j);
+                SceneWriter.OutStream.print(": ");
+                i.Show();
+                SceneWriter.OutStream.println();
+                j++;
+            }
         }
     }
 

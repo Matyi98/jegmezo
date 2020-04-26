@@ -7,7 +7,7 @@ public class DivingSuit extends Item {
 
     @Override
     protected void showPickup() {
-        SceneWriter.OutStream.print("DivingSuit picked up");
+        SceneWriter.OutStream.println("DivingSuit picked up");
     }
 
     public void use() {

@@ -6,7 +6,7 @@ import scene.writer.SceneWriter;
 public class Flare extends QuestItem {
     @Override
     protected void showPickup() {
-        SceneWriter.OutStream.print("Flare picked up");
+        SceneWriter.OutStream.println("Flare picked up");
     }
     public void Show() {
         SceneWriter.OutStream.print("Flare");
