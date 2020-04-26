@@ -45,18 +45,18 @@ public class DialogTest {
 
     @Test
     public void red() {
-        String input = "1";
+        String input = "0";
         setInputString(input);
 
-        assertEquals(1, d.ShowDialog());
+        assertEquals(0, d.ShowDialog());
     }
 
     @Test
     public void green() {
-        String input = "2";
+        String input = "1";
         setInputString(input);
 
-        assertEquals(2, d.ShowDialog());
+        assertEquals(1, d.ShowDialog());
     }
 
 
