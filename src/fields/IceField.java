@@ -28,7 +28,6 @@ public abstract class IceField extends Field {
 
     //Visszaadja a fielden lévő itemet
     public Item getItem(){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         return this.item;
     }
 
