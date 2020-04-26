@@ -25,7 +25,6 @@ public class Eskimo extends Player {
         if(actionPoints != 0)
         {
             if (fieldUnder.buildIgloo()) {
-                GameController.OutStream.println("Successful IglooBuild");
                 actionPoints--;
             }
         }

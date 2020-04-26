@@ -4,6 +4,12 @@ import scene.writer.SceneWriter;
 
 //Búvárruhát reprezentáló osztály.
 public class DivingSuit extends Item {
+
+    @Override
+    protected void showPickup() {
+        SceneWriter.OutStream.print("DivingSuit picked up");
+    }
+
     public void use() {
         this.owner.swapDivingSuit();
     }

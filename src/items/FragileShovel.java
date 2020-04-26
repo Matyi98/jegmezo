@@ -8,6 +8,12 @@ public class FragileShovel extends Item {
     private int shovelSpeedIncrease = 2;
 
     @Override
+    protected void showPickup() {
+        SceneWriter.OutStream.print("FragileShovel picked up");
+    }
+
+
+    @Override
     public void use() {
         owner.shovel(shovelSpeedIncrease);
         --durability;

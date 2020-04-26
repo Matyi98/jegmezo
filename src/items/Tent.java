@@ -8,6 +8,11 @@ public class Tent extends Item {
         owner.buildTent(this);
     }
 
+    @Override
+    protected void showPickup() {
+        SceneWriter.OutStream.print("Tent picked up");
+    }
+
     public void Show() {
         SceneWriter.OutStream.print("Tent");
     }

@@ -57,7 +57,7 @@ public class Inventory {
      * Megjeleníti az inventory tartalmát.
      */
     public void Show() {
-        SceneWriter.OutStream.println("Inventory content:");
+        SceneWriter.OutStream.println("Inventory:");
         int j = 0;
         for (Item i : items) {
             SceneWriter.OutStream.print(j);
