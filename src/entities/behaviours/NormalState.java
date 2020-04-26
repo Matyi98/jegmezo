@@ -14,6 +14,7 @@ public class NormalState extends PlayerState {
         GameController.OutStream.println(player.getName() + " equiped DivingSuit");
     }
 
+
     @Override
     public void makeDrown() {
         GameController.OutStream.println(player.getName() + " fell into hole");

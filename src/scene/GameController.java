@@ -39,6 +39,9 @@ public class GameController {
             GameController.OutStream.println("End of round");
             board.letItSnow(new RandomNumber());
         }
+        players.get(currentPlayer).startTurn();
+        if(players.get(currentPlayer).isInHole())
+            players.get(currentPlayer).makeDrown();
         OutStream.println(players.get(currentPlayer).getName()+"'s turn");
     }
 

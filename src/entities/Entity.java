@@ -34,6 +34,12 @@ public abstract class Entity {
         return name;
     }
 
+    public boolean isInHole()
+    {
+        return fieldUnder.checkStability() == "Hole";
+
+    }
+
     public void step(){
 
     }
