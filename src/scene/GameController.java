@@ -38,6 +38,15 @@ public class GameController {
             currentPlayer = 0;
     }
 
+    /**
+     * A játék fő ciklusa itt található, amely minden egyes iterációval
+     * az argumentumként átvett bemeneti adatfolyamból kiemeli a következő
+     * parancsot, amit továbbít értelmezésre az interpretUserInput
+     * segédmetódusának, amely ha false értékkel tér vissza jelezvén, hogy
+     * játék vége parancsot talált, akkor kilépésre készteti a metódust
+     * a fő játékciklusból.
+     * @param stdin
+     */
     public void Start(Scanner stdin) {
         while (stdin.hasNextLine()) {
             String next = stdin.nextLine();
@@ -47,6 +56,21 @@ public class GameController {
         }
     }
 
+    /**
+     * Egy-egy argumentumként átvett a játékba beérkező parancsot értelmez.
+     * A feldolgozandó parancs alapján meghívhatja az aktuális játékos
+     * Action nevű metódusát vagy false visszatérési értékkel jelzi, hogy
+     * a programot termináló parancsot talált vagy beállítja, hogy a
+     * véletlen szerű történések véletlen alapján történjenek-e vagy sem.
+     * Ezeken kívül még különböző a játék állapotával kapcsolatos különböző
+     * kiiratásokat kezelő metódusokat is meghívhat szintén a kapott parancs
+     * alapján.
+     * @param userInput A játékba érkező string parancs vektor, amelyben
+     *                  a fő parancs és annak paraméterei szóközzel vannak
+     *                  elválasztva.
+     * @return  Hamis értékkel tér vissza jelezve, ha a játékot termináló exit
+     *          parancsot talált. Minden más esetben igaz értékkel tér vissza.
+     */
     private boolean interpretUserInput(String userInput) {
         String type = userInput.split(" ")[0].toLowerCase();
         switch (type) {
