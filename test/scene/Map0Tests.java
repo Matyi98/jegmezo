@@ -51,10 +51,10 @@ public class Map0Tests {
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
-        assertEquals("Successful turn: 5",scanner.nextLine());
-        assertEquals("Successful move: 5",scanner.nextLine());
+        assertEquals("B successful turn: 5",scanner.nextLine());
+        assertEquals("B successful move: 5",scanner.nextLine());
         assertEquals("U20p0; S000M; H0000; H0000; S00cE; U3000; H0000; S00e0; S00s0; H0000; H0000; U200K; S000K; ",scanner.nextLine());
-        assertEquals("Successful move: 2",scanner.nextLine());
+        assertEquals("B successful move: 2",scanner.nextLine());
         assertEquals("U20p0; S000ME; H0000; H0000; S00c0; U3000; H0000; S00e0; S00s0; H0000; H0000; U200K; S000K; ",scanner.nextLine());
         assertEquals("HP: 5",scanner.nextLine());
         assertEquals("AP: 2",scanner.nextLine());
@@ -80,15 +80,15 @@ public class Map0Tests {
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
-        assertEquals("Successful turn: 5",scanner.nextLine());
-        assertEquals("Successful turn: 7",scanner.nextLine());
-        assertEquals("Successful turn: 10",scanner.nextLine());
-        assertEquals("Successful move: 10",scanner.nextLine());
-        assertEquals("Successful turn: 13",scanner.nextLine());
-        assertEquals("Successful turn: 12",scanner.nextLine());
-        assertEquals("Successful move: 12",scanner.nextLine());
-        assertEquals("Skip",scanner.nextLine());
-        assertEquals("Skip",scanner.nextLine());
+        assertEquals("B successful turn: 5",scanner.nextLine());
+        assertEquals("B successful turn: 7",scanner.nextLine());
+        assertEquals("B successful turn: 10",scanner.nextLine());
+        assertEquals("B successful move: 10",scanner.nextLine());
+        assertEquals("B successful turn: 13",scanner.nextLine());
+        assertEquals("B successful turn: 12",scanner.nextLine());
+        assertEquals("B successful move: 12",scanner.nextLine());
+        assertEquals("B skip",scanner.nextLine());
+        assertEquals("B skip",scanner.nextLine());
 
         assertEquals("Successful turn: 12",scanner.nextLine());
         assertEquals("Successful move: 12",scanner.nextLine());

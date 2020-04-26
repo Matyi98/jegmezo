@@ -11,7 +11,7 @@ public class SwimmingState extends PlayerState{
 
     @Override
     public void makeWalk(){
-        GameController.OutStream.println(player.getName() + " Climbed out");
+        GameController.OutStream.println(player.getName() + " climbed out");
         player.setState(new CanSwimState(player));
     }
 }

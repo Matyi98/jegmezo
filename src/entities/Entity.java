@@ -65,12 +65,12 @@ public abstract class Entity {
         else if(actualDirection >= numOfIndices)
             actualDirection = actualDirection % numOfIndices;
 
-        GameController.OutStream.println("Successful turn: " + fieldUnder.GetNeighbours().get(actualDirection).GetUID());
+        GameController.OutStream.println(getName() + " successful turn: " + fieldUnder.GetNeighbours().get(actualDirection).GetUID());
     }
 
     public void move() {
         fieldUnder.placeEntityToNextField(actualDirection, this);
-        GameController.OutStream.println("Successful move: " + fieldUnder.GetUID());
+        GameController.OutStream.println(getName() + " successful move: " + fieldUnder.GetUID());
         this.actualDirection = 0;
     }
 

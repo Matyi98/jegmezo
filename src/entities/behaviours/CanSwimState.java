@@ -10,13 +10,13 @@ public class CanSwimState extends PlayerState{
 
     @Override
     public void makeDrown(){
-        GameController.OutStream.println(player.getName() +" Started swimming");
+        GameController.OutStream.println(player.getName() +" started swimming");
         player.setState(new SwimmingState(player));
     }
 
     @Override
     public void swapDivingSuit() {
         player.setState(new NormalState(player));
-        GameController.OutStream.println(player.getName() + " DivingSuit unequiped");
+        GameController.OutStream.println(player.getName() + " unequiped DivingSuit");
     }
 }

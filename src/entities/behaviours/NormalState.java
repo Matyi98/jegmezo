@@ -11,12 +11,12 @@ public class NormalState extends PlayerState {
     @Override
     public void swapDivingSuit(){
         player.setState(new CanSwimState(player));
-        GameController.OutStream.println(player.getName() + " DivingSuit equiped");
+        GameController.OutStream.println(player.getName() + " equiped DivingSuit");
     }
 
     @Override
     public void makeDrown() {
-        GameController.OutStream.println(player.getName() + " Fell into hole");
+        GameController.OutStream.println(player.getName() + " fell into hole");
         player.setState(new DrowningState(player));
     }
 }
