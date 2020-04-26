@@ -36,6 +36,7 @@ public class StableIceField extends IceField{
     //Játékos befogadása a mezőre.
     @Override
     public void acceptEntity(Entity entity) {
+        collideEntities(entity);
         entities.add(entity);
         entity.makeWalk();
         entity.changeField(this);
@@ -68,9 +69,5 @@ public class StableIceField extends IceField{
         behaviour.performSnow(entities);
     }
 
-    @Override
-    public void collideEntities(Entity enteringEntity, Collection<Entity> standingEntities) {
-        behaviour.collideEntities(enteringEntity, entities);
-    }
 
 }

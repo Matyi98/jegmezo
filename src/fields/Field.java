@@ -163,7 +163,9 @@ public abstract class Field {
 
     public abstract void performSnow();
 
-    public abstract void collideEntities(Entity enteringEntity, Collection<Entity> standingEntities);
+    public void collideEntities(Entity enteringEntity){
+        behaviour.collideEntities(enteringEntity, entities);
+    }
 
     //Megnézi a mező stabilitását
     public abstract String checkStability();

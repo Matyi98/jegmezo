@@ -11,7 +11,7 @@ public class GameController {
     private int questItemCount = 0;
     private ArrayList<Player> players;
     private Board board;
-    private boolean gameRuning = true;
+    private boolean gameRunning = true;
 
     static public PrintStream OutStream = System.out;
 
@@ -59,7 +59,7 @@ public class GameController {
      */
     public void Start(Scanner stdin) {
         nextPlayer();
-        while (stdin.hasNextLine() && gameRuning) {
+        while (stdin.hasNextLine() && gameRunning) {
             String next = stdin.nextLine();
             if (!interpretUserInput(next)) {
                 return;
@@ -136,7 +136,7 @@ public class GameController {
     public void gameOver() {
 
         OutStream.println("Game Over");
-        gameRuning = false;
+        gameRunning = false;
     }
 
     public void questItemFound() {

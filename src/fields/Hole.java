@@ -61,7 +61,7 @@ public class Hole extends Field {
 
     @Override
     public void acceptEntity(Entity entity) {
-
+        collideEntities(entity);
         entities.add(entity);
         entity.makeDrown();
         entity.changeField(this);
@@ -86,22 +86,9 @@ public class Hole extends Field {
     }
 
     @Override
-    public void collideEntities(Entity enteringEntity, Collection<Entity> standingEntities) {
-
-    }
-
-    @Override
     public String checkStability() {
         //Megadja a mező stabilitását.
         return "Hole";
-    }
-
-    @Override
-    public void step(){
-        super.step();
-        for(Entity e: entities){
-            e.makeDrown();
-        }
     }
 
     @Override

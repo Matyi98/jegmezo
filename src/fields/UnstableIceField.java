@@ -49,14 +49,10 @@ public class UnstableIceField extends IceField{
         behaviour.performSnow(entities);
     }
 
-    @Override
-    public void collideEntities(Entity enteringEntity, Collection<Entity> standingEntities) {
-        behaviour.collideEntities(enteringEntity, entities);
-    }
-
     //Játékos befogadása a mezőre.
     @Override
     public void acceptEntity(Entity entity) {
+        collideEntities(entity);
         entities.add(entity);
         if(weightLimit < entities.size()) {
             Hole hole = new Hole(this.neighbors, this.entities, this.board, this.autoIncrementID, this.UID);
