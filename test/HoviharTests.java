@@ -53,7 +53,7 @@ public class HoviharTests {
         assertEquals("RNG: false", scanner.nextLine());
         assertEquals("Skip",scanner.nextLine());
         assertEquals("Tent picked up",scanner.nextLine());
-        assertEquals("Successful tent use",scanner.nextLine());
+        assertEquals("Successful TentBuild",scanner.nextLine());
         assertEquals("Skip",scanner.nextLine());
         assertEquals("Successful IgluBuild",scanner.nextLine());
         //dialog here

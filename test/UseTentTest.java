@@ -52,6 +52,6 @@ public class UseTentTest {
         assertEquals("Inventory empty",scanner.nextLine());
         assertEquals("HP: 5",scanner.nextLine());
         assertEquals("AP: 2",scanner.nextLine());
-        assertEquals("S00tEt; S0000; ",scanner.nextLine());
+        assertEquals("S000Et; S0000; ",scanner.nextLine());
     }
 }
