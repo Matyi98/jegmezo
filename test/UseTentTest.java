@@ -45,6 +45,7 @@ public class UseTentTest {
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
+        assertEquals("A's turn",scanner.nextLine());
         assertEquals("Tent picked up",scanner.nextLine());
         assertEquals("Inventory:",scanner.nextLine());
         assertEquals("0: Tent",scanner.nextLine());
