@@ -25,11 +25,6 @@ public class Hole extends Field {
         board = b; snowLevel = s;
     }
 
-    @Override
-    public void removeItem() {
-
-    }
-
     public Hole()
     {
         super();
@@ -128,5 +123,10 @@ public class Hole extends Field {
         for(Entity e: entities){
             e.makeDrown();
         }
+    }
+
+    @Override
+    public Item getItem() {
+        return null;
     }
 }

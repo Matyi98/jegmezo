@@ -53,7 +53,8 @@ public abstract class Field {
     }
 
     /**
-     *
+     * A pálya fájlból való inicializálása közben a már példányosodott Field objektumok
+     * paraméterek alapján megfelelő állapotba hozását szolgálja.
      * @param b A pálya.
      * @param w A mező által elbírt entitások száma.
      * @param s A mezőn lévő hószintek kezdeti értéke.
@@ -76,34 +77,43 @@ public abstract class Field {
         this.neighbors.add(newNeighbor);
     }
 
+    /**
+     * A Field FieldBehaviour referenciáját állítja át.
+     * @param fb A beállítani kívánt FieldBehaviour.
+     */
     public void setBehaviour(FieldBehaviour fb){
         behaviour = fb;
     }
 
-    //Ezen fielden lévő player átmozgatása egy szomszédos fieldre
-    public void placeEntityToNextField(Field toWhom, Entity entity){
-         int i = neighbors.indexOf(toWhom);
-         neighbors.get(i).acceptEntity(entity);
+    /**
+     * Ezen Fielden lévő Player átmozgatása egy szomszédos fieldre.
+     * @param direction A Filed szomszédjai közül való a megfelelő
+     *                  irányban lévő kiválasztásáhot.
+     * @param entity    Arra az Entityre referencia, amelyik Entityt
+     *                  át kell helyezni ennek a metódusnak egy másik
+     *                  Fieldre.
+     */
+    public void placeEntityToNextField(int direction, Entity entity){
+         neighbors.get(direction).acceptEntity(entity);
          this.entities.remove(entity);
     }
 
-    public void placeEntityToNextField(int toWhom, Entity entity){
-        neighbors.get(toWhom).acceptEntity(entity);
-        this.entities.remove(entity);
-    }
-
+    /**
+     * Argumentumként kapott irányba lévő Fieldről kezdeményi egy Entity
+     * átmozgatását erre a Fieldre.
+     * @param direction Azon irány emerről kezdeményezzük egy Entity kimentését.
+     * @return Amennyiben sikerült áthelyezni Entityt true, máskülönben false értékkel tér vissza.
+     */
     public boolean pullOutPlayerFrom(int direction){
         Entity entity = neighbors.get(direction).selectEntity();
         if(entity != null)
         {
-            neighbors.get(direction).placeEntityToNextField(this, entity);
+            neighbors.get(direction).placeEntityToNextField(UID, entity);
             return true;
         }
         return false;
 
     }
-
-    public abstract void removeItem();
 
     public final boolean changeSnowLevel(int delta){
         if(snowLevel <= 0 && delta < 0){
@@ -180,5 +190,5 @@ public abstract class Field {
         return neighbors.size();
     }
 
-    public Item getItem(){ return null;}
+    public abstract Item getItem();
 }
