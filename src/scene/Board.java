@@ -55,7 +55,7 @@ public class Board {
 
         for (Field field : fields) {
             if (RandomNumber.getNumber(10) < chanceOfSnowing) {
-                field.snow();
+                field.performSnow();
             }
         }
     }

@@ -139,10 +139,6 @@ public abstract class Field {
         return true;
     }
 
-    public void snow(){
-        behaviour.performSnow(entities);
-    }
-
     public int getEntityCount(){
         return entities.size();
     }
