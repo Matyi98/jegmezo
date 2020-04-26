@@ -2,23 +2,41 @@ package items;
 
 import scene.GameController;
 
-//Lapátot reprezentáló osztály.
+/**
+ * Ásó item. Egyszerre sok hó eltakarítására képes.
+ */
 public class Shovel extends Item {
-    //Ennyi hóréteget takarít el a lapát.
+    /**
+     * Hómennyiség, amit egy használattal eltakarít.
+     */
     private int shovelSpeedIncrease = 2;
 
+    /**
+     * Megjelenítéshez szükséges függvény.
+     */
     @Override
     protected void showPickup() {
         GameController.OutStream.println("Shovel picked up");
     }
 
-    //Lapát használata.
+    /**
+     * Megjelenítéshez szükséges függvény.
+     */
+    public void Show() {
+        GameController.OutStream.print("Shovel");
+    }
+
+    /**
+     * Megjelenítéshez szükséges függvény.
+     */
+    public void ShowShort() { GameController.OutStream.print("s"); }
+
+    /**
+     * Lapát használata.
+     */
     public void use(){
         owner.shovel(shovelSpeedIncrease);
     }
 
-    public void Show() {
-        GameController.OutStream.print("Shovel");
-    }
-    public void ShowShort() { GameController.OutStream.print("s"); }
+
 }

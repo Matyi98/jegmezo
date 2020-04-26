@@ -1,27 +1,44 @@
 package items;
 import entities.Player;
 
+/**
+ * Item, amelyet a Player használhat.
+ */
 public abstract class Item {
 
     /**
-     * Az item tulajdonosa
+     * Az item tulajdonosa.
      */
     protected Player owner;
 
-    //Item használata.
+    /**
+     * Item használata.
+     */
     public abstract void use();
 
-    /*
-        Beállítja az eszköz tulajdonosát,
-        ha QuestItem, akkor jelez a gameControllernek, hogy találtak új questItemet.
-    */
+    /**
+     * Item tulajdonosának beállítása.
+     * @param owner tulajdonos.
+     * @return Az adott Item, az QuestItem.
+     */
     public boolean setOwner(Player owner) {
         showPickup();
         this.owner = owner;
         return false;
     }
 
+    /**
+     * Megjelenítéshez szükséges függvény.
+     */
     protected abstract void showPickup();
+
+    /**
+     * Megjelenítéshez szükséges függvény.
+     */
     public abstract void Show();
+
+    /**
+     * Megjelenítéshez szükséges függvény.
+     */
     public abstract void ShowShort();
 }

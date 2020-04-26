@@ -2,22 +2,42 @@ package items;
 
 import scene.GameController;
 
+/**
+ * Étel item. Életerejét növelheti a Player, ha megeszi.
+ */
 public class Food extends Item {
-    //étel kalória szintje, ennyi testhőpontot gyógyít a játékoson
+    /**
+     * Kalóriaszint, ami azt jelzi, hogy hány életerőpontot ér a játékos számára.
+     */
     int calorieLevel = 1;
 
+    /**
+     * Megjelenítéshez szükséges függvény.
+     */
     @Override
     protected void showPickup() {
         GameController.OutStream.println("Food picked up");
     }
 
-    //Étel használata, növeli a játékos testhőpontját a kalória szintnek megfelelően.
+    /**
+     * Megjelenítéshez szükséges függvény.
+     */
+    public void Show() {
+        GameController.OutStream.print("Food");
+    }
+
+    /**
+     * Megjelenítéshez szükséges függvény.
+     */
+    public void ShowShort() { GameController.OutStream.print("f"); }
+
+    /**
+     * Megeszi az ételt.
+     */
+    @Override
     public void use(){
         owner.eat(this);
     }
 
-    public void Show() {
-        GameController.OutStream.print("Food");
-    }
-    public void ShowShort() { GameController.OutStream.print("f"); }
+
 }
