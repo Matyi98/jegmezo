@@ -33,7 +33,6 @@ public class DrownTests {
         addCommand("tst loadmap fullad.txt");
 
         addCommand("p move");
-        addCommand("p skip");
         setInputString();
 
         Main.NewGame(InStream);
@@ -43,7 +42,8 @@ public class DrownTests {
         assertEquals("A's turn",scanner.nextLine());
         assertEquals("A fell into hole",scanner.nextLine());
         assertEquals("A successful move: 1",scanner.nextLine());
-        assertEquals("A skip",scanner.nextLine());
+
+        assertEquals("End of round",scanner.nextLine());
         assertEquals("A's turn",scanner.nextLine());
         assertEquals("A drowned",scanner.nextLine());
         assertEquals("Game Over",scanner.nextLine());
