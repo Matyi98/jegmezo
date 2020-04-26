@@ -62,7 +62,6 @@ public class Hole extends Field {
     @Override
     public void acceptEntity(Entity entity) {
         entities.add(entity);
-        GameController.OutStream.println("Fell into hole");
         entity.makeDrown();
         entity.changeField(this);
     }

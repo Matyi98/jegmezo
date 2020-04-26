@@ -2,6 +2,7 @@ package fields.behaviours;
 
 import entities.Entity;
 import fields.Field;
+import scene.GameController;
 import scene.writer.SceneWriter;
 
 import java.util.Collection;
@@ -9,6 +10,7 @@ import java.util.Collection;
 public class FieldBehaviourWithTent extends FieldBehaviour{
     public FieldBehaviourWithTent(Field f) {
         super(f);
+        GameController.OutStream.println("Successful TentBuild");
     }
 
     @Override

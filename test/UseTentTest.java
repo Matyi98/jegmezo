@@ -32,6 +32,8 @@ public class UseTentTest {
 
     @Test
     public void SatorHasznalata() throws UnsupportedEncodingException {
+        //TODO: helyesen implementálni ezt a tesztet.
+
         addCommand("tst loadmap sator.txt");
 
         addCommand("p special");
@@ -42,7 +44,7 @@ public class UseTentTest {
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
-        assertEquals("Successful IglooBuild",scanner.nextLine());
+        assertEquals("Successful TentBuild",scanner.nextLine());
         assertEquals("U20p0; S000M; H0000; H0000; S00c0; U300Ei; H0000; S00e0; S00s0; H0000; H0000; U200K; S000K;",scanner.nextLine());
     }
 }
