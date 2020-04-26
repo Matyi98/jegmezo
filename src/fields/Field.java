@@ -191,4 +191,7 @@ public abstract class Field {
     }
 
     public abstract Item getItem();
+
+    public abstract void removeItem();
+
 }

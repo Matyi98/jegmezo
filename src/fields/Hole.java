@@ -129,4 +129,9 @@ public class Hole extends Field {
     public Item getItem() {
         return null;
     }
+
+    @Override
+    public void removeItem() {
+
+    }
 }
