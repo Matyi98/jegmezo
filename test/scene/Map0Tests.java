@@ -22,6 +22,7 @@ public class Map0Tests {
 
         InputStream targetStream = new ByteArrayInputStream(sInput.getBytes());
         InStream = new Scanner(targetStream);
+        Dialog.InStream = this.InStream;
     }
 
     String sInput = "";
@@ -93,25 +94,30 @@ public class Map0Tests {
 
     @Test
     public void JegesmedveFunkcionalitasa() throws UnsupportedEncodingException {
-        //TODO: fix dis test
         addCommand("tst random");
+        addCommand("p turn d");
+        addCommand("p move");
         addCommand("p special");
         addCommand("p skip");
-        addCommand("p turn d");
-        addCommand("p turn d");
+        addCommand("p turn a");
         addCommand("p move");
         addCommand("p skip");
         addCommand("p move");
         addCommand("p skip");
+
+        for (int i = 0; i < 13; i++)
+            addCommand("0");
+
+        addCommand("2");
+
+        addCommand("p skip");
+        addCommand("p skip");
+        addCommand("p skip");
+
+        for (int i = 0; i < 13; i++)
+            addCommand("0");
+
         addCommand("5");
-        addCommand("p skip");
-        addCommand("p skip");
-        addCommand("p skip");
-        addCommand("6");
-        addCommand("p skip");
-        addCommand("p skip");
-        addCommand("p skip");
-        addCommand("13");
         setInputString();
 
         Main.NewGame(InStream);
@@ -120,24 +126,29 @@ public class Map0Tests {
 
         assertEquals("B's turn",scanner.nextLine());
         assertEquals("RNG: false", scanner.nextLine());
-        assertEquals("Successful IglooBuild", scanner.nextLine()); //TODO: átgondolni ezt a jelenetet, mert instabilra nem építhet
+        assertEquals("B successful turn: 5", scanner.nextLine());
+        assertEquals("B successful move: 5", scanner.nextLine());
+        assertEquals("Successful IglooBuild", scanner.nextLine());
         assertEquals("B skip", scanner.nextLine());
-        assertEquals("C successful turn: 10", scanner.nextLine());
+        assertEquals("C's turn",scanner.nextLine());
         assertEquals("C successful turn: 13", scanner.nextLine());
         assertEquals("C successful move: 13", scanner.nextLine());
         assertEquals("C skip", scanner.nextLine());
+        assertEquals("D's turn",scanner.nextLine());
         assertEquals("D successful move: 6", scanner.nextLine());
         assertEquals("D skip", scanner.nextLine());
-        // bear dialog
+        assertEquals("End of round", scanner.nextLine());
+        // snow storm + bear dialog
+        assertEquals("A successful move: 5", scanner.nextLine());
+        assertEquals("B's turn",scanner.nextLine());
         assertEquals("B skip", scanner.nextLine());
+        assertEquals("C's turn",scanner.nextLine());
         assertEquals("C skip", scanner.nextLine());
-        assertEquals("D skip", scanner.nextLine());
-        // bear dialog
-        assertEquals("B skip", scanner.nextLine());
-        assertEquals("C skip", scanner.nextLine());
-        assertEquals("D skip", scanner.nextLine());
-        assertEquals("U20p0; S0000; H0000; H0000; S00c0; U300EKMi; H0000; S00e0; S00s0; H0000; H0000; U2000; S000K ", scanner.nextLine());
-        // bear dialog
+        assertEquals("D's turn",scanner.nextLine());
+        assertEquals("D skip",scanner.nextLine());
+        assertEquals("End of round", scanner.nextLine());
+        // snow storm + bear dialog
+        assertEquals("A successful move: 6", scanner.nextLine());
         assertEquals("Game Over", scanner.nextLine());
     }
 

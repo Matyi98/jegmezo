@@ -50,14 +50,23 @@ public class Board {
     }
 
     //Behavaztat mezőket.
-    public void letItSnow(RandomNumber rand) {
+    public void letItSnow() {
         int chanceOfSnowing = 4; // 40% hogy esik-e a hó
 
         for (Field field : fields) {
-            if (rand.getNumber(10) < chanceOfSnowing) {
+            if (RandomNumber.getNumber(10) < chanceOfSnowing) {
                 field.snow();
             }
         }
     }
 
+    public void stepEntities() {
+        for (Field field : fields) {
+            field.step();
+        }
+
+        for (Field field : fields) {
+            field.endEntitiesTurn();
+        }
+    }
 }

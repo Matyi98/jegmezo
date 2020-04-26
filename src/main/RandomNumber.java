@@ -16,7 +16,7 @@ public class RandomNumber {
      * @param maxNum ennél csak kisebb számokkal tér vissza
      * @return a megadott szám
      */
-    public int getNumber(int maxNum){
+    static public int getNumber(int maxNum){
         if (isRandomEnabled) {
             return new Random().nextInt(maxNum);
         } else {

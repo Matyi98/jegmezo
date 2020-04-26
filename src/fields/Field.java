@@ -5,7 +5,6 @@ import fields.behaviours.FieldBehaviour;
 import fields.behaviours.StandardFieldBehaviour;
 import items.Item;
 import scene.Board;
-import scene.Dialog;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -176,10 +175,18 @@ public abstract class Field {
     }
 
     public void step(){
-        for(Entity e: entities)
-            e.step();
+        // direkt nem foreach!
+        for (int i = 0; i < entities.size(); i++) {
+            entities.get(i).step();
+        }
 
         destroyTent();
+    }
+
+    public void endEntitiesTurn() {
+        for(Entity e: entities) {
+            e.endTurn();
+        }
     }
 
     public int getNeighbourCount() {

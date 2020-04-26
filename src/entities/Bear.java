@@ -1,17 +1,19 @@
 package entities;
 
-import fields.Field;
+import main.RandomNumber;
 import scene.GameController;
 
-import java.util.Random;
-
 public class Bear extends Entity {
-
+    // számon kell tartani hogy ne tudjon egy körben többször lépni.
+    boolean hasStepped = false;
 
     @Override
     public void step() {
-        int randomDirection = new Random().nextInt(fieldUnder.getNeighbourCount());
-        actualDirection = randomDirection;
+        if(hasStepped)
+            return;
+
+        hasStepped = true;
+        actualDirection = RandomNumber.getNumber(fieldUnder.getNeighbourCount());
         move();
         fieldUnder.destroyTent();
     }
@@ -27,18 +29,12 @@ public class Bear extends Entity {
     }
 
     @Override
-    public void decrementHP() {
+    public void decrementHP() {}
 
-    }
+    public void startTurn() {}
 
-    public void startTurn()
-    {
-
-    }
-
-    public  void endTurn()
-    {
-
+    public  void endTurn() {
+        hasStepped = false;
     }
 
 }
