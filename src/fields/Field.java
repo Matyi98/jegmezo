@@ -81,20 +81,18 @@ public abstract class Field {
     }
 
     //Ezen fielden lévő player átmozgatása egy szomszédos fieldre
-    public void placeEntityToNextField(int direction, Entity entity){
-         neighbors.get(direction).acceptEntity(entity);
+    public void placeEntityToNextField(Field toWhom, Entity entity){
+         int i = neighbors.indexOf(toWhom);
+         neighbors.get(i).acceptEntity(entity);
          this.entities.remove(entity);
     }
 
-    public void placeEntityToNextField(int direction){
-        neighbors.get(direction).acceptEntity(entities.get(0));
-    }
 
     public boolean pullOutPlayerFrom(int direction){
         Entity entity = neighbors.get(direction).selectEntity();
         if(entity != null)
         {
-            neighbors.get(direction).placeEntityToNextField(UID, entity);
+            neighbors.get(direction).placeEntityToNextField(this, entity);
             return true;
         }
         return false;
