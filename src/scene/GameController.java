@@ -82,41 +82,45 @@ public class GameController {
      *          parancsot talált. Minden más esetben igaz értékkel tér vissza.
      */
     private boolean interpretUserInput(String userInput) {
-        String type = userInput.split(" ")[0].toLowerCase();
-        switch (type) {
-            case "p":
-                boolean hasMorePoints = players.get(currentPlayer).Action(userInput.toLowerCase());
-                if (!hasMorePoints)
-                    nextPlayer();
-                break;
-            case "tst":
-                String command = userInput.split(" ")[1].toLowerCase();
-                if (command.equals("exit"))
-                    return false;
-                if (command.equals("random")) {
-                    RandomNumber.isRandomEnabled = !RandomNumber.isRandomEnabled;
-                    OutStream.println("RNG: " + RandomNumber.isRandomEnabled);
-                }
-                break;
-            case "s":
-                String data = userInput.split(" ")[1].toLowerCase();
-                switch (data) {
-                    case "map":
-                        this.ShowMap(false);
-                        break;
-                    case "stats":
-                        players.get(currentPlayer).ShowStats();
-                        break;
-                    case "inv":
-                        players.get(currentPlayer).ShowInventory();
-                        break;
-                    default:
-                        OutStream.println("bad command.");
-                }
-                break;
-            default:
-                OutStream.println("bad command.");
-                break;
+        try {
+            String type = userInput.split(" ")[0].toLowerCase();
+            switch (type) {
+                case "p":
+                    boolean hasMorePoints = players.get(currentPlayer).Action(userInput.toLowerCase());
+                    if (!hasMorePoints)
+                        nextPlayer();
+                    break;
+                case "tst":
+                    String command = userInput.split(" ")[1].toLowerCase();
+                    if (command.equals("exit"))
+                        return false;
+                    if (command.equals("random")) {
+                        RandomNumber.isRandomEnabled = !RandomNumber.isRandomEnabled;
+                        OutStream.println("RNG: " + RandomNumber.isRandomEnabled);
+                    }
+                    break;
+                case "s":
+                    String data = userInput.split(" ")[1].toLowerCase();
+                    switch (data) {
+                        case "map":
+                            this.ShowMap(false);
+                            break;
+                        case "stats":
+                            players.get(currentPlayer).ShowStats();
+                            break;
+                        case "inv":
+                            players.get(currentPlayer).ShowInventory();
+                            break;
+                        default:
+                            OutStream.println("Invalid command.");
+                    }
+                    break;
+                default:
+                    OutStream.println("Invalid command.");
+                    break;
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            OutStream.println("Invalid command");
         }
         return true;
     }

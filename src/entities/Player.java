@@ -32,7 +32,7 @@ public abstract class Player extends Entity {
                         this.turn(1);
                         break;
                     default:
-                        GameController.OutStream.println("bad parameter.");
+                        GameController.OutStream.println("Invalid parameter.");
                 }
                 break;
             case "move":
@@ -55,7 +55,7 @@ public abstract class Player extends Entity {
                 this.pickUpItem();
                 break;
             default:
-                GameController.OutStream.println("bad action");
+                GameController.OutStream.println("Invalid action");
         }
         return actionPoints > 0;
     }

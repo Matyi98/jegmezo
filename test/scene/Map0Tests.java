@@ -61,6 +61,7 @@ public class Map0Tests {
 
     @Test
     public void MezoBeszakadasa() throws UnsupportedEncodingException {
+        //TODO: fix dis test
         addCommand("p turn d");
         addCommand("p turn d");
         addCommand("p turn d");
@@ -100,6 +101,7 @@ public class Map0Tests {
 
     @Test
     public void JegesmedveFunkcionalitasa() throws UnsupportedEncodingException {
+        //TODO: fix dis test
         addCommand("tst random");
         addCommand("p special");
         addCommand("p skip");
