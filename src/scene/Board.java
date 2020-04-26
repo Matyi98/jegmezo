@@ -54,7 +54,7 @@ public class Board {
         int chanceOfSnowing = 4; // 40% hogy esik-e a hó
 
         for (Field field : fields) {
-            if (rand.getNumber(10) > chanceOfSnowing) {
+            if (rand.getNumber(10) < chanceOfSnowing) {
                 field.snow();
             }
         }

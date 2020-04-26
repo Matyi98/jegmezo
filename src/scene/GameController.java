@@ -36,6 +36,7 @@ public class GameController {
         currentPlayer++;
         if (currentPlayer >= players.size()) {
             currentPlayer = 0;
+            GameController.OutStream.println("End of round");
             board.letItSnow(new RandomNumber());
         }
         OutStream.println(players.get(currentPlayer).getName()+"'s turn");
