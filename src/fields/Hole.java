@@ -1,7 +1,6 @@
 package fields;
 
 import entities.Entity;
-import fields.behaviours.FieldBehaviour;
 import fields.behaviours.StandardFieldBehaviour;
 import items.Item;
 import scene.Board;
@@ -9,9 +8,7 @@ import scene.Dialog;
 import scene.GameController;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Optional;
-import java.util.Scanner;
 
 /**
  * Lyuk, amiben víz van. Player-ek képesek belefulladni, ha nincs rajtuk búvárruha.
@@ -129,8 +126,7 @@ public class Hole extends Field {
 
     /**
      * Hole-on lévő tárgy visszaadása.
-     * Ez mindig null, hiszen nem lehet tárgy a Hole-on.
-     * @return
+     * @return Ez mindig null, hiszen nem lehet tárgy a Hole-on.
      */
     @Override
     public Item getItem() {

@@ -7,17 +7,51 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * GameController osztály, ami a játék lefolyását menedzseli.
+ */
 public class GameController {
+    /**
+     * Player-ek által megtalált QuestItem-ek száma.
+     */
     private int questItemCount = 0;
+
+    /**
+     * Player-ek listája.
+     */
     private ArrayList<Player> players;
+
+    /**
+     * Játéktábla, amelyen a játék folyik.
+     */
     private Board board;
+
+    /**
+     * Folyamatban van-e még a játék.
+     */
     private boolean gameRunning = true;
 
+    /**
+     * Megjelenítéshez szükséges output stream.
+     */
     static public PrintStream OutStream = System.out;
 
+    /**
+     * Soron lévő Player.
+     */
+    private int currentPlayer = -1;
+
+    /**
+     * Default konstruktor.
+     */
     public GameController() {
     }
 
+    /**
+     * Tábla megjelenítése egy gráf formájában.
+     * @param showEdges True - Field-ek megjelenítése (pontok)
+     *                  False - Field-ek és hozzájuk tartozó szomszédok (élek) megjelenítése
+     */
     public void ShowMap(boolean showEdges) {
         board.Show(showEdges);
     }
@@ -32,7 +66,9 @@ public class GameController {
         this.players = players;
     }
 
-    private int currentPlayer = -1;
+    /**
+     * Jelenlegi Player körének befejezése és következő Player körének elindítása.
+     */
     private void nextPlayer() {
         currentPlayer++;
         if (currentPlayer >= players.size()) {
@@ -128,6 +164,12 @@ public class GameController {
         return true;
     }
 
+    /**
+     * A játék megnyerése, ha a Player-ek eleget tettek a nyerési követelményeknek:
+     * 1. Minden játékos legyen egyetlen egy mezőn.
+     * 2. Legyen a játékosoknál az összes QuestItem.
+     * @param count játékosok száma egy adott mezőn.
+     */
     public void win(int count) {
         if (count == players.size() && questItemCount == 3)
             OutStream.println("Victory");
@@ -135,12 +177,18 @@ public class GameController {
             OutStream.println("Win conditions not met");
     }
 
+    /**
+     * Vereség.
+     */
     public void gameOver() {
 
         OutStream.println("Game Over");
         gameRunning = false;
     }
 
+    /**
+     * QuestItem-et találtak a játékosok.
+     */
     public void questItemFound() {
         questItemCount = questItemCount + 1;
     }

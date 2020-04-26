@@ -10,13 +10,38 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * SceneReader osztály, amely fájlban rögzített játékállapotokat képes beolvasni és
+ * ezáltal inicializálni a játékmenetet.
+ */
 public class SceneReader {
+    /**
+     * Játéktábla.
+     */
     private Board board;
+    /**
+     * GameController.
+     */
     private GameController gc;
+    /**
+     * Játékállapot összes field-je.
+     */
     private ArrayList<Field> fields = new ArrayList<>();
+
+    /**
+     * Játékállapot összes játékosa.
+     */
     private ArrayList<Player> players = new ArrayList<>();
 
+    /**
+     * Olvasáshoz szükséges.
+     */
     private BufferedReader reader;
+
+    /**
+     * Konstruktor, amiben beolvassa a játékállapot fájlját.
+     * @param inputStream inputStream ami tartalmazza a beolvasni kívánt játékállapotot.
+     */
     public SceneReader(InputStream inputStream) {
         this.reader =
                 new BufferedReader(new InputStreamReader(inputStream));
@@ -24,7 +49,7 @@ public class SceneReader {
 
     /**
      * Fájlból beolvas adatokat, amelyek alapján inicializálja
-     * a Boardot Fildekkel, Entitykkel és Itemekkel, valamint
+     * a Boardot Fieldekkel, Entitykkel és Itemekkel, valamint
      * inicializálja a GameControllert.
      * @return GameController objektummal, amely ütemezi,
      *         értelmezi, majd a parancsokhoz hozzárendelt
@@ -79,7 +104,7 @@ public class SceneReader {
     }
 
     /**
-     * Fildeket, Entityket és Itemeket hoz létre az argumentumként kapott
+     * Fieldeket, Entityket és Itemeket hoz létre az argumentumként kapott
      * adatok alapján. A Fieldeket az agrumentum alapján meghatározott
      * állapotba inicializálja.
      * @param sNode Egy fájlból beolvasott bemeneti adategység, ami

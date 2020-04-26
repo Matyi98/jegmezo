@@ -1,7 +1,5 @@
 package entities;
 
-//import enums.Direction;
-
 import scene.GameController;
 
 /**

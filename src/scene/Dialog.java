@@ -1,10 +1,13 @@
 package scene;
 
-import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Dialógus osztály, amely lehetővé teszi, hogy előre megadott opciók közül
+ * a felhasználó kiválassza a neki tetsző opciót.
+ */
 public class Dialog {
     /**
      * Kimeneti folyam. Erre a folyamra írnak a dialógusok.
@@ -15,7 +18,14 @@ public class Dialog {
      */
     public static Scanner InStream = new Scanner(System.in);
 
+    /**
+     * Felhasználóhoz szegezett kérdés.
+     */
     private String question;
+
+    /**
+     * Kérdésre adható válaszok.
+     */
     private ArrayList<String> options;
 
 

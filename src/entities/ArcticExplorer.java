@@ -1,6 +1,5 @@
 package entities;
 
-import fields.Field;
 import scene.GameController;
 
 /**

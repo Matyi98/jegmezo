@@ -6,13 +6,28 @@ import main.RandomNumber;
 import java.util.ArrayList;
 import java.util.Comparator;
 
+/**
+ * A játéktábla, amely a játékmenet összes Field-jét tartalmazza.
+ */
 public class Board {
+    /**
+     * Field-ek.
+     */
     private ArrayList<Field> fields;
 
+    /**
+     * Field-ek beállítása.
+     * @param fields fieldek.
+     */
     public void Setup(ArrayList<Field> fields) {
         this.fields = fields;
     }
 
+    /**
+     * Tábla megjelenítése egy gráf formájában.
+     * @param showEdges True - Field-ek megjelenítése (pontok)
+     *                  False - Field-ek és hozzájuk tartozó szomszédok (élek) megjelenítése
+     */
     public void Show(boolean showEdges) {
         ArrayList<String> pairs = new ArrayList<>();
         fields.sort(new Comparator<Field>() {
@@ -44,12 +59,19 @@ public class Board {
         }
     }
 
+    /**
+     * Adott Field megváltoztatása egy másik Field-é.
+     * @param currentField kiválasztott Field.
+     * @param newField új Field.
+     */
     public void changeField(Field currentField, Field newField) {
         this.fields.remove(currentField);
         this.fields.add(newField);
     }
 
-    //Behavaztat mezőket.
+    /**
+     * Hóvihar elindítása.
+     */
     public void letItSnow() {
         int chanceOfSnowing = 4; // 40% hogy esik-e a hó
 
@@ -60,6 +82,9 @@ public class Board {
         }
     }
 
+    /**
+     * Entitások léptetése.
+     */
     public void stepEntities() {
         for (Field field : fields) {
             field.step();
