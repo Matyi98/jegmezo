@@ -39,6 +39,6 @@ public abstract class IceField extends Field {
      * @return kiválasztott entitás
      */
     @Override
-    public Entity selectEntity(){ return null;}
+    public Entity selectEntity(){ return null; }
 
 }

@@ -55,6 +55,8 @@ public class PlayerRescueTest {
         assertEquals("B's turn", scanner.nextLine());
         assertEquals("B fell into hole", scanner.nextLine());
         assertEquals("B successful move: 2", scanner.nextLine());
+        assertEquals("End of round", scanner.nextLine());
+        assertEquals("A's turn", scanner.nextLine());
         // Rope Dialog
         assertEquals("Successful rope usage", scanner.nextLine());
         assertEquals("S00KK; H0000; ", scanner.nextLine());
