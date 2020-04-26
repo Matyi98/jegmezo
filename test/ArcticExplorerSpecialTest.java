@@ -44,6 +44,7 @@ public class ArcticExplorerSpecialTest {
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
+        assertEquals("A's turn", scanner.nextLine());
         assertEquals("Stability of neighbor 0 : 2",scanner.nextLine());
     }
 }

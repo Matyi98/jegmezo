@@ -36,7 +36,6 @@ public class QuestItemTest {
         addCommand("tst loadmap quest.txt");
         addCommand("p pickup");
         addCommand("p move");
-        addCommand("p move");
         addCommand("p skip");
         addCommand("p pickup");
         addCommand("p move");
@@ -56,13 +55,15 @@ public class QuestItemTest {
 
         assertEquals("A's turn", scanner.nextLine());
         assertEquals("Pistol picked up", scanner.nextLine());
-        assertEquals("Successful move: 2", scanner.nextLine());
-        assertEquals("Successful move: 3", scanner.nextLine());
-        assertEquals("Skip", scanner.nextLine());
+        assertEquals("A successful move: 3", scanner.nextLine());
+        assertEquals("A skip", scanner.nextLine());
+        assertEquals("B's turn", scanner.nextLine());
         assertEquals("Flare picked up", scanner.nextLine());
-        assertEquals("Successful move: 3", scanner.nextLine());
+        assertEquals("B successful move: 3", scanner.nextLine());
+        assertEquals("Quest item used", scanner.nextLine());
         assertEquals("Win conditions not met", scanner.nextLine());
-        assertEquals("Skip", scanner.nextLine());
+        assertEquals("B skip", scanner.nextLine());
+        assertEquals("C's turn", scanner.nextLine());
         assertEquals("Cartridge picked up", scanner.nextLine());
         assertEquals("Quest item used", scanner.nextLine());
         assertEquals("Victory", scanner.nextLine());

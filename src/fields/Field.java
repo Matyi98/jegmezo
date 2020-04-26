@@ -127,7 +127,6 @@ public abstract class Field {
     }
 
     public int getEntityCount(){
-        System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
         return entities.size();
     }
 
