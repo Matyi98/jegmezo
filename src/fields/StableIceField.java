@@ -33,8 +33,6 @@ public class StableIceField extends IceField{
         this.item = item;
     }
 
-    public Item getItem(){ return item;}
-
     //Játékos befogadása a mezőre.
     @Override
     public void acceptEntity(Entity entity) {

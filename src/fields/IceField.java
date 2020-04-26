@@ -29,12 +29,9 @@ public abstract class IceField extends Field {
     //Visszaadja a fielden lévő itemet
     public Item getItem(){
         System.out.println("[ " + new Object(){}.getClass().getEnclosingMethod() + " ]");
-        return item;
-    }
-
-    @Override
-    public final void removeItem() {
-        item = null;
+        Item removableItem = this.item;
+        this.item = null;
+        return removableItem;
     }
 
     /**
