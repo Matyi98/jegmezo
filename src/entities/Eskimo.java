@@ -4,7 +4,9 @@ package entities;
 
 import scene.GameController;
 
-
+/**
+ * Eszkimó, amelyet a játékos irányíthat. Képes iglukat építeni.
+ */
 public class Eskimo extends Player {
 
     public Eskimo() {

@@ -105,6 +105,9 @@ public abstract class Player extends Entity {
         inventory.Show();
     }
 
+    /**
+     * Visszaállítja a játékos akciópontjainak a számát a maximális értékre.
+     */
     public void resetActionPoints(){
         actionPoints = MAX_ACTION_POINTS;
     }
@@ -290,7 +293,7 @@ public abstract class Player extends Entity {
      */
     public void startTurn()
     {
-        this.actionPoints = MAX_ACTION_POINTS;
+        resetActionPoints();
     }
 
     /**

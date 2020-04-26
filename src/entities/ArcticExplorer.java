@@ -4,7 +4,7 @@ import fields.Field;
 import scene.GameController;
 
 /**
- * Sarkkutató, a játékos egyik leszármazottja. Képes megnézni a jégtáblák stabilitását.
+ * Sarkkutató, amelyet a játékos irányíthat. Képes megnézni a jégtáblák stabilitását.
  */
 public class ArcticExplorer extends Player {
 
