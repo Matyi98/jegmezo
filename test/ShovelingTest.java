@@ -11,7 +11,7 @@ import java.util.Scanner;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Hó lapátolást tesztelő tesztosztály.
+ * Hó lapáttal való ellepátolását tesztelő tesztosztály.
  */
 public class ShovelingTest {
     Scanner InStream;

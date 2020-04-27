@@ -11,9 +11,9 @@ import java.util.Scanner;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Hó lapátolást tesztelő tesztosztály.
+ * Hó kézzel való ellepátolását tesztelő tesztosztály.
  */
-public class DigingTest {
+public class DiggingTest {
     Scanner InStream;
     ByteArrayOutputStream baos;
 
