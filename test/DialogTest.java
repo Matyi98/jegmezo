@@ -14,9 +14,16 @@ import static org.junit.Assert.*;
  */
 public class DialogTest {
 
+    /**
+     * A Dialog osztály teszteléséhez a
+     * példányosított Dialogra mutató referencia.
+     */
     Dialog d;
 
-
+    /**
+     * A bemeneti tesztvektort egybefűzi egy teszt adatfolyammá.
+     * @param s Tesztvektor.
+     */
     private void setInputString(String s) {
         InputStream targetStream = new ByteArrayInputStream(s.getBytes());
         Dialog.InStream = new Scanner(targetStream);
@@ -36,7 +43,9 @@ public class DialogTest {
                                      Addig nem lép tovább, míg a specifikált folyamon nem kap értelmes választ.
     */
 
-
+    /**
+     * Bemeneti tesztvektor felállítása.
+     */
     @Before
     public void init() {
         String question = "What is your favourite colour?";
@@ -49,9 +58,7 @@ public class DialogTest {
     }
 
     /**
-     * Új játék létrehozása és annak elindítása a már létrehozott
-     * bemeneti teszt adatfolyammal, majd a játék lezajlása közben
-     * létrejött kimenet ellenőrzése az elvártakkal összehasonlítva.
+     * Kiválasztandó és kiválasztott opció egyezőségének vizsgálata.
      */
     @Test
     public void red() {
@@ -61,13 +68,15 @@ public class DialogTest {
         assertEquals(0, d.ShowDialog());
     }
 
+    /**
+     * Kiválasztandó és kiválasztott opció egyezőségének vizsgálata.
+     */
     @Test
     public void green() {
         String input = "1";
         setInputString(input);
 
         assertEquals(1, d.ShowDialog());
+        System.out.println("");
     }
-
-
 }

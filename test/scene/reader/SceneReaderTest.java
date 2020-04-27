@@ -17,6 +17,11 @@ import static org.junit.Assert.*;
 public class SceneReaderTest {
     GameController gc;
 
+    /**
+     * GameController és a Board Entitykkel és Itemmekel együtt való beolvasása.
+     *
+     * @throws FileNotFoundException Nem található a beolvasandó pálya.
+     */
     @Before
     public void initialise() throws FileNotFoundException {
         final String pwd = System.getProperty("user.dir");
@@ -27,8 +32,9 @@ public class SceneReaderTest {
         gc = sceneReader.LoadScene();
     }
 
-
-
+    /**
+     * Beolvasott pálya és a létrehozott GameController voltának ellenőrzése.
+     */
     @Test
     public void loadScene() {
         gc.ShowMap(true);

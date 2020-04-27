@@ -41,7 +41,8 @@ public class HoviharTests {
     /**
      * Bemeneti tesztvektor felállítása.
      * Új játék létrehozása és annak elindítása a már létrehozott
-     * bemeneti teszt adatfolyammal.
+     * bemeneti teszt adatfolyammal, majd a játék lezajlása közben
+     * létrejött kimenet ellenőrzése az elvártakkal összehasonlítva.
      * @throws UnsupportedEncodingException Nem megfelelő a karakterkódolása
      * a bemeneti teszt adategységnek.
      */
