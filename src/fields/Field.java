@@ -61,6 +61,13 @@ public abstract class Field {
     }
 
     /**
+     * Reseteli a kezdő egyedi azonosítót.
+     */
+    public static void resetAutoIncrement(){
+        autoIncrementID = 1;
+    }
+
+    /**
      * Megjeleníti a Fieldet a SceneWriterben meghatározott folyamon.
      */
     public abstract void Show();
