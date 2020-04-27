@@ -7,6 +7,13 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Main {
+
+    /**
+     * A program belépési pontja. Beolvassa a pályát,
+     * majd átadja a GameControllernek az irányítást.
+     * @param args
+     * @throws FileNotFoundException
+     */
     public static void main(String[] args) throws FileNotFoundException {
         System.out.print("A program elindult. Szia Uram!");
 
@@ -28,6 +35,11 @@ public class Main {
         System.out.print("A program leáll, viszlát!");
     }
 
+    /**
+     * Tesztelésnél e metódus olvassa be a pályát,
+     * majd átadja a GameControllernek az irányítást.
+     * @param stdin Bemeneti tesztvektor.
+     */
     public static void NewGame(Scanner stdin) {
         String first = stdin.nextLine();
         String sMap = first.trim().split(" ")[2];

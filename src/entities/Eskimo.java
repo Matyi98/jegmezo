@@ -18,7 +18,10 @@ public class Eskimo extends Player {
     }
 
 
-    //Eszkimó speciális képessége.
+    /**
+     * Eszkimó speciális képessége.
+     * Igloot épít az alatta lévő Fieldre
+     */
     @Override
     public void specialPower() {
         //iglut épít.

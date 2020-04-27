@@ -5,9 +5,7 @@ import fields.behaviours.FieldBehaviour;
 import fields.behaviours.StandardFieldBehaviour;
 import items.Item;
 import scene.Board;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Optional;
 
 /**
