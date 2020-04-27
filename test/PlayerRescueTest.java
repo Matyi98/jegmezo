@@ -10,10 +10,18 @@ import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Játékostárs megmentést tesztelő tesztosztály.
+ */
 public class PlayerRescueTest {
     Scanner InStream;
     ByteArrayOutputStream baos;
 
+    /**
+     * A bemeneti tesztvektort egybefűzi egy teszt adatfolyammá.
+     * @throws UnsupportedEncodingException Nem megfelelő a karakterkódolása
+     * a bemeneti teszt adategységnek.
+     */
     private void setInputString() throws UnsupportedEncodingException {
         GameController.OutStream = new PrintStream(
                 baos = new ByteArrayOutputStream(), true,
@@ -31,6 +39,11 @@ public class PlayerRescueTest {
         sInput += s + '\n';
     }
 
+    /**
+     * Bemeneti tesztvektor felállítása.
+     * @throws UnsupportedEncodingException Nem megfelelő a karakterkódolása
+     * a bemeneti teszt adategységnek.
+     */
     @Before
     public void initialise() throws UnsupportedEncodingException {
         addCommand("tst loadmap ropetest.txt");
@@ -46,6 +59,11 @@ public class PlayerRescueTest {
         setInputString();
     }
 
+    /**
+     * Új játék létrehozása és annak elindítása a már létrehozott
+     * bemeneti teszt adatfolyammal, majd a játék lezajlása közben
+     * létrejött kimenet ellenőrzése az elvártakkal összehasonlítva.
+     */
     @Test
     public void test() {
         Main.NewGame(InStream);

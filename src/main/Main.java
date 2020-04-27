@@ -6,13 +6,17 @@ import scene.reader.SceneReader;
 import java.io.*;
 import java.util.Scanner;
 
+/**
+ * A program belépési pontja.
+ * Teszt esetek indítása után beolvassa a megfelelő pályát.
+ */
 public class Main {
 
     /**
      * A program belépési pontja. Beolvassa a pályát,
      * majd átadja a GameControllernek az irányítást.
-     * @param args
-     * @throws FileNotFoundException
+     * @param args A játék elindítása során megadott paraméterek.
+     * @throws FileNotFoundException Nem található a pálya.
      */
     public static void main(String[] args) throws FileNotFoundException {
         System.out.print("A program elindult. Szia Uram!");
@@ -24,9 +28,8 @@ public class Main {
         SceneReader sceneReader = new SceneReader(fis);
         GameController gc = sceneReader.LoadScene();
 
-        System.out.println("");
-        System.out.println("");
-        System.out.println("Pálya betöltve Sikeresen");
+
+        System.out.println("\n\nPálya betöltve Sikeresen");
 
         gc.ShowMap(true);
 

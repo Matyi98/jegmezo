@@ -9,9 +9,13 @@ import java.util.Scanner;
 
 import static org.junit.Assert.*;
 
+/**
+ * Dialógus osztályt tesztelő tesztosztály.
+ */
 public class DialogTest {
 
     Dialog d;
+
 
     private void setInputString(String s) {
         InputStream targetStream = new ByteArrayInputStream(s.getBytes());
@@ -32,6 +36,7 @@ public class DialogTest {
                                      Addig nem lép tovább, míg a specifikált folyamon nem kap értelmes választ.
     */
 
+
     @Before
     public void init() {
         String question = "What is your favourite colour?";
@@ -43,6 +48,11 @@ public class DialogTest {
         d = new Dialog(question,options);
     }
 
+    /**
+     * Új játék létrehozása és annak elindítása a már létrehozott
+     * bemeneti teszt adatfolyammal, majd a játék lezajlása közben
+     * létrejött kimenet ellenőrzése az elvártakkal összehasonlítva.
+     */
     @Test
     public void red() {
         String input = "0";

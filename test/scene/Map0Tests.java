@@ -10,10 +10,18 @@ import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Megrendelő által kért pályát  tesztelő tesztosztály.
+ */
 public class Map0Tests {
     Scanner InStream;
     ByteArrayOutputStream baos;
 
+    /**
+     * A bemeneti tesztvektort egybefűzi egy teszt adatfolyammá.
+     * @throws UnsupportedEncodingException Nem megfelelő a karakterkódolása
+     * a bemeneti teszt adategységnek.
+     */
     private void setInputString() throws UnsupportedEncodingException {
         GameController.OutStream = new PrintStream(
                 baos = new ByteArrayOutputStream(), true,

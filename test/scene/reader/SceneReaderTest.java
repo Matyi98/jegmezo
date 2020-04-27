@@ -10,6 +10,10 @@ import java.io.FileNotFoundException;
 
 import static org.junit.Assert.*;
 
+/**
+ * Pálya, Entitykkel és Itemmekel együtt való beolvasásának teszteléséért
+ * felelős tesztosztály.
+ */
 public class SceneReaderTest {
     GameController gc;
 
@@ -26,7 +30,7 @@ public class SceneReaderTest {
 
 
     @Test
-    public void loadScene() throws FileNotFoundException {
+    public void loadScene() {
         gc.ShowMap(true);
         assertNotNull(gc);
     }
