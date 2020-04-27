@@ -196,6 +196,7 @@ public abstract class Player extends Entity {
      */
     public void digByHand(){
         if(fieldUnder.changeSnowLevel(-1)) {
+            GameController.OutStream.println("Successfully digged " + 1 + " layer of snow");
             actionPoints--;
         }
     }
