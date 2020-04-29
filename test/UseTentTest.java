@@ -9,10 +9,18 @@ import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Sátor építést tesztelő tesztosztály.
+ */
 public class UseTentTest {
     Scanner InStream;
     ByteArrayOutputStream baos;
 
+    /**
+     * A bemeneti tesztvektort egybefűzi egy teszt adatfolyammá.
+     * @throws UnsupportedEncodingException Nem megfelelő a karakterkódolása
+     * a bemeneti teszt adategységnek.
+     */
     private void setInputString() throws UnsupportedEncodingException {
         GameController.OutStream = new PrintStream(
                 baos = new ByteArrayOutputStream(), true,
@@ -30,6 +38,14 @@ public class UseTentTest {
         sInput += s + '\n';
     }
 
+    /**
+     * Bemeneti tesztvektor felállítása.
+     * Új játék létrehozása és annak elindítása a már létrehozott
+     * bemeneti teszt adatfolyammal, majd a játék lezajlása közben
+     * létrejött kimenet ellenőrzése az elvártakkal összehasonlítva.
+     * @throws UnsupportedEncodingException Nem megfelelő a karakterkódolása
+     * a bemeneti teszt adategységnek.
+     */
     @Test
     public void SatorHasznalata() throws UnsupportedEncodingException {
         addCommand("tst loadmap sator.txt");

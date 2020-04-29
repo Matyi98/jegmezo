@@ -1,4 +1,5 @@
 import main.Main;
+import org.junit.Before;
 import org.junit.Test;
 import scene.Dialog;
 import scene.GameController;
@@ -10,9 +11,9 @@ import java.util.Scanner;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Havazást tesztelő tesztosztály.
+ * Hó kézzel való ellepátolását tesztelő tesztosztály.
  */
-public class HoviharTests {
+public class DiggingTest {
     Scanner InStream;
     ByteArrayOutputStream baos;
 
@@ -40,51 +41,31 @@ public class HoviharTests {
 
     /**
      * Bemeneti tesztvektor felállítása.
-     * Új játék létrehozása és annak elindítása a már létrehozott
-     * bemeneti teszt adatfolyammal, majd a játék lezajlása közben
-     * létrejött kimenet ellenőrzése az elvártakkal összehasonlítva.
      * @throws UnsupportedEncodingException Nem megfelelő a karakterkódolása
      * a bemeneti teszt adategységnek.
      */
-    @Test
-    public void HoviharNoDMG() throws UnsupportedEncodingException {
-        addCommand("tst loadmap stormtest.txt");
+    @Before
+    public void initialise() throws UnsupportedEncodingException {
+        addCommand("tst loadmap digingtest.txt");
         addCommand("tst random");
-
-        addCommand("p skip");
-        addCommand("p pickup");
-        addCommand("p use 0");
-        addCommand("p skip");
-        addCommand("p special");
-        addCommand("p skip");
-        addCommand("1");
-        addCommand("1");
-        addCommand("1");
+        addCommand("p dig");
         addCommand("s map");
-        addCommand("s stats");
         setInputString();
+    }
 
+    /**
+     * Új játék létrehozása és annak elindítása a már létrehozott
+     * bemeneti teszt adatfolyammal, majd a játék lezajlása közben
+     * létrejött kimenet ellenőrzése az elvártakkal összehasonlítva.
+     */
+    @Test
+    public void test() {
         Main.NewGame(InStream);
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
-
         assertEquals("A's turn", scanner.nextLine());
         assertEquals("RNG: false", scanner.nextLine());
-        assertEquals("A skip",scanner.nextLine());
-        assertEquals("B's turn", scanner.nextLine());
-        assertEquals("Tent picked up",scanner.nextLine());
-        assertEquals("Successful TentBuild",scanner.nextLine());
-        assertEquals("B skip",scanner.nextLine());
-        assertEquals("C's turn", scanner.nextLine());
-        assertEquals("Successful IglooBuild",scanner.nextLine());
-        assertEquals("C skip",scanner.nextLine());
-        assertEquals("End of round", scanner.nextLine());
-        assertEquals("A's turn", scanner.nextLine());
-        //dialog here
-        assertEquals("S020K; S000E; S000Ei; ",scanner.nextLine());
-        assertEquals("HP: 3",scanner.nextLine());
-        assertEquals("AP: 4",scanner.nextLine());
-
+        assertEquals("Successfully digged 1 layer of snow", scanner.nextLine());
+        assertEquals("S010K; S01g0; ", scanner.nextLine());
     }
-
 }

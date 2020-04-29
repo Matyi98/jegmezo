@@ -4,6 +4,7 @@ import entities.*;
 import fields.*;
 import items.*;
 import items.quest.*;
+import main.RandomNumber;
 import scene.*;
 
 import java.io.*;
@@ -58,6 +59,10 @@ public class SceneReader {
     public GameController LoadScene() {
         board = new Board();
         gc = new GameController();
+        Entity.resetAutoIncrement();
+        Field.resetAutoIncrement();
+        GameController.resetAutoIncrement();
+        RandomNumber.resetAutoIncrement();
         try {
             readAll();
         } catch (IOException e) {

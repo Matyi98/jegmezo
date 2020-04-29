@@ -83,6 +83,9 @@ public abstract class Player extends Entity {
             case "pickup":
                 this.pickUpItem();
                 break;
+            case "dig":
+                this.digByHand();
+                break;
             default:
                 GameController.OutStream.println("Invalid action");
         }
@@ -93,8 +96,8 @@ public abstract class Player extends Entity {
      * Kiiratja a GameController OutStreamjére a Player élet és akció pontjainak számát.
      */
     public void ShowStats() {
-        GameController.OutStream.println("HP: " + String.valueOf(healthPoints));
-        GameController.OutStream.println("AP: " + String.valueOf(actionPoints));
+        GameController.OutStream.println("HP: " + healthPoints);
+        GameController.OutStream.println("AP: " + actionPoints);
     }
 
     /**
@@ -192,6 +195,7 @@ public abstract class Player extends Entity {
      */
     public void digByHand(){
         if(fieldUnder.changeSnowLevel(-1)) {
+            GameController.OutStream.println("Successfully digged " + 1 + " layer of snow");
             actionPoints--;
         }
     }

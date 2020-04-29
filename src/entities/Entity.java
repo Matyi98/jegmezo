@@ -27,13 +27,19 @@ public abstract class Entity {
     /**
      * Automata névgeneráláshoz szükséges.
      */
-    private static char autoIncrement = 'A';
+    protected static char autoIncrement = 'A';
 
     /**
      * Entitás neve.
      */
     protected String name;
 
+    /**
+     * Reseteli a kezdő egyedi azonosítót.
+     */
+    public static void resetAutoIncrement(){
+        autoIncrement = 'A';
+    }
     /**
      * Megjelenítésért felelős függvény.
      */

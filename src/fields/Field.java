@@ -5,9 +5,7 @@ import fields.behaviours.FieldBehaviour;
 import fields.behaviours.StandardFieldBehaviour;
 import items.Item;
 import scene.Board;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Optional;
 
 /**
@@ -60,6 +58,13 @@ public abstract class Field {
     public Field() {
         this.behaviour = new StandardFieldBehaviour(this);
         this.UID = autoIncrementID++;
+    }
+
+    /**
+     * Reseteli a kezdő egyedi azonosítót.
+     */
+    public static void resetAutoIncrement(){
+        autoIncrementID = 1;
     }
 
     /**

@@ -12,6 +12,12 @@ public class RandomNumber {
     static public boolean isRandomEnabled = true;
 
     /**
+     * Reseteli a kezdő isRandomEnabled defaultra, ami true.
+     */
+    public static void resetAutoIncrement(){
+        isRandomEnabled = true;
+    }
+    /**
      * visszatér egy számmal a randomizálásnak megfelelően, 0 <= x < maxNum
      * @param maxNum ennél csak kisebb számokkal tér vissza
      * @return a megadott szám

@@ -39,12 +39,19 @@ public class GameController {
     /**
      * Soron lévő Player.
      */
-    private int currentPlayer = -1;
+    private static int currentPlayer = -1;
 
     /**
      * Default konstruktor.
      */
     public GameController() {
+    }
+
+    /**
+     * Reseteli a kezdő játékos indexét.
+     */
+    public static void resetAutoIncrement(){
+        currentPlayer = -1;
     }
 
     /**
