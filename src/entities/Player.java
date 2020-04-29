@@ -3,7 +3,6 @@ package entities;
 import items.*;
 import entities.behaviours.*;
 import scene.GameController;
-
 import java.util.List;
 
 /**
@@ -275,7 +274,6 @@ public abstract class Player extends Entity {
      * A talált item egy quest item.
      */
     public void questItemFound() {
-        //Jelez a gc-nek, hogy quest itemet találtak.
         gameController.questItemFound();
     }
 

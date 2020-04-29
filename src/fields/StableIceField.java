@@ -78,13 +78,5 @@ public class StableIceField extends IceField{
         behaviour.destroyTent();
     }
 
-    /**
-     * Havazás a Field-en.
-     */
-    @Override
-    public void performSnow() {
-        behaviour.performSnow(entities);
-    }
-
 
 }

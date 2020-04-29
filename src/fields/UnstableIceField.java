@@ -57,14 +57,6 @@ public class UnstableIceField extends IceField{
     }
 
     /**
-     * Havazás a Field-en.
-     */
-    @Override
-    public void performSnow() {
-        behaviour.performSnow(entities);
-    }
-
-    /**
      * Új Entity befogadása.
      * @param entity Field-re lépő Entity referenciája.
      */

@@ -241,7 +241,9 @@ public abstract class Field {
     /**
      * Havazás a Field-en.
      */
-    public abstract void performSnow();
+    public final void performSnow() {
+        behaviour.performSnow(entities);
+    }
 
     /**
      * A Field-re lépő Entity-t interakcióba lépteti a már Field-en álló Entity-kkel.

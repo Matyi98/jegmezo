@@ -106,15 +106,6 @@ public class Hole extends Field {
     }
 
     /**
-     * Havazás a Hole-on.
-     * Mivel hó nem fedheti be a Hole-t, ezért nem történik semmi.
-     */
-    @Override
-    public void performSnow() {
-
-    }
-
-    /**
      * Visszaadja a stabilitást.
      * @return "Hole" string, mivel stabilitás nem értelmezhető.
      */
