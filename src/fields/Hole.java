@@ -4,7 +4,7 @@ import entities.Entity;
 import fields.behaviours.StandardFieldBehaviour;
 import items.Item;
 import scene.Board;
-import scene.Dialog;
+import utility.Dialog;
 import scene.GameController;
 
 import java.util.ArrayList;

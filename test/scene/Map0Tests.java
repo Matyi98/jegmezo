@@ -3,6 +3,7 @@ package scene;
 import main.Main;
 import org.junit.Before;
 import org.junit.Test;
+import utility.Dialog;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;

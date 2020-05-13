@@ -38,5 +38,8 @@ public class Shovel extends Item {
         owner.shovel(shovelSpeedIncrease);
     }
 
-
+    @Override
+    public String GetTexturePath() {
+        return "textures/item_textures/shovel.png";
+    }
 }

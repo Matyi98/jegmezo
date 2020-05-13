@@ -25,4 +25,9 @@ public class Cartridge extends QuestItem {
      * Megjelenítéshez szükséges függvény.
      */
     public void ShowShort() { GameController.OutStream.print("c"); }
+
+    @Override
+    public String GetTexturePath() {
+        return "textures/item_textures/patron.png";
+    }
 }

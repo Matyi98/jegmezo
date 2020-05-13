@@ -39,5 +39,8 @@ public class Food extends Item {
         owner.eat(this);
     }
 
-
+    @Override
+    public String GetTexturePath() {
+        return "textures/item_textures/food.png";
+    }
 }

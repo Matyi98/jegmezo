@@ -35,4 +35,9 @@ public class DivingSuit extends Item {
     public void use() {
         this.owner.swapDivingSuit();
     }
+
+    @Override
+    public String GetTexturePath() {
+        return "textures/item_textures/scuba.png";
+    }
 }

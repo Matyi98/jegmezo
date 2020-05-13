@@ -35,5 +35,8 @@ public class Rope extends Item {
         owner.rescueFriend();
     }
 
-
+    @Override
+    public String GetTexturePath() {
+        return "textures/item_textures/rope.png";
+    }
 }

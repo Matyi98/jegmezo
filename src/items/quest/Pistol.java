@@ -25,4 +25,9 @@ public class Pistol extends QuestItem {
      * Megjelenítéshez szükséges függvény.
      */
     public void ShowShort() { GameController.OutStream.print("p"); }
+
+    @Override
+    public String GetTexturePath() {
+        return "textures/item_textures/pistol.png";
+    }
 }

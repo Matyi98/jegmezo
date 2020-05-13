@@ -49,5 +49,8 @@ public class FragileShovel extends Item {
             owner.removeItem(this);
     }
 
-
+    @Override
+    public String GetTexturePath() {
+        return "textures/item_textures/fragile_shovel.png";
+    }
 }

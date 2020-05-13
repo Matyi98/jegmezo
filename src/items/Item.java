@@ -1,10 +1,11 @@
 package items;
 import entities.Player;
+import utility.ITextured;
 
 /**
  * Item, amelyet a Player használhat.
  */
-public abstract class Item {
+public abstract class Item implements ITextured {
 
     /**
      * Az item tulajdonosa.

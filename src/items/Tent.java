@@ -34,4 +34,9 @@ public class Tent extends Item {
      * Megjelenítéshez szükséges függvény.
      */
     public void ShowShort() { GameController.OutStream.print("t"); }
+
+    @Override
+    public String GetTexturePath() {
+        return "textures/item_textures/tent.png";
+    }
 }

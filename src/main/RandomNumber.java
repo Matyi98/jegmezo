@@ -1,6 +1,6 @@
 package main;
 
-import scene.Dialog;
+import utility.Dialog;
 
 import java.util.ArrayList;
 import java.util.Random;

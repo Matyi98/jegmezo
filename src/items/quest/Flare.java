@@ -25,4 +25,9 @@ public class Flare extends QuestItem {
      * Megjelenítéshez szükséges függvény.
      */
     public void ShowShort() { GameController.OutStream.print("e"); }
+
+    @Override
+    public String GetTexturePath() {
+        return "textures/item_textures/flare.png";
+    }
 }

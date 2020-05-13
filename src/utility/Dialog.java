@@ -1,4 +1,4 @@
-package scene;
+package utility;
 
 import java.io.PrintStream;
 import java.util.ArrayList;

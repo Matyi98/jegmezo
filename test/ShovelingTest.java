@@ -1,7 +1,7 @@
 import main.Main;
 import org.junit.Before;
 import org.junit.Test;
-import scene.Dialog;
+import utility.Dialog;
 import scene.GameController;
 
 import java.io.*;
