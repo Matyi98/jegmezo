@@ -4,8 +4,8 @@ import entities.*;
 import main.RandomNumber;
 import scene.reader.SceneReader;
 
-import java.io.InputStream;
-import java.io.PrintStream;
+import java.io.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -16,8 +16,12 @@ public class GameController {
 
     private static GameController instance;
 
-    public static void Initialise(InputStream mapStream) {
-        instance = new SceneReader(mapStream).LoadScene();
+    public static void Initialise(File mapPath) {
+        try {
+            instance = new SceneReader(new FileInputStream(mapPath)).LoadScene();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public static GameController GetInstance() {

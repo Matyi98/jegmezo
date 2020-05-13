@@ -1,7 +1,11 @@
 package main;
 
+import javafx.application.Application;
+import javafx.stage.Stage;
 import scene.GameController;
 import scene.reader.SceneReader;
+import views.scenes.MainScene;
+import views.scenes.MenuScene;
 
 import java.io.*;
 import java.util.Scanner;
@@ -10,7 +14,7 @@ import java.util.Scanner;
  * A program belépési pontja.
  * Teszt esetek indítása után beolvassa a megfelelő pályát.
  */
-public class Main {
+public class Main extends Application {
 
     /**
      * A program belépési pontja. Beolvassa a pályát,
@@ -19,26 +23,7 @@ public class Main {
      * @throws FileNotFoundException Nem található a pálya.
      */
     public static void main(String[] args) throws FileNotFoundException {
-        System.out.print("A program elindult. Szia Uram!");
-
-
-
-
-//        final String pwd = System.getProperty("user.dir");
-//        File f = new File(pwd+"/maps/map0.txt");
-//        FileInputStream fis = new FileInputStream(f);
-//
-//        SceneReader sceneReader = new SceneReader(fis);
-//        GameController gc = sceneReader.LoadScene();
-//
-//
-//        System.out.println("\n\nPálya betöltve Sikeresen");
-//
-//        gc.ShowMap(true);
-//
-//        gc.Start(new Scanner(System.in));
-
-        System.out.print("A program leáll, viszlát!");
+        launch(args);
     }
 
     /**
@@ -63,4 +48,10 @@ public class Main {
 
     }
 
+    @Override
+    public void start(Stage stage) throws Exception {
+        stage.setTitle("JegmezoMenu");
+        stage.setScene(new MenuScene());
+        stage.show();
+    }
 }
