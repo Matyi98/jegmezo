@@ -55,7 +55,7 @@ public class Map0Tests {
         addCommand("s stats");
         setInputString();
 
-        Main.NewGame(InStream);
+        Main.NewTestGame(InStream);
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
@@ -87,7 +87,7 @@ public class Map0Tests {
         addCommand("2");
         setInputString();
 
-        Main.NewGame(InStream);
+        Main.NewTestGame(InStream);
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
@@ -137,7 +137,7 @@ public class Map0Tests {
         addCommand("5");
         setInputString();
 
-        Main.NewGame(InStream);
+        Main.NewTestGame(InStream);
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
@@ -178,7 +178,7 @@ public class Map0Tests {
         addCommand("s map");
         setInputString();
 
-        Main.NewGame(InStream);
+        Main.NewTestGame(InStream);
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 

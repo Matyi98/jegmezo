@@ -1,29 +1,19 @@
 package views.scenes;
 
-import javafx.application.Application;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import scene.GameController;
 
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 
 public class MenuScene extends Scene {
 
     private Button bStart = new Button("StartGame");
     private Button bQuit = new Button("Quit");
-    private StackPane root = new StackPane();
+    private Pane root = new Pane();
 
     private void initialize() {
         Pane bottom = new Pane();
@@ -31,8 +21,7 @@ public class MenuScene extends Scene {
         bStart.setOnMouseClicked(mouseEvent -> {
             GameController.Initialise(getMapFile());
             Stage stage = ((Stage)getWindow());
-            stage.setScene(new MainScene());
-            stage.setTitle("JegmezoGame");
+            stage.setScene(new MainWindowScene());
         });
         bStart.setLayoutX(50);
         bStart.setLayoutY(50);
@@ -57,12 +46,10 @@ public class MenuScene extends Scene {
     }
 
     public MenuScene() {
-        super(new StackPane(),500, 600);
+        super(new StackPane(),300, 400);
         initialize();
         setRoot(root);
     }
 
-    private void addChildren(Node e) {
-        root.getChildren().add(e);
-    }
+
 }

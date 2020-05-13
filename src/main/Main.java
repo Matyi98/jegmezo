@@ -2,9 +2,7 @@ package main;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import scene.GameController;
 import scene.reader.SceneReader;
-import views.scenes.MainScene;
 import views.scenes.MenuScene;
 
 import java.io.*;
@@ -31,7 +29,7 @@ public class Main extends Application {
      * majd átadja a GameControllernek az irányítást.
      * @param stdin Bemeneti tesztvektor.
      */
-    public static void NewGame(Scanner stdin) {
+    public static void NewTestGame(Scanner stdin) {
         String first = stdin.nextLine();
         String sMap = first.trim().split(" ")[2];
         final String pwd = System.getProperty("user.dir");
@@ -48,10 +46,16 @@ public class Main extends Application {
 
     }
 
+    static private Stage stage;
+    public static void ExitToMenu() {
+        stage.setScene(new MenuScene());
+    }
+
     @Override
     public void start(Stage stage) throws Exception {
-        stage.setTitle("JegmezoMenu");
+        stage.setResizable(false);
         stage.setScene(new MenuScene());
         stage.show();
+        Main.stage = stage;
     }
 }

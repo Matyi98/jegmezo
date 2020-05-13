@@ -51,7 +51,7 @@ public class DrownTests {
         addCommand("p move");
         setInputString();
 
-        Main.NewGame(InStream);
+        Main.NewTestGame(InStream);
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 

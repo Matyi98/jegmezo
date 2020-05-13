@@ -66,7 +66,7 @@ public class PlayerRescueTest {
      */
     @Test
     public void test() {
-        Main.NewGame(InStream);
+        Main.NewTestGame(InStream);
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 

@@ -1,11 +1,15 @@
 package scene;
 
 import entities.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.stage.Stage;
+import main.Main;
 import main.RandomNumber;
 import scene.reader.SceneReader;
+import views.scenes.MainWindowScene;
 
 import java.io.*;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -28,6 +32,8 @@ public class GameController {
         return instance;
     }
 
+    public Player GetActivePlayer() { return players.get(currentPlayer); }
+
     /**
      * Player-ek által megtalált QuestItem-ek száma.
      */
@@ -37,6 +43,11 @@ public class GameController {
      * Player-ek listája.
      */
     private ArrayList<Player> players;
+
+
+    public Board GetBoard() {
+        return board;
+    }
 
     /**
      * Játéktábla, amelyen a játék folyik.
@@ -195,8 +206,10 @@ public class GameController {
      * @param count játékosok száma egy adott mezőn.
      */
     public void win(int count) {
-        if (count == players.size() && questItemCount == 3)
+        if (count == players.size() && questItemCount == 3) {
             OutStream.println("Victory");
+            exit("Kongratulatione, you won!");
+        }
         else
             OutStream.println("Win conditions not met");
     }
@@ -205,9 +218,22 @@ public class GameController {
      * Vereség.
      */
     public void gameOver() {
-
         OutStream.println("Game Over");
         gameRunning = false;
+        exit("You lost :(");
+    }
+
+    public void EXIT() {
+        exit("Exit Button pressed.");
+    }
+
+    private void exit(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("GameOver");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+        Main.ExitToMenu();
     }
 
     /**

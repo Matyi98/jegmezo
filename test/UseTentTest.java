@@ -63,7 +63,7 @@ public class UseTentTest {
         addCommand("s stats");
         setInputString();
 
-        Main.NewGame(InStream);
+        Main.NewTestGame(InStream);
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 
