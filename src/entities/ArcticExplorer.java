@@ -35,4 +35,9 @@ public class ArcticExplorer extends Player {
             actionPoints--;
         }
     }
+
+    @Override
+    public String GetTexturePath() {
+        return null;
+    }
 }

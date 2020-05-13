@@ -79,4 +79,8 @@ public class StableIceField extends IceField{
     }
 
 
+    @Override
+    public String GetTexturePath() {
+        return null;
+    }
 }

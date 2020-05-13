@@ -149,4 +149,9 @@ public class Hole extends Field {
 
         return entities.get(choice);
     }
+
+    @Override
+    public String GetTexturePath() {
+        return null;
+    }
 }

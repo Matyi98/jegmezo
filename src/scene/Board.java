@@ -2,6 +2,7 @@ package scene;
 
 import fields.Field;
 import main.RandomNumber;
+import utility.ITextured;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -9,7 +10,7 @@ import java.util.Comparator;
 /**
  * A játéktábla, amely a játékmenet összes Field-jét tartalmazza.
  */
-public class Board {
+public class Board implements ITextured{
     /**
      * Field-ek.
      */
@@ -93,5 +94,10 @@ public class Board {
         for (Field field : fields) {
             field.endEntitiesTurn();
         }
+    }
+
+    @Override
+    public String GetTexturePath() {
+        return null;
     }
 }

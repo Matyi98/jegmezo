@@ -2,12 +2,13 @@ package fields;
 
 import entities.Entity;
 import scene.GameController;
+import utility.ITextured;
 
 /**
  * UnstableIceField osztály. Csak adott számú Entity-t képes elbírni, ha túl sok Entity kerül rá
  * akkor összetörik és Hole-á alakul.
  */
-public class UnstableIceField extends IceField{
+public class UnstableIceField extends IceField {
 
     /**
      * Megjeleníti a UnstableIceFieldet a SceneWriterben meghatározott folyamon.
@@ -90,4 +91,8 @@ public class UnstableIceField extends IceField{
         return String.valueOf(stability);
     }
 
+    @Override
+    public String GetTexturePath() {
+        return null;
+    }
 }

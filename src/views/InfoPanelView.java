@@ -1,8 +1,8 @@
 package views;
 
 public class InfoPanelView extends ViewBase {
-    public InfoPanelView(String imagePath) {
-        super(imagePath);
+    public InfoPanelView() {
+        super("");
     }
 
     @Override

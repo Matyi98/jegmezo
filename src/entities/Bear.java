@@ -66,4 +66,8 @@ public class Bear extends Entity {
         hasStepped = false;
     }
 
+    @Override
+    public String GetTexturePath() {
+        return null;
+    }
 }

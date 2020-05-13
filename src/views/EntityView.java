@@ -1,8 +1,12 @@
 package views;
 
+import entities.Entity;
+
 public class EntityView extends ViewBase {
-    public EntityView(String imagePath) {
-        super(imagePath);
+    private Entity data;
+    public EntityView(Entity e) {
+        super(e.GetTexturePath());
+        this.data = e;
     }
 
     @Override

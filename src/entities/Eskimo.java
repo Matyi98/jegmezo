@@ -32,4 +32,9 @@ public class Eskimo extends Player {
             }
         }
     }
+
+    @Override
+    public String GetTexturePath() {
+        return null;
+    }
 }

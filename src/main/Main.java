@@ -21,19 +21,22 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         System.out.print("A program elindult. Szia Uram!");
 
-        final String pwd = System.getProperty("user.dir");
-        File f = new File(pwd+"/maps/map0.txt");
-        FileInputStream fis = new FileInputStream(f);
-
-        SceneReader sceneReader = new SceneReader(fis);
-        GameController gc = sceneReader.LoadScene();
 
 
-        System.out.println("\n\nPálya betöltve Sikeresen");
 
-        gc.ShowMap(true);
-
-        gc.Start(new Scanner(System.in));
+//        final String pwd = System.getProperty("user.dir");
+//        File f = new File(pwd+"/maps/map0.txt");
+//        FileInputStream fis = new FileInputStream(f);
+//
+//        SceneReader sceneReader = new SceneReader(fis);
+//        GameController gc = sceneReader.LoadScene();
+//
+//
+//        System.out.println("\n\nPálya betöltve Sikeresen");
+//
+//        gc.ShowMap(true);
+//
+//        gc.Start(new Scanner(System.in));
 
         System.out.print("A program leáll, viszlát!");
     }

@@ -9,6 +9,9 @@ public abstract class ViewBase extends StackPane {
     public abstract void Update();
 
     public ViewBase(String imagePath) {
-        this.image = new Image(imagePath);
+        if (!imagePath.equals(""))
+            this.image = new Image(imagePath);
+        else
+            this.image = null;
     }
 }

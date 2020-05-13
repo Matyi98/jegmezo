@@ -5,13 +5,15 @@ import fields.behaviours.FieldBehaviour;
 import fields.behaviours.StandardFieldBehaviour;
 import items.Item;
 import scene.Board;
+import utility.ITextured;
+
 import java.util.ArrayList;
 import java.util.Optional;
 
 /**
  * Field, amelyen az Entity-k lépkednek és magát az egész Board-ot képezik.
  */
-public abstract class Field {
+public abstract class Field implements ITextured {
     /**
      * Field-en lévő hómennyiség.
      */

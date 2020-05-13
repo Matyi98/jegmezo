@@ -2,7 +2,9 @@ package scene;
 
 import entities.*;
 import main.RandomNumber;
+import scene.reader.SceneReader;
 
+import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -11,6 +13,17 @@ import java.util.Scanner;
  * GameController osztály, ami a játék lefolyását menedzseli.
  */
 public class GameController {
+
+    private static GameController instance;
+
+    public static void Initialise(InputStream mapStream) {
+        instance = new SceneReader(mapStream).LoadScene();
+    }
+
+    public static GameController GetInstance() {
+        return instance;
+    }
+
     /**
      * Player-ek által megtalált QuestItem-ek száma.
      */

@@ -1,8 +1,12 @@
 package views;
 
+import items.Item;
+
 public class ItemView extends ViewBase {
-    public ItemView(String imagePath) {
-        super(imagePath);
+    private Item data;
+    public ItemView(Item i) {
+        super(i.GetTexturePath());
+        this.data = i;
     }
 
     @Override

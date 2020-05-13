@@ -1,9 +1,13 @@
 package views;
 
+import scene.Board;
+
 public class BoardView extends ViewBase {
-    public BoardView(String imagePath) {
-        super(imagePath);
-    }
+    private Board data;
+    public BoardView(Board b) {
+        super(b.GetTexturePath());
+        this.data = b;
+   }
 
     @Override
     public void Update() {

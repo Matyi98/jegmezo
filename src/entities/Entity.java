@@ -2,12 +2,13 @@ package entities;
 
 import fields.Field;
 import scene.GameController;
+import utility.ITextured;
 
 /**
  * Entitás osztály. Minden karakter ősosztálya, ami képes mozogni a pályán vagy
  * interakcióba lépni a pályával vagy egymással.
  */
-public abstract class Entity {
+public abstract class Entity implements ITextured {
 
     /**
      * A mezőn, amelyen az entitás áll.
