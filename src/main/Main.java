@@ -3,6 +3,7 @@ package main;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import scene.reader.SceneReader;
+import utility.Dialog;
 import views.scenes.MenuScene;
 
 import java.io.*;
@@ -18,9 +19,9 @@ public class Main extends Application {
      * A program belépési pontja. Beolvassa a pályát,
      * majd átadja a GameControllernek az irányítást.
      * @param args A játék elindítása során megadott paraméterek.
-     * @throws FileNotFoundException Nem található a pálya.
      */
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
+        Dialog.AllowGUI = true;
         launch(args);
     }
 
@@ -48,14 +49,15 @@ public class Main extends Application {
 
     static private Stage stage;
     public static void ExitToMenu() {
+        stage.setTitle("Jégmező by: De' Kouncil");
         stage.setScene(new MenuScene());
     }
 
     @Override
     public void start(Stage stage) throws Exception {
         stage.setResizable(false);
-        stage.setScene(new MenuScene());
-        stage.show();
         Main.stage = stage;
+        ExitToMenu();
+        stage.show();
     }
 }
