@@ -30,11 +30,14 @@ public class InfoPanelView extends StackPane implements IView {
                                 Insets.EMPTY
                         )));
 
+    //Exit to Menu demo
         Button bExit = new Button("EXIT");
         bExit.setOnMouseClicked(mouseEvent -> GameController.GetInstance().EXIT());
         getChildren().add(bExit);
-        StackPane.setAlignment(bExit, Pos.TOP_CENTER);
+        StackPane.setAlignment(bExit, Pos.TOP_LEFT);
+    //End of demo
 
+    //Dialog Demo
         Button bDialog = new Button("DialogTST");
         ArrayList<String> opts = new ArrayList<>();
         opts.add("tűzindító");
@@ -44,7 +47,7 @@ public class InfoPanelView extends StackPane implements IView {
         StackPane.setAlignment(bDialog, Pos.TOP_CENTER);
         bDialog.setOnMouseClicked(mouseEvent -> d.ShowDialog());
         getChildren().add(bDialog);
-
+    //End of demo
 
         //Build the View here
     }
