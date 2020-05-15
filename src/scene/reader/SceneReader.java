@@ -257,4 +257,10 @@ public class SceneReader {
         }
         return e;
     }
+
+    private int playerCount = 10;
+    public void LimitPlayerCount(int numberOfPlayers) {
+        //TODO: valóban lelimitálni
+        playerCount = playerCount;
+    }
 }

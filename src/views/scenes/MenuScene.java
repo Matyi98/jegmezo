@@ -11,9 +11,23 @@ import javafx.stage.Stage;
 import scene.GameController;
 import views.scenes.mainWindow.GameWindowScene;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.Objects;
+
+class Map {
+    final String DisplayName;
+    final String Path;
+
+    Map(String displayName, String path) {
+        DisplayName = displayName;
+        Path = path;
+    }
+
+    @Override
+    public String toString() {
+        return DisplayName;
+    }
+}
 
 public class MenuScene extends Scene {
 
@@ -21,7 +35,7 @@ public class MenuScene extends Scene {
     private Button bQuit = new Button("Kilépés");
     private Label lSelMap = new Label();
     private ComboBox<String> cbPlayerCountSelect;
-    private ComboBox<String> cbMapSelect;
+    private ComboBox<Map> cbMapSelect;
     private VBox root = new VBox();
 
     private ObservableList<String> playerNumbers =
@@ -33,11 +47,11 @@ public class MenuScene extends Scene {
                     "6 játékos"
             );
 
-    private ObservableList<String> mapOptions =
+    private ObservableList<Map> mapOptions =
             FXCollections.observableArrayList(
-                    "Jégvarás",
-                    "Dö frózön trón",
-                    "Maloy bosszúja"
+                    new Map("Jégvarázs", "map0.txt"),
+                    new Map("A Mikulás nyomában", "map0.txt"),
+                    new Map("Maloy bosszúja", "map0.txt")
             );
 
 
@@ -72,7 +86,7 @@ public class MenuScene extends Scene {
 
         //aStartExitRow
         bStart.setOnMouseClicked(mouseEvent -> {
-            GameController.Initialise(getMapFile());
+            GameController.Initialise(getMapFile(), getPlayerCount());
             Stage stage = ((Stage)getWindow());
             stage.setScene(new GameWindowScene());
         });
@@ -95,10 +109,15 @@ public class MenuScene extends Scene {
         });
     }
 
-    private String mapPath = "map0.txt";
+    private int getPlayerCount() {
+        int c = cbPlayerCountSelect.getValue().charAt(0)-'0';
+        return c;
+    }
+
     private File getMapFile() {
-        final String pwd = System.getProperty("user.dir");
-        return new File(pwd+"/maps/"+ mapPath);
+        int i = cbMapSelect.getSelectionModel().getSelectedIndex();
+        String mapPath = mapOptions.get(i).Path;
+        return new File(Objects.requireNonNull(getClass().getClassLoader().getResource(mapPath)).getFile());
     }
 
     public MenuScene() {

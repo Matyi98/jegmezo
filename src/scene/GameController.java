@@ -18,9 +18,11 @@ public class GameController {
 
     private static GameController instance;
 
-    public static void Initialise(File mapPath) {
+    public static void Initialise(File mapPath, int numberOfPlayers) {
         try {
-            instance = new SceneReader(new FileInputStream(mapPath)).LoadScene();
+            SceneReader sceneReader = new SceneReader(new FileInputStream(mapPath));
+            sceneReader.LimitPlayerCount(numberOfPlayers);
+            instance = sceneReader.LoadScene();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
