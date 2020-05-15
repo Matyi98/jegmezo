@@ -80,7 +80,7 @@ public class MenuScene extends Scene {
 
         //aMapInfoRow
         aMapInfoRow.setSpacing(5);
-        aMapInfoRow.getChildren().add(new Label("Kiválasztott pálya:    "));
+        aMapInfoRow.getChildren().add(new Label("Kiválasztott pálya: "));
         aMapInfoRow.getChildren().add(cbMapSelect = new ComboBox<>(mapOptions));
 
         setCbChangeHandle();
