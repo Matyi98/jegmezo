@@ -1,43 +1,98 @@
 package views.scenes;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import scene.GameController;
 import views.scenes.mainWindow.GameWindowScene;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 
 public class MenuScene extends Scene {
 
-    private Button bStart = new Button("StartGame");
-    private Button bQuit = new Button("Quit");
-    private Pane root = new Pane();
+    private Button bStart = new Button("Játék indítás");
+    private Button bQuit = new Button("Kilépés");
+    private Label lSelMap = new Label();
+    private ComboBox<String> cbPlayerCountSelect;
+    private ComboBox<String> cbMapSelect;
+    private VBox root = new VBox();
+
+    private ObservableList<String> playerNumbers =
+            FXCollections.observableArrayList(
+                    "2 játékos",
+                    "3 játékos",
+                    "4 játékos",
+                    "5 játékos",
+                    "6 játékos"
+            );
+
+    private ObservableList<String> mapOptions =
+            FXCollections.observableArrayList(
+                    "Jégvarás",
+                    "Dö frózön trón",
+                    "Maloy bosszúja"
+            );
+
 
     private void initialize() {
-        Pane bottom = new Pane();
+        bStart.setDisable(true);
 
+        root.setPadding(new Insets(16));
+        root.setSpacing(20);
+
+        VBox aNumPlayerRow = new VBox();
+        VBox aMapInfoRow = new VBox();
+        StackPane aStartExitRow = new  StackPane();
+
+        root.getChildren().add(aNumPlayerRow);
+        root.getChildren().add(aMapInfoRow);
+        Pane placeholder = new Pane();
+        VBox.setVgrow(placeholder, Priority.ALWAYS);
+        root.getChildren().add(placeholder);
+        root.getChildren().add(aStartExitRow);
+
+        //aNumPlayerRow
+        aNumPlayerRow.setSpacing(5);
+        aNumPlayerRow.getChildren().add(new Label("Játékosok száma: "));
+        aNumPlayerRow.getChildren().add(cbPlayerCountSelect = new ComboBox<>(playerNumbers));
+
+        //aMapInfoRow
+        aMapInfoRow.setSpacing(5);
+        aMapInfoRow.getChildren().add(new Label("Kiválasztott pálya:    "));
+        aMapInfoRow.getChildren().add(cbMapSelect = new ComboBox<>(mapOptions));
+
+        setCbChangeHandle();
+
+        //aStartExitRow
         bStart.setOnMouseClicked(mouseEvent -> {
             GameController.Initialise(getMapFile());
             Stage stage = ((Stage)getWindow());
             stage.setScene(new GameWindowScene());
         });
-        bStart.setLayoutX(50);
-        bStart.setLayoutY(50);
+        aStartExitRow.getChildren().add(bStart);
+        StackPane.setAlignment(bStart, Pos.TOP_LEFT);
 
-        bottom.getChildren().add(bStart);
+        bQuit.setOnMouseClicked(mouseEvent -> System.exit(0));
+        aStartExitRow.getChildren().add(bQuit);
+        StackPane.setAlignment(bQuit, Pos.TOP_RIGHT);
+    }
 
-        bQuit.setOnMouseClicked(mouseEvent -> {
-            System.exit(0);
+    private void setCbChangeHandle() {
+        cbMapSelect.setOnAction(e ->   {
+            if(cbMapSelect.getValue() != null && cbPlayerCountSelect.getValue() != null)
+                bStart.setDisable(false);
         });
-        bQuit.setLayoutX(150);
-        bQuit.setLayoutY(50);
-        bottom.getChildren().add(bQuit);
-
-        root.getChildren().add(bottom);
-
+        cbPlayerCountSelect.setOnAction(e ->   {
+            if(cbMapSelect.getValue() != null && cbPlayerCountSelect.getValue() != null)
+                bStart.setDisable(false);
+        });
     }
 
     private String mapPath = "map0.txt";
@@ -47,7 +102,7 @@ public class MenuScene extends Scene {
     }
 
     public MenuScene() {
-        super(new StackPane(),300, 400);
+        super(new StackPane(),260, 300);
         initialize();
         setRoot(root);
     }
