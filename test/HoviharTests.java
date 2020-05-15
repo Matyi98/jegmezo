@@ -64,7 +64,7 @@ public class HoviharTests {
         addCommand("s stats");
         setInputString();
 
-        Main.NewTestGame(InStream);
+        Main.NewCommandLineGame(InStream);
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 

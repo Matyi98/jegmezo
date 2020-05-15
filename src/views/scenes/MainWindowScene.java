@@ -21,7 +21,7 @@ public class MainWindowScene extends Scene {
         root.setBackground(
                 new Background(
                         new BackgroundFill(
-                                Color.rgb(40, 40, 40),
+                                Color.rgb(40, 40, 60),
                                 CornerRadii.EMPTY,
                                 Insets.EMPTY
                         )));

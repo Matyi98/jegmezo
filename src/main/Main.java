@@ -30,7 +30,7 @@ public class Main extends Application {
      * majd átadja a GameControllernek az irányítást.
      * @param stdin Bemeneti tesztvektor.
      */
-    public static void NewTestGame(Scanner stdin) {
+    public static void NewCommandLineGame(Scanner stdin) {
         String first = stdin.nextLine();
         String sMap = first.trim().split(" ")[2];
         final String pwd = System.getProperty("user.dir");

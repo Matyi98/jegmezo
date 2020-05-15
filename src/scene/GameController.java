@@ -2,12 +2,10 @@ package scene;
 
 import entities.*;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.stage.Stage;
 import main.Main;
 import main.RandomNumber;
 import scene.reader.SceneReader;
-import views.scenes.MainWindowScene;
+import utility.Dialog;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -63,23 +61,16 @@ public class GameController {
      * Megjelenítéshez szükséges output stream.
      */
     static public PrintStream OutStream = System.out;
-
     /**
      * Soron lévő Player.
      */
-    private static int currentPlayer = -1;
-
-    /**
-     * Default konstruktor.
-     */
-    public GameController() {
-    }
+    private static int currentPlayer = 0;
 
     /**
      * Reseteli a kezdő játékos indexét.
      */
     public static void resetAutoIncrement(){
-        currentPlayer = -1;
+        currentPlayer = 0;
     }
 
     /**
@@ -131,13 +122,23 @@ public class GameController {
      * @param stdin
      */
     public void Start(Scanner stdin) {
+        currentPlayer = -1;
         nextPlayer();
         while (stdin.hasNextLine() && gameRunning) {
             String next = stdin.nextLine();
-            if (!interpretUserInput(next)) {
+            if (!parseCommand(next)) {
                 return;
             }
         }
+    }
+
+    /**
+     * A grafikus felület ezen keresztül tud parancsokat adni a játéklogikának.
+     * @param command szöveges parancs, megegyezik a program parancssoros változatában használt parancsokkal.
+     */
+    public void Execute(String command) {
+        parseCommand(command);
+        //TODO: Update Views here!!!!!
     }
 
     /**
@@ -149,23 +150,23 @@ public class GameController {
      * Ezeken kívül még különböző a játék állapotával kapcsolatos különböző
      * kiiratásokat kezelő metódusokat is meghívhat szintén a kapott parancs
      * alapján.
-     * @param userInput A játékba érkező string parancs vektor, amelyben
+     * @param sCommand A játékba érkező string parancs vektor, amelyben
      *                  a fő parancs és annak paraméterei szóközzel vannak
      *                  elválasztva.
      * @return  Hamis értékkel tér vissza jelezve, ha a játékot termináló exit
      *          parancsot talált. Minden más esetben igaz értékkel tér vissza.
      */
-    private boolean interpretUserInput(String userInput) {
+    private boolean parseCommand(String sCommand) {
         try {
-            String type = userInput.split(" ")[0].toLowerCase();
+            String type = sCommand.split(" ")[0].toLowerCase();
             switch (type) {
                 case "p":
-                    boolean hasMorePoints = players.get(currentPlayer).Action(userInput.toLowerCase());
+                    boolean hasMorePoints = GetActivePlayer().Action(sCommand.toLowerCase());
                     if (!hasMorePoints)
                         nextPlayer();
                     break;
                 case "tst":
-                    String command = userInput.split(" ")[1].toLowerCase();
+                    String command = sCommand.split(" ")[1].toLowerCase();
                     if (command.equals("exit"))
                         return false;
                     if (command.equals("random")) {
@@ -174,7 +175,7 @@ public class GameController {
                     }
                     break;
                 case "s":
-                    String data = userInput.split(" ")[1].toLowerCase();
+                    String data = sCommand.split(" ")[1].toLowerCase();
                     switch (data) {
                         case "map":
                             this.ShowMap(false);
@@ -228,12 +229,14 @@ public class GameController {
     }
 
     private void exit(String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("GameOver");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-        Main.ExitToMenu();
+        if (Dialog.AllowGUI) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("GameOver");
+            alert.setHeaderText(null);
+            alert.setContentText(message);
+            alert.showAndWait();
+            Main.ExitToMenu();
+        }
     }
 
     /**

@@ -61,7 +61,7 @@ public class DivingSuitTest {
      */
     @Test
     public void test() {
-        Main.NewTestGame(InStream);
+        Main.NewCommandLineGame(InStream);
         Scanner scanner = new Scanner(baos.toString());
         System.out.println(baos.toString());
 

@@ -37,6 +37,15 @@ public class InfoPanelView extends StackPane implements IView {
         StackPane.setAlignment(bExit, Pos.TOP_LEFT);
     //End of demo
 
+    //Execute demo
+        Button bExecute = new Button("Move");
+        bExecute.setOnMouseClicked(mouseEvent ->
+            GameController.GetInstance().Execute("p move")
+        );
+        getChildren().add(bExecute);
+        StackPane.setAlignment(bExecute, Pos.TOP_RIGHT);
+    //End of demo
+
     //Dialog Demo
         Button bDialog = new Button("DialogTST");
         ArrayList<String> opts = new ArrayList<>();
