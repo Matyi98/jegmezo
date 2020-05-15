@@ -51,7 +51,8 @@ public class MenuScene extends Scene {
             FXCollections.observableArrayList(
                     new Map("Jégvarázs", "map0.txt"),
                     new Map("A Mikulás nyomában", "map0.txt"),
-                    new Map("Maloy bosszúja", "map0.txt")
+                    new Map("Maloy bosszúja", "map0.txt"),
+                    new Map("Ötvös faszsága (max3 játékos)", "map0.txt")
             );
 
 
