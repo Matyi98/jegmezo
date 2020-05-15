@@ -220,7 +220,6 @@ public class GameController {
      */
     public void gameOver() {
         OutStream.println("Game Over");
-        gameRunning = false;
         exit("You lost :(");
     }
 
@@ -229,7 +228,7 @@ public class GameController {
     }
 
     private void exit(String message) {
-        if (Dialog.AllowGUI) {
+        if (gameRunning && Dialog.AllowGUI) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("GameOver");
             alert.setHeaderText(null);
@@ -237,6 +236,7 @@ public class GameController {
             alert.showAndWait();
             Main.ExitToMenu();
         }
+        gameRunning = false;
     }
 
     /**

@@ -6,7 +6,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import scene.GameController;
-import views.scenes.mainWindow.MainWindowScene;
+import views.scenes.mainWindow.GameWindowScene;
 
 import java.io.File;
 
@@ -22,7 +22,7 @@ public class MenuScene extends Scene {
         bStart.setOnMouseClicked(mouseEvent -> {
             GameController.Initialise(getMapFile());
             Stage stage = ((Stage)getWindow());
-            stage.setScene(new MainWindowScene());
+            stage.setScene(new GameWindowScene());
         });
         bStart.setLayoutX(50);
         bStart.setLayoutY(50);

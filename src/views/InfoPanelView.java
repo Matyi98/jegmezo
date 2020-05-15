@@ -39,9 +39,7 @@ public class InfoPanelView extends StackPane implements IView {
 
     //Execute demo
         Button bExecute = new Button("Move");
-        bExecute.setOnMouseClicked(mouseEvent ->
-            GameController.GetInstance().Execute("p move")
-        );
+        bExecute.setOnMouseClicked(e -> GameController.GetInstance().Execute("p move"));
         getChildren().add(bExecute);
         StackPane.setAlignment(bExecute, Pos.TOP_RIGHT);
     //End of demo

@@ -9,7 +9,7 @@ import views.BoardView;
 import views.InfoPanelView;
 
 
-public class MainWindowScene extends Scene {
+public class GameWindowScene extends Scene {
     private static final double WIDTH = 1280;
     private static final double HEIGHT = 720;
 
@@ -36,11 +36,11 @@ public class MainWindowScene extends Scene {
         infoPanelView.setLayoutY(10);
         infoPanelView.setPrefSize(WIDTH - 10 - HEIGHT-100,HEIGHT-20);
 
-        root.setOnKeyTyped(new MainWindowKeyEvents());
+        root.setOnKeyTyped(new GameWindowKeyEvents());
     }
 
 
-    public MainWindowScene() {
+    public GameWindowScene() {
         super(new StackPane(), WIDTH, HEIGHT);
         initialize();
         setRoot(root);
