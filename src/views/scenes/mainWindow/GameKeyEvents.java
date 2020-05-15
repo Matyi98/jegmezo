@@ -7,7 +7,7 @@ import javafx.scene.input.KeyEvent;
 
 
 
-public class GameWindowKeyEvents implements EventHandler<KeyEvent> {
+public class GameKeyEvents implements EventHandler<KeyEvent> {
 
     @Override
     public void handle(KeyEvent keyEvent) {

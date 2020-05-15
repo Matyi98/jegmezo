@@ -9,7 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import scene.GameController;
-import views.scenes.mainWindow.GameWindowScene;
+import views.scenes.mainWindow.GameScene;
 
 import java.io.File;
 import java.util.Objects;
@@ -88,7 +88,8 @@ public class MenuScene extends Scene {
         bStart.setOnMouseClicked(mouseEvent -> {
             GameController.Initialise(getMapFile(), getPlayerCount());
             Stage stage = ((Stage)getWindow());
-            stage.setScene(new GameWindowScene());
+            stage.setTitle(cbMapSelect.getValue().toString());
+            stage.setScene(new GameScene());
         });
         aStartExitRow.getChildren().add(bStart);
         StackPane.setAlignment(bStart, Pos.TOP_LEFT);
