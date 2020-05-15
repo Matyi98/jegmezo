@@ -1,6 +1,6 @@
 package entities;
 
-import main.RandomNumber;
+import utility.RandomNumber;
 import scene.GameController;
 
 /**

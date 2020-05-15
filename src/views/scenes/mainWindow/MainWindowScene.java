@@ -1,13 +1,13 @@
-package views.scenes;
+package views.scenes.mainWindow;
 
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import scene.GameController;
 import views.BoardView;
 import views.InfoPanelView;
+
 
 public class MainWindowScene extends Scene {
     private static final double WIDTH = 1280;
@@ -35,6 +35,8 @@ public class MainWindowScene extends Scene {
         infoPanelView.setLayoutX(HEIGHT+100);
         infoPanelView.setLayoutY(10);
         infoPanelView.setPrefSize(WIDTH - 10 - HEIGHT-100,HEIGHT-20);
+
+        root.setOnKeyTyped(new MainWindowKeyEvents());
     }
 
 

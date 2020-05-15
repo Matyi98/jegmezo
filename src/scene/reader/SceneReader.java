@@ -4,7 +4,7 @@ import entities.*;
 import fields.*;
 import items.*;
 import items.quest.*;
-import main.RandomNumber;
+import utility.RandomNumber;
 import scene.*;
 
 import java.io.*;

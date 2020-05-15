@@ -2,6 +2,7 @@ package main;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import scene.GameController;
 import scene.reader.SceneReader;
 import utility.Dialog;
 import views.scenes.MenuScene;

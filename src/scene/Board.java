@@ -1,7 +1,7 @@
 package scene;
 
 import fields.Field;
-import main.RandomNumber;
+import utility.RandomNumber;
 import utility.ITextured;
 
 import java.util.ArrayList;

@@ -6,6 +6,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import scene.GameController;
+import views.scenes.mainWindow.MainWindowScene;
 
 import java.io.File;
 
