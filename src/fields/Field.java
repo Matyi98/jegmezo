@@ -210,6 +210,10 @@ public abstract class Field implements ITextured {
         return true;
     }
 
+    public static int getMaxSnowLevel(){
+        return MAX_SNOWLEVEL;
+    }
+
     public ArrayList<Entity> getEntities(){
         return entities;
     }
