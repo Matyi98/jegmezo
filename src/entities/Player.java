@@ -248,8 +248,8 @@ public abstract class Player extends Entity {
      * A Player Inventoryjában lévő Itemek gyűjteményét adja vissza.
      * @return A Player Inventoryjában lévő Itemek gyűjteményét adja vissza.
      */
-    List<Item> getItems(){
-        return null;
+    public List<Item> getItems(){
+        return inventory.getItems();
     }
 
     /**

@@ -86,5 +86,9 @@ public class Inventory {
         }
     }
 
+    public List<Item> getItems(){
+        return items;
+    }
+
 
 }
