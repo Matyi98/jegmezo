@@ -8,6 +8,7 @@ import game.Board;
 import utility.ITextured;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -42,7 +43,7 @@ public abstract class Field implements ITextured {
     /**
      * Field UID generálásához szükséges.
      */
-    protected static int autoIncrementID = 1;
+    protected static int autoIncrementID = 0;
 
     /**
      * Egyedi azonosító.
@@ -95,6 +96,15 @@ public abstract class Field implements ITextured {
      */
     public ArrayList<Field> GetNeighbours() {
         return neighbors;
+    }
+
+    public ArrayList<Integer> GetNeighboursUIDs(){
+        ArrayList<Integer> UIDs = new ArrayList<>();
+        for(Field neighbor: neighbors){
+            UIDs.add(neighbor.GetUID());
+        }
+
+        return UIDs;
     }
 
     /**
@@ -198,6 +208,10 @@ public abstract class Field implements ITextured {
         }
 
         return true;
+    }
+
+    public ArrayList<Entity> getEntities(){
+        return entities;
     }
 
     /**
