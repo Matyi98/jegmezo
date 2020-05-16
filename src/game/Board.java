@@ -1,6 +1,8 @@
 package game;
 
 import fields.Field;
+import javafx.scene.control.Alert;
+import utility.Dialog;
 import utility.RandomNumber;
 import utility.ITextured;
 
@@ -79,10 +81,19 @@ public class Board implements ITextured{
      * Hóvihar elindítása.
      */
     public void letItSnow() {
-        int chanceOfSnowing = 4; // 40% hogy esik-e a hó
+        if (Dialog.AllowGUI) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Hóvihar");
+            alert.setHeaderText(null);
+            alert.setContentText("Hóvihar súlytotta a jégmezőt!");
+            alert.showAndWait();
+        }
+
+        double chanceOfSnowing = 10; // ennyi% hogy esik-e a hó
+        chanceOfSnowing += 5;
 
         for (Field field : fields) {
-            if (RandomNumber.getNumber(10) < chanceOfSnowing) {
+            if (RandomNumber.getNumber(100) < chanceOfSnowing) {
                 field.performSnow();
             }
         }

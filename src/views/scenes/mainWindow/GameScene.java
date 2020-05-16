@@ -20,7 +20,6 @@ public class GameScene extends Scene {
     private InfoPanelView infoPanelView = new InfoPanelView();
 
     private void initialize() {
-
         root.setBackground(
                 new Background(
                         new BackgroundFill(
@@ -39,7 +38,7 @@ public class GameScene extends Scene {
         infoPanelView.setLayoutY(10);
         infoPanelView.setPrefSize(WIDTH - 10 - HEIGHT-100,HEIGHT-20);
 
-        root.setOnKeyTyped(new GameKeyEvents());
+        setOnKeyTyped(new GameKeyEvents());
     }
 
 
