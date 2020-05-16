@@ -262,6 +262,11 @@ public abstract class Player extends Entity {
         return this.maxHealthPoints;
     }
 
+    public int getDirection()
+    {
+        return actualDirection;
+    }
+
     /**
      * Megpróbál kiementi egy társat arról a mezőről, amelyik irányba néz.
      */

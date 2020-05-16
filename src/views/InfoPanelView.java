@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import game.GameController;
@@ -14,6 +15,9 @@ import javafx.scene.text.Font;
 import javafx.util.Builder;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,12 +69,18 @@ public class InfoPanelView extends StackPane implements IView {
         getChildren().add(bDialog);
         //End of demo*/
 
+        loadNewDatas();
+
+            }
+    public void loadNewDatas()
+    {
+        GameController gc = GameController.GetInstance();
+        actualPlayer = gc.GetActivePlayer();
+        actualInventory = actualPlayer.getItems();
         BuildInventory();
         BuildPlayerInfo();
         BuildButtons();
-
-
-            }
+    }
 
     private void BuildInventory()
     {
@@ -105,10 +115,21 @@ public class InfoPanelView extends StackPane implements IView {
                 slotPane.setMinSize(80, 80);
                 slotPane.setMaxSize(80, 80);
                 if (actualInventory.size() >= i * 3 + (j + 1)) {
-                    BackgroundImage myBI = new BackgroundImage(new Image(actualInventory.get(i * 3 + j + 1 - 1).GetTexturePath(), 32, 32, false, true),
-                            BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
-                            BackgroundSize.DEFAULT);
-                    slotPane.setBackground(new Background(myBI));
+                    Image image = null;
+                    try(InputStream is = Files.newInputStream(Paths.get(actualInventory.get(i * 3 + j + 1 - 1).GetTexturePath()))){
+                        image = new Image(is);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    if(image != null)
+                    {
+                        ImageView pic = new ImageView();
+                        pic.setFitHeight(40);
+                        pic.setFitWidth(40);
+                        pic.setPreserveRatio(true);
+                        pic.setImage(image);
+                        slotPane.getChildren().add(pic);
+                    }
                 } else {
                     slotPane.setBackground(
                             new Background(
@@ -162,21 +183,32 @@ public class InfoPanelView extends StackPane implements IView {
         actionPoints.setMaxSize(350, 25);
         actionPoints.setMinSize(350, 25);
         playerInfoPane.getChildren().add(actionPoints);
-        actionPoints.setTranslateY(50);
+        actionPoints.setTranslateY(35);
         actionPoints.setTranslateX(5);
         //End
 
         //create lifePointsLabel
         //create playerActionPointsLabel
         Label lifePointsLabel = new Label();
-        lifePointsLabel.setText("Punct de viaţa "+actualPlayer.getActionPoints());
+        lifePointsLabel.setText("Punct de viaţa: "+actualPlayer.getActionPoints());
         lifePointsLabel.setAlignment(Pos.TOP_LEFT);
         lifePointsLabel.setFont(new Font("Arial", 20));
         lifePointsLabel.setMaxSize(350, 25);
         lifePointsLabel.setMinSize(350, 25);
         playerInfoPane.getChildren().add(lifePointsLabel);
-        lifePointsLabel.setTranslateY(100);
+        lifePointsLabel.setTranslateY(70);
         lifePointsLabel.setTranslateX(5);
+
+        //create playerActionPointsLabel
+        Label directionLabel = new Label();
+        directionLabel.setText("direcţie: "+actualPlayer.getDirection());
+        directionLabel.setAlignment(Pos.TOP_LEFT);
+        directionLabel.setFont(new Font("Arial", 20));
+        directionLabel.setMaxSize(350, 25);
+        directionLabel.setMinSize(350, 25);
+        playerInfoPane.getChildren().add(directionLabel);
+        directionLabel.setTranslateY(105);
+        directionLabel.setTranslateX(5);
 
 
     }
@@ -211,6 +243,28 @@ public class InfoPanelView extends StackPane implements IView {
             buttonPane.getChildren().add(b);
 
         }
+        GridPane playerPane = new GridPane();
+        playerPane.setMaxSize(50,50);
+        playerPane.setMinSize(50,50);
+        Image image = null;
+        try(InputStream is = Files.newInputStream(Paths.get(actualPlayer.GetTexturePath()))){
+            image = new Image(is);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if(image != null)
+        {
+            ImageView pic = new ImageView();
+            pic.setFitHeight(40);
+            pic.setFitWidth(40);
+            pic.setPreserveRatio(true);
+            pic.setImage(image);
+            playerPane.getChildren().add(pic);
+
+        }
+        buttonPane.getChildren().add(playerPane);
+
+
     }
 
        @Override
