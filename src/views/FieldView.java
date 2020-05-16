@@ -56,5 +56,7 @@ public class FieldView extends ViewBase {
     @Override
     public void Update() {
         setItemViewOpacity();
+
+        data.getEntities().forEach(e -> Update());
     }
 }
