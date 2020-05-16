@@ -78,9 +78,4 @@ public class StableIceField extends IceField{
         behaviour.destroyTent();
     }
 
-
-    @Override
-    public String GetTexturePath() {
-        return null;
-    }
 }

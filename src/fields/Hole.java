@@ -152,6 +152,6 @@ public class Hole extends Field {
 
     @Override
     public String GetTexturePath() {
-        return null;
+        return "textures/field_textures/water.png";
     }
 }

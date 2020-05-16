@@ -39,7 +39,7 @@ public class BoardView extends StackPane implements IView {
             layoutReader = new LayoutReader(fis);
             fieldCoords = layoutReader.readCoords();
 
-        } catch(FileNotFoundException e) {
+        } catch(IOException e) {
             e.printStackTrace();
         }
     }
@@ -53,6 +53,10 @@ public class BoardView extends StackPane implements IView {
                                Insets.EMPTY
                        )));
 
+        initFieldViews();
+   }
+
+   public void initFieldViews(){
        for(int i = 0; i < fieldCoords.size(); i++){
 
            Field field = data.getField(i);
@@ -79,6 +83,8 @@ public class BoardView extends StackPane implements IView {
 
     @Override
     public void Update() {
+        fieldViews.clear();
+        initFieldViews();
         fieldViews.forEach(e -> Update());
     }
 }

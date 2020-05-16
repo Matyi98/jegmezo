@@ -68,4 +68,14 @@ public abstract class IceField extends Field {
     @Override
     public Entity selectEntity(){ return null; }
 
+    @Override
+    public String GetTexturePath() {
+        if(snowLevel > 0){
+            return "textures/field_textures/snow.png";
+        }
+        else {
+            return "textures/field_textures/ice.png";
+        }
+    }
+
 }

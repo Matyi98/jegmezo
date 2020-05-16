@@ -90,8 +90,4 @@ public class UnstableIceField extends IceField {
         return String.valueOf(stability);
     }
 
-    @Override
-    public String GetTexturePath() {
-        return null;
-    }
 }

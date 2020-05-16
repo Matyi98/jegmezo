@@ -2,9 +2,7 @@ package reader;
 
 import javafx.geometry.Point2D;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +14,18 @@ public class LayoutReader {
     }
 
 
-    public ArrayList<Point2D> readCoords() {
-        return new ArrayList<>();
+    public ArrayList<Point2D> readCoords() throws IOException {
+        String line = reader.readLine();
+        String[] lineSplit = line.split(";");
+
+        ArrayList<Point2D> points = new ArrayList<>();
+
+        for(int i = 0; i < lineSplit.length; ++i){
+            lineSplit[i] = lineSplit[i].trim();
+            String[] coords = lineSplit[i].split(" ");
+            points.add(new Point2D(Integer.parseInt(coords[0]), Integer.parseInt(coords[1])));
+        }
+
+        return points;
     }
 }
