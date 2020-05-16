@@ -5,14 +5,14 @@ import fields.Field;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
-import java.util.ArrayList;
-
 public class FieldView extends ViewBase {
     private Field data;
-    private int radius = 50;
+    private final int radius;
 
-    public FieldView(Field f) {
+    public FieldView(Field f, int radius) {
         super(f.GetTexturePath());
+
+        this.radius = radius;
         this.data = f;
 
         initialise();

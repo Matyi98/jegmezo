@@ -20,6 +20,7 @@ public class BoardView extends Pane implements IView {
     private Board data;
     private ArrayList<Point2D> fieldCoords;
     private ArrayList<FieldView> fieldViews = new ArrayList<>();
+    private final int fieldRadius = 50;
 
     public BoardView(Board b, File file) {
         this.data = b;
@@ -57,7 +58,7 @@ public class BoardView extends Pane implements IView {
        for(int i = 0; i < fieldCoords.size(); i++){
 
            Field field = data.getField(i);
-           FieldView fieldView = new FieldView(field);
+           FieldView fieldView = new FieldView(field, fieldRadius);
            ArrayList<Integer> UIDs = field.GetNeighboursUIDs();
 
            Point2D fieldCoord = fieldCoords.get(i);
@@ -67,7 +68,10 @@ public class BoardView extends Pane implements IView {
                Line passage = new Line(fieldCoord.getX(), fieldCoord.getY(),
                        neighbourCoords.getX(), neighbourCoords.getY());
 
+               passage.setTranslateX(fieldRadius);
+               passage.setTranslateY(fieldRadius);
                getChildren().add(passage);
+               getChildren().get(getChildren().size()-1).toBack();
            }
 
            fieldView.setTranslateX(fieldCoord.getX());
@@ -75,6 +79,7 @@ public class BoardView extends Pane implements IView {
 
            fieldViews.add(fieldView);
            getChildren().add(fieldView);
+
        }
    }
 
