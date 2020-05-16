@@ -5,18 +5,22 @@ import javafx.scene.Scene;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import game.GameController;
+import reader.LayoutReader;
 import views.BoardView;
 import views.InfoPanelView;
+
+import java.io.File;
 
 public class GameScene extends Scene {
     private static final double WIDTH = 1280;
     private static final double HEIGHT = 720;
 
     private Pane root = new Pane();
-    private BoardView boardView = new BoardView(GameController.GetInstance().GetBoard());
+    private BoardView boardView;
     private InfoPanelView infoPanelView = new InfoPanelView();
 
     private void initialize() {
+
         root.setBackground(
                 new Background(
                         new BackgroundFill(
@@ -39,8 +43,9 @@ public class GameScene extends Scene {
     }
 
 
-    public GameScene() {
+    public GameScene(File file) {
         super(new StackPane(), WIDTH, HEIGHT);
+        boardView = new BoardView(GameController.GetInstance().GetBoard(), file);
         initialize();
         setRoot(root);
     }

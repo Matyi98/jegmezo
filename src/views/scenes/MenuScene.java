@@ -16,13 +16,21 @@ import java.util.Objects;
 
 class Map {
     final String DisplayName;
-    final String Path;
+    final String modelPath;
+    final String layoutPath;
     final int PlayerCount;
 
-    Map(String displayName, String path, int playerCount) {
+    Map(String displayName, String modelPath, int playerCount) {
         DisplayName = displayName;
-        Path = path;
+        this.modelPath = modelPath;
+        this.layoutPath = createLayoutPath();
         PlayerCount = playerCount;
+    }
+
+    private String createLayoutPath() {
+        StringBuilder sb = new StringBuilder(modelPath);
+        sb.insert(0,"layout_");
+        return sb.toString();
     }
 
     @Override
@@ -96,7 +104,7 @@ public class MenuScene extends Scene {
             GameController.Initialise(getMapFile(), getPlayerCount());
             Stage stage = ((Stage)getWindow());
             stage.setTitle(cbMapSelect.getValue().toString(getPlayerCount()));
-            stage.setScene(new GameScene());
+            stage.setScene(new GameScene(getMapLayoutFile()));
         });
         aStartExitRow.getChildren().add(bStart);
         StackPane.setAlignment(bStart, Pos.TOP_LEFT);
@@ -136,7 +144,13 @@ public class MenuScene extends Scene {
 
     private File getMapFile() {
         int i = cbMapSelect.getSelectionModel().getSelectedIndex();
-        String mapPath = mapOptions.get(i).Path;
+        String mapPath = mapOptions.get(i).modelPath;
+        return new File(Objects.requireNonNull(getClass().getClassLoader().getResource(mapPath)).getFile());
+    }
+
+    private File getMapLayoutFile() {
+        int i = cbMapSelect.getSelectionModel().getSelectedIndex();
+        String mapPath = mapOptions.get(i).layoutPath;
         return new File(Objects.requireNonNull(getClass().getClassLoader().getResource(mapPath)).getFile());
     }
 

@@ -6,6 +6,7 @@ import utility.ITextured;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
 /**
  * A játéktábla, amely a játékmenet összes Field-jét tartalmazza.
@@ -15,6 +16,10 @@ public class Board implements ITextured{
      * Field-ek.
      */
     private ArrayList<Field> fields;
+
+    public Field getField(int i){
+        return fields.get(i);
+    }
 
     /**
      * Field-ek beállítása.
