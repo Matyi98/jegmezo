@@ -1,6 +1,8 @@
 package views;
 
+import entities.Entity;
 import fields.Field;
+import game.GameController;
 import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
 import javafx.scene.layout.*;
@@ -83,12 +85,18 @@ public class BoardView extends Pane implements IView {
        }
    }
 
+    private void refreshFieldViews(){
+        for(FieldView view : fieldViews){
+            getChildren().remove(view);
+        }
+
+        fieldViews.clear();
+
+        initFieldViews();
+    }
+
     @Override
     public void Update() {
-        //fieldViews.clear();
-        //initFieldViews();
-        for(FieldView view: fieldViews){
-            view.Update();
-        }
+        refreshFieldViews();
     }
 }

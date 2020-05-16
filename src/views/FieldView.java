@@ -2,6 +2,7 @@ package views;
 
 import entities.Entity;
 import fields.Field;
+import game.GameController;
 import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.ImagePattern;
@@ -12,31 +13,34 @@ import java.util.ArrayList;
 public class FieldView extends ViewBase {
     private Field data;
     private final int radius;
-    ItemView itemView = null;
-    ArrayList<EntityView> entityViews = new ArrayList<>();
 
-    HBox rows = new HBox(2);
+    private Circle selectionCircle;
+    private ItemView itemView = null;
+    private ArrayList<EntityView> entityViews = new ArrayList<>();
+
+    private HBox rows = new HBox(2);
 
     public FieldView(Field f, int radius) {
         super(f.GetTexturePath());
-
         this.radius = radius;
         this.data = f;
-
         initialise();
     }
 
-    public void initialise(){
+    private void initialise(){
+        selectionCircle = new Circle(0, 0, radius + 5);
+
         Circle circle = new Circle(0, 0, radius);
         circle.setFill(new ImagePattern(image));
         getChildren().add(circle);
 
+        refreshItem();
         refreshEntities();
 
         getChildren().add(rows);
     }
 
-    public void refreshItem(){
+    private void refreshItem(){
         getChildren().remove(itemView);
 
         if(data.getItem() != null){
@@ -55,7 +59,7 @@ public class FieldView extends ViewBase {
                 , intensity));
     }
 
-    public void refreshEntities() {
+    private void refreshEntities() {
         for (EntityView view : entityViews) {
             rows.getChildren().remove(view);
         }
@@ -66,12 +70,24 @@ public class FieldView extends ViewBase {
             EntityView entityView = new EntityView(entity);
             entityViews.add(entityView);
             rows.getChildren().add(entityView);
+
         }
     }
 
+    public void showSelect(){
+        getChildren().add(selectionCircle);
+        getChildren().get(getChildren().size()-1).toBack();
+    }
+
+    public void hideSelect(){
+        getChildren().remove(selectionCircle);
+    }
+
+    //Kiderült hogy nem is kell használni?
     @Override
     public void Update() {
-        refreshItem();
-        refreshEntities();
+        //hideSelect();
+        //refreshItem();
+        //refreshEntities();
     }
 }

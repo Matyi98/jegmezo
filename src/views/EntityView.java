@@ -2,6 +2,7 @@ package views;
 
 import entities.Entity;
 import game.GameController;
+import javafx.geometry.Pos;
 import javafx.scene.image.ImageView;
 
 public class EntityView extends ViewBase {
@@ -21,11 +22,16 @@ public class EntityView extends ViewBase {
 
         getChildren().add(imageView);
 
-        Update();
+        selectIfActive();
     }
 
+    //Lehet nem is kell használni?
     @Override
     public void Update() {
+
+    }
+
+    private void selectIfActive(){
         if(GameController.GetInstance().GetActivePlayer() == data){
             enableBorder();
         }
