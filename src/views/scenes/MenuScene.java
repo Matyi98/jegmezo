@@ -63,9 +63,7 @@ public class MenuScene extends Scene {
 
     private ObservableList<Map> mapOptions =
             FXCollections.observableArrayList(
-                    new Map("Jégvarázs", "map0.txt", 4),
-                    new Map("A Mikulás nyomában", "map0.txt", 6),
-                    new Map("Maloy bosszúja", "map0.txt", 2),
+                    new Map("Mega", "mega.txt", 6),
                     new Map("Tanszéki minta", "map0.txt", 3)
             );
 
