@@ -5,6 +5,7 @@ import javafx.geometry.Point2D;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 public class LayoutReader {
@@ -15,7 +16,7 @@ public class LayoutReader {
     }
 
 
-    public List<Point2D> readCoords() {
-        return null;
+    public ArrayList<Point2D> readCoords() {
+        return new ArrayList<>();
     }
 }

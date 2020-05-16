@@ -21,8 +21,8 @@ import java.util.List;
 
 public class BoardView extends StackPane implements IView {
     private Board data;
-    private List<Point2D> fieldCoords;
-    private List<FieldView> fieldViews = new ArrayList<>();
+    private ArrayList<Point2D> fieldCoords;
+    private ArrayList<FieldView> fieldViews = new ArrayList<>();
 
     public BoardView(Board b, File file) {
         this.data = b;
@@ -79,6 +79,6 @@ public class BoardView extends StackPane implements IView {
 
     @Override
     public void Update() {
-        fieldViews.forEach(e -> e.Update());
+        fieldViews.forEach(e -> Update());
     }
 }
