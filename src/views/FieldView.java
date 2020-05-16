@@ -2,6 +2,7 @@ package views;
 
 import entities.Entity;
 import fields.Field;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class FieldView extends ViewBase {
 
     public void initialise(){
         Circle circle = new Circle(0, 0, radius);
+        circle.setFill(new ImagePattern(image));
 
         ItemView itemView = null;
         if(data.getItem() != null)

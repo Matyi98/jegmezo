@@ -3,10 +3,7 @@ package views;
 import fields.Field;
 import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import game.Board;
 import javafx.scene.shape.Line;
@@ -19,7 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BoardView extends StackPane implements IView {
+public class BoardView extends Pane implements IView {
     private Board data;
     private ArrayList<Point2D> fieldCoords;
     private ArrayList<FieldView> fieldViews = new ArrayList<>();

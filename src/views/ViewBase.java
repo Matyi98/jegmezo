@@ -12,20 +12,11 @@ public abstract class ViewBase extends StackPane implements IView {
     protected Image image;
 
     public ViewBase(String imagePath) {
-
-
-        Image img = null;
+        image = null;
         try(InputStream is = Files.newInputStream(Paths.get(imagePath))){
-            img = new Image(is);
-        } catch (IOException e) {}
-
-        ImageView imgView = new ImageView(img);
-
-//        if (!imagePath.equals(""))
-//            this.image = new Image(imagePath);
-//        else
-//            this.image = null;
-
-        getChildren().add(imgView);
+            image = new Image(is);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
