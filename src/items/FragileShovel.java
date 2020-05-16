@@ -1,6 +1,6 @@
 package items;
 
-import scene.GameController;
+import game.GameController;
 
 /**
  * Törékeny ásó item. Adott számú használat után eltörik.

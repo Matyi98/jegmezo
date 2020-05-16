@@ -1,6 +1,6 @@
 package items;
 
-import scene.GameController;
+import game.GameController;
 
 /**
  * Sátor item. Bármelyik IceField-re ráépíthető. Adott körben megvéd a hóvihartól,

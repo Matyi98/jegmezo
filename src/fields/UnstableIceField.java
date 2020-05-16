@@ -1,8 +1,7 @@
 package fields;
 
 import entities.Entity;
-import scene.GameController;
-import utility.ITextured;
+import game.GameController;
 
 /**
  * UnstableIceField osztály. Csak adott számú Entity-t képes elbírni, ha túl sok Entity kerül rá

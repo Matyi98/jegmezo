@@ -6,7 +6,7 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import scene.Board;
+import game.Board;
 
 public class BoardView extends StackPane implements IView {
     private Board data;

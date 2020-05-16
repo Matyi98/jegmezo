@@ -1,6 +1,6 @@
 package items;
 
-import scene.GameController;
+import game.GameController;
 
 /**
  * Búvárruha item. Lehetővé teszi, hogy fulladás nélkül

@@ -4,10 +4,9 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import scene.GameController;
+import game.GameController;
 import views.BoardView;
 import views.InfoPanelView;
-
 
 public class GameScene extends Scene {
     private static final double WIDTH = 1280;

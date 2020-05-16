@@ -1,7 +1,7 @@
 package entities.behaviours;
 
 import entities.Player;
-import scene.GameController;
+import game.GameController;
 
 /**
  * A játékosokat megvalósító Player osztály, szárazföldön és

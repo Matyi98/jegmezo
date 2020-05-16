@@ -1,7 +1,7 @@
 package entities;
 
 import fields.Field;
-import scene.GameController;
+import game.GameController;
 import utility.ITextured;
 
 /**

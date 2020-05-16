@@ -3,9 +3,9 @@ package fields;
 import entities.Entity;
 import fields.behaviours.StandardFieldBehaviour;
 import items.Item;
-import scene.Board;
+import game.Board;
 import utility.Dialog;
-import scene.GameController;
+import game.GameController;
 
 import java.util.ArrayList;
 import java.util.Optional;

@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import scene.GameController;
+import game.GameController;
 import views.scenes.mainWindow.GameScene;
 
 import java.io.File;

@@ -1,7 +1,7 @@
 package views.scenes.mainWindow;
 
 import javafx.event.EventHandler;
-import scene.GameController;
+import game.GameController;
 
 import javafx.scene.input.KeyEvent;
 
@@ -23,6 +23,4 @@ public class GameKeyEvents implements EventHandler<KeyEvent> {
                 break;
         }
     }
-
-
 }

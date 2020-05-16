@@ -2,7 +2,7 @@ package fields.behaviours;
 
 import entities.Entity;
 import fields.Field;
-import scene.GameController;
+import game.GameController;
 
 import java.util.Collection;
 

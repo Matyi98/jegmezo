@@ -2,8 +2,7 @@ package main;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import scene.GameController;
-import scene.reader.SceneReader;
+import reader.SceneReader;
 import utility.Dialog;
 import views.scenes.MenuScene;
 
@@ -50,7 +49,7 @@ public class Main extends Application {
 
     static private Stage stage;
     public static void ExitToMenu() {
-        stage.setTitle("Jégmező by: De' Kouncil");
+        stage.setTitle("Jégmező by: The Council");
         stage.setScene(new MenuScene());
     }
 

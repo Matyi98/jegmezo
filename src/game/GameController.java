@@ -1,10 +1,10 @@
-package scene;
+package game;
 
 import entities.*;
 import javafx.scene.control.Alert;
 import main.Main;
 import utility.RandomNumber;
-import scene.reader.SceneReader;
+import reader.SceneReader;
 import utility.Dialog;
 
 import java.io.*;

@@ -2,7 +2,7 @@ package fields;
 
 import entities.Entity;
 import items.Item;
-import scene.Board;
+import game.Board;
 
 import java.util.ArrayList;
 import java.util.Optional;

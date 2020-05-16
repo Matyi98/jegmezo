@@ -1,6 +1,6 @@
 package entities;
 
-import scene.GameController;
+import game.GameController;
 
 /**
  * Eszkimó, amelyet a játékos irányíthat. Képes iglukat építeni.

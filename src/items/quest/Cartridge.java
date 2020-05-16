@@ -1,6 +1,6 @@
 package items.quest;
 
-import scene.GameController;
+import game.GameController;
 
 /**
  * Egyik összegyűjtendő QuestItem.

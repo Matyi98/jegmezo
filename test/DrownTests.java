@@ -1,6 +1,6 @@
 import main.Main;
 import org.junit.Test;
-import scene.GameController;
+import game.GameController;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;

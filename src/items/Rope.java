@@ -1,6 +1,6 @@
 package items;
 
-import scene.GameController;
+import game.GameController;
 
 /**
  * Kötél item. Segítségével ki lehet húzni más játékosokat egy Hole típusú Field-ből.

@@ -2,7 +2,7 @@ package items.quest;
 
 import items.Item;
 import entities.Player;
-import scene.GameController;
+import game.GameController;
 
 /**
  * QuestItem-ek ősosztálya. A játék megnyeréséhez szükséges.

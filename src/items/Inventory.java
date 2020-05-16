@@ -1,7 +1,7 @@
 package items;
 
 import entities.Player;
-import scene.GameController;
+import game.GameController;
 
 import java.util.ArrayList;
 import java.util.List;

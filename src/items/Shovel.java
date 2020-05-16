@@ -1,6 +1,6 @@
 package items;
 
-import scene.GameController;
+import game.GameController;
 
 /**
  * Ásó item. Egyszerre sok hó eltakarítására képes.

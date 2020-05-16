@@ -1,4 +1,4 @@
-package scene;
+package game;
 
 import fields.Field;
 import utility.RandomNumber;

@@ -1,7 +1,7 @@
 package fields;
 
 import entities.Entity;
-import scene.GameController;
+import game.GameController;
 
 /**
  * StableIceField osztály. Bármennyi Entity-t képes elbírni.

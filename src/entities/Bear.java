@@ -1,7 +1,7 @@
 package entities;
 
 import utility.RandomNumber;
-import scene.GameController;
+import game.GameController;
 
 /**
  * Jegesmedve osztály, amely az Entity-ből származik. Ha játékosokkal kerül egy mezőre, akkor megöli őket.

@@ -1,11 +1,11 @@
-package scene.reader;
+package reader;
 
 import entities.*;
 import fields.*;
 import items.*;
 import items.quest.*;
 import utility.RandomNumber;
-import scene.*;
+import game.*;
 
 import java.io.*;
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package entities;
 
-import scene.GameController;
+import game.GameController;
 
 /**
  * Sarkkutató, amelyet a játékos irányíthat. Képes megnézni a jégtáblák stabilitását.

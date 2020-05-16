@@ -1,6 +1,6 @@
 package items;
 
-import scene.GameController;
+import game.GameController;
 
 /**
  * Étel item. Életerejét növelheti a Player, ha megeszi.

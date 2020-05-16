@@ -4,7 +4,7 @@ import entities.Entity;
 import fields.behaviours.FieldBehaviour;
 import fields.behaviours.StandardFieldBehaviour;
 import items.Item;
-import scene.Board;
+import game.Board;
 import utility.ITextured;
 
 import java.util.ArrayList;

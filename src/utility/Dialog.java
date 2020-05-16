@@ -10,8 +10,6 @@ import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.stage.WindowEvent;
-import scene.Board;
 
 import java.io.PrintStream;
 import java.util.ArrayList;

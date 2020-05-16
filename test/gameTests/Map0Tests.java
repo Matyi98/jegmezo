@@ -1,8 +1,9 @@
-package scene;
+package gameTests;
 
 import main.Main;
 import org.junit.Before;
 import org.junit.Test;
+import game.GameController;
 import utility.Dialog;
 
 import java.io.*;

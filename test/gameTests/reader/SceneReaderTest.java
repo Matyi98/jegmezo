@@ -1,8 +1,9 @@
-package scene.reader;
+package gameTests.reader;
 
 import org.junit.Before;
 import org.junit.Test;
-import scene.GameController;
+import game.GameController;
+import reader.SceneReader;
 
 import java.io.File;
 import java.io.FileInputStream;

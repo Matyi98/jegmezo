@@ -2,7 +2,7 @@ package entities;
 
 import items.*;
 import entities.behaviours.*;
-import scene.GameController;
+import game.GameController;
 import java.util.List;
 
 /**
