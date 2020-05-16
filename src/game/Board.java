@@ -6,9 +6,7 @@ import utility.Dialog;
 import utility.RandomNumber;
 import utility.ITextured;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 /**
  * A játéktábla, amely a játékmenet összes Field-jét tartalmazza.
@@ -73,8 +71,7 @@ public class Board implements ITextured{
      * @param newField új Field.
      */
     public void changeField(Field currentField, Field newField) {
-        this.fields.remove(currentField);
-        this.fields.add(newField);
+        Collections.replaceAll(this.fields, currentField, newField);
     }
 
     /**

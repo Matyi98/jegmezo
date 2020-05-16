@@ -53,20 +53,18 @@ public class BoardView extends Pane implements IView {
                                CornerRadii.EMPTY,
                                Insets.EMPTY
                        )));
+        initPassages();
 
         initFieldViews();
    }
 
-   public void initFieldViews(){
-       for(int i = 0; i < fieldCoords.size(); i++){
-
+   public void initPassages(){
+       for(int i = 0; i < fieldCoords.size(); i++) {
            Field field = data.getField(i);
-           FieldView fieldView = new FieldView(field, fieldRadius);
+           Point2D fieldCoord = fieldCoords.get(i);
            ArrayList<Integer> UIDs = field.GetNeighboursUIDs();
 
-           Point2D fieldCoord = fieldCoords.get(i);
-
-           for(Integer UID : UIDs){
+           for (Integer UID : UIDs) {
                Point2D neighbourCoords = fieldCoords.get(UID);
                Line passage = new Line(fieldCoord.getX(), fieldCoord.getY(),
                        neighbourCoords.getX(), neighbourCoords.getY());
@@ -74,8 +72,17 @@ public class BoardView extends Pane implements IView {
                passage.setTranslateX(fieldRadius);
                passage.setTranslateY(fieldRadius);
                getChildren().add(passage);
-               getChildren().get(getChildren().size()-1).toBack();
+               getChildren().get(getChildren().size() - 1).toBack();
            }
+       }
+   }
+
+   public void initFieldViews(){
+       for(int i = 0; i < fieldCoords.size(); i++){
+           Field field = data.getField(i);
+           Point2D fieldCoord = fieldCoords.get(i);
+
+           FieldView fieldView = new FieldView(field, fieldRadius);
 
            fieldView.setTranslateX(fieldCoord.getX());
            fieldView.setTranslateY(fieldCoord.getY());
