@@ -85,8 +85,10 @@ public class BoardView extends Pane implements IView {
 
     @Override
     public void Update() {
-        fieldViews.clear();
-        initFieldViews();
-        fieldViews.forEach(e -> Update());
+        //fieldViews.clear();
+        //initFieldViews();
+        for(FieldView view: fieldViews){
+            view.Update();
+        }
     }
 }

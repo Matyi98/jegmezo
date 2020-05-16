@@ -2,17 +2,20 @@ package views;
 
 import entities.Entity;
 import fields.Field;
-import items.Item;
 import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+
+import java.util.ArrayList;
 
 public class FieldView extends ViewBase {
     private Field data;
     private final int radius;
     ItemView itemView = null;
+    ArrayList<EntityView> entityViews = new ArrayList<>();
+
+    HBox rows = new HBox(2);
 
     public FieldView(Field f, int radius) {
         super(f.GetTexturePath());
@@ -28,21 +31,20 @@ public class FieldView extends ViewBase {
         circle.setFill(new ImagePattern(image));
         getChildren().add(circle);
 
+        refreshEntities();
+
+        getChildren().add(rows);
+    }
+
+    public void refreshItem(){
+        getChildren().remove(itemView);
+
         if(data.getItem() != null){
             itemView = new ItemView(data.getItem());
             setItemViewOpacity();
             itemView.setAlignment(Pos.BOTTOM_CENTER);
             getChildren().add(itemView);
         }
-
-        HBox rows = new HBox(2);
-        getChildren().add(rows);
-
-        for(Entity entity : data.getEntities()){
-            EntityView entityView = new EntityView(entity);
-            rows.getChildren().add(entityView);
-        }
-
     }
 
     private void setItemViewOpacity(){
@@ -53,10 +55,23 @@ public class FieldView extends ViewBase {
                 , intensity));
     }
 
+    public void refreshEntities() {
+        for (EntityView view : entityViews) {
+            rows.getChildren().remove(view);
+        }
+
+        entityViews.clear();
+
+        for (Entity entity : data.getEntities()) {
+            EntityView entityView = new EntityView(entity);
+            entityViews.add(entityView);
+            rows.getChildren().add(entityView);
+        }
+    }
+
     @Override
     public void Update() {
-        setItemViewOpacity();
-
-        data.getEntities().forEach(e -> Update());
+        refreshItem();
+        refreshEntities();
     }
 }

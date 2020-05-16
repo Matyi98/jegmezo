@@ -103,7 +103,10 @@ public class MenuScene extends Scene {
             GameController.Initialise(getMapFile(), getPlayerCount());
             Stage stage = ((Stage)getWindow());
             stage.setTitle(cbMapSelect.getValue().toString(getPlayerCount()));
-            stage.setScene(new GameScene(getMapLayoutFile()));
+            GameScene gs = new GameScene(getMapLayoutFile());
+
+            stage.setScene(gs);
+
         });
         aStartExitRow.getChildren().add(bStart);
         StackPane.setAlignment(bStart, Pos.TOP_LEFT);

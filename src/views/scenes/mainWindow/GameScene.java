@@ -16,8 +16,8 @@ public class GameScene extends Scene {
     private static final double HEIGHT = 720;
 
     private Pane root = new Pane();
-    private BoardView boardView;
-    private InfoPanelView infoPanelView = new InfoPanelView();
+    private static BoardView boardView;
+    private static InfoPanelView infoPanelView = new InfoPanelView();
 
     private void initialize() {
         root.setBackground(
@@ -47,6 +47,11 @@ public class GameScene extends Scene {
         boardView = new BoardView(GameController.GetInstance().GetBoard(), file);
         initialize();
         setRoot(root);
+    }
+
+    public static void UpdateAllViews(){
+        boardView.Update();
+        infoPanelView.Update();
     }
 
 

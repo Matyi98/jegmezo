@@ -6,10 +6,13 @@ import main.Main;
 import utility.RandomNumber;
 import reader.SceneReader;
 import utility.Dialog;
+import views.scenes.mainWindow.GameScene;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import static views.scenes.mainWindow.GameScene.UpdateAllViews;
 
 /**
  * GameController osztály, ami a játék lefolyását menedzseli.
@@ -140,8 +143,10 @@ public class GameController {
      */
     public void Execute(String command) {
         parseCommand(command);
-        //TODO: Update Views here!!!!!
+
+        GameScene.UpdateAllViews();
     }
+
 
     /**
      * Egy-egy argumentumként átvett a játékba beérkező parancsot értelmez.
