@@ -90,4 +90,13 @@ public class UnstableIceField extends IceField {
         return String.valueOf(stability);
     }
 
+    @Override
+    public String GetTexturePath() {
+        if(snowLevel > 0){
+            return "textures/field_textures/snow.png";
+        }
+        else {
+            return "textures/field_textures/unstableIce.png";
+        }
+    }
 }
