@@ -2,12 +2,14 @@ package views;
 
 import entities.Player;
 import items.Item;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import game.GameController;
@@ -42,33 +44,6 @@ public class InfoPanelView extends StackPane implements IView {
         GameController gc = GameController.GetInstance();
         actualPlayer = gc.GetActivePlayer();
         actualInventory = actualPlayer.getItems();
-
-        //Exit to Menu demo
-       /* Button bExit = new Button("EXIT");
-        bExit.setOnMouseClicked(mouseEvent -> GameController.GetInstance().EXIT());
-        getChildren().add(bExit);
-        StackPane.setAlignment(bExit, Pos.TOP_LEFT);
-        //End of demo
-
-        //Execute demo
-        Button bExecute = new Button("Move");
-        bExecute.setOnMouseClicked(e -> GameController.GetInstance().Execute("p move"));
-        getChildren().add(bExecute);
-        StackPane.setAlignment(bExecute, Pos.TOP_RIGHT);
-        //End of demo
-
-        //Dialog Demo
-        Button bDialog = new Button("DialogTST");
-        ArrayList<String> opts = new ArrayList<>();
-        opts.add("tűzindító");
-        opts.add("Jonatán");
-        opts.add("ODA VAN ÍRVAAA!!!");
-        utility.Dialog d = new utility.Dialog("Ez alma?", opts);
-        StackPane.setAlignment(bDialog, Pos.TOP_CENTER);
-        bDialog.setOnMouseClicked(mouseEvent -> d.ShowDialog());
-        getChildren().add(bDialog);
-        //End of demo*/
-
         loadNewDatas();
 
             }
@@ -116,7 +91,7 @@ public class InfoPanelView extends StackPane implements IView {
                 slotPane.setMaxSize(80, 80);
                 if (actualInventory.size() >= i * 3 + (j + 1)) {
                     Image image = null;
-                    try(InputStream is = Files.newInputStream(Paths.get(actualInventory.get(i * 3 + j + 1 - 1).GetTexturePath()))){
+                    try(InputStream is = Files.newInputStream(Paths.get(actualInventory.get(i * 3 + j).GetTexturePath()))){
                         image = new Image(is);
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -124,11 +99,22 @@ public class InfoPanelView extends StackPane implements IView {
                     if(image != null)
                     {
                         ImageView pic = new ImageView();
-                        pic.setFitHeight(40);
-                        pic.setFitWidth(40);
+                        pic.setFitHeight(50);
+                        pic.setFitWidth(50);
                         pic.setPreserveRatio(true);
                         pic.setImage(image);
+                        pic.setX(0);
+                        pic.setY(0);
                         slotPane.getChildren().add(pic);
+                        int finI, finJ;
+                        finI = i;
+                        finJ = j;
+                        slotPane.addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+                        @Override
+                        public void handle(MouseEvent mouseEvent) {
+                             GameController.GetInstance().Execute("p use "+finI * 3 + finJ);
+                        }
+                    });
                     }
                 } else {
                     slotPane.setBackground(
@@ -166,7 +152,7 @@ public class InfoPanelView extends StackPane implements IView {
 
         //create playerNameLabel
         Label nameLabel = new Label();
-        nameLabel.setText("Nume și prenume: "+actualPlayer.getName());
+        nameLabel.setText("Name: "+actualPlayer.getName());
         nameLabel.setAlignment(Pos.TOP_LEFT);
         nameLabel.setFont(new Font("Arial", 20));
         nameLabel.setMaxSize(350, 25);
@@ -177,7 +163,7 @@ public class InfoPanelView extends StackPane implements IView {
 
         //create playerActionPointsLabel
         Label actionPoints = new Label();
-        actionPoints.setText("Punct de acțiune: "+actualPlayer.getActionPoints());
+        actionPoints.setText("Action Points: "+actualPlayer.getActionPoints());
         actionPoints.setAlignment(Pos.TOP_LEFT);
         actionPoints.setFont(new Font("Arial", 20));
         actionPoints.setMaxSize(350, 25);
@@ -190,7 +176,7 @@ public class InfoPanelView extends StackPane implements IView {
         //create lifePointsLabel
         //create playerActionPointsLabel
         Label lifePointsLabel = new Label();
-        lifePointsLabel.setText("Punct de viaţa: "+actualPlayer.getActionPoints());
+        lifePointsLabel.setText("Health points: "+actualPlayer.getHealthPoints());
         lifePointsLabel.setAlignment(Pos.TOP_LEFT);
         lifePointsLabel.setFont(new Font("Arial", 20));
         lifePointsLabel.setMaxSize(350, 25);
@@ -199,7 +185,7 @@ public class InfoPanelView extends StackPane implements IView {
         lifePointsLabel.setTranslateY(70);
         lifePointsLabel.setTranslateX(5);
 
-        //create playerActionPointsLabel
+        /*//create playerActionPointsLabel
         Label directionLabel = new Label();
         directionLabel.setText("direcţie: "+actualPlayer.getDirection());
         directionLabel.setAlignment(Pos.TOP_LEFT);
@@ -208,14 +194,12 @@ public class InfoPanelView extends StackPane implements IView {
         directionLabel.setMinSize(350, 25);
         playerInfoPane.getChildren().add(directionLabel);
         directionLabel.setTranslateY(105);
-        directionLabel.setTranslateX(5);
-
-
+        directionLabel.setTranslateX(5);*/
     }
 
     private void BuildButtons()
     {
-        Pane buttonPane = new Pane();
+        StackPane buttonPane = new StackPane();
         buttonPane.setMinSize(350, 200);
         buttonPane.setMaxSize(350, 200);
         buttonPane.setBackground(
@@ -230,22 +214,77 @@ public class InfoPanelView extends StackPane implements IView {
         getChildren().add(buttonPane);
 
         //Create move button
-        String[] commands = {"p turn a", "p turn d", "p move", "p special", "p skip", "p shovel", "p pickup", "p dig", "p use 0", "p use 1", "p use 2", "p use 3","p use 4", "p use 5" };
-        String[] buttonNames = {"învârte s", "învârte d", "merge", "putere", "ocolire", "săpat", "ridica", "săpa",  "folosiți 1", "folosiți2","folosiți 3","folosiți 4","folosiți 5", "folosiți 6"};
-        for(int i = 0; i<14; i++)
-        {
-            Button b = new Button(commands[i]);
-            int finalI = i;
-            b.setOnMouseClicked(e -> GameController.GetInstance().Execute(commands[finalI]));
-            b.setTranslateX(i*75 - 300 *(i/4));
-            b.setTranslateY(40 * (i/4));
-            getChildren().add(b);
-            buttonPane.getChildren().add(b);
+        String[] commands = {"p turn a", "p turn d", "p move", "p special", "p skip", "p pickup", "p dig"};
 
-        }
+        //buttons turn a
+        Button b1 = new Button(commands[0]);
+        b1.setMaxSize(80,30);
+        b1.setMinSize(80,30);
+        b1.setOnMouseClicked(e -> GameController.GetInstance().Execute(commands[0]));
+        b1.setTranslateY(-75);
+        b1.setTranslateX(-125);
+        getChildren().add(b1);
+
+        //button turn d
+        Button b2 = new Button(commands[1]);
+        b2.setMaxSize(80,30);
+        b2.setMinSize(80,30);
+        b2.setOnMouseClicked(e -> GameController.GetInstance().Execute(commands[1]));
+        b2.setTranslateY(-75);
+        b2.setTranslateX(125);
+        getChildren().add(b2);
+
+        //button move
+        Button b3 = new Button(commands[2]);
+        b3.setMaxSize(80,30);
+        b3.setMinSize(80,30);
+        b3.setOnMouseClicked(e -> GameController.GetInstance().Execute(commands[2]));
+        b3.setTranslateY(-120);
+        b3.setTranslateX(0);
+        getChildren().add(b3);
+
+        //button skip
+        Button b4 = new Button(commands[3]);
+        b4.setMaxSize(80,30);
+        b4.setMinSize(60,30);
+        b4.setOnMouseClicked(e -> GameController.GetInstance().Execute(commands[3]));
+        b4.setTranslateY(-30);
+        b4.setTranslateX(-125);
+        getChildren().add(b4);
+
+        //button p special
+        Button b5 = new Button(commands[4]);
+        b5.setMaxSize(80,30);
+        b5.setMinSize(80,30);
+        b5.setOnMouseClicked(e -> GameController.GetInstance().Execute(commands[4]));
+        b5.setTranslateY(-120);
+        b5.setTranslateX(-125);
+        getChildren().add(b5);
+
+        //pick up
+        Button b6 = new Button(commands[5]);
+        b6.setMaxSize(80,30);
+        b6.setMinSize(80,30);
+        b6.setOnMouseClicked(e -> GameController.GetInstance().Execute(commands[5]));
+        b6.setTranslateY(-30);
+        b6.setTranslateX(125);
+        getChildren().add(b6);
+
+        //dig
+        Button b7 = new Button(commands[6]);
+        b7.setMaxSize(80,30);
+        b7.setMinSize(80,30);
+        b7.setOnMouseClicked(e -> GameController.GetInstance().Execute(commands[6]));
+        b7.setTranslateY(-120);
+        b7.setTranslateX(125);
+        getChildren().add(b7);
+
+        //Show player
         GridPane playerPane = new GridPane();
-        playerPane.setMaxSize(50,50);
-        playerPane.setMinSize(50,50);
+        playerPane.setMaxSize(75,136);
+        playerPane.setMinSize(75,136);
+        playerPane.setTranslateX(5);
+        playerPane.setTranslateY(10);
         Image image = null;
         try(InputStream is = Files.newInputStream(Paths.get(actualPlayer.GetTexturePath()))){
             image = new Image(is);
@@ -255,8 +294,8 @@ public class InfoPanelView extends StackPane implements IView {
         if(image != null)
         {
             ImageView pic = new ImageView();
-            pic.setFitHeight(40);
-            pic.setFitWidth(40);
+            pic.setFitHeight(136);
+            pic.setFitWidth(75);
             pic.setPreserveRatio(true);
             pic.setImage(image);
             playerPane.getChildren().add(pic);
