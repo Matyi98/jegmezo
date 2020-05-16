@@ -252,6 +252,16 @@ public abstract class Player extends Entity {
         return inventory.getItems();
     }
 
+    public int getActionPoints()
+    {
+        return this.actionPoints;
+    }
+
+    public int getHealthPoints()
+    {
+        return this.maxHealthPoints;
+    }
+
     /**
      * Megpróbál kiementi egy társat arról a mezőről, amelyik irányba néz.
      */
