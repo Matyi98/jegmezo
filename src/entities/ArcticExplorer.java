@@ -38,6 +38,6 @@ public class ArcticExplorer extends Player {
 
     @Override
     public String GetTexturePath() {
-        return null;
+        return "textures/entity_textures/arcticExplorer.png";
     }
 }

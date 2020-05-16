@@ -3,6 +3,9 @@ package views;
 import entities.Entity;
 import fields.Field;
 import items.Item;
+import javafx.geometry.Pos;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
@@ -28,11 +31,16 @@ public class FieldView extends ViewBase {
         if(data.getItem() != null){
             itemView = new ItemView(data.getItem());
             setItemViewOpacity();
+            itemView.setAlignment(Pos.BOTTOM_CENTER);
             getChildren().add(itemView);
         }
 
-        for(Entity entity : data.getEntities()){
+        HBox rows = new HBox(2);
+        getChildren().add(rows);
 
+        for(Entity entity : data.getEntities()){
+            EntityView entityView = new EntityView(entity);
+            rows.getChildren().add(entityView);
         }
 
     }

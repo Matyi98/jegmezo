@@ -68,6 +68,6 @@ public class Bear extends Entity {
 
     @Override
     public String GetTexturePath() {
-        return null;
+        return "textures/entity_textures/bear.png";
     }
 }
