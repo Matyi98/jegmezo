@@ -202,7 +202,7 @@ public class InfoPanelView extends StackPane implements IView {
         String[] buttonNames = {"învârte s", "învârte d", "merge", "putere", "ocolire", "săpat", "ridica", "săpa",  "folosiți 1", "folosiți2","folosiți 3","folosiți 4","folosiți 5", "folosiți 6"};
         for(int i = 0; i<14; i++)
         {
-            Button b = new Button(buttonNames[i]);
+            Button b = new Button(commands[i]);
             int finalI = i;
             b.setOnMouseClicked(e -> GameController.GetInstance().Execute(commands[finalI]));
             b.setTranslateX(i*75 - 300 *(i/4));
