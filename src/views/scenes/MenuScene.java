@@ -17,15 +17,21 @@ import java.util.Objects;
 class Map {
     final String DisplayName;
     final String Path;
+    final int PlayerCount;
 
-    Map(String displayName, String path) {
+    Map(String displayName, String path, int playerCount) {
         DisplayName = displayName;
         Path = path;
+        PlayerCount = playerCount;
     }
 
     @Override
     public String toString() {
-        return DisplayName;
+        return DisplayName + " ("+PlayerCount+")";
+    }
+
+    public String toString(int actualPlayerCount) {
+        return DisplayName + " ("+actualPlayerCount+")";
     }
 }
 
@@ -49,12 +55,15 @@ public class MenuScene extends Scene {
 
     private ObservableList<Map> mapOptions =
             FXCollections.observableArrayList(
-                    new Map("Jégvarázs", "map0.txt"),
-                    new Map("A Mikulás nyomában", "map0.txt"),
-                    new Map("Maloy bosszúja", "map0.txt"),
-                    new Map("Ötvös faszsága (max3 játékos)", "map0.txt")
+                    new Map("Jégvarázs", "map0.txt", 4),
+                    new Map("A Mikulás nyomában", "map0.txt", 6),
+                    new Map("Maloy bosszúja", "map0.txt", 2),
+                    new Map("Tanszéki minta", "map0.txt", 3)
             );
 
+    private VBox aMapInfoRow = new VBox();
+    private VBox aNumPlayerRow = new VBox();
+    private StackPane aStartExitRow = new  StackPane();
 
     private void initialize() {
         bStart.setDisable(true);
@@ -62,12 +71,9 @@ public class MenuScene extends Scene {
         root.setPadding(new Insets(16));
         root.setSpacing(20);
 
-        VBox aNumPlayerRow = new VBox();
-        VBox aMapInfoRow = new VBox();
-        StackPane aStartExitRow = new  StackPane();
 
-        root.getChildren().add(aNumPlayerRow);
         root.getChildren().add(aMapInfoRow);
+        root.getChildren().add(aNumPlayerRow);
         Pane placeholder = new Pane();
         VBox.setVgrow(placeholder, Priority.ALWAYS);
         root.getChildren().add(placeholder);
@@ -89,7 +95,7 @@ public class MenuScene extends Scene {
         bStart.setOnMouseClicked(mouseEvent -> {
             GameController.Initialise(getMapFile(), getPlayerCount());
             Stage stage = ((Stage)getWindow());
-            stage.setTitle(cbMapSelect.getValue().toString());
+            stage.setTitle(cbMapSelect.getValue().toString(getPlayerCount()));
             stage.setScene(new GameScene());
         });
         aStartExitRow.getChildren().add(bStart);
@@ -102,12 +108,24 @@ public class MenuScene extends Scene {
 
     private void setCbChangeHandle() {
         cbMapSelect.setOnAction(e ->   {
+            if (cbMapSelect.getValue() != null) {
+                int c = cbMapSelect.getValue().PlayerCount;
+                ObservableList<String> limited = FXCollections.observableArrayList();
+                for (int i = 0; i < c-1; i++)
+                    limited.add(playerNumbers.get(i));
+
+                cbPlayerCountSelect.setItems(limited);
+            }
             if(cbMapSelect.getValue() != null && cbPlayerCountSelect.getValue() != null)
                 bStart.setDisable(false);
+            else
+                bStart.setDisable(true);
         });
         cbPlayerCountSelect.setOnAction(e ->   {
             if(cbMapSelect.getValue() != null && cbPlayerCountSelect.getValue() != null)
                 bStart.setDisable(false);
+            else
+                bStart.setDisable(true);
         });
     }
 
