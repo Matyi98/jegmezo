@@ -2,9 +2,9 @@ package views;
 
 import entities.Entity;
 import fields.Field;
-import game.GameController;
 import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -19,7 +19,10 @@ public class FieldView extends ViewBase {
     private ItemView itemView = null;
     private ArrayList<EntityView> entityViews = new ArrayList<>();
 
-    private HBox rows = new HBox(2);
+    private VBox entityLayoutContainer = new VBox(2);
+    private HBox firstRow = new HBox(2);
+    private HBox secondRow = new HBox(2);
+
 
     public FieldView(Field f, int radius) {
         super(f.GetTexturePath());
@@ -39,7 +42,8 @@ public class FieldView extends ViewBase {
         refreshItem();
         refreshEntities();
 
-        getChildren().add(rows);
+        entityLayoutContainer.getChildren().addAll(firstRow, secondRow);
+        getChildren().addAll(entityLayoutContainer);
     }
 
     private void refreshItem(){
@@ -63,7 +67,8 @@ public class FieldView extends ViewBase {
 
     private void refreshEntities() {
         for (EntityView view : entityViews) {
-            rows.getChildren().remove(view);
+            firstRow.getChildren().remove(view);
+            secondRow.getChildren().remove(view);
         }
 
         entityViews.clear();
@@ -71,8 +76,10 @@ public class FieldView extends ViewBase {
         for (Entity entity : data.getEntities()) {
             EntityView entityView = new EntityView(entity);
             entityViews.add(entityView);
-            rows.getChildren().add(entityView);
-
+            if(firstRow.getChildren().size() < 3)
+                firstRow.getChildren().add(entityView);
+            else
+                secondRow.getChildren().add(entityView);
         }
     }
 
