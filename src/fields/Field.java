@@ -98,6 +98,10 @@ public abstract class Field implements ITextured {
         return neighbors;
     }
 
+    public Field getNeighbourByDirection(int direction){
+        return neighbors.get(direction);
+    }
+
     public ArrayList<Integer> GetNeighboursUIDs(){
         ArrayList<Integer> UIDs = new ArrayList<>();
         for(Field neighbor: neighbors){

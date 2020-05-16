@@ -46,6 +46,14 @@ public abstract class Entity implements ITextured {
      */
     public abstract void ShowShort() ;
 
+    public int getActualDirection(){
+        return actualDirection;
+    }
+
+    public Field getFieldUnder(){
+        return fieldUnder;
+    }
+
     /**
      * Beállítja az entitás kezdőállapotát.
      * @param gc A GameController.

@@ -1,6 +1,7 @@
 package views;
 
 import entities.Entity;
+import entities.Player;
 import fields.Field;
 import game.GameController;
 import javafx.geometry.Insets;
@@ -83,6 +84,8 @@ public class BoardView extends Pane implements IView {
            getChildren().add(fieldView);
 
        }
+
+       showSelectedField();
    }
 
     private void refreshFieldViews(){
@@ -93,6 +96,13 @@ public class BoardView extends Pane implements IView {
         fieldViews.clear();
 
         initFieldViews();
+    }
+
+    private void showSelectedField(){
+        Player activePlayer = GameController.GetInstance().GetActivePlayer();
+        int UIDofSelected = activePlayer.getFieldUnder().getNeighbourByDirection(activePlayer.getActualDirection()).GetUID();
+        fieldViews.get(UIDofSelected).showSelect();
+
     }
 
     @Override

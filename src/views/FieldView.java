@@ -5,6 +5,7 @@ import fields.Field;
 import game.GameController;
 import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
@@ -29,6 +30,7 @@ public class FieldView extends ViewBase {
 
     private void initialise(){
         selectionCircle = new Circle(0, 0, radius + 5);
+        selectionCircle.setFill(Color.RED);
 
         Circle circle = new Circle(0, 0, radius);
         circle.setFill(new ImagePattern(image));
