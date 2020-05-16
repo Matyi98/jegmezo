@@ -79,6 +79,28 @@ public class SceneReader {
         return gc;
     }
 
+    private boolean[] removes;
+
+    private void generateRemoves() throws IOException {
+        if (playerCountLimited) {
+            String sPlayerInfo = this.reader.readLine();
+            int initialPlayerCount = Integer.parseInt(sPlayerInfo);
+
+            boolean[] ret = new boolean[initialPlayerCount];
+            for (int i = 0; i < initialPlayerCount; i++)
+                ret[i] = false;
+
+            for (int i = 0; i < initialPlayerCount - playerCountLimit; i++) {
+                int removedID;
+                do {
+                    removedID = RandomNumber.getNumber(initialPlayerCount - 1);
+                } while (ret[removedID]);
+                ret[removedID] = true;
+            }
+            removes = ret;
+        }
+    }
+
     /**
      * Fájlból beolvasott adatok alapján Field objektumokat hoz létre,
      * amelyeket eltárol az osztály fields gyűjteményében. Ezen kívül
@@ -89,6 +111,7 @@ public class SceneReader {
     private void readAll() throws IOException {
         String sNodes = this.reader.readLine();
         String sEdges = this.reader.readLine();
+        generateRemoves();
 
         String[] aNodes = sNodes.split(";");
         String[] aEdges = sEdges.split(";");
@@ -221,6 +244,17 @@ public class SceneReader {
         return i;
     }
 
+
+    private int parsedPlayerID = 0;
+    private Player removePlayer(Player p) {
+        if (playerCountLimited) {
+            if (removes[parsedPlayerID])
+                p = null;
+            parsedPlayerID++;
+        }
+        return p;
+    }
+
     /**
      * Az argumentum alapján azonosítható Entity osztály
      * egy leszármazott osztályából hoz létre példányt.
@@ -237,12 +271,14 @@ public class SceneReader {
         Player p;
         switch (c) {
             case 'E':
-                p = new Eskimo();
+                p = removePlayer(new Eskimo());
+                if (p == null) return null;
                 players.add(p);
                 e = p;
                 break;
             case 'K':
-                p = new ArcticExplorer();
+                p = removePlayer(new ArcticExplorer());
+                if (p == null) return null;
                 players.add(p);
                 e = p;
                 break;
@@ -258,9 +294,10 @@ public class SceneReader {
         return e;
     }
 
-    private int playerCount = 10;
+    private boolean playerCountLimited = false;
+    private int playerCountLimit = 10;
     public void LimitPlayerCount(int numberOfPlayers) {
-        //TODO: valóban lelimitálni
-        playerCount = playerCount;
+        playerCountLimited = true;
+        playerCountLimit = numberOfPlayers;
     }
 }
