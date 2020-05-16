@@ -18,6 +18,9 @@ public class GameKeyEvents implements EventHandler<KeyEvent> {
             case "A":
                 GameController.GetInstance().Execute("p turn A");
                 break;
+            case "W":
+                GameController.GetInstance().Execute("p move");
+                break;
         }
     }
 
