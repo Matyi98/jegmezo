@@ -20,14 +20,17 @@ public class FieldView extends ViewBase {
     public void initialise(){
         Circle circle = new Circle(0, 0, radius);
 
-        ItemView itemView = new ItemView(data.getItem());
+        ItemView itemView = null;
+        if(data.getItem() != null)
+             itemView = new ItemView(data.getItem());
 
         for(Entity entity : data.getEntities()){
 
         }
 
         getChildren().add(circle);
-        getChildren().add(itemView);
+        if(itemView != null)
+            getChildren().add(itemView);
     }
 
     @Override

@@ -67,7 +67,7 @@ public abstract class Field implements ITextured {
      * Reseteli a kezdő egyedi azonosítót.
      */
     public static void resetAutoIncrement(){
-        autoIncrementID = 1;
+        autoIncrementID = 0;
     }
 
     /**
