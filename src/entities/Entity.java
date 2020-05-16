@@ -126,7 +126,7 @@ public abstract class Entity implements ITextured {
         else if(actualDirection >= numOfIndices)
             actualDirection = actualDirection % numOfIndices;
 
-        GameController.OutStream.println(getName() + " successful turn: " + fieldUnder.GetNeighbours().get(actualDirection).GetUID());
+        GameController.OutStream.println(getName() + " successful turn: " + (fieldUnder.GetNeighbours().get(actualDirection).GetUID()+1));
     }
 
     /**
@@ -134,7 +134,7 @@ public abstract class Entity implements ITextured {
      */
     public void move() {
         fieldUnder.placeEntityToNextField(actualDirection, this);
-        GameController.OutStream.println(getName() + " successful move: " + fieldUnder.GetUID());
+        GameController.OutStream.println(getName() + " successful move: " + (fieldUnder.GetUID()+1));
         this.actualDirection = 0;
     }
 
