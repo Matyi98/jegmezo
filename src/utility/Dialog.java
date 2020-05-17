@@ -65,6 +65,10 @@ public class Dialog {
             return showNoGUI();
     }
 
+    /**
+     * Dialógus parancssoros megjelenítése.
+     * @return válasz.
+     */
     private int showNoGUI() {
         while (true) {
             OutStream.println(question);
@@ -81,6 +85,10 @@ public class Dialog {
         }
     }
 
+    /**
+     * Dialógus grafikus megjelenítése.
+     * @return válasz.
+     */
     private int showGUI() {
         AtomicInteger selected = new AtomicInteger();
 
