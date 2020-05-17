@@ -1,22 +1,22 @@
 package localization;
 
-public class English extends Language {
+public class Russian extends Language {
     private String[] naEskimo = new String[] {
-            "Andrew Snow",
-            "Bill Penguin",
-            "Charlie Ice",
-            "David Whalehunter",
-            "Earl Iglubuilder",
-            "Ferdinand Polar"
+            "Пётр Игнлуевич Снег",
+            "Борис Пингвиневич Пингвин",
+            "Сергей Александрович Гагарин",
+            "Димитрий Александрович Гагарин",
+            "Николай Игнлуевич Снег",
+            "Юрий Алексеевич Гагарин"
     };
 
     private String[] naExplorer = new String[] {
-            "Dr. Richard Ice Scraper",
-            "Dr. Hensel von Antifreeze",
-            "Dr. Mischlen",
-            "Dr. Wernher von Braun",
+            "Дмитрий Иванович Менделеев",
+            "Др. Hensel von Antifreeze",
+            "Сергій Павлович Корольов",
+            "Др. Вернер вон Браун",
             "Доктор Андраш Kрасный",
-            "Dr. Balage Goldschmidt"
+            "Др. Balage Goldschmidt"
     };
 
 
@@ -32,121 +32,121 @@ public class English extends Language {
 
     @Override
     public String BearDeathMSG() {
-        return "A polar bear mauled you to death.";
+        return "Белый медведь покалечил тебя до смерти.";
     }
 
     @Override
     public String ColdDeathMSG() {
-        return "You've frozen to death.";
+        return "Вы замерзли до смерти.";
     }
 
     @Override
     public String DrownDeathMSG() {
-        return "You've drowned.";
+        return "Ты утонул";
     }
 
     @Override
     public String WinMSG() {
-        return "You won!";
+        return "Ты выиграл";
     }
 
     @Override
     public String ResearchMSG() {
-        return "Research result";
+        return "Результат исследования";
     }
 
     @Override
     public String Inventory() {
-        return "Inventory";
+        return "Инвентарь";
     }
 
     @Override
     public String PlayerName() {
-        return "Name: ";
+        return "Завут: ";
     }
 
     @Override
     public String PlayerHP() {
-        return "HP: ";
+        return "Очки здоровья\n: ";
     }
 
     @Override
     public String PlayerAP() {
-        return "AP: ";
+        return "Очки действия: ";
     }
 
     @Override
     public String Round() {
-        return "Round: ";
+        return "Раунд: ";
     }
 
     @Override
     public String ActionPass() {
-        return "Skip";
+        return "Пропуск";
     }
 
     @Override
     public String ActionMove() {
-        return "Move";
+        return "Шаг";
     }
 
     @Override
     public String ActionDig() {
-        return "Dig";
+        return "Копать";
     }
 
     @Override
     public String ActionTurnLeft() {
-        return "Left";
+        return "Оставил";
     }
 
     @Override
     public String ActionTurnRight() {
-        return "Right";
+        return "Правильно";
     }
 
     @Override
     public String ActionSpecial() {
-        return "Special";
+        return "Особая";
     }
 
     @Override
     public String ActionPickup() {
-        return "Pick up";
+        return "Подобрать";
     }
 
     @Override
     public String RescueQuestion() {
-        return "Who whould you like to rescue?";
+        return "Кого вы хотите выводить?";
     }
 
     @Override
     public String MenuExit() {
-        return "Exit";
+        return "Выход";
     }
 
     @Override
     public String MenuStart() {
-        return "Start";
+        return "Старт";
     }
 
     @Override
     public String MenuPlayerCount() {
-        return "Number of players";
+        return "Количество игроков";
     }
 
     @Override
     public String MenuSelectedMap() {
-        return "Choose a map";
+        return "Выбери трек";
     }
 
     @Override
     public String MenuSchangeLang() {
-        return "Change language";
+        return "Русский";
     }
 
     @Override
     public String Players() {
-        return "players";
+        return "игроки";
     }
 }

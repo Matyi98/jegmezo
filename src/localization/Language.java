@@ -5,7 +5,7 @@ public abstract class Language {
         return sel;
     }
 
-    public enum Languages {English, Magyar}
+    public enum Languages {English, Magyar, Русский }
     private static Languages sel;
     private static Language lang;
 
@@ -17,6 +17,9 @@ public abstract class Language {
                 break;
             case Magyar:
                 Language.lang = new Magyar();
+                break;
+            case Русский:
+                Language.lang = new Russian();
                 break;
         }
     }
