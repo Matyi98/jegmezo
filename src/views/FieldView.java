@@ -42,7 +42,16 @@ public class FieldView extends ImageStackPane {
         cMain.setFill(new ImagePattern(image));
         getChildren().add(cMain);
 
-        //jobb felső kör iglunak és sátornak
+        refreshBuildings();
+        refreshItem();
+        refreshEntities();
+
+        entityLayoutContainer.getChildren().addAll(firstRow, secondRow);
+        entityLayoutContainer.setTranslateY(-20);
+        getChildren().addAll(entityLayoutContainer);
+    }
+
+    private void refreshBuildings(){
         if(data.GetStateTexturePath() != null) {
             Circle cState = new Circle(0, 0, radius * 0.30);
             cState.setFill(Color.BLACK);
@@ -64,12 +73,6 @@ public class FieldView extends ImageStackPane {
             cState.setScaleY(1.2);
             getChildren().add(cState);
         }
-        refreshItem();
-        refreshEntities();
-
-        entityLayoutContainer.getChildren().addAll(firstRow, secondRow);
-        entityLayoutContainer.setTranslateY(-20);
-        getChildren().addAll(entityLayoutContainer);
     }
 
     private void refreshItem(){

@@ -52,9 +52,9 @@ public class InfoPanelView extends StackPane implements IUpdatable {
                         )));
         //
         //Az adatok betoltese
-        loadNewDatas();
+        loadNewData();
     }
-    public void loadNewDatas()
+    public void loadNewData()
     {
         gc = GameController.GetInstance();
         actualPlayer = gc.GetActivePlayer();
@@ -262,7 +262,6 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         buttonPane.setStyle("-fx-border-color: black");
         buttonPane.setTranslateY(-40);
         getChildren().add(buttonPane);
-        //
 
         //A gombokhoz tartozo commandok beallitasa
         String[] commands = {"p turn a", "p turn d", "p move", "p special", "p skip", "p pickup", "p dig"};
@@ -411,12 +410,12 @@ public class InfoPanelView extends StackPane implements IUpdatable {
 
         }
         buttonPane.getChildren().add(playerPane);
-
-
     }
-       @Override
-        public void Update() {
-            loadNewDatas();
+
+    @Override
+    public void Update() {
+            loadNewData();
         }
-    }
+
+}
 
