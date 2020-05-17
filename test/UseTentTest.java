@@ -80,7 +80,7 @@ public class UseTentTest {
         assertEquals("A skip",scanner.nextLine());
         assertEquals("End of round",scanner.nextLine());
         assertEquals("A's turn",scanner.nextLine());
-        assertEquals("S020E; S0200; ",scanner.nextLine());
+        assertEquals("S000E; S0200; ",scanner.nextLine());
         assertEquals("HP: 5",scanner.nextLine());
         assertEquals("AP: 4",scanner.nextLine());
     }

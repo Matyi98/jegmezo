@@ -108,8 +108,8 @@ public class GameController {
             if (currentPlayer >= players.size()) {
                 currentPlayer = 0;
                 GameController.OutStream.println("End of round");
-                board.stepEntities();
                 board.letItSnow();
+                board.stepEntities();
                 roundCounter++;
             }
 

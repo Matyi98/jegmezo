@@ -48,7 +48,7 @@ public class Map0Tests {
 
     @Test
     public void AltalanosFunkciok() throws UnsupportedEncodingException {
-        addCommand("p turn d");
+        addCommand("p turn a");
         addCommand("p move");
         addCommand("s map");
         addCommand("p move");
@@ -61,11 +61,11 @@ public class Map0Tests {
         System.out.println(baos.toString());
 
         assertEquals("B's turn",scanner.nextLine());
-        assertEquals("B successful turn: 5",scanner.nextLine());
-        assertEquals("B successful move: 5",scanner.nextLine());
-        assertEquals("U20p0; S000M; H0000; H0000; S00cE; U3000; H0000; S00e0; S00s0; H0000; H0000; U200K; S000K; ",scanner.nextLine());
-        assertEquals("B successful move: 2",scanner.nextLine());
-        assertEquals("U20p0; S000ME; H0000; H0000; S00c0; U3000; H0000; S00e0; S00s0; H0000; H0000; U200K; S000K; ",scanner.nextLine());
+        assertEquals("B successful turn: 13",scanner.nextLine());
+        assertEquals("B successful move: 13",scanner.nextLine());
+        assertEquals("U20p0; S000M; H0000; H0000; S00c0; U3000; H0000; S00e0; S00s0; H0000; H0000; U200K; S000KE; ",scanner.nextLine());
+        assertEquals("B successful move: 6",scanner.nextLine());
+        assertEquals("U20p0; S000M; H0000; H0000; S00c0; U300E; H0000; S00e0; S00s0; H0000; H0000; U200K; S000K; ",scanner.nextLine());
         assertEquals("HP: 5",scanner.nextLine());
         assertEquals("AP: 2",scanner.nextLine());
     }
@@ -103,11 +103,15 @@ public class Map0Tests {
         assertEquals("C skip",scanner.nextLine());
         assertEquals("D's turn",scanner.nextLine());
         assertEquals("D successful turn: 12",scanner.nextLine());
+        assertEquals("C fell into hole",scanner.nextLine());
+        assertEquals("B fell into hole",scanner.nextLine());
         assertEquals("D fell into hole",scanner.nextLine());
         assertEquals("D successful move: 12",scanner.nextLine());
         assertEquals("End of round",scanner.nextLine());
-        assertEquals("A successful move: 1",scanner.nextLine());
+        assertEquals("A successful move: 5",scanner.nextLine());
         assertEquals("B's turn",scanner.nextLine());
+        assertEquals("B drowned",scanner.nextLine());
+        assertEquals("Game Over",scanner.nextLine());
     }
 
     @Test
@@ -157,7 +161,7 @@ public class Map0Tests {
         assertEquals("D skip", scanner.nextLine());
         assertEquals("End of round", scanner.nextLine());
         // snow storm + bear dialog
-        assertEquals("A successful move: 1", scanner.nextLine());
+        assertEquals("A successful move: 5", scanner.nextLine());
         assertEquals("B's turn",scanner.nextLine());
         assertEquals("B skip", scanner.nextLine());
         assertEquals("C's turn",scanner.nextLine());
