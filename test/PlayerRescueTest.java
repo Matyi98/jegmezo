@@ -82,7 +82,7 @@ public class PlayerRescueTest {
         assertEquals("A's turn", scanner.nextLine());
         // Rope Dialog
         assertEquals("B rescued", scanner.nextLine());
-        assertEquals("S000KK; H0000; ", scanner.nextLine());
+        assertEquals("S020KK; H0200; ", scanner.nextLine());
 
     }
 }
