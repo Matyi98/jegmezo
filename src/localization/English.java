@@ -42,6 +42,11 @@ public class English extends Language {
     }
 
     @Override
+    public String Round() {
+        return "Round: ";
+    }
+
+    @Override
     public String ActionPass() {
         return "Skip";
     }

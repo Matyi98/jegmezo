@@ -33,6 +33,7 @@ public abstract class Language {
     public abstract String PlayerName();
     public abstract String PlayerHP();
     public abstract String PlayerAP();
+    public abstract String Round();
 
     public abstract String ActionPass();
     public abstract String ActionMove();

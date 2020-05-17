@@ -16,6 +16,7 @@ import game.GameController;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.util.Builder;
+import localization.Language;
 import main.Main;
 
 import java.io.IOException;
@@ -89,7 +90,7 @@ public class InfoPanelView extends StackPane implements IView {
         inventoryPane.setTranslateY(215);
         getChildren().add(inventoryPane);
         Label invenotryLabel = new Label();
-        invenotryLabel.setText("Inventory");
+        invenotryLabel.setText(Language.Instance().Inventory());
         invenotryLabel.setAlignment(Pos.TOP_CENTER);
         invenotryLabel.setFont(new Font("Arial", 30));
         invenotryLabel.setMaxSize(350, 50);
@@ -180,7 +181,7 @@ public class InfoPanelView extends StackPane implements IView {
         //Jatekosnev letrehozasa labelkent
         //lekerdezese az actualPlayerbol
         Label nameLabel = new Label();
-        nameLabel.setText("Name: "+actualPlayer.getName());
+        nameLabel.setText(Language.Instance().PlayerName()+actualPlayer.getName());
         nameLabel.setAlignment(Pos.TOP_LEFT);
         nameLabel.setFont(new Font("Arial", 20));
         nameLabel.setMaxSize(350, 25);
@@ -192,7 +193,7 @@ public class InfoPanelView extends StackPane implements IView {
         //Player akciopont letrehozas labelkent
         //lekerdezese az actualPlayerbol
         Label actionPoints = new Label();
-        actionPoints.setText("Action Points: "+actualPlayer.getActionPoints());
+        actionPoints.setText(Language.Instance().PlayerAP()+actualPlayer.getActionPoints());
         actionPoints.setAlignment(Pos.TOP_LEFT);
         actionPoints.setFont(new Font("Arial", 20));
         actionPoints.setMaxSize(350, 25);
@@ -205,7 +206,7 @@ public class InfoPanelView extends StackPane implements IView {
         //Player eleteropontjanak letrehozas labelkent
         //lekerdezzes az actualPlayertol
         Label lifePointsLabel = new Label();
-        lifePointsLabel.setText("Health points: "+actualPlayer.getHealthPoints());
+        lifePointsLabel.setText(Language.Instance().PlayerHP()+actualPlayer.getHealthPoints());
         lifePointsLabel.setAlignment(Pos.TOP_LEFT);
         lifePointsLabel.setFont(new Font("Arial", 20));
         lifePointsLabel.setMaxSize(350, 25);
@@ -218,7 +219,7 @@ public class InfoPanelView extends StackPane implements IView {
         //lekerdezzes a gc-tol
         //Az aktualis kor szamat
         Label roundNumberLabel = new Label();
-        roundNumberLabel.setText("Round: "+gc.roundCounter);
+        roundNumberLabel.setText(Language.Instance().Round()+gc.roundCounter);
         roundNumberLabel.setAlignment(Pos.TOP_LEFT);
         roundNumberLabel.setFont(new Font("Arial", 20));
         roundNumberLabel.setMaxSize(350, 25);
@@ -230,7 +231,7 @@ public class InfoPanelView extends StackPane implements IView {
 
         //visszalepes a menube button beallitasa
         //meret, elhelyezkedes, command, szin
-        Button b = new Button("exit");
+        Button b = new Button(Language.Instance().MenuExit());
         b.setFont(Font.font("Arial", FontWeight.BOLD, 15));
         b.setStyle(
                 "-fx-background-color: #4B4BC8; "+
@@ -267,7 +268,15 @@ public class InfoPanelView extends StackPane implements IView {
 
         //A gombokhoz tartozo commandok beallitasa
         String[] commands = {"p turn a", "p turn d", "p move", "p special", "p skip", "p pickup", "p dig"};
-        String[] buttonNames ={"turn ->", "turn <-", "go", "+power", "pass", "pickup", "dig"};
+        String[] buttonNames ={
+                Language.Instance().ActionTurnLeft(),
+                Language.Instance().ActionTurnRight(),
+                Language.Instance().ActionMove(),
+                Language.Instance().ActionSpecial(),
+                Language.Instance().ActionPass(),
+                Language.Instance().ActionPickup(),
+                Language.Instance().ActionDig()
+        };
 
         //jobbra fordulas gomb beallitasa
         //meret, elhelyezkedes, command, szin
