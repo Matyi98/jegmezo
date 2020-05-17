@@ -10,7 +10,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
-import javax.swing.*;
 import java.util.ArrayList;
 
 public class FieldView extends ViewBase {
