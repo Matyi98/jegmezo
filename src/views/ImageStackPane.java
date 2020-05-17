@@ -3,6 +3,9 @@ package views;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.scene.image.ImageView;
+
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -23,7 +26,8 @@ public abstract class ImageStackPane extends StackPane {
      */
     public ImageStackPane(String imagePath) {
         image = null;
-        try(InputStream is = Files.newInputStream(Paths.get(imagePath))){
+        File file = new File(getClass().getClassLoader().getResource(imagePath).getFile());
+        try(InputStream is = new FileInputStream(file)){
             image = new Image(is);
         } catch (IOException e) {
             e.printStackTrace();

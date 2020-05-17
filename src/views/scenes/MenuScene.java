@@ -218,7 +218,7 @@ public class MenuScene extends Scene {
     private File getMapFile() {
         int i = cbMapSelect.getSelectionModel().getSelectedIndex();
         String mapPath = mapOptions.get(i).modelPath;
-        return new File(Objects.requireNonNull(getClass().getClassLoader().getResource(mapPath)).getFile());
+        return new File(Objects.requireNonNull(getClass().getClassLoader().getResource("maps_release/"+mapPath)).getFile());
     }
 
     /**
@@ -228,7 +228,7 @@ public class MenuScene extends Scene {
     private File getMapLayoutFile() {
         int i = cbMapSelect.getSelectionModel().getSelectedIndex();
         String mapPath = mapOptions.get(i).layoutPath;
-        return new File(Objects.requireNonNull(getClass().getClassLoader().getResource(mapPath)).getFile());
+        return new File(Objects.requireNonNull(getClass().getClassLoader().getResource("maps_release/"+mapPath)).getFile());
     }
 
     /**

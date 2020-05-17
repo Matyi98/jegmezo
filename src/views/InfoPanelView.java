@@ -18,6 +18,8 @@ import javafx.scene.text.FontWeight;
 import localization.Language;
 import main.Main;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -423,7 +425,9 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         playerPane.setTranslateX(5);
         playerPane.setTranslateY(10);
         Image image = null;
-        try(InputStream is = Files.newInputStream(Paths.get(actualPlayer.GetTexturePath()))){
+
+        File file = new File(getClass().getClassLoader().getResource(actualPlayer.GetTexturePath()).getFile());
+        try(InputStream is = new FileInputStream(file)){
             image = new Image(is);
         } catch (IOException e) {
             e.printStackTrace();
