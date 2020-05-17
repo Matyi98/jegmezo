@@ -6,7 +6,7 @@ import views.BoardView;
 import views.IUpdatable;
 import views.InfoPanelView;
 
-import java.io.File;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class GameScene extends Scene {
@@ -27,7 +27,7 @@ public class GameScene extends Scene {
      * Konstrukto, létrehozza Játékjelenetet.
      * @param layoutFile A pálya kinézetét leíró nyelv.
      */
-    public GameScene(File layoutFile) {
+    public GameScene(InputStream layoutFile) {
         super(new StackPane(), WIDTH, HEIGHT);
         BoardView boardView = new BoardView(GameController.GetInstance().GetBoard(), layoutFile);
         InfoPanelView infoPanelView = new InfoPanelView();

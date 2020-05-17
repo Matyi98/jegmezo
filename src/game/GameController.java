@@ -32,12 +32,12 @@ public class GameController {
      * @param mapPath Pályát leíró fájl elérési útja.
      * @param numberOfPlayers Játékosok száma.
      */
-    public static void Initialise(File mapPath, int numberOfPlayers) {
+    public static void Initialise(InputStream mapPath, int numberOfPlayers) {
         try {
-            SceneReader sceneReader = new SceneReader(new FileInputStream(mapPath));
+            SceneReader sceneReader = new SceneReader(mapPath);
             sceneReader.LimitPlayerCount(numberOfPlayers);
             instance = sceneReader.LoadScene();
-        } catch (FileNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

@@ -14,8 +14,6 @@ import javafx.scene.shape.Circle;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 
 /**
@@ -108,7 +106,7 @@ public class FieldView extends ImageStackPane {
             String imagePath = data.GetStateTexturePath();
 
             Image stateImage = null;
-            try(InputStream is = Files.newInputStream(Paths.get(imagePath))){
+            try(InputStream is = getClass().getClassLoader().getResourceAsStream(imagePath)){
                 stateImage = new Image(is);
             } catch (IOException e) {
                 e.printStackTrace();

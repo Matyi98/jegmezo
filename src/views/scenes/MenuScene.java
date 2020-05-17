@@ -13,8 +13,7 @@ import localization.Language;
 import main.Main;
 import views.scenes.mainWindow.GameScene;
 
-import java.io.File;
-import java.util.Objects;
+import java.io.InputStream;
 
 /**
  * Egy pályát reprezentáló osztály
@@ -215,20 +214,20 @@ public class MenuScene extends Scene {
      * Megadja a kiválasztott pálya fájlát
      * @return A kiválaszott fájl
      */
-    private File getMapFile() {
+    private InputStream getMapFile() {
         int i = cbMapSelect.getSelectionModel().getSelectedIndex();
-        String mapPath = mapOptions.get(i).modelPath;
-        return new File(Objects.requireNonNull(getClass().getClassLoader().getResource("maps_release/"+mapPath)).getFile());
+        String mapPath = "mapS_release/"+mapOptions.get(i).modelPath;
+        return getClass().getClassLoader().getResourceAsStream(mapPath);
     }
 
     /**
      * Megadja a kiválasztott pálya layout fájlát
      * @return A kiválaszott layout fájl
      */
-    private File getMapLayoutFile() {
+    private InputStream getMapLayoutFile() {
         int i = cbMapSelect.getSelectionModel().getSelectedIndex();
-        String mapPath = mapOptions.get(i).layoutPath;
-        return new File(Objects.requireNonNull(getClass().getClassLoader().getResource("maps_release/"+mapPath)).getFile());
+        String mapPath = "mapS_release/"+mapOptions.get(i).layoutPath;
+        return getClass().getClassLoader().getResourceAsStream(mapPath);
     }
 
     /**

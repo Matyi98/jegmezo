@@ -9,9 +9,8 @@ import game.Board;
 import javafx.scene.shape.Line;
 import reader.LayoutReader;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
@@ -31,7 +30,7 @@ public class BoardView extends Pane implements IUpdatable {
      * @param b A játéktbála aminek az adatait jeleníti meg.
      * @param mapLayout A pályakinézetet leíró fájl.
      */
-    public BoardView(Board b, File mapLayout) {
+    public BoardView(Board b, InputStream mapLayout) {
         this.data = b;
 
         fieldCoords = readFieldLayouts(mapLayout);
@@ -43,11 +42,10 @@ public class BoardView extends Pane implements IUpdatable {
      * @param file elérési út.
      * @return Egyes fieldek koordinátái a rajzfelületen.
      */
-    private ArrayList<Point2D> readFieldLayouts(File file){
+    private ArrayList<Point2D> readFieldLayouts(InputStream file){
         LayoutReader layoutReader;
         try {
-            FileInputStream fis = new FileInputStream(file);
-            layoutReader = new LayoutReader(fis);
+            layoutReader = new LayoutReader(file);
             return layoutReader.readCoords();
 
         } catch(IOException e) {

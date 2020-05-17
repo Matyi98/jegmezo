@@ -26,8 +26,7 @@ public abstract class ImageStackPane extends StackPane {
      */
     public ImageStackPane(String imagePath) {
         image = null;
-        File file = new File(getClass().getClassLoader().getResource(imagePath).getFile());
-        try(InputStream is = new FileInputStream(file)){
+        try(InputStream is = getClass().getClassLoader().getResourceAsStream(imagePath)){
             image = new Image(is);
         } catch (IOException e) {
             e.printStackTrace();

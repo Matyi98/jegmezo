@@ -18,12 +18,9 @@ import javafx.scene.text.FontWeight;
 import localization.Language;
 import main.Main;
 
-import java.io.File;
-import java.io.FileInputStream;
+
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 
 /**
@@ -136,31 +133,30 @@ public class InfoPanelView extends StackPane implements IUpdatable {
                 //kek hatterszint allitunk be
                 if (actualInventory.size() >= i * 3 + (j + 1)) {
                     Image image = null;
-                    try(InputStream is = Files.newInputStream(Paths.get(actualInventory.get(i * 3 + j).GetTexturePath()))){
+                    InputStream fis = getClass().getClassLoader().
+                            getResourceAsStream(actualInventory.get(i * 3 + j).GetTexturePath());
+                    try(InputStream is = fis){
                         image = new Image(is);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    if(image != null)
-                    {
-                        ImageView pic = new ImageView();
-                        pic.setFitHeight(80);
-                        pic.setFitWidth(80);
-                        pic.setPreserveRatio(true);
-                        pic.setImage(image);
-                        pic.setX(0);
-                        pic.setY(0);
-                        slotPane.getChildren().add(pic);
-                        int finI, finJ;
-                        finI = i;
-                        finJ = j;
-                        slotPane.addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
-                        @Override
-                        public void handle(MouseEvent mouseEvent) {
-                             GameController.GetInstance().Execute("p use "+finI * 3 + finJ);
-                        }
-                    });
+                    ImageView pic = new ImageView();
+                    pic.setFitHeight(80);
+                    pic.setFitWidth(80);
+                    pic.setPreserveRatio(true);
+                    pic.setImage(image);
+                    pic.setX(0);
+                    pic.setY(0);
+                    slotPane.getChildren().add(pic);
+                    int finI, finJ;
+                    finI = i;
+                    finJ = j;
+                    slotPane.addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                         GameController.GetInstance().Execute("p use "+finI * 3 + finJ);
                     }
+                });
                 } else {
                     slotPane.setBackground(
                             new Background(
@@ -426,8 +422,7 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         playerPane.setTranslateY(10);
         Image image = null;
 
-        File file = new File(getClass().getClassLoader().getResource(actualPlayer.GetTexturePath()).getFile());
-        try(InputStream is = new FileInputStream(file)){
+        try(InputStream is = getClass().getClassLoader().getResourceAsStream(actualPlayer.GetTexturePath())){
             image = new Image(is);
         } catch (IOException e) {
             e.printStackTrace();
