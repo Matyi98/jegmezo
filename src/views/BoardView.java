@@ -25,37 +25,31 @@ public class BoardView extends Pane implements IUpdatable {
     public BoardView(Board b, File file) {
         this.data = b;
 
-        readFieldLayouts(file);
+        fieldCoords = readFieldLayouts(file);
         initialise();
 
-   }
+    }
 
-    private void readFieldLayouts(File file){
+    private ArrayList<Point2D> readFieldLayouts(File file){
         LayoutReader layoutReader;
         try {
             FileInputStream fis = new FileInputStream(file);
             layoutReader = new LayoutReader(fis);
-            fieldCoords = layoutReader.readCoords();
+            return layoutReader.readCoords();
 
         } catch(IOException e) {
             e.printStackTrace();
+            return null;
         }
     }
 
    private void initialise() {
-        this.setBackground(
-               new Background(
-                       new BackgroundFill(
-                               Color.rgb(240, 240, 240),
-                               CornerRadii.EMPTY,
-                               Insets.EMPTY
-                       )));
-        initPassages();
-
-        initFieldViews();
+       setStyle("-fx-background-color: rgb(240, 240, 240)");
+       initPassages();
+       initFieldViews();
    }
 
-   public void initPassages(){
+   private void initPassages(){
        for(int i = 0; i < fieldCoords.size(); i++) {
            Field field = data.getField(i);
            Point2D fieldCoord = fieldCoords.get(i);
@@ -74,7 +68,7 @@ public class BoardView extends Pane implements IUpdatable {
        }
    }
 
-   public void initFieldViews(){
+   private void initFieldViews(){
        for(int i = 0; i < fieldCoords.size(); i++){
            Field field = data.getField(i);
            Point2D fieldCoord = fieldCoords.get(i);
@@ -92,25 +86,25 @@ public class BoardView extends Pane implements IUpdatable {
        showSelectedField();
    }
 
-    private void refreshFieldViews(){
-        for(FieldView view : fieldViews){
-            getChildren().remove(view);
-        }
+   private void showSelectedField(){
+       Player activePlayer = GameController.GetInstance().GetActivePlayer();
+       int UIDofSelected = activePlayer.getFieldUnder().getNeighbourByDirection(activePlayer.getActualDirection()).GetUID();
+       fieldViews.get(UIDofSelected).showSelect();
 
-        fieldViews.clear();
+   }
 
-        initFieldViews();
-    }
-
-    private void showSelectedField(){
-        Player activePlayer = GameController.GetInstance().GetActivePlayer();
-        int UIDofSelected = activePlayer.getFieldUnder().getNeighbourByDirection(activePlayer.getActualDirection()).GetUID();
-        fieldViews.get(UIDofSelected).showSelect();
-
-    }
-
-    @Override
-    public void Update() {
+   @Override
+   public void Update() {
         refreshFieldViews();
     }
+
+   private void refreshFieldViews(){
+       for(FieldView view : fieldViews){
+           getChildren().remove(view);
+       }
+
+       fieldViews.clear();
+
+       initFieldViews();
+   }
 }
