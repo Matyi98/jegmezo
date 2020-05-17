@@ -21,13 +21,17 @@ public class ArcticExplorer extends Player {
         healthPoints = maxHealthPoints;
     }
 
+    /**
+     * Az entitás hosszú neve nyelvi csomagnak megfelelően.
+     * @return hosszú név.
+     */
     @Override
     public String getFancyName() {
         return Language.Selected().ExplorerName(ID);
     }
 
     /**
-     * Megjelenítéshez szükséges
+     * Folyamra írja a típusazonosítóját.
      */
     @Override
     public void ShowShort() {

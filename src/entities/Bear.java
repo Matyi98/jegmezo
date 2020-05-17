@@ -29,13 +29,17 @@ public class Bear extends Entity {
     }
 
     /**
-     * Megjelenítéshez szükséges.
+     * Folyamra írja a típusazonosítóját.
      */
     @Override
     public void ShowShort() {
         GameController.OutStream.print("M");
     }
 
+    /**
+     * Az entitás hosszú neve nyelvi csomagnak megfelelően.
+     * @return hosszú név.
+     */
     @Override
     public String getFancyName() {
         return "Maci";

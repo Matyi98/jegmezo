@@ -9,6 +9,9 @@ import localization.Language;
 public class Eskimo extends Player {
     private final int ID;
 
+    /**
+     * Konstruktor.
+     */
     public Eskimo() {
         super();
         ID = autoIncrementID++;
@@ -16,11 +19,18 @@ public class Eskimo extends Player {
         healthPoints = maxHealthPoints;
     }
 
+    /**
+     * Az entitás hosszú neve nyelvi csomagnak megfelelően.
+     * @return hosszú név.
+     */
     @Override
     public String getFancyName() {
         return Language.Selected().EskimoName(ID);
     }
 
+    /**
+     * Folyamra írja a típusazonosítóját.
+     */
     @Override
     public void ShowShort() {
         GameController.OutStream.print("E");

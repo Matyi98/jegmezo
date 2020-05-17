@@ -46,7 +46,7 @@ public abstract class Entity implements ITextured {
         autoIncrementID = 0;
     }
     /**
-     * Megjelenítésért felelős függvény.
+     * Folyamra írja a típusazonosítóját.
      */
     public abstract void ShowShort() ;
 
@@ -84,6 +84,10 @@ public abstract class Entity implements ITextured {
         return name;
     }
 
+    /**
+     * Az entitás hosszú neve nyelvi csomagnak megfelelően.
+     * @return hosszú név.
+     */
     public abstract String getFancyName();
 
     /**
@@ -93,7 +97,6 @@ public abstract class Entity implements ITextured {
     public boolean isInHole()
     {
         return fieldUnder.checkStability() == "Hole";
-
     }
 
     /**
