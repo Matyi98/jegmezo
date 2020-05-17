@@ -25,7 +25,7 @@ public class DrowningState extends PlayerState{
     @Override
     public void makeDrown(){
         GameController.OutStream.println(player.getName() +" drowned");
-        player.die();
+        player.die("Vízbefulltál.");
     }
 
     /**

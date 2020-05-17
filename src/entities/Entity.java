@@ -114,7 +114,7 @@ public abstract class Entity implements ITextured {
     /**
      * Entitás megölése
      */
-    public void die(){
+    public void die(String deathMsg){
 
     }
 
