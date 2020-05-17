@@ -179,7 +179,7 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         //Jatekosnev letrehozasa labelkent
         //lekerdezese az actualPlayerbol
         Label nameLabel = new Label();
-        nameLabel.setText(Language.Instance().PlayerName()+actualPlayer.getName());
+        nameLabel.setText(Language.Instance().PlayerName()+actualPlayer.getFancyName());
         nameLabel.setAlignment(Pos.TOP_LEFT);
         nameLabel.setFont(new Font("Arial", 20));
         nameLabel.setMaxSize(350, 25);
