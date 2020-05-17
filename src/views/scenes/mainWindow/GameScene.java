@@ -17,7 +17,7 @@ public class GameScene extends Scene {
 
     private Pane root = new Pane();
     private static BoardView boardView;
-    private static InfoPanelView infoPanelView = new InfoPanelView();
+    private static InfoPanelView infoPanelView;
 
     private void initialize() {
         root.setBackground(
@@ -45,6 +45,7 @@ public class GameScene extends Scene {
     public GameScene(File file) {
         super(new StackPane(), WIDTH, HEIGHT);
         boardView = new BoardView(GameController.GetInstance().GetBoard(), file);
+        infoPanelView = new InfoPanelView();
         initialize();
         setRoot(root);
     }

@@ -55,7 +55,7 @@ public class InfoPanelView extends StackPane implements IView {
         //
         //Az adatok betoltese
         loadNewDatas();
-            }
+    }
     public void loadNewDatas()
     {
         gc = GameController.GetInstance();
