@@ -113,7 +113,7 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         inventoryPane.setTranslateY(215);
         getChildren().add(inventoryPane);
         Label invenotryLabel = new Label();
-        invenotryLabel.setText(Language.Instance().Inventory());
+        invenotryLabel.setText(Language.Selected().Inventory());
         invenotryLabel.setAlignment(Pos.TOP_CENTER);
         invenotryLabel.setFont(new Font("Arial", 30));
         invenotryLabel.setMaxSize(350, 50);
@@ -204,7 +204,7 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         //Jatekosnev letrehozasa labelkent
         //lekerdezese az actualPlayerbol
         Label nameLabel = new Label();
-        nameLabel.setText(Language.Instance().PlayerName()+actualPlayer.getFancyName());
+        nameLabel.setText(Language.Selected().PlayerName()+actualPlayer.getFancyName());
         nameLabel.setAlignment(Pos.TOP_LEFT);
         nameLabel.setFont(new Font("Arial", 20));
         nameLabel.setMaxSize(350, 25);
@@ -216,7 +216,7 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         //Player akciopont letrehozas labelkent
         //lekerdezese az actualPlayerbol
         Label actionPoints = new Label();
-        actionPoints.setText(Language.Instance().PlayerAP()+actualPlayer.getActionPoints());
+        actionPoints.setText(Language.Selected().PlayerAP()+actualPlayer.getActionPoints());
         actionPoints.setAlignment(Pos.TOP_LEFT);
         actionPoints.setFont(new Font("Arial", 20));
         actionPoints.setMaxSize(350, 25);
@@ -229,7 +229,7 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         //Player eleteropontjanak letrehozas labelkent
         //lekerdezzes az actualPlayertol
         Label lifePointsLabel = new Label();
-        lifePointsLabel.setText(Language.Instance().PlayerHP()+actualPlayer.getHealthPoints());
+        lifePointsLabel.setText(Language.Selected().PlayerHP()+actualPlayer.getHealthPoints());
         lifePointsLabel.setAlignment(Pos.TOP_LEFT);
         lifePointsLabel.setFont(new Font("Arial", 20));
         lifePointsLabel.setMaxSize(350, 25);
@@ -242,7 +242,7 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         //lekerdezzes a gc-tol
         //Az aktualis kor szamat
         Label roundNumberLabel = new Label();
-        roundNumberLabel.setText(Language.Instance().Round()+gc.roundCounter);
+        roundNumberLabel.setText(Language.Selected().Round()+gc.roundCounter);
         roundNumberLabel.setAlignment(Pos.TOP_LEFT);
         roundNumberLabel.setFont(new Font("Arial", 20));
         roundNumberLabel.setMaxSize(350, 25);
@@ -254,7 +254,7 @@ public class InfoPanelView extends StackPane implements IUpdatable {
 
         //visszalepes a menube button beallitasa
         //meret, elhelyezkedes, command, szin
-        Button b = new Button(Language.Instance().MenuExit());
+        Button b = new Button(Language.Selected().MenuExit());
         b.setFont(Font.font("Arial", FontWeight.BOLD, 15));
         b.setStyle(
                 "-fx-background-color: #9494F6; "+
@@ -295,13 +295,13 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         //A gombokhoz tartozo commandok beallitasa
         String[] commands = {"p turn a", "p turn d", "p move", "p special", "p skip", "p pickup", "p dig"};
         String[] buttonNames ={
-                Language.Instance().ActionTurnLeft(),
-                Language.Instance().ActionTurnRight(),
-                Language.Instance().ActionMove(),
-                Language.Instance().ActionSpecial(),
-                Language.Instance().ActionPass(),
-                Language.Instance().ActionPickup(),
-                Language.Instance().ActionDig()
+                Language.Selected().ActionTurnLeft(),
+                Language.Selected().ActionTurnRight(),
+                Language.Selected().ActionMove(),
+                Language.Selected().ActionSpecial(),
+                Language.Selected().ActionPass(),
+                Language.Selected().ActionPickup(),
+                Language.Selected().ActionDig()
         };
 
         //jobbra fordulas gomb beallitasa

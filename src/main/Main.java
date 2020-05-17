@@ -15,6 +15,10 @@ import java.util.Scanner;
  * Teszt esetek indítása után beolvassa a megfelelő pályát.
  */
 public class Main extends Application {
+    /**
+     * A fő konténer az alkalmazáshoz
+     */
+    static private Stage stage;
 
     /**
      * A program belépési pontja. Beolvassa a pályát,
@@ -22,7 +26,7 @@ public class Main extends Application {
      * @param args A játék elindítása során megadott paraméterek.
      */
     public static void main(String[] args) {
-        Language.Initialise(Language.Languages.Magyar);
+        Language.Select(Language.Languages.Magyar);
         Dialog.AllowGUI = true;
         launch(args);
     }
@@ -49,14 +53,20 @@ public class Main extends Application {
 
     }
 
-    static private Stage stage;
+    /**
+     * Visszalépés a menübe.
+     */
     public static void ExitToMenu() {
         stage.setTitle("Jégmező by: The Council");
         stage.setScene(new MenuScene());
     }
 
+    /**
+     * A JavaFX alkalmazások belépési pontja.
+     * @param stage a fő ablak
+     */
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         stage.setResizable(false);
         Main.stage = stage;
         ExitToMenu();

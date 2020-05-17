@@ -29,13 +29,17 @@ public class Bear extends Entity {
     }
 
     /**
-     * Megjelenítéshez szükséges.
+     * Folyamra írja a típusazonosítóját.
      */
     @Override
     public void ShowShort() {
         GameController.OutStream.print("M");
     }
 
+    /**
+     * Az entitás hosszú neve nyelvi csomagnak megfelelően.
+     * @return hosszú név.
+     */
     @Override
     public String getFancyName() {
         return "Maci";
@@ -47,7 +51,7 @@ public class Bear extends Entity {
      */
     @Override
     public void collideWith(Entity otherEntity) {
-        otherEntity.die(Language.Instance().BearDeathMSG());
+        otherEntity.die(Language.Selected().BearDeathMSG());
     }
 
     /**
@@ -55,7 +59,7 @@ public class Bear extends Entity {
      * @param player Azon Player, aki rálép arra a mezőre, amelyen ez a Bear tartózkodik.
      */
     public void meetPlayer(Entity player){
-        player.die(Language.Instance().BearDeathMSG());
+        player.die(Language.Selected().BearDeathMSG());
     }
 
     /**

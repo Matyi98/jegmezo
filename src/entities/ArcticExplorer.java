@@ -21,13 +21,17 @@ public class ArcticExplorer extends Player {
         healthPoints = maxHealthPoints;
     }
 
+    /**
+     * Az entitás hosszú neve nyelvi csomagnak megfelelően.
+     * @return hosszú név.
+     */
     @Override
     public String getFancyName() {
-        return Language.Instance().ExplorerName(ID);
+        return Language.Selected().ExplorerName(ID);
     }
 
     /**
-     * Megjelenítéshez szükséges
+     * Folyamra írja a típusazonosítóját.
      */
     @Override
     public void ShowShort() {
@@ -45,9 +49,9 @@ public class ArcticExplorer extends Player {
             GameController.OutStream.println("Stability of neighbor " + actualDirection + " : " + stability);
             if (Dialog.AllowGUI) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle(Language.Instance().ResearchMSG());
+                alert.setTitle(Language.Selected().ResearchMSG());
                 alert.setHeaderText(null);
-                alert.setContentText(Language.Instance().ResearchMSG() + ": " + stability);
+                alert.setContentText(Language.Selected().ResearchMSG() + ": " + stability);
                 alert.showAndWait();
             }
             actionPoints--;

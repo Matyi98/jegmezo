@@ -265,7 +265,7 @@ public abstract class Player extends Entity {
     public void decrementHP(){
         healthPoints--;
         if(healthPoints <= 0)
-            this.die(Language.Instance().ColdDeathMSG());
+            this.die(Language.Selected().ColdDeathMSG());
     }
 
     /**

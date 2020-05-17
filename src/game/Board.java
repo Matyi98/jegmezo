@@ -81,9 +81,9 @@ public class Board implements ITextured{
     public void letItSnow() {
         if (Dialog.AllowGUI) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle(Language.Instance().BlizzardShort());
+            alert.setTitle(Language.Selected().BlizzardShort());
             alert.setHeaderText(null);
-            alert.setContentText(Language.Instance().BlizzardLong());
+            alert.setContentText(Language.Selected().BlizzardLong());
             alert.showAndWait();
         }
 
