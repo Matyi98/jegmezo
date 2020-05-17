@@ -104,6 +104,9 @@ public class MenuScene extends Scene {
                     new Map("Tanszéki minta", "tanszeki.txt", 3)
             );
 
+    /**
+     * Nyelvek listája
+     */
     private ObservableList<Language.Languages> langOptions =
             FXCollections.observableArrayList(
                     Language.Languages.Magyar,
@@ -125,7 +128,6 @@ public class MenuScene extends Scene {
         bStart.setDisable(true);
         root.setPadding(new Insets(16));
         root.setSpacing(20);
-
 
         root.getChildren().add(aMapInfoRow);
         root.getChildren().add(aNumPlayerRow);

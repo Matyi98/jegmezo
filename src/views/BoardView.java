@@ -22,12 +22,11 @@ public class BoardView extends Pane implements IUpdatable {
     private ArrayList<FieldView> fieldViews = new ArrayList<>();
     private final int fieldRadius = 50;
 
-    public BoardView(Board b, File file) {
+    public BoardView(Board b, File mapLayout) {
         this.data = b;
 
-        fieldCoords = readFieldLayouts(file);
+        fieldCoords = readFieldLayouts(mapLayout);
         initialise();
-
     }
 
     private ArrayList<Point2D> readFieldLayouts(File file){

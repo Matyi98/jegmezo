@@ -13,16 +13,26 @@ public class GameScene extends Scene {
     private static final double WIDTH = 1280;
     private static final double HEIGHT = 720;
 
+    /**
+     * Grafikus gyökér konténer.
+     */
     private Pane root = new Pane();
 
+    /**
+     * Összes nézet listája.
+     */
     private static ArrayList<IUpdatable> views = new ArrayList<>();
 
-    public GameScene(File file) {
+    /**
+     * Konstrukto, létrehozza Játékjelenetet.
+     * @param layoutFile A pálya kinézetét leíró nyelv.
+     */
+    public GameScene(File layoutFile) {
         super(new StackPane(), WIDTH, HEIGHT);
-        BoardView boardView = new BoardView(GameController.GetInstance().GetBoard(), file);
+        BoardView boardView = new BoardView(GameController.GetInstance().GetBoard(), layoutFile);
         InfoPanelView infoPanelView = new InfoPanelView();
 
-        setBackground();
+        root.setStyle("-fx-background-color: rgb(40, 40, 60)");
 
         initBoardView(boardView);
         initInfoPanelView(infoPanelView);
@@ -36,10 +46,10 @@ public class GameScene extends Scene {
         setRoot(root);
     }
 
-    private void setBackground(){
-        root.setStyle("-fx-background-color: rgb(40, 40, 60)");
-    }
-
+    /**
+     * BoardView inicializálása.
+     * @param boardView BoardView példány.
+     */
     private void initBoardView(BoardView boardView){
         boardView.setLayoutX(10);
         boardView.setLayoutY(10);
@@ -48,6 +58,10 @@ public class GameScene extends Scene {
         root.getChildren().add(boardView);
     }
 
+    /**
+     * InfoPanelView inicializálása
+     * @param infoPanelView InfoPanelView példány.
+     */
     private void initInfoPanelView(InfoPanelView infoPanelView){
         infoPanelView.setLayoutX(HEIGHT+100);
         infoPanelView.setLayoutY(10);
@@ -56,6 +70,9 @@ public class GameScene extends Scene {
         root.getChildren().add(infoPanelView);
     }
 
+    /**
+     * Minden nézet frissítése.
+     */
     public static void UpdateAllViews(){
         for(IUpdatable view: views){
             view.Update();
