@@ -15,7 +15,6 @@ import javafx.scene.paint.Color;
 import game.GameController;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.util.Builder;
 import localization.Language;
 import main.Main;
 
@@ -23,10 +22,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
-public class InfoPanelView extends StackPane implements IView {
+public class InfoPanelView extends StackPane implements IUpdatable {
     /**
      * Az infopanel inicializalasa.
      */

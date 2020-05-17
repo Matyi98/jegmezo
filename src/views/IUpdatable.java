@@ -1,5 +1,5 @@
 package views;
 
-public interface IView {
+public interface IUpdatable {
     void Update();
 }

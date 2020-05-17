@@ -8,10 +8,10 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public abstract class ViewBase extends StackPane implements IView {
+public abstract class ImageStackPane extends StackPane {
     protected Image image;
 
-    public ViewBase(String imagePath) {
+    public ImageStackPane(String imagePath) {
         image = null;
         try(InputStream is = Files.newInputStream(Paths.get(imagePath))){
             image = new Image(is);

@@ -3,7 +3,7 @@ package views;
 import items.Item;
 import javafx.scene.image.ImageView;
 
-public class ItemView extends ViewBase {
+public class ItemView extends ImageStackPane {
     private Item data;
 
     public ItemView(Item i) {
@@ -13,8 +13,4 @@ public class ItemView extends ViewBase {
         getChildren().add(imageView);
     }
 
-    @Override
-    public void Update() {
-
-    }
 }
