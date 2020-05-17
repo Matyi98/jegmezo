@@ -101,8 +101,7 @@ public class MenuScene extends Scene {
     private ObservableList<Map> mapOptions =
             FXCollections.observableArrayList(
                     new Map("Mega", "mega.txt", 6),
-                    new Map("Tanszéki minta", "map0.txt", 3),
-                    new Map("demo", "demo.txt", 2)
+                    new Map("Tanszéki minta", "tanszeki.txt", 3)
             );
 
     private ObservableList<Language.Languages> langOptions =
