@@ -1,5 +1,6 @@
 package entities;
 
+import localization.Language;
 import utility.RandomNumber;
 import game.GameController;
 
@@ -41,7 +42,7 @@ public class Bear extends Entity {
      */
     @Override
     public void collideWith(Entity otherEntity) {
-        otherEntity.die("Széttépett egy jegesmedve.");
+        otherEntity.die(Language.Instance().BearDeathMSG());
     }
 
     /**
@@ -49,7 +50,7 @@ public class Bear extends Entity {
      * @param player Azon Player, aki rálép arra a mezőre, amelyen ez a Bear tartózkodik.
      */
     public void meetPlayer(Entity player){
-        player.die("Széttépett egy jegesmedve.");
+        player.die(Language.Instance().BearDeathMSG());
     }
 
     /**

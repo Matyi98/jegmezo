@@ -28,6 +28,7 @@ public abstract class Language {
     public abstract String BearDeathMSG();
     public abstract String ColdDeathMSG();
     public abstract String DrownDeathMSG();
+    public abstract String WinMSG();
     public abstract String Inventory();
     public abstract String PlayerName();
     public abstract String PlayerHP();
@@ -47,7 +48,7 @@ public abstract class Language {
     public abstract  String MenuStart();
     public abstract  String MenuPlayerCount();
     public abstract  String MenuSelectedMap();
-    public abstract String MenuSchangeLang();
+    public abstract  String MenuSchangeLang();
 
     public abstract  String Players();
 }

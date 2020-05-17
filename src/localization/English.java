@@ -17,6 +17,11 @@ public class English extends Language {
     }
 
     @Override
+    public String WinMSG() {
+        return "You won!";
+    }
+
+    @Override
     public String Inventory() {
         return "Inventory";
     }

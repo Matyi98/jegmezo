@@ -3,7 +3,7 @@ package localization;
 public class Magyar extends Language {
     @Override
     public String BearDeathMSG() {
-        return "Széttépett egy medve.";
+        return "Széttépett egy jegesmedve.";
     }
 
     @Override
@@ -14,6 +14,11 @@ public class Magyar extends Language {
     @Override
     public String DrownDeathMSG() {
         return "Vízbefulltál.";
+    }
+
+    @Override
+    public String WinMSG() {
+        return "Sikeresen megmenekültetek!";
     }
 
     @Override

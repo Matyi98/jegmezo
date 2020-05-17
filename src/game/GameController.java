@@ -2,6 +2,7 @@ package game;
 
 import entities.*;
 import javafx.scene.control.Alert;
+import localization.Language;
 import main.Main;
 import utility.RandomNumber;
 import reader.SceneReader;
@@ -219,7 +220,7 @@ public class GameController {
     public void win(int count) {
         if (count == players.size() && questItemCount == 3) {
             OutStream.println("Victory");
-            exit("Kongratulatione, you won!");
+            exit(Language.Instance().WinMSG());
         }
         else
             OutStream.println("Win conditions not met");
@@ -231,10 +232,6 @@ public class GameController {
     public void gameOver(String deathMsg) {
         OutStream.println("Game Over");
         exit(deathMsg);
-    }
-
-    public void EXIT() {
-        exit("Exit Button pressed.");
     }
 
     private void exit(String message) {

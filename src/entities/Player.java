@@ -3,6 +3,8 @@ package entities;
 import items.*;
 import entities.behaviours.*;
 import game.GameController;
+import localization.Language;
+
 import java.util.List;
 
 /**
@@ -261,7 +263,7 @@ public abstract class Player extends Entity {
     public void decrementHP(){
         healthPoints--;
         if(healthPoints <= 0)
-            this.die("Halálra fagytál a nagy hidegben.");
+            this.die(Language.Instance().ColdDeathMSG());
     }
 
     /**

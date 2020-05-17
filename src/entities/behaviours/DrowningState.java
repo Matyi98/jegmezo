@@ -2,6 +2,7 @@ package entities.behaviours;
 
 import entities.Player;
 import game.GameController;
+import localization.Language;
 
 /**
  * A játékosokat megvalósító Player osztály,
@@ -25,7 +26,7 @@ public class DrowningState extends PlayerState{
     @Override
     public void makeDrown(){
         GameController.OutStream.println(player.getName() +" drowned");
-        player.die("Vízbefulltál.");
+        player.die(Language.Instance().DrownDeathMSG());
     }
 
     /**
