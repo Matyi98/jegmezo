@@ -14,6 +14,8 @@ import java.util.List;
  * típustól függően.
  */
 public abstract class Player extends Entity {
+
+    private final int ID;
     /**
      * A játékos jelenlegi állapota.
      */
@@ -43,6 +45,8 @@ public abstract class Player extends Entity {
      * Létrehozza az objektumot.
      */
     public Player() {
+        super();
+        ID = autoIncrementID++;
     }
 
     /**

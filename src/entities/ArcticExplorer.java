@@ -14,13 +14,14 @@ public class ArcticExplorer extends Player {
      * Default konstructor
      */
     public ArcticExplorer() {
+        super();
         maxHealthPoints = 4;
         healthPoints = maxHealthPoints;
     }
 
     @Override
     public String getFancyName() {
-        return Language.Instance().ExplorerName(name.charAt(0));
+        return Language.Instance().ExplorerName(ID);
     }
 
     /**

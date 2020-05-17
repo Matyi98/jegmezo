@@ -9,13 +9,14 @@ import localization.Language;
 public class Eskimo extends Player {
 
     public Eskimo() {
+        super();
         maxHealthPoints = 5;
         healthPoints = maxHealthPoints;
     }
 
     @Override
     public String getFancyName() {
-        return Language.Instance().EskimoName(name.charAt(0));
+        return Language.Instance().EskimoName(ID);
     }
 
     @Override

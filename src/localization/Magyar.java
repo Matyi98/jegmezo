@@ -22,13 +22,13 @@ public class Magyar extends Language {
 
 
     @Override
-    public String EskimoName(char c) {
-        return naEskimo[c-'A'];
+    public String EskimoName(int c) {
+        return naEskimo[c];
     }
 
     @Override
-    public String ExplorerName(char c) {
-        return naExplorer[c-'A'];
+    public String ExplorerName(int c) {
+        return naExplorer[c];
     }
 
     @Override

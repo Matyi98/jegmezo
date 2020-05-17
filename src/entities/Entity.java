@@ -31,6 +31,8 @@ public abstract class Entity implements ITextured {
      */
     protected static char autoIncrement = 'A';
 
+    protected static int autoIncrementID = 0;
+
     /**
      * Entitás neve.
      */
@@ -41,6 +43,7 @@ public abstract class Entity implements ITextured {
      */
     public static void resetAutoIncrement(){
         autoIncrement = 'A';
+        autoIncrementID = 0;
     }
     /**
      * Megjelenítésért felelős függvény.

@@ -25,8 +25,8 @@ public abstract class Language {
         return lang;
     }
 
-    public abstract String EskimoName(char c);
-    public abstract String ExplorerName(char c);
+    public abstract String EskimoName(int c);
+    public abstract String ExplorerName(int c);
 
     public abstract String BearDeathMSG();
     public abstract String ColdDeathMSG();
