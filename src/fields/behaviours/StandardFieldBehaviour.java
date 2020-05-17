@@ -90,4 +90,9 @@ public class StandardFieldBehaviour extends FieldBehaviour {
     public void ShowShort() {
 
     }
+
+    @Override
+    public String GetStateTexturePath() {
+        return null;
+    }
 }

@@ -85,4 +85,9 @@ public class FieldBehaviourWithIgloo extends FieldBehaviour {
     public void ShowShort() {
         GameController.OutStream.print("i");
     }
+
+    @Override
+    public String GetStateTexturePath() {
+        return "textures/item_textures/igloo_icon.png";
+    }
 }

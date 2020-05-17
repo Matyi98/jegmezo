@@ -339,4 +339,7 @@ public abstract class Field implements ITextured {
      */
     public abstract void removeItem();
 
+    public String GetStateTexturePath(){
+        return behaviour.GetStateTexturePath();
+    }
 }

@@ -62,4 +62,6 @@ public abstract class FieldBehaviour {
      * Kiírja az állapotot röviden.
      */
     public abstract void ShowShort();
+
+    public abstract String GetStateTexturePath();
 }

@@ -83,4 +83,9 @@ public class FieldBehaviourWithTent extends FieldBehaviour{
     public void ShowShort() {
         GameController.OutStream.print("t");
     }
+
+    @Override
+    public String GetStateTexturePath() {
+        return "textures/item_textures/tent.png";
+    }
 }
