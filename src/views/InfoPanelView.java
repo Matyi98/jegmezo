@@ -117,8 +117,8 @@ public class InfoPanelView extends StackPane implements IUpdatable {
                     if(image != null)
                     {
                         ImageView pic = new ImageView();
-                        pic.setFitHeight(50);
-                        pic.setFitWidth(50);
+                        pic.setFitHeight(80);
+                        pic.setFitWidth(80);
                         pic.setPreserveRatio(true);
                         pic.setImage(image);
                         pic.setX(0);
@@ -138,7 +138,7 @@ public class InfoPanelView extends StackPane implements IUpdatable {
                     slotPane.setBackground(
                             new Background(
                                     new BackgroundFill(
-                                            Color.rgb(75, 75, 200),
+                                            Color.rgb(148, 148, 246),
                                             CornerRadii.EMPTY,
                                             Insets.EMPTY
                                     )));
@@ -147,7 +147,7 @@ public class InfoPanelView extends StackPane implements IUpdatable {
                 //A panelt a helyere toljuk
                     slotPane.setTranslateY(i * 100 + 55);
                     slotPane.setTranslateX(j * 100 + 35);
-                    
+
                 //hozzaadjuk a szulo panelhez
                     inventoryPane.getChildren().add(slotPane);
                 }
@@ -232,14 +232,14 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         Button b = new Button(Language.Instance().MenuExit());
         b.setFont(Font.font("Arial", FontWeight.BOLD, 15));
         b.setStyle(
-                "-fx-background-color: #4B4BC8; "+
+                "-fx-background-color: #9494F6; "+
                 "-fx-border-color: black;"
         );
-        b.setMaxSize(80,30);
-        b.setMinSize(80,30);
+        b.setMaxSize(100,30);
+        b.setMinSize(100,30);
         b.setOnMouseClicked(e->Main.ExitToMenu());
         b.setTranslateY(5);
-        b.setTranslateX(265);
+        b.setTranslateX(245);
         playerInfoPane.getChildren().add(b);
 
 
@@ -281,14 +281,14 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         Button b1 = new Button(buttonNames[0]);
         b1.setFont(Font.font("Arial", FontWeight.BOLD, 15));
         b1.setStyle(
-                "-fx-background-color: #4B4BC8;" +
+                "-fx-background-color: #9494F6;" +
                 "-fx-border-color: black; "
         );
-        b1.setMaxSize(80,30);
-        b1.setMinSize(80,30);
+        b1.setMaxSize(100,30);
+        b1.setMinSize(100,30);
         b1.setOnMouseClicked(e -> GameController.GetInstance().Execute(commands[0]));
         b1.setTranslateY(-75);
-        b1.setTranslateX(-125);
+        b1.setTranslateX(-120);
         getChildren().add(b1);
         //
 
@@ -297,14 +297,14 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         Button b2 = new Button(buttonNames[1]);
         b2.setFont(Font.font("Arial", FontWeight.BOLD, 15));
         b2.setStyle(
-                "-fx-background-color: #4B4BC8; "+
+                "-fx-background-color: #9494F6; "+
                 "-fx-border-color: black;"
         );
-        b2.setMaxSize(80,30);
-        b2.setMinSize(80,30);
+        b2.setMaxSize(100,30);
+        b2.setMinSize(100,30);
         b2.setOnMouseClicked(e -> GameController.GetInstance().Execute(commands[1]));
         b2.setTranslateY(-75);
-        b2.setTranslateX(125);
+        b2.setTranslateX(120);
         getChildren().add(b2);
         //
 
@@ -313,11 +313,11 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         Button b3 = new Button(buttonNames[2]);
         b3.setFont(Font.font("Arial", FontWeight.BOLD, 15));
         b3.setStyle(
-                "-fx-background-color: #4B4BC8; "+
+                "-fx-background-color: #9494F6; "+
                 "-fx-border-color: black;"
         );
-        b3.setMaxSize(80,30);
-        b3.setMinSize(80,30);
+        b3.setMaxSize(100,30);
+        b3.setMinSize(100,30);
         b3.setOnMouseClicked(e -> GameController.GetInstance().Execute(commands[2]));
         b3.setTranslateY(-120);
         b3.setTranslateX(0);
@@ -329,14 +329,14 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         Button b4 = new Button(buttonNames[3]);
         b4.setFont(Font.font("Arial", FontWeight.BOLD, 15));
         b4.setStyle(
-                "-fx-background-color: #4B4BC8; "+
+                "-fx-background-color: #9494F6; "+
                 "-fx-border-color: black;"
         );
-        b4.setMaxSize(80,30);
-        b4.setMinSize(60,30);
+        b4.setMaxSize(100,30);
+        b4.setMinSize(100,30);
         b4.setOnMouseClicked(e -> GameController.GetInstance().Execute(commands[3]));
         b4.setTranslateY(-30);
-        b4.setTranslateX(-125);
+        b4.setTranslateX(-120);
         getChildren().add(b4);
 
         //specialis kepesseg button beallitasa
@@ -344,14 +344,14 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         Button b5 = new Button(buttonNames[4]);
         b5.setFont(Font.font("Arial", FontWeight.BOLD, 15));
         b5.setStyle(
-                "-fx-background-color: #4B4BC8; "+
+                "-fx-background-color: #9494F6; "+
                 "-fx-border-color: black;"
         );
-        b5.setMaxSize(80,30);
-        b5.setMinSize(80,30);
+        b5.setMaxSize(100,30);
+        b5.setMinSize(100,30);
         b5.setOnMouseClicked(e -> GameController.GetInstance().Execute(commands[4]));
         b5.setTranslateY(-120);
-        b5.setTranslateX(-125);
+        b5.setTranslateX(-120);
         getChildren().add(b5);
         //
 
@@ -360,14 +360,14 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         Button b6 = new Button(buttonNames[5]);
         b6.setFont(Font.font("Arial", FontWeight.BOLD, 15));
         b6.setStyle(
-                "-fx-background-color: #4B4BC8; "+
+                "-fx-background-color: #9494F6; "+
                 "-fx-border-color: black;"
         );
-        b6.setMaxSize(80,30);
-        b6.setMinSize(80,30);
+        b6.setMaxSize(100,30);
+        b6.setMinSize(100,30);
         b6.setOnMouseClicked(e -> GameController.GetInstance().Execute(commands[5]));
         b6.setTranslateY(-30);
-        b6.setTranslateX(125);
+        b6.setTranslateX(120);
         getChildren().add(b6);
         //
 
@@ -376,14 +376,14 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         Button b7 = new Button(buttonNames[6]);
         b7.setFont(Font.font("Arial", FontWeight.BOLD, 15));
         b7.setStyle(
-                "-fx-background-color: #4B4BC8; "+
+                "-fx-background-color: #9494F6; "+
                 "-fx-border-color: black;"
         );
-        b7.setMaxSize(80,30);
-        b7.setMinSize(80,30);
+        b7.setMaxSize(100,30);
+        b7.setMinSize(100,30);
         b7.setOnMouseClicked(e -> GameController.GetInstance().Execute(commands[6]));
         b7.setTranslateY(-120);
-        b7.setTranslateX(125);
+        b7.setTranslateX(120);
         getChildren().add(b7);
 
         //Player megjelenitese a panel kozepen
