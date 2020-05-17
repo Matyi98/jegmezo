@@ -41,7 +41,7 @@ public class Bear extends Entity {
      */
     @Override
     public void collideWith(Entity otherEntity) {
-        otherEntity.die();
+        otherEntity.die("Széttépett egy jegesmedve.");
     }
 
     /**

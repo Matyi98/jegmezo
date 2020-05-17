@@ -101,21 +101,21 @@ public class GameController {
      * Jelenlegi Player körének befejezése és következő Player körének elindítása.
      */
     private void nextPlayer() {
-        currentPlayer++;
-        if (currentPlayer >= players.size()) {
-            currentPlayer = 0;
-            GameController.OutStream.println("End of round");
-            board.stepEntities();
-            board.letItSnow();
-
-        }
         if (gameRunning) {
+            currentPlayer++;
+            if (currentPlayer >= players.size()) {
+                currentPlayer = 0;
+                GameController.OutStream.println("End of round");
+                board.stepEntities();
+                board.letItSnow();
+            }
+
             players.get(currentPlayer).startTurn();
             OutStream.println(players.get(currentPlayer).getName() + "'s turn");
-        }
-        if(players.get(currentPlayer).isInHole())
-            players.get(currentPlayer).makeDrown();
 
+            if (players.get(currentPlayer).isInHole())
+                players.get(currentPlayer).makeDrown();
+        }
     }
 
     /**
@@ -226,9 +226,9 @@ public class GameController {
     /**
      * Vereség.
      */
-    public void gameOver() {
+    public void gameOver(String deathMsg) {
         OutStream.println("Game Over");
-        exit("You lost :(");
+        exit(deathMsg);
     }
 
     public void EXIT() {
