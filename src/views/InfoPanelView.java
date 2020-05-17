@@ -38,6 +38,7 @@ public class InfoPanelView extends StackPane implements IView {
      */
     private List<Item> actualInventory;
     private Player actualPlayer;
+    private  GameController gc;
 
 
     private void initialise() {
@@ -55,7 +56,7 @@ public class InfoPanelView extends StackPane implements IView {
             }
     public void loadNewDatas()
     {
-        GameController gc = GameController.GetInstance();
+        gc = GameController.GetInstance();
         actualPlayer = gc.GetActivePlayer();
         actualInventory = actualPlayer.getItems();
         //Jatekos inventorijanak betoltese
@@ -210,6 +211,18 @@ public class InfoPanelView extends StackPane implements IView {
         playerInfoPane.getChildren().add(lifePointsLabel);
         lifePointsLabel.setTranslateY(70);
         lifePointsLabel.setTranslateX(5);
+        //
+
+        //lekerdezzes az actualPlayertol
+        Label roundNumberLabel = new Label();
+        roundNumberLabel.setText("Round: "+gc.roundCounter);
+        roundNumberLabel.setAlignment(Pos.TOP_LEFT);
+        roundNumberLabel.setFont(new Font("Arial", 20));
+        roundNumberLabel.setMaxSize(350, 25);
+        roundNumberLabel.setMinSize(350, 25);
+        playerInfoPane.getChildren().add(roundNumberLabel);
+        roundNumberLabel.setTranslateY(105);
+        roundNumberLabel.setTranslateX(5);
         //
     }
 

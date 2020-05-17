@@ -33,7 +33,7 @@ public class ArcticExplorer extends Player {
     public void specialPower() {
         if(actionPoints != 0) {
             String stability = fieldUnder.checkStability(actualDirection);
-            //GameController.OutStream.println("Stability of neighbor " + actualDirection + " : " + stability);
+            GameController.OutStream.println("Stability of neighbor " + actualDirection + " : " + stability);
             if (Dialog.AllowGUI) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("A kutatás eredménye");
