@@ -16,6 +16,7 @@ import game.GameController;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.util.Builder;
+import main.Main;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -213,7 +214,8 @@ public class InfoPanelView extends StackPane implements IView {
         lifePointsLabel.setTranslateX(5);
         //
 
-        //lekerdezzes az actualPlayertol
+        //lekerdezzes a gc-tol
+        //Az aktualis kor szamat
         Label roundNumberLabel = new Label();
         roundNumberLabel.setText("Round: "+gc.roundCounter);
         roundNumberLabel.setAlignment(Pos.TOP_LEFT);
@@ -224,6 +226,23 @@ public class InfoPanelView extends StackPane implements IView {
         roundNumberLabel.setTranslateY(105);
         roundNumberLabel.setTranslateX(5);
         //
+
+        //visszalepes a menube button beallitasa
+        //meret, elhelyezkedes, command, szin
+        Button b = new Button("exit");
+        b.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+        b.setStyle(
+                "-fx-background-color: #4B4BC8; "+
+                "-fx-border-color: black;"
+        );
+        b.setMaxSize(80,30);
+        b.setMinSize(80,30);
+        b.setOnMouseClicked(e->Main.ExitToMenu());
+        b.setTranslateY(5);
+        b.setTranslateX(265);
+        playerInfoPane.getChildren().add(b);
+
+
     }
 
     private void BuildButtons()

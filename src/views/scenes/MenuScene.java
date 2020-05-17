@@ -112,7 +112,6 @@ public class MenuScene extends Scene {
      */
     private void initialize() {
         bStart.setDisable(true);
-
         root.setPadding(new Insets(16));
         root.setSpacing(20);
 
