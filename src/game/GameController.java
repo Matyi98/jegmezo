@@ -18,9 +18,20 @@ import java.util.Scanner;
  */
 public class GameController {
 
+    /**
+     * Singleton minta alapján az osztálypéldány.
+     */
     private static GameController instance;
+    /**
+     * Kör számláló.
+     */
     public int roundCounter = 0;
 
+    /**
+     * Inicializálja szinleton minta alapján az osztályt.
+     * @param mapPath Pályát leíró fájl elérési útja.
+     * @param numberOfPlayers Játékosok száma.
+     */
     public static void Initialise(File mapPath, int numberOfPlayers) {
         try {
             SceneReader sceneReader = new SceneReader(new FileInputStream(mapPath));
@@ -31,10 +42,18 @@ public class GameController {
         }
     }
 
+    /**
+     * Visszaadja a szingleton példányt.
+     * @return osztálypéldány.
+     */
     public static GameController GetInstance() {
         return instance;
     }
 
+    /**
+     * Visszaadja az éppen körönlévő játékost.
+     * @return körön lévő játékos.
+     */
     public Player GetActivePlayer() { return players.get(currentPlayer); }
 
     /**
@@ -47,7 +66,10 @@ public class GameController {
      */
     private ArrayList<Player> players;
 
-
+    /**
+     * Visszaadja a játéktáblát.
+     * @return Játéktábla.
+     */
     public Board GetBoard() {
         return board;
     }
@@ -145,7 +167,6 @@ public class GameController {
      */
     public void Execute(String command) {
         parseCommand(command);
-
         GameScene.UpdateAllViews();
     }
 
@@ -232,6 +253,10 @@ public class GameController {
         exit(deathMsg);
     }
 
+    /**
+     * Kilépés grafikus ablak megjelenítésével.
+     * @param message kilépési üzenet.
+     */
     private void exit(String message) {
         if (gameRunning && Dialog.AllowGUI) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
