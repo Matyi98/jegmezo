@@ -107,14 +107,16 @@ public class GameController {
                 currentPlayer = 0;
                 GameController.OutStream.println("End of round");
                 board.stepEntities();
-                board.letItSnow();
+                if (gameRunning)
+                    board.letItSnow();
             }
+            if (gameRunning) {
+                players.get(currentPlayer).startTurn();
+                OutStream.println(players.get(currentPlayer).getName() + "'s turn");
 
-            players.get(currentPlayer).startTurn();
-            OutStream.println(players.get(currentPlayer).getName() + "'s turn");
-
-            if (players.get(currentPlayer).isInHole())
-                players.get(currentPlayer).makeDrown();
+                if (players.get(currentPlayer).isInHole())
+                    players.get(currentPlayer).makeDrown();
+            }
         }
     }
 
@@ -241,7 +243,7 @@ public class GameController {
             alert.setTitle("GameOver");
             alert.setHeaderText(null);
             alert.setContentText(message);
-            alert.show();
+            alert.showAndWait();
             Main.ExitToMenu();
         }
         gameRunning = false;
