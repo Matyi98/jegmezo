@@ -148,6 +148,7 @@ public class InfoPanelView extends StackPane implements IView {
                 //A panelt a helyere toljuk
                     slotPane.setTranslateY(i * 100 + 55);
                     slotPane.setTranslateX(j * 100 + 35);
+                    
                 //hozzaadjuk a szulo panelhez
                     inventoryPane.getChildren().add(slotPane);
                 }
