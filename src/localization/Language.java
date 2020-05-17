@@ -7,7 +7,7 @@ public abstract class Language {
 
     public enum Languages {English, Magyar, Русский }
     private static Languages sel;
-    private static Language lang;
+    private static Language lang = new Magyar();
 
     static public void Initialise(Languages lang) {
         sel = lang;
