@@ -49,14 +49,25 @@ public class Main extends Application {
 
     }
 
+    /**
+     * Fő ablak.
+     */
     static private Stage stage;
+
+    /**
+     * Kilépés a menübe.
+     */
     public static void ExitToMenu() {
         stage.setTitle("Jégmező by: The Council");
         stage.setScene(new MenuScene());
     }
 
+    /**
+     * JavaFX aplikáció belépési pont.
+     * @param stage fő ablak
+     */
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage)  {
         stage.setResizable(false);
         Main.stage = stage;
         ExitToMenu();
