@@ -85,7 +85,7 @@ public class FieldBehaviourWithTent extends FieldBehaviour{
     }
 
     @Override
-    public String GetStateTexturePath() {
+    public String GetTexturePath() {
         return "textures/item_textures/tent.png";
     }
 }

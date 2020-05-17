@@ -87,7 +87,7 @@ public class FieldBehaviourWithIgloo extends FieldBehaviour {
     }
 
     @Override
-    public String GetStateTexturePath() {
+    public String GetTexturePath() {
         return "textures/item_textures/igloo_icon.png";
     }
 }

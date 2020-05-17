@@ -2,6 +2,7 @@ package fields.behaviours;
 
 import entities.Entity;
 import fields.Field;
+import utility.ITextured;
 
 import java.util.Collection;
 
@@ -10,7 +11,7 @@ import java.util.Collection;
  * Ezen osztály leszármazottai valósítják meg a Field különböző állapotainak
  * eltérő viselkedését az itt deklarált metódusok különböző implementációival.
  */
-public abstract class FieldBehaviour {
+public abstract class FieldBehaviour implements ITextured {
     /**
      * Azon Fieldre referencia, amelyiknek a viselkedését reprezentálja.
      */
@@ -62,6 +63,4 @@ public abstract class FieldBehaviour {
      * Kiírja az állapotot röviden.
      */
     public abstract void ShowShort();
-
-    public abstract String GetStateTexturePath();
 }

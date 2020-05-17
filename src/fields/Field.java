@@ -8,7 +8,6 @@ import game.Board;
 import utility.ITextured;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 /**
@@ -340,6 +339,6 @@ public abstract class Field implements ITextured {
     public abstract void removeItem();
 
     public String GetStateTexturePath(){
-        return behaviour.GetStateTexturePath();
+        return behaviour.GetTexturePath();
     }
 }
