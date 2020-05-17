@@ -216,7 +216,7 @@ public class MenuScene extends Scene {
      */
     private InputStream getMapFile() {
         int i = cbMapSelect.getSelectionModel().getSelectedIndex();
-        String mapPath = "mapS_release/"+mapOptions.get(i).modelPath;
+        String mapPath = "maps_release/"+mapOptions.get(i).modelPath;
         return getClass().getClassLoader().getResourceAsStream(mapPath);
     }
 
@@ -226,7 +226,7 @@ public class MenuScene extends Scene {
      */
     private InputStream getMapLayoutFile() {
         int i = cbMapSelect.getSelectionModel().getSelectedIndex();
-        String mapPath = "mapS_release/"+mapOptions.get(i).layoutPath;
+        String mapPath = "maps_release/"+mapOptions.get(i).layoutPath;
         return getClass().getClassLoader().getResourceAsStream(mapPath);
     }
 
