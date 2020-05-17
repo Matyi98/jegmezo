@@ -151,6 +151,10 @@ public class Hole extends Field {
         return entities.get(choice);
     }
 
+    /**
+     * A beszakadt mezőhöz tartozó képfájl elérési útját adja meg
+     * @return Az elérési út
+     */
     @Override
     public String GetTexturePath() {
         return "textures/field_textures/water.png";

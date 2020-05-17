@@ -54,6 +54,10 @@ public class ArcticExplorer extends Player {
         }
     }
 
+    /**
+     * A sarkkutatóhoz tartozó képfájl elérési útját adja meg
+     * @return Az elérési út
+     */
     @Override
     public String GetTexturePath() {
         return "textures/entity_textures/arcticExplorer.png";

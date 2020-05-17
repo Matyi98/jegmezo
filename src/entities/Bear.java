@@ -80,6 +80,10 @@ public class Bear extends Entity {
         hasStepped = false;
     }
 
+    /**
+     * A jegesmedvéhez tartozó képfájl elérési útját adja meg
+     * @return Az elérési út
+     */
     @Override
     public String GetTexturePath() {
         return "textures/entity_textures/bear.png";

@@ -24,6 +24,11 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+/**
+ * A jatekhoz tartozo infopanel, amely tartalmaz
+ * adatokat a jatekrol, aktualis jatekosrol
+ * es lehetoseget ad egerrel valo iranyitasra
+ */
 public class InfoPanelView extends StackPane implements IUpdatable {
     /**
      * Az infopanel inicializalasa.
@@ -37,10 +42,19 @@ public class InfoPanelView extends StackPane implements IUpdatable {
      * az inventoryját az infopanel kitoltesehez.
      */
     private List<Item> actualInventory;
+    /**
+     * Az aktualis jatekost tarolo valtozo
+     */
     private Player actualPlayer;
+    /**
+     * A GameControllert tartalmazo valtozo
+     */
     private  GameController gc;
 
-
+    /**
+     * A jatek inicializalasat megvaolisot
+     * fuggveny
+     */
     private void initialise() {
         //Infopanel hatterszinenek beallitasa
         this.setBackground(
@@ -54,6 +68,12 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         //Az adatok betoltese
         loadNewData();
     }
+
+    /**
+     * Ha valami valtozik, akkor nem kell mindent
+     * ujrainicializalni. Ebben a fuggvenyben a jatek soran
+     * valtozo elemek szerepelnek
+     */
     public void loadNewData()
     {
         gc = GameController.GetInstance();
@@ -69,6 +89,11 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         BuildButtons();
     }
 
+
+    /**
+     * Az informacios panel inventory
+     * reszenek elkeszitese
+     */
     private void BuildInventory()
     {
 
@@ -245,6 +270,10 @@ public class InfoPanelView extends StackPane implements IUpdatable {
 
     }
 
+    /**
+     * Az iranyitas gombjait
+     * kesziti el
+     */
     private void BuildButtons()
     {
         //Gombokat tarolo panel letrehozasa, meret,
@@ -412,6 +441,9 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         buttonPane.getChildren().add(playerPane);
     }
 
+    /**
+     * Publikus fuggveny a frissiteshez
+     */
     @Override
     public void Update() {
             loadNewData();

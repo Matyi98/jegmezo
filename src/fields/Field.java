@@ -338,6 +338,10 @@ public abstract class Field implements ITextured {
      */
     public abstract void removeItem();
 
+    /**
+     * Megadja a mezőviselkedése alapján a hozzátartozó textúra elérési útvonalát
+     * @return Az elérési út
+     */
     public String GetStateTexturePath(){
         return behaviour.GetTexturePath();
     }

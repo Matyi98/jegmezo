@@ -93,6 +93,11 @@ public class UnstableIceField extends IceField {
         return String.valueOf(stability);
     }
 
+    /**
+     * A instabil mezőhöz tartozó képfájl elérési útját adja meg,
+     * a rajtalévő hószint függvényében.
+     * @return Az elérési út
+     */
     @Override
     public String GetTexturePath() {
         if(snowLevel > 0){

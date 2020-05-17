@@ -42,8 +42,10 @@ public class Eskimo extends Player {
         }
     }
 
-
-
+    /**
+     * Az eszkimóhoz tartozó képfájl elérési útját adja meg
+     * @return Az elérési út
+     */
     @Override
     public String GetTexturePath() {
         return "textures/entity_textures/eskimo.png";
