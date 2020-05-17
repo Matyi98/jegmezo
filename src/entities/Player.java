@@ -15,7 +15,7 @@ import java.util.List;
  */
 public abstract class Player extends Entity {
 
-    private final int ID;
+    protected final int ID;
     /**
      * A játékos jelenlegi állapota.
      */
