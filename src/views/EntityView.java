@@ -49,7 +49,7 @@ public class EntityView extends ViewBase {
 
     private void enableBorder(){
         setStyle("-fx-border-style: solid inside;"+
-                "-fx-border-width: 4;" +
+                "-fx-border-width: 3;" +
                 "-fx-border-radius: 10;" +
                 "-fx-border-color: green;");
     }
