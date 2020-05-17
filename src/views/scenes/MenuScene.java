@@ -14,12 +14,21 @@ import views.scenes.mainWindow.GameScene;
 import java.io.File;
 import java.util.Objects;
 
+/**
+ * Egy pályát reprezentáló osztály
+ */
 class Map {
     final String DisplayName;
     final String modelPath;
     final String layoutPath;
     final int PlayerCount;
 
+    /**
+     * A pálya osztály konstruktora
+     * @param displayName A pálya neve
+     * @param modelPath A pálya modelljét tartalmazó fájl neve
+     * @param playerCount A pálya maximum játékos száma
+     */
     Map(String displayName, String modelPath, int playerCount) {
         DisplayName = displayName;
         this.modelPath = modelPath;
@@ -27,22 +36,41 @@ class Map {
         PlayerCount = playerCount;
     }
 
+    /**
+     * Megadja a pályahoz tartozó layout fájl nevét, ebbe tatálhatóak a
+     * kirajzoláshoz szükséges adatok
+     * @return A layout fájl neve
+     */
     private String createLayoutPath() {
         StringBuilder sb = new StringBuilder(modelPath);
         sb.insert(0,"layout_");
         return sb.toString();
     }
 
+    /**
+     * Megadja egy pálya kiírási formátumát, ami tartalmaza a
+     * pálya nevét és a maximum játékos számot
+     * @return A megadott string formátum
+     */
     @Override
     public String toString() {
         return DisplayName + " ("+PlayerCount+")";
     }
 
+    /**
+     * Megadja egy pálya kiírási formátumát, ami tartalmaza a
+     * pálya nevét és az aktuális játékos számot
+     * @param actualPlayerCount Az aktuális játkos szám
+     * @return A megadott string formátum
+     */
     public String toString(int actualPlayerCount) {
         return DisplayName + " ("+actualPlayerCount+")";
     }
 }
 
+/**
+ * A menü ablakát és annok müködési logikáját megvalósító osztály
+ */
 public class MenuScene extends Scene {
 
     private Button bStart = new Button("Játék indítás");
@@ -52,6 +80,9 @@ public class MenuScene extends Scene {
     private ComboBox<Map> cbMapSelect;
     private VBox root = new VBox();
 
+    /**
+     * A játékosok számának beállítására használható lista
+     */
     private ObservableList<String> playerNumbers =
             FXCollections.observableArrayList(
                     "2 játékos",
@@ -61,6 +92,9 @@ public class MenuScene extends Scene {
                     "6 játékos"
             );
 
+    /**
+     * A pálya beállítására használható lista
+     */
     private ObservableList<Map> mapOptions =
             FXCollections.observableArrayList(
                     new Map("Mega", "mega.txt", 6),
@@ -72,6 +106,10 @@ public class MenuScene extends Scene {
     private VBox aNumPlayerRow = new VBox();
     private StackPane aStartExitRow = new  StackPane();
 
+    /**
+     * Inicializálja a menü elemeit, beállítja a tulajdonságait,
+     * poziciójait, event listenerjeit
+     */
     private void initialize() {
         bStart.setDisable(true);
 
@@ -116,6 +154,9 @@ public class MenuScene extends Scene {
         StackPane.setAlignment(bQuit, Pos.TOP_RIGHT);
     }
 
+    /**
+     * A listák tartalmának frissítése, a start game gomb müködésének szabályozása
+     */
     private void setCbChangeHandle() {
         cbMapSelect.setOnAction(e ->   {
             if (cbMapSelect.getValue() != null) {
@@ -139,23 +180,38 @@ public class MenuScene extends Scene {
         });
     }
 
+    /**
+     * Megadja a kiválasztott játékosok számát
+     * @return A kiválasztott játékosok
+     */
     private int getPlayerCount() {
         int c = cbPlayerCountSelect.getValue().charAt(0)-'0';
         return c;
     }
 
+    /**
+     * Megadja a kiválasztott pálya fájlát
+     * @return A kiválaszott fájl
+     */
     private File getMapFile() {
         int i = cbMapSelect.getSelectionModel().getSelectedIndex();
         String mapPath = mapOptions.get(i).modelPath;
         return new File(Objects.requireNonNull(getClass().getClassLoader().getResource(mapPath)).getFile());
     }
 
+    /**
+     * Megadja a kiválasztott pálya layout fájlát
+     * @return A kiválaszott layout fájl
+     */
     private File getMapLayoutFile() {
         int i = cbMapSelect.getSelectionModel().getSelectedIndex();
         String mapPath = mapOptions.get(i).layoutPath;
         return new File(Objects.requireNonNull(getClass().getClassLoader().getResource(mapPath)).getFile());
     }
 
+    /**
+     * Létrehozza és inicializálja a menüt
+     */
     public MenuScene() {
         super(new StackPane(),260, 300);
         initialize();

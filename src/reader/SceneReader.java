@@ -79,8 +79,17 @@ public class SceneReader {
         return gc;
     }
 
+    /**
+     * boolean tömb melybe a true érték jelzi hogy a megfelelő indexnél lévő
+     * játékost el kell távolítani a játékból.
+     */
     private boolean[] removes;
 
+    /**
+     * Random kiválasztjuk eltávolításra a pályán lévő játékosokat ha a számuk több
+     * mint amennyi játékost a menüben beállítottunk
+     * @throws IOException
+     */
     private void generateRemoves() throws IOException {
         if (playerCountLimited) {
             String sPlayerInfo = this.reader.readLine();
@@ -244,7 +253,9 @@ public class SceneReader {
         return i;
     }
 
-
+    /**
+     * eltávolítjuk a korábban kiválasztott játékosokat
+     */
     private int parsedPlayerID = 0;
     private Player removePlayer(Player p) {
         if (playerCountLimited) {
