@@ -4,11 +4,13 @@ import entities.Entity;
 import fields.Field;
 import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class FieldView extends ViewBase {
@@ -35,9 +37,16 @@ public class FieldView extends ViewBase {
         selectionCircle = new Circle(0, 0, radius + 5);
         selectionCircle.setFill(Color.RED);
 
-        Circle circle = new Circle(0, 0, radius);
-        circle.setFill(new ImagePattern(image));
-        getChildren().add(circle);
+        Circle cMain = new Circle(0, 0, radius);
+        cMain.setFill(new ImagePattern(image));
+        getChildren().add(cMain);
+
+        //jobb felső kör iglunak és sátornak
+        Circle cState = new Circle(0, 0, radius*0.30);
+        cState.setFill(Color.BLACK);
+        StackPane.setAlignment(cState, Pos.TOP_LEFT);
+        getChildren().add(cState);
+        //jobb felső kör iglunak és sátornak
 
         refreshItem();
         refreshEntities();

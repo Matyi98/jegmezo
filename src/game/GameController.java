@@ -241,7 +241,7 @@ public class GameController {
             alert.setTitle("GameOver");
             alert.setHeaderText(null);
             alert.setContentText(message);
-            alert.showAndWait();
+            alert.show();
             Main.ExitToMenu();
         }
         gameRunning = false;
