@@ -186,8 +186,8 @@ public abstract class Player extends Entity {
      * A Playert megöli.
      */
     @Override
-    public void die(){
-        gameController.gameOver();
+    public void die(String deathMsg){
+        gameController.gameOver(deathMsg);
     }
 
     /**
@@ -261,7 +261,7 @@ public abstract class Player extends Entity {
     public void decrementHP(){
         healthPoints--;
         if(healthPoints <= 0)
-            this.die();
+            this.die("Halálra fagytál a nagy hidegben.");
     }
 
     /**
