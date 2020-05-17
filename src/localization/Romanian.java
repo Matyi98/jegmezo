@@ -122,7 +122,7 @@ public class Romanian extends Language{
 
         @Override
         public String ActionPickup() {
-            return "ridica";
+            return "Ridica";
         }
 
         @Override
