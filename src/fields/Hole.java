@@ -4,6 +4,7 @@ import entities.Entity;
 import fields.behaviours.StandardFieldBehaviour;
 import items.Item;
 import game.Board;
+import localization.Language;
 import utility.Dialog;
 import game.GameController;
 
@@ -141,10 +142,10 @@ public class Hole extends Field {
     public Entity selectEntity() {
         ArrayList<String> names = new ArrayList<>();
         for(Entity e : entities){
-            names.add(e.getName());
+            names.add(e.getFancyName());
         }
 
-        Dialog popup = new Dialog("Who will you rescue?", names);
+        Dialog popup = new Dialog(Language.Instance().RescueQuestion(), names);
         int choice = popup.ShowDialog();
 
         return entities.get(choice);

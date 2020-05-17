@@ -1,6 +1,7 @@
 package entities;
 
 import game.GameController;
+import localization.Language;
 
 /**
  * Eszkimó, amelyet a játékos irányíthat. Képes iglukat építeni.
@@ -10,6 +11,11 @@ public class Eskimo extends Player {
     public Eskimo() {
         maxHealthPoints = 5;
         healthPoints = maxHealthPoints;
+    }
+
+    @Override
+    public String getFancyName() {
+        return Language.Instance().EskimoName(name.charAt(0));
     }
 
     @Override

@@ -2,6 +2,7 @@ package entities;
 
 import game.GameController;
 import javafx.scene.control.Alert;
+import localization.Language;
 import utility.Dialog;
 
 /**
@@ -15,6 +16,11 @@ public class ArcticExplorer extends Player {
     public ArcticExplorer() {
         maxHealthPoints = 4;
         healthPoints = maxHealthPoints;
+    }
+
+    @Override
+    public String getFancyName() {
+        return Language.Instance().ExplorerName(name.charAt(0));
     }
 
     /**
@@ -36,9 +42,9 @@ public class ArcticExplorer extends Player {
             GameController.OutStream.println("Stability of neighbor " + actualDirection + " : " + stability);
             if (Dialog.AllowGUI) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("A kutatás eredménye");
+                alert.setTitle(Language.Instance().ResearchMSG());
                 alert.setHeaderText(null);
-                alert.setContentText("Stability of neighbor " + actualDirection + " : " + stability);
+                alert.setContentText(Language.Instance().ResearchMSG() + ": " + stability);
                 alert.showAndWait();
             }
             actionPoints--;
