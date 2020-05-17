@@ -36,6 +36,11 @@ public class Bear extends Entity {
         GameController.OutStream.print("M");
     }
 
+    @Override
+    public String getFancyName() {
+        return "Maci";
+    }
+
     /**
      * Másik entitással való interakció. A medve próbálja megölni a másik entitást.
      * @param otherEntity Az entitás amellyel interakcióba lép a medve.

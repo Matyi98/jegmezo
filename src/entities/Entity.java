@@ -2,6 +2,7 @@ package entities;
 
 import fields.Field;
 import game.GameController;
+import localization.Language;
 import utility.ITextured;
 
 /**
@@ -79,6 +80,8 @@ public abstract class Entity implements ITextured {
     public String getName(){
         return name;
     }
+
+    public abstract String getFancyName();
 
     /**
      * Lyukban áll-e az entitás.

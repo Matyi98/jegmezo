@@ -1,6 +1,36 @@
 package localization;
 
 public class Magyar extends Language {
+
+    private String[] naEskimo = new String[] {
+            "Jég Aladár",
+            "Rozmár Béla",
+            "Havasi Csaba",
+            "Pingvin Dávid",
+            "Bálnazsír Ernő",
+            "Lék Ferenc"
+    };
+
+    private String[] naExplorer = new String[] {
+            "Dr. Jégkaparó Richárd",
+            "Dr. Fagyálló Feri",
+            "Dr. Mischlen",
+            "Dr. Wernher von Braun",
+            "Доктор Андраш Kрасный",
+            "Dr. Balage Goldschmidt"
+    };
+
+
+    @Override
+    public String EskimoName(char c) {
+        return naEskimo[c-'A'];
+    }
+
+    @Override
+    public String ExplorerName(char c) {
+        return naExplorer[c-'A'];
+    }
+
     @Override
     public String BearDeathMSG() {
         return "Széttépett egy jegesmedve.";
@@ -19,6 +49,11 @@ public class Magyar extends Language {
     @Override
     public String WinMSG() {
         return "Sikeresen megmenekültetek!";
+    }
+
+    @Override
+    public String ResearchMSG() {
+        return "Kutatás eredménye";
     }
 
     @Override

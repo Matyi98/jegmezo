@@ -1,6 +1,35 @@
 package localization;
 
 public class English extends Language {
+    private String[] naEskimo = new String[] {
+            "Andrew Snow",
+            "Bill Penguin",
+            "Charlie Ice",
+            "David Whalehunter",
+            "Earl Iglubuilder",
+            "Ferdinand Polar"
+    };
+
+    private String[] naExplorer = new String[] {
+            "Dr. Richard Ice Scraper",
+            "Dr. Hensel von Antifreeze",
+            "Dr. Mischlen",
+            "Dr. Wernher von Braun",
+            "Доктор Андраш Kрасный",
+            "Dr. Balage Goldschmidt"
+    };
+
+
+    @Override
+    public String EskimoName(char c) {
+        return naEskimo[c-'A'];
+    }
+
+    @Override
+    public String ExplorerName(char c) {
+        return naExplorer[c-'A'];
+    }
+
     @Override
     public String BearDeathMSG() {
         return "A polarbear mauled you to death.";
@@ -19,6 +48,11 @@ public class English extends Language {
     @Override
     public String WinMSG() {
         return "You won!";
+    }
+
+    @Override
+    public String ResearchMSG() {
+        return "Research result";
     }
 
     @Override

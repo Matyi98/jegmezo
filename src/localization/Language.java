@@ -25,10 +25,15 @@ public abstract class Language {
         return lang;
     }
 
+    public abstract String EskimoName(char c);
+    public abstract String ExplorerName(char c);
+
     public abstract String BearDeathMSG();
     public abstract String ColdDeathMSG();
     public abstract String DrownDeathMSG();
     public abstract String WinMSG();
+    public abstract String ResearchMSG();
+
     public abstract String Inventory();
     public abstract String PlayerName();
     public abstract String PlayerHP();
