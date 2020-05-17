@@ -4,6 +4,9 @@ import entities.Entity;
 import game.GameController;
 import javafx.scene.image.ImageView;
 
+/**
+ * Entitások (medve, játékos) megjelenítésért felel.
+ */
 public class EntityView extends ImageStackPane {
     /**
      * Az a modell beli elem, aminek a nézete ez.
