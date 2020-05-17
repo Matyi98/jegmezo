@@ -374,10 +374,9 @@ public class InfoPanelView extends StackPane implements IView {
 
 
     }
-
        @Override
         public void Update() {
-            initialise();
+            loadNewDatas();
         }
     }
 

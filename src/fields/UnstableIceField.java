@@ -66,14 +66,17 @@ public class UnstableIceField extends IceField {
         entities.add(entity);
         if(stability < entities.size()) {
             Hole hole = new Hole(this.neighbors, this.entities, this.board, this.UID);
-
-            entity.changeField(hole);
+            for(Entity entit : this.entities) {
+                entit.changeField(hole);
+            }
             board.changeField(this,hole);
             for(Field field: neighbors)
             {
                 field.changeNeighbor(this, hole);
             }
-            entity.makeDrown();
+            for(Entity entit : this.entities) {
+                entit.makeDrown();
+            }
         }
         else {
             entity.changeField(this);

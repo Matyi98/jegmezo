@@ -32,6 +32,7 @@ public class Rope extends Item {
      * Item használata.
      */
     public void use() {
+
         owner.rescueFriend();
     }
 
