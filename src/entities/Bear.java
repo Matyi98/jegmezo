@@ -45,6 +45,14 @@ public class Bear extends Entity {
     }
 
     /**
+     * Itt mutatkozik be a Player a Bearnek. Üvözlés képpen a Bear megöli a Playert.
+     * @param player Azon Player, aki rálép arra a mezőre, amelyen ez a Bear tartózkodik.
+     */
+    public void meetPlayer(Entity player){
+        player.die();
+    }
+
+    /**
      * Medvének nincs élete így nem csökkenhet.
      */
     @Override

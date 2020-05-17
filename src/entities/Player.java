@@ -130,6 +130,26 @@ public abstract class Player extends Entity {
     }
 
     /**
+     *  A Player ebben a metódusban találkozik azon Entityvel
+     *  akivel egy Filden tartózkodik. Akivel találkozott,
+     *  pedig bemutatkozik, meghívva annak a meetPlayer metódusát.
+     * @param otherEntity másik entitás.
+     */
+    @Override
+    public void collideWith(Entity otherEntity) {
+        otherEntity.meetPlayer(this);
+    }
+
+    /**
+     *  Ez a metódus hívódik meg, amikor Player Playerrel találkozik.
+     *  Mivel egyelőre nem csinálnak egymással semmit, ezért üres implementációval rendelkezik.
+     * @param player Azon Player, aki ezen Player mezójére lépett.
+     */
+    public void meetPlayer(Entity player){
+        // Do nothing.
+    }
+
+    /**
      * Ezzel a metódussal lehet átállítani a Player állapotát.
      * @param nextState A Playernek beállítani kívánt állapot.
      */
