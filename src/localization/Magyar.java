@@ -22,6 +22,16 @@ public class Magyar extends Language {
 
 
     @Override
+    public String BlizzardShort() {
+        return "Hóvihar";
+    }
+
+    @Override
+    public String BlizzardLong() {
+        return "Hóvihar sújtotta a jégmezőt!";
+    }
+
+    @Override
     public String EskimoName(int c) {
         return naEskimo[c];
     }

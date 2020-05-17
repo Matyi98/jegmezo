@@ -28,6 +28,9 @@ public abstract class Language {
         return lang;
     }
 
+    public abstract String BlizzardShort();
+    public abstract String BlizzardLong();
+
     public abstract String EskimoName(int c);
     public abstract String ExplorerName(int c);
 

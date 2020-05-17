@@ -2,6 +2,7 @@ package game;
 
 import fields.Field;
 import javafx.scene.control.Alert;
+import localization.Language;
 import utility.Dialog;
 import utility.RandomNumber;
 import utility.ITextured;
@@ -80,9 +81,9 @@ public class Board implements ITextured{
     public void letItSnow() {
         if (Dialog.AllowGUI) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Hóvihar");
+            alert.setTitle(Language.Instance().BlizzardShort());
             alert.setHeaderText(null);
-            alert.setContentText("Hóvihar súlytotta a jégmezőt!");
+            alert.setContentText(Language.Instance().BlizzardLong());
             alert.showAndWait();
         }
 

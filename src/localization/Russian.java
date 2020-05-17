@@ -21,6 +21,16 @@ public class Russian extends Language {
 
 
     @Override
+    public String BlizzardShort() {
+        return "Снежная буря";
+    }
+
+    @Override
+    public String BlizzardLong() {
+        return "Метель поразила поля!";
+    }
+
+    @Override
     public String EskimoName(int c) {
         return naEskimo[c];
     }

@@ -21,6 +21,16 @@ public class English extends Language {
 
 
     @Override
+    public String BlizzardShort() {
+        return "Blizzard";
+    }
+
+    @Override
+    public String BlizzardLong() {
+        return "A blizzard hit the icefields.";
+    }
+
+    @Override
     public String EskimoName(int c) {
         return naEskimo[c];
     }
