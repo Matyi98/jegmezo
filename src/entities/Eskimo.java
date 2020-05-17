@@ -7,9 +7,11 @@ import localization.Language;
  * Eszkimó, amelyet a játékos irányíthat. Képes iglukat építeni.
  */
 public class Eskimo extends Player {
+    private final int ID;
 
     public Eskimo() {
         super();
+        ID = autoIncrementID++;
         maxHealthPoints = 5;
         healthPoints = maxHealthPoints;
     }

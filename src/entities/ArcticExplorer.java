@@ -10,11 +10,13 @@ import utility.Dialog;
  */
 public class ArcticExplorer extends Player {
 
+    private final int ID;
     /**
      * Default konstructor
      */
     public ArcticExplorer() {
         super();
+        ID = autoIncrementID++;
         maxHealthPoints = 4;
         healthPoints = maxHealthPoints;
     }

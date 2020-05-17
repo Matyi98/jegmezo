@@ -15,7 +15,6 @@ import java.util.List;
  */
 public abstract class Player extends Entity {
 
-    protected final int ID;
     /**
      * A játékos jelenlegi állapota.
      */
@@ -46,7 +45,6 @@ public abstract class Player extends Entity {
      */
     public Player() {
         super();
-        ID = autoIncrementID++;
     }
 
     /**

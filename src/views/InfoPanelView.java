@@ -238,7 +238,7 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         b.setMaxSize(100,30);
         b.setMinSize(100,30);
         b.setOnMouseClicked(e->Main.ExitToMenu());
-        b.setTranslateY(5);
+        b.setTranslateY(115);
         b.setTranslateX(245);
         playerInfoPane.getChildren().add(b);
 
