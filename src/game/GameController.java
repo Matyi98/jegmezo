@@ -20,6 +20,7 @@ import static views.scenes.mainWindow.GameScene.UpdateAllViews;
 public class GameController {
 
     private static GameController instance;
+    public int roundCounter = 0;
 
     public static void Initialise(File mapPath, int numberOfPlayers) {
         try {
@@ -107,16 +108,15 @@ public class GameController {
                 currentPlayer = 0;
                 GameController.OutStream.println("End of round");
                 board.stepEntities();
-                if (gameRunning)
-                    board.letItSnow();
+                board.letItSnow();
+                roundCounter++;
             }
-            if (gameRunning) {
-                players.get(currentPlayer).startTurn();
-                OutStream.println(players.get(currentPlayer).getName() + "'s turn");
 
-                if (players.get(currentPlayer).isInHole())
-                    players.get(currentPlayer).makeDrown();
-            }
+            players.get(currentPlayer).startTurn();
+            OutStream.println(players.get(currentPlayer).getName() + "'s turn");
+
+            if (players.get(currentPlayer).isInHole())
+                players.get(currentPlayer).makeDrown();
         }
     }
 

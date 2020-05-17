@@ -16,6 +16,7 @@ import game.GameController;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.util.Builder;
+import main.Main;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -38,6 +39,7 @@ public class InfoPanelView extends StackPane implements IView {
      */
     private List<Item> actualInventory;
     private Player actualPlayer;
+    private  GameController gc;
 
 
     private void initialise() {
@@ -55,7 +57,7 @@ public class InfoPanelView extends StackPane implements IView {
             }
     public void loadNewDatas()
     {
-        GameController gc = GameController.GetInstance();
+        gc = GameController.GetInstance();
         actualPlayer = gc.GetActivePlayer();
         actualInventory = actualPlayer.getItems();
         //Jatekos inventorijanak betoltese
@@ -146,6 +148,7 @@ public class InfoPanelView extends StackPane implements IView {
                 //A panelt a helyere toljuk
                     slotPane.setTranslateY(i * 100 + 55);
                     slotPane.setTranslateX(j * 100 + 35);
+                    
                 //hozzaadjuk a szulo panelhez
                     inventoryPane.getChildren().add(slotPane);
                 }
@@ -211,6 +214,36 @@ public class InfoPanelView extends StackPane implements IView {
         lifePointsLabel.setTranslateY(70);
         lifePointsLabel.setTranslateX(5);
         //
+
+        //lekerdezzes a gc-tol
+        //Az aktualis kor szamat
+        Label roundNumberLabel = new Label();
+        roundNumberLabel.setText("Round: "+gc.roundCounter);
+        roundNumberLabel.setAlignment(Pos.TOP_LEFT);
+        roundNumberLabel.setFont(new Font("Arial", 20));
+        roundNumberLabel.setMaxSize(350, 25);
+        roundNumberLabel.setMinSize(350, 25);
+        playerInfoPane.getChildren().add(roundNumberLabel);
+        roundNumberLabel.setTranslateY(105);
+        roundNumberLabel.setTranslateX(5);
+        //
+
+        //visszalepes a menube button beallitasa
+        //meret, elhelyezkedes, command, szin
+        Button b = new Button("exit");
+        b.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+        b.setStyle(
+                "-fx-background-color: #4B4BC8; "+
+                "-fx-border-color: black;"
+        );
+        b.setMaxSize(80,30);
+        b.setMinSize(80,30);
+        b.setOnMouseClicked(e->Main.ExitToMenu());
+        b.setTranslateY(5);
+        b.setTranslateX(265);
+        playerInfoPane.getChildren().add(b);
+
+
     }
 
     private void BuildButtons()
