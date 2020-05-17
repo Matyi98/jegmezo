@@ -6,16 +6,21 @@ import game.GameController;
 import javafx.scene.input.KeyEvent;
 
 
-
+/**
+ * A billenytű eseményeket kezelő osztály
+ */
 public class GameKeyEvents implements EventHandler<KeyEvent> {
 
+    /**
+     * Kezeli a bejövő player inputot
+     * @param keyEvent A bejövő esemény
+     */
     @Override
     public void handle(KeyEvent keyEvent) {
         String input = keyEvent.getCharacter().toUpperCase();
 
         if(isItemIndex(input) != -1) {
             GameController.GetInstance().Execute("p use " + isItemIndex(input));
-            System.out.println("p use " + isItemIndex(input));
         }
 
         switch (input) {
@@ -45,14 +50,14 @@ public class GameKeyEvents implements EventHandler<KeyEvent> {
 
     /**
      * Eldönti egy kapott szövegről hogy az egy megfelelő item index,
-     * vagyis egy 1 és 6 között lévő egész szám.
+     * vagyis egy 0 és 5 között lévő egész szám.
      * @param str a kapott szöveg
      * @return ha megfelelő item index akkor maga az index, egyébként pedig -1
      */
     private int isItemIndex(String str) {
         try {
             int itemIndex = Integer.parseInt(str);
-            if (itemIndex >= 1 && itemIndex <= 6)
+            if (itemIndex >= 0 && itemIndex <= 5)
                 return itemIndex;
             else
                 return -1;
