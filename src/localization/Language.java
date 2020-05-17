@@ -1,14 +1,37 @@
 package localization;
 
+/**
+ * Egy nyelv ős absztrakt osztálya
+ */
 public abstract class Language {
+    /**
+     * Megadja a kiválasztott nyelvet.
+     * @return  a kiválasztott nyelv
+     */
     public static Languages GetSelected() {
         return sel;
     }
 
+    /**
+     * A lehetséges nyelveket tartolmazó enum.
+     */
     public enum Languages {English, Magyar, Русский, Română }
+
+    /**
+     * A kiválaszott nyelv
+     */
     private static Languages sel;
+
+    /**
+     * A megadott nyelv, alapértelmezetten Magyar
+     */
     private static Language lang = new Magyar();
 
+    /**
+     * Beállítja a megjelenítendő nyelvet a kiválaszott érték
+     * alapján
+     * @param lang a kiválasztott nyelv
+     */
     static public void Initialise(Languages lang) {
         sel = lang;
         switch (lang) {
@@ -27,14 +50,38 @@ public abstract class Language {
         }
     }
 
+    /**
+     * A kiválaszott nyelv példányát adja meg
+     * @return kiválaszott nyelv
+     */
     static public Language Instance() {
         return lang;
     }
 
+    /**
+     * A hóvihar szövegát adja meg
+     * @return a hóvihar szövege
+     */
     public abstract String BlizzardShort();
+
+    /**
+     * A hóvihar szövegát adja meg, hosszabban
+     * @return a hóvihar szövege, hosszabban
+     */
     public abstract String BlizzardLong();
 
+    /**
+     * Az eszkimó nevekből adja meg a kiválasztottat
+     * @param c a kivásztott eszkimó indexe
+     * @return a kiválaszott név
+     */
     public abstract String EskimoName(int c);
+
+    /**
+     * A sarkkutató nevekből adja meg a kiválasztottat
+     * @param c a kivásztott sarkkutató indexe
+     * @return a kiválaszott név
+     */
     public abstract String ExplorerName(int c);
 
     public abstract String BearDeathMSG();

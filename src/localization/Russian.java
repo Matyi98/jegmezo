@@ -19,22 +19,39 @@ public class Russian extends Language {
             "Др. Balage Goldschmidt"
     };
 
-
+    /**
+     * A hóvihar szövegát adja meg
+     * @return a hóvihar szövege
+     */
     @Override
     public String BlizzardShort() {
         return "Снежная буря";
     }
 
+    /**
+     * A hóvihar szövegát adja meg, hosszabban
+     * @return a hóvihar szövege, hosszabban
+     */
     @Override
     public String BlizzardLong() {
         return "Метель поразила поля!";
     }
 
+    /**
+     * Az eszkimó nevekből adja meg a kiválasztottat
+     * @param c a kivásztott eszkimó indexe
+     * @return a kiválaszott név
+     */
     @Override
     public String EskimoName(int c) {
         return naEskimo[c];
     }
 
+    /**
+     * A sarkkutató nevekből adja meg a kiválasztottat
+     * @param c a kivásztott sarkkutató indexe
+     * @return a kiválaszott név
+     */
     @Override
     public String ExplorerName(int c) {
         return naExplorer[c];
