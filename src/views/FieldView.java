@@ -44,7 +44,7 @@ public class FieldView extends ViewBase {
         //jobb felső kör iglunak és sátornak
         Circle cState = new Circle(0, 0, radius*0.30);
         cState.setFill(Color.BLACK);
-        StackPane.setAlignment(cState, Pos.TOP_LEFT);
+        StackPane.setAlignment(cState, Pos.BOTTOM_LEFT);
         getChildren().add(cState);
         //jobb felső kör iglunak és sátornak
 
@@ -52,6 +52,7 @@ public class FieldView extends ViewBase {
         refreshEntities();
 
         entityLayoutContainer.getChildren().addAll(firstRow, secondRow);
+        entityLayoutContainer.setTranslateY(-20);
         getChildren().addAll(entityLayoutContainer);
     }
 
@@ -62,6 +63,15 @@ public class FieldView extends ViewBase {
             itemView = new ItemView(data.getItem());
             setItemViewOpacity();
             itemView.setAlignment(Pos.BOTTOM_CENTER);
+            itemView.setOnMouseEntered(e -> {
+                itemView.setScaleX(1.2);
+                itemView.setScaleY(1.2);
+            });
+            itemView.setOnMouseExited(e -> {
+                itemView.setScaleX(1.0);
+                itemView.setScaleY(1.0);
+
+            });
             getChildren().add(itemView);
         }
     }
