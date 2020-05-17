@@ -15,6 +15,10 @@ import java.util.Scanner;
  * Teszt esetek indítása után beolvassa a megfelelő pályát.
  */
 public class Main extends Application {
+    /**
+     * A fő konténer az alkalmazáshoz
+     */
+    static private Stage stage;
 
     /**
      * A program belépési pontja. Beolvassa a pályát,
@@ -50,12 +54,7 @@ public class Main extends Application {
     }
 
     /**
-     * Fő ablak.
-     */
-    static private Stage stage;
-
-    /**
-     * Kilépés a menübe.
+     * Visszalépés a menübe.
      */
     public static void ExitToMenu() {
         stage.setTitle("Jégmező by: The Council");
@@ -63,11 +62,11 @@ public class Main extends Application {
     }
 
     /**
-     * JavaFX aplikáció belépési pont.
-     * @param stage fő ablak
+     * A JavaFX alkalmazások belépési pontja.
+     * @param stage a fő ablak
      */
     @Override
-    public void start(Stage stage)  {
+    public void start(Stage stage) {
         stage.setResizable(false);
         Main.stage = stage;
         ExitToMenu();

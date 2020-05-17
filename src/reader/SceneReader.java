@@ -40,6 +40,22 @@ public class SceneReader {
     private BufferedReader reader;
 
     /**
+     * boolean tömb melybe a true érték jelzi hogy a megfelelő indexnél lévő
+     * játékost el kell távolítani a játékból.
+     */
+    private boolean[] removes;
+
+    /**
+     * Boolean mely megadja hogy kell-e limitálnunk a játékosok számát
+     */
+    private boolean playerCountLimited = false;
+
+    /**
+     * A pályához tartozó játékos korlát
+     */
+    private int playerCountLimit = 10;
+
+    /**
      * Konstruktor, amiben beolvassa a játékállapot fájlját.
      * @param inputStream inputStream ami tartalmazza a beolvasni kívánt játékállapotot.
      */
@@ -78,12 +94,6 @@ public class SceneReader {
         gc.Setup(board, players);
         return gc;
     }
-
-    /**
-     * boolean tömb melybe a true érték jelzi hogy a megfelelő indexnél lévő
-     * játékost el kell távolítani a játékból.
-     */
-    private boolean[] removes;
 
     /**
      * Random kiválasztjuk eltávolításra a pályán lévő játékosokat ha a számuk több
@@ -305,8 +315,10 @@ public class SceneReader {
         return e;
     }
 
-    private boolean playerCountLimited = false;
-    private int playerCountLimit = 10;
+    /**
+     * Beállítja a játékosok számát a pályához tartozó értékkel.
+     * @param numberOfPlayers a pályához tartozó értékkel.
+     */
     public void LimitPlayerCount(int numberOfPlayers) {
         playerCountLimited = true;
         playerCountLimit = numberOfPlayers;

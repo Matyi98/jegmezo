@@ -149,7 +149,7 @@ public class MenuScene extends Scene {
 
         //aLanguage
         aLanguageRow.setSpacing(5);
-        aLanguageRow.getChildren().add(new Label(Language.Selected().MenuSchangeLang()));
+        aLanguageRow.getChildren().add(new Label(Language.Selected().MenuChangeLang()));
         aLanguageRow.getChildren().add(cbLangSelect = new ComboBox<>(langOptions));
         cbLangSelect.getSelectionModel().select(Language.GetSelected());
 
