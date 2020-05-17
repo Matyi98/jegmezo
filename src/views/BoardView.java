@@ -3,10 +3,8 @@ package views;
 import entities.Player;
 import fields.Field;
 import game.GameController;
-import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import game.Board;
 import javafx.scene.shape.Line;
 import reader.LayoutReader;
@@ -16,12 +14,23 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Játéktábla megjelenítésért felelős osztály.
+ */
 public class BoardView extends Pane implements IUpdatable {
+    /**
+     * A játéktbála aminek az adatait jeleníti meg.
+     */
     private Board data;
     private ArrayList<Point2D> fieldCoords;
     private ArrayList<FieldView> fieldViews = new ArrayList<>();
     private final int fieldRadius = 50;
 
+    /**
+     * Konstruktor
+     * @param b A játéktbála aminek az adatait jeleníti meg.
+     * @param mapLayout A pályakinézetet leíró fájl.
+     */
     public BoardView(Board b, File mapLayout) {
         this.data = b;
 
@@ -29,6 +38,11 @@ public class BoardView extends Pane implements IUpdatable {
         initialise();
     }
 
+    /**
+     * Pályakinézet leíró fájl betöltése.
+     * @param file elérési út.
+     * @return Egyes fieldek koordinátái a rajzfelületen.
+     */
     private ArrayList<Point2D> readFieldLayouts(File file){
         LayoutReader layoutReader;
         try {
@@ -42,12 +56,18 @@ public class BoardView extends Pane implements IUpdatable {
         }
     }
 
+    /**
+     * Grafikus felület inicializálása.
+     */
    private void initialise() {
        setStyle("-fx-background-color: rgb(240, 240, 240)");
        initPassages();
        initFieldViews();
    }
 
+    /**
+     * Élek inicializálása.
+     */
    private void initPassages(){
        for(int i = 0; i < fieldCoords.size(); i++) {
            Field field = data.getField(i);
@@ -67,6 +87,9 @@ public class BoardView extends Pane implements IUpdatable {
        }
    }
 
+    /**
+     * Csomópontok inicializálása.
+     */
    private void initFieldViews(){
        for(int i = 0; i < fieldCoords.size(); i++){
            Field field = data.getField(i);
@@ -85,25 +108,25 @@ public class BoardView extends Pane implements IUpdatable {
        showSelectedField();
    }
 
+    /**
+     * Játékos által kiválasztott mező körvonalal kijelölése.
+     */
    private void showSelectedField(){
        Player activePlayer = GameController.GetInstance().GetActivePlayer();
        int UIDofSelected = activePlayer.getFieldUnder().getNeighbourByDirection(activePlayer.getActualDirection()).GetUID();
        fieldViews.get(UIDofSelected).showSelect();
-
    }
 
+    /**
+     * Frissítés.
+     */
    @Override
    public void Update() {
-        refreshFieldViews();
-    }
-
-   private void refreshFieldViews(){
        for(FieldView view : fieldViews){
            getChildren().remove(view);
        }
-
        fieldViews.clear();
-
        initFieldViews();
-   }
+    }
+
 }
