@@ -35,6 +35,10 @@ public class Tent extends Item {
      */
     public void ShowShort() { GameController.OutStream.print("t"); }
 
+    /**
+     * A sátorhoz tartozó képfájl elérési útját adja meg
+     * @return Az elérési út
+     */
     @Override
     public String GetTexturePath() {
         return "textures/item_textures/tent.png";

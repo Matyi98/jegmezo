@@ -39,6 +39,10 @@ public class Food extends Item {
         owner.eat(this);
     }
 
+    /**
+     * Az ételhez tartozó képfájl elérési útját adja meg
+     * @return Az elérési út
+     */
     @Override
     public String GetTexturePath() {
         return "textures/item_textures/food.png";

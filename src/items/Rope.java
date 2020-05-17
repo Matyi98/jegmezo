@@ -36,6 +36,10 @@ public class Rope extends Item {
         owner.rescueFriend();
     }
 
+    /**
+     * A kötélhez tartozó képfájl elérési útját adja meg
+     * @return Az elérési út
+     */
     @Override
     public String GetTexturePath() {
         return "textures/item_textures/rope.png";

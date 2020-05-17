@@ -49,6 +49,10 @@ public class FragileShovel extends Item {
             owner.removeItem(this);
     }
 
+    /**
+     * A törékeny ásóhoz tartozó képfájl elérési útját adja meg
+     * @return Az elérési út
+     */
     @Override
     public String GetTexturePath() {
         return "textures/item_textures/fragile_shovel.png";

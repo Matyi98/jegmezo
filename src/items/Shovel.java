@@ -38,6 +38,10 @@ public class Shovel extends Item {
         owner.shovel(shovelSpeedIncrease);
     }
 
+    /**
+     * Az ásóhoz tartozó képfájl elérési útját adja meg
+     * @return Az elérési út
+     */
     @Override
     public String GetTexturePath() {
         return "textures/item_textures/shovel.png";
