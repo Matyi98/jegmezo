@@ -101,6 +101,8 @@ public class BoardView extends Pane implements IUpdatable {
            fieldView.setTranslateY(fieldCoord.getY());
 
            fieldViews.add(fieldView);
+           fieldView.setScaleX(1.2);
+           fieldView.setScaleY(1.2);
            getChildren().add(fieldView);
 
        }

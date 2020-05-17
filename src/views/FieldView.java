@@ -18,18 +18,57 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+/**
+ * A Játékban lévő Fieldek megjelenítésért felős osztály.
+ * Ezen osztályból képzett példány tartalmazza a megjelenésben
+ * rajta lévő más megjelenítést szolgáló osztályok példányokat.
+ */
 public class FieldView extends ImageStackPane {
+    /**
+     * Azon Fieldre referencia, amely Field megjelenítésért felelős
+     * ezen osztály aktuális példánya.
+     */
     private Field data;
+
+    /**
+     * A képernyőn megjelelő kör alakó Field sugara.
+     */
     private final int radius;
 
+    /**
+     * FielViewhoz tartozó Filden lévő Itemnek a kinézetéért
+     * felőlős ItemView.
+     */
     private ItemView itemView = null;
+
+    /**
+     * FielViewhoz tartozó Filden lévő Entityk a kinézetéért
+     * felőlős ItemView.
+     */
     private ArrayList<EntityView> entityViews = new ArrayList<>();
 
+    /**
+     * Vertikális konténer, amely azon sorokat tartalmazza, amely
+     * sorok a FildViewn lévő EntityViewkat tárolják.
+     */
     private VBox entityLayoutContainer = new VBox(2);
+
+    /**
+     * Horizontális konténer, amely a FildViewn lévő EntityViewkból
+     * az első hármat tárolja felső sorként.
+     */
     private HBox firstRow = new HBox(2);
+    /**
+     * Horizontális konténer, amely a FildViewn lévő EntityViewkból
+     * az első hármat tárolja felső sorként.
+     */
     private HBox secondRow = new HBox(2);
 
-
+    /**
+     * Konstruktor.
+     * @param f Azon Field amelyiknek a megjelenéséért felőlős.
+     * @param radius A képernyőn megjelelő kör alakó Field sugara.
+     */
     public FieldView(Field f, int radius) {
         super(f.GetTexturePath());
         this.radius = radius;
@@ -37,6 +76,10 @@ public class FieldView extends ImageStackPane {
         initialise();
     }
 
+    /**
+     * Inicializálja a FieldViewn lévő más megjelenítést
+     * szolgáló elemeket.
+     */
     private void initialise(){
         Circle cMain = new Circle(0, 0, radius);
         cMain.setFill(new ImagePattern(image));
@@ -51,6 +94,11 @@ public class FieldView extends ImageStackPane {
         getChildren().addAll(entityLayoutContainer);
     }
 
+    /**
+     * A Fildek állapotát jelőlő kis ICON szerű kép
+     * létrehozása, amennyibe arra szükség van, azaz
+     * ha a Field állapota nem Standard.
+     */
     private void refreshBuildings(){
         if(data.GetStateTexturePath() != null) {
             Circle cState = new Circle(0, 0, radius * 0.30);
@@ -68,13 +116,15 @@ public class FieldView extends ImageStackPane {
             cState.setFill(new ImagePattern(stateImage));
             cState.setStrokeWidth(2);
             cState.setStroke(Color.rgb(40, 40, 60));
-            cState.setStrokeMiterLimit(10);
             cState.setScaleX(1.2);
             cState.setScaleY(1.2);
             getChildren().add(cState);
         }
     }
 
+    /**
+     * FielViewhoz tartozó Filden lévő Itemnek a kinézetét tölti be.
+     */
     private void refreshItem(){
         getChildren().remove(itemView);
 
@@ -95,6 +145,10 @@ public class FieldView extends ImageStackPane {
         }
     }
 
+    /**
+     * A FielViewhoz tartozó Filden lévő Itemnek a kinézetét átlátszóságát állítja
+     * annak függvényében, hogy a Filden mennyi hú van.
+     */
     private void setItemViewOpacity(){
         double intensity = 6;
         itemView.setOpacity(Math.pow(
@@ -103,6 +157,9 @@ public class FieldView extends ImageStackPane {
                 , intensity));
     }
 
+    /**
+     * FielViewhoz tartozó Filden lévő Entityk kinézetét tölti be.
+     */
     private void refreshEntities() {
         for (EntityView view : entityViews) {
             firstRow.getChildren().remove(view);
@@ -121,6 +178,10 @@ public class FieldView extends ImageStackPane {
         }
     }
 
+    /**
+     * Egy kört rajzol azon FildView köré, amelyik
+     * FildView Fildje felé néz az aktuális Player.
+     */
     public void showSelect(){
         Circle selectionCircle = new Circle(0, 0, radius + 5);
         selectionCircle.setFill(Color.RED);
