@@ -102,7 +102,6 @@ public class BoardView extends Pane implements IUpdatable {
 
            fieldViews.add(fieldView);
            getChildren().add(fieldView);
-
        }
 
        showSelectedField();

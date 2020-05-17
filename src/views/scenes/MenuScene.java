@@ -208,8 +208,7 @@ public class MenuScene extends Scene {
      * @return A kiválasztott játékosok
      */
     private int getPlayerCount() {
-        int c = cbPlayerCountSelect.getValue().charAt(0)-'0';
-        return c;
+        return cbPlayerCountSelect.getValue().charAt(0)-'0';
     }
 
     /**

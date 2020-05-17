@@ -4,7 +4,6 @@ import javafx.geometry.Point2D;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Pálya kinézetét leíró fájlt beolvasó osztály.
@@ -23,7 +22,6 @@ public class LayoutReader {
         this.reader =
                 new BufferedReader(new InputStreamReader(inputStream));
     }
-
 
     /**
      * Beolvassa a mezők koordinátáját.
