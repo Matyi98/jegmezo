@@ -3,31 +3,31 @@ package localization;
 /**
  * Román nyelvi csomag.
  */
-public class Romanian extends Language {
+public class Romanian extends Language{
 
     /**
      * Lehetséges román eszkimó nevek.
      */
-    private String[] naEskimo = new String[]{
-            "Andrei zăpadescu",
-            "Mihai Pingvinescu",
-            "Mariana Gheaţăescu",
-            "Ludovic Iarnă-escu",
-            "Ion de Urs Polarescu",
-            "Nicoleai de la polul Nord"
-    };
+        private String[] naEskimo = new String[] {
+                "Andrei Zăpadescu",
+                "Mihai Pingvinescu",
+                "Mariana Gheaţăescu",
+                "Ludovic Iarnă-escu",
+                "Ion de Urs Polarescu",
+                "Nicoleai Eskimescu"
+        };
 
     /**
      * Lehetséges román kutató nevek.
      */
-    private String[] naExplorer = new String[]{
-            "Dr. Inteligent ",
-            "Dr. Professor",
-            "Dr. Doctor",
-            "Dr. Cercetător",
-            "Dr. Romanescu",
-            "Dr. Tăran"
-    };
+        private String[] naExplorer = new String[] {
+                "Dr. Popa Iancu Eneida ",
+                "Dr. Professor",
+                "Dr. Radu Radulescu",
+                "Dr. Cercetător",
+                "Dr. Romanescu",
+                "Dr. Tăran"
+        };
 
     /**
      * A hóvihar szövegát adja meg
