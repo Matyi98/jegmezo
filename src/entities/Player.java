@@ -259,7 +259,7 @@ public abstract class Player extends Entity {
 
     public int getHealthPoints()
     {
-        return this.maxHealthPoints;
+        return this.healthPoints;
     }
 
     public int getDirection()

@@ -271,6 +271,7 @@ public abstract class Field implements ITextured {
      * Havazás a Field-en.
      */
     public final void performSnow() {
+
         behaviour.performSnow(entities);
     }
 

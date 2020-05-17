@@ -1,6 +1,8 @@
 package entities;
 
 import game.GameController;
+import javafx.scene.control.Alert;
+import utility.Dialog;
 
 /**
  * Sarkkutató, amelyet a játékos irányíthat. Képes megnézni a jégtáblák stabilitását.
@@ -31,7 +33,14 @@ public class ArcticExplorer extends Player {
     public void specialPower() {
         if(actionPoints != 0) {
             String stability = fieldUnder.checkStability(actualDirection);
-            GameController.OutStream.println("Stability of neighbor " + actualDirection + " : " + stability);
+            //GameController.OutStream.println("Stability of neighbor " + actualDirection + " : " + stability);
+            if (Dialog.AllowGUI) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("A kutatás eredménye");
+                alert.setHeaderText(null);
+                alert.setContentText("Stability of neighbor " + actualDirection + " : " + stability);
+                alert.showAndWait();
+            }
             actionPoints--;
         }
     }

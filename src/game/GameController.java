@@ -105,8 +105,9 @@ public class GameController {
         if (currentPlayer >= players.size()) {
             currentPlayer = 0;
             GameController.OutStream.println("End of round");
-            board.letItSnow();
             board.stepEntities();
+            board.letItSnow();
+
         }
         if (gameRunning) {
             players.get(currentPlayer).startTurn();
