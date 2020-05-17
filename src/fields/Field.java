@@ -135,7 +135,7 @@ public abstract class Field implements ITextured {
      * @param newNeighbor új szomszéd referenciája.
      * @param oldNeighbor régi szomszéd referenciája.
      */
-    public void changeNeighbor(Field newNeighbor, Field oldNeighbor)
+    public void changeNeighbor(Field oldNeighbor, Field newNeighbor)
     {
         this.neighbors.remove(oldNeighbor);
         this.neighbors.add(newNeighbor);
