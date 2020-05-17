@@ -22,7 +22,7 @@ public class Main extends Application {
      * @param args A játék elindítása során megadott paraméterek.
      */
     public static void main(String[] args) {
-        Language.Initialise(Language.Languages.Magyar);
+        Language.Select(Language.Languages.Magyar);
         Dialog.AllowGUI = true;
         launch(args);
     }

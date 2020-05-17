@@ -1,7 +1,13 @@
 package localization;
 
+/**
+ * Magyar nyelvi csomag.
+ */
 public class Magyar extends Language {
 
+    /**
+     * Lehetséges magyar eszkimó nevek.
+     */
     private String[] naEskimo = new String[] {
             "Jég Aladár",
             "Rozmár Béla",
@@ -11,6 +17,9 @@ public class Magyar extends Language {
             "Lék Ferenc"
     };
 
+    /**
+     * Lehetséges magyar kutató nevek.
+     */
     private String[] naExplorer = new String[] {
             "Dr. Jégkaparó Richárd",
             "Dr. Fagyálló Feri",

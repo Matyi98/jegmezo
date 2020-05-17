@@ -13,8 +13,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static views.scenes.mainWindow.GameScene.UpdateAllViews;
-
 /**
  * GameController osztály, ami a játék lefolyását menedzseli.
  */
@@ -220,7 +218,7 @@ public class GameController {
     public void win(int count) {
         if (count == players.size() && questItemCount == 3) {
             OutStream.println("Victory");
-            exit(Language.Instance().WinMSG());
+            exit(Language.Selected().WinMSG());
         }
         else
             OutStream.println("Win conditions not met");

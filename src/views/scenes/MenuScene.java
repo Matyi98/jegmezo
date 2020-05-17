@@ -75,8 +75,8 @@ class Map {
  */
 public class MenuScene extends Scene {
 
-    private Button bStart = new Button(Language.Instance().MenuStart());
-    private Button bQuit = new Button(Language.Instance().MenuExit());
+    private Button bStart = new Button(Language.Selected().MenuStart());
+    private Button bQuit = new Button(Language.Selected().MenuExit());
     private Label lSelMap = new Label();
     private ComboBox<String> cbPlayerCountSelect;
     private ComboBox<Map> cbMapSelect;
@@ -88,11 +88,11 @@ public class MenuScene extends Scene {
      */
     private ObservableList<String> playerNumbers =
             FXCollections.observableArrayList(
-                    "2 "+ Language.Instance().Players(),
-                    "3 "+ Language.Instance().Players(),
-                    "4 "+ Language.Instance().Players(),
-                    "5 "+ Language.Instance().Players(),
-                    "6 "+ Language.Instance().Players()
+                    "2 "+ Language.Selected().Players(),
+                    "3 "+ Language.Selected().Players(),
+                    "4 "+ Language.Selected().Players(),
+                    "5 "+ Language.Selected().Players(),
+                    "6 "+ Language.Selected().Players()
             );
 
     /**
@@ -139,17 +139,17 @@ public class MenuScene extends Scene {
 
         //aNumPlayerRow
         aNumPlayerRow.setSpacing(5);
-        aNumPlayerRow.getChildren().add(new Label(Language.Instance().MenuPlayerCount()));
+        aNumPlayerRow.getChildren().add(new Label(Language.Selected().MenuPlayerCount()));
         aNumPlayerRow.getChildren().add(cbPlayerCountSelect = new ComboBox<>(playerNumbers));
 
         //aMapInfoRow
         aMapInfoRow.setSpacing(5);
-        aMapInfoRow.getChildren().add(new Label(Language.Instance().MenuSelectedMap()));
+        aMapInfoRow.getChildren().add(new Label(Language.Selected().MenuSelectedMap()));
         aMapInfoRow.getChildren().add(cbMapSelect = new ComboBox<>(mapOptions));
 
         //aLanguage
         aLanguageRow.setSpacing(5);
-        aLanguageRow.getChildren().add(new Label(Language.Instance().MenuSchangeLang()));
+        aLanguageRow.getChildren().add(new Label(Language.Selected().MenuSchangeLang()));
         aLanguageRow.getChildren().add(cbLangSelect = new ComboBox<>(langOptions));
         cbLangSelect.getSelectionModel().select(Language.GetSelected());
 
@@ -198,7 +198,7 @@ public class MenuScene extends Scene {
                 bStart.setDisable(true);
         });
         cbLangSelect.setOnAction(e ->   {
-            Language.Initialise(cbLangSelect.getValue());
+            Language.Select(cbLangSelect.getValue());
             Main.ExitToMenu();
         });
     }

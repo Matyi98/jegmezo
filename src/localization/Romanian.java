@@ -1,6 +1,13 @@
 package localization;
 
+/**
+ * Román nyelvi csomag.
+ */
 public class Romanian extends Language{
+
+    /**
+     * Lehetséges román eszkimó nevek.
+     */
         private String[] naEskimo = new String[] {
                 "Andrei zăpadescu",
                 "Mihai Pingvinescu",
@@ -10,6 +17,9 @@ public class Romanian extends Language{
                 "Nicoleai de la polul Nord"
         };
 
+    /**
+     * Lehetséges román kutató nevek.
+     */
         private String[] naExplorer = new String[] {
                 "Dr. Inteligent ",
                 "Dr. Professor",

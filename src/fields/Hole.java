@@ -145,7 +145,7 @@ public class Hole extends Field {
             names.add(e.getFancyName());
         }
 
-        Dialog popup = new Dialog(Language.Instance().RescueQuestion(), names);
+        Dialog popup = new Dialog(Language.Selected().RescueQuestion(), names);
         int choice = popup.ShowDialog();
 
         return entities.get(choice);

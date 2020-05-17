@@ -1,15 +1,38 @@
 package localization;
 
+/**
+ * Nyelvi támogatást biztosító osztály.
+ */
 public abstract class Language {
+
+    /**
+     * Kiválasztott nyelv.
+     * @return Enum a kiválasztott nyelvről.
+     */
     public static Languages GetSelected() {
         return sel;
     }
 
+    /**
+     * Lehetséges nyelvek.
+     */
     public enum Languages {English, Magyar, Русский, Română }
+
+    /**
+     * Aktiálisan kiválasztott nyelvi csomag enum-ja.
+     */
     private static Languages sel;
+
+    /**
+     * Aktuálisan kiválasztott nyelvi csomag osztálypéldánya.
+     */
     private static Language lang = new Magyar();
 
-    static public void Initialise(Languages lang) {
+    /**
+     * Nyelv kiválasztása.
+     * @param lang Választott nyelv.
+     */
+    static public void Select(Languages lang) {
         sel = lang;
         switch (lang) {
             case English:
@@ -27,7 +50,12 @@ public abstract class Language {
         }
     }
 
-    static public Language Instance() {
+    /**
+     * Visszaadja azt az osztálypéldányt,
+     * amiből elérhetőek a kiválasztott nyelv mondatai.
+     * @return Éppen kiválasztott nyelvi csomag osztálypéldánya.
+     */
+    static public Language Selected() {
         return lang;
     }
 

@@ -18,7 +18,7 @@ public class Eskimo extends Player {
 
     @Override
     public String getFancyName() {
-        return Language.Instance().EskimoName(ID);
+        return Language.Selected().EskimoName(ID);
     }
 
     @Override

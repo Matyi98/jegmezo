@@ -1,6 +1,13 @@
 package localization;
 
+/**
+ * Angol nyelvi csomag.
+ */
 public class English extends Language {
+
+    /**
+     * Lehetséges angol eszkimó nevek.
+     */
     private String[] naEskimo = new String[] {
             "Andrew Snow",
             "Bill Penguin",
@@ -10,6 +17,10 @@ public class English extends Language {
             "Ferdinand Polar"
     };
 
+
+    /**
+     * Lehetséges angol kutató nevek.
+     */
     private String[] naExplorer = new String[] {
             "Dr. Richard Ice Scraper",
             "Dr. Hensel von Antifreeze",

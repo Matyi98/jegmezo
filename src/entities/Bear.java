@@ -47,7 +47,7 @@ public class Bear extends Entity {
      */
     @Override
     public void collideWith(Entity otherEntity) {
-        otherEntity.die(Language.Instance().BearDeathMSG());
+        otherEntity.die(Language.Selected().BearDeathMSG());
     }
 
     /**
@@ -55,7 +55,7 @@ public class Bear extends Entity {
      * @param player Azon Player, aki rálép arra a mezőre, amelyen ez a Bear tartózkodik.
      */
     public void meetPlayer(Entity player){
-        player.die(Language.Instance().BearDeathMSG());
+        player.die(Language.Selected().BearDeathMSG());
     }
 
     /**

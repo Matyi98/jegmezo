@@ -1,6 +1,13 @@
 package localization;
 
+/**
+ * Orosz nyelvi csomag.
+ */
 public class Russian extends Language {
+
+    /**
+     * Lehetséges orosz eszkimó nevek.
+     */
     private String[] naEskimo = new String[] {
             "Пётр Игнлуевич Снег",
             "Борис Пингвиневич Пингвин",
@@ -10,6 +17,9 @@ public class Russian extends Language {
             "Юрий Алексеевич Гагарин"
     };
 
+    /**
+     * Lehetséges orosz kutató nevek.
+     */
     private String[] naExplorer = new String[] {
             "Дмитрий Иванович Менделеев",
             "Др. Hensel von Antifreeze",
