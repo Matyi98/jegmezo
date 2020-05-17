@@ -5,7 +5,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import game.GameController;
-import reader.LayoutReader;
 import views.BoardView;
 import views.InfoPanelView;
 
@@ -18,6 +17,14 @@ public class GameScene extends Scene {
     private Pane root = new Pane();
     private static BoardView boardView;
     private static InfoPanelView infoPanelView;
+
+    public GameScene(File file) {
+        super(new StackPane(), WIDTH, HEIGHT);
+        boardView = new BoardView(GameController.GetInstance().GetBoard(), file);
+        infoPanelView = new InfoPanelView();
+        initialize();
+        setRoot(root);
+    }
 
     private void initialize() {
         root.setBackground(
@@ -39,15 +46,6 @@ public class GameScene extends Scene {
         infoPanelView.setPrefSize(WIDTH - 10 - HEIGHT-100,HEIGHT-20);
 
         setOnKeyTyped(new GameKeyEvents());
-    }
-
-
-    public GameScene(File file) {
-        super(new StackPane(), WIDTH, HEIGHT);
-        boardView = new BoardView(GameController.GetInstance().GetBoard(), file);
-        infoPanelView = new InfoPanelView();
-        initialize();
-        setRoot(root);
     }
 
     public static void UpdateAllViews(){

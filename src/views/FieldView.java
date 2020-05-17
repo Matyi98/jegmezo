@@ -12,11 +12,10 @@ import javafx.scene.shape.Circle;
 
 import java.util.ArrayList;
 
-public class FieldView extends ViewBase {
+public class FieldView extends ImageStackPane {
     private Field data;
     private final int radius;
 
-    private Circle selectionCircle;
     private ItemView itemView = null;
     private ArrayList<EntityView> entityViews = new ArrayList<>();
 
@@ -33,9 +32,6 @@ public class FieldView extends ViewBase {
     }
 
     private void initialise(){
-        selectionCircle = new Circle(0, 0, radius + 5);
-        selectionCircle.setFill(Color.RED);
-
         Circle cMain = new Circle(0, 0, radius);
         cMain.setFill(new ImagePattern(image));
         getChildren().add(cMain);
@@ -102,19 +98,11 @@ public class FieldView extends ViewBase {
     }
 
     public void showSelect(){
+        Circle selectionCircle = new Circle(0, 0, radius + 5);
+        selectionCircle.setFill(Color.RED);
+
         getChildren().add(selectionCircle);
         getChildren().get(getChildren().size()-1).toBack();
     }
 
-    public void hideSelect(){
-        getChildren().remove(selectionCircle);
-    }
-
-    //Kiderült hogy nem is kell használni?
-    @Override
-    public void Update() {
-        //hideSelect();
-        //refreshItem();
-        //refreshEntities();
-    }
 }
