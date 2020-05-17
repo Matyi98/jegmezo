@@ -36,6 +36,10 @@ public class DivingSuit extends Item {
         this.owner.swapDivingSuit();
     }
 
+    /**
+     * A búvárruhához tartozó képfájl elérési útját adja meg
+     * @return Az elérési út
+     */
     @Override
     public String GetTexturePath() {
         return "textures/item_textures/scuba.png";

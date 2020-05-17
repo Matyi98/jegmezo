@@ -26,6 +26,10 @@ public class Pistol extends QuestItem {
      */
     public void ShowShort() { GameController.OutStream.print("p"); }
 
+    /**
+     * A pisztolyhoz tartozó képfájl elérési útját adja meg
+     * @return Az elérési út
+     */
     @Override
     public String GetTexturePath() {
         return "textures/item_textures/pistol.png";

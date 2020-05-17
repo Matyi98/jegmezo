@@ -26,6 +26,10 @@ public class Flare extends QuestItem {
      */
     public void ShowShort() { GameController.OutStream.print("e"); }
 
+    /**
+     * A jelzőfényhez tartozó képfájl elérési útját adja meg
+     * @return Az elérési út
+     */
     @Override
     public String GetTexturePath() {
         return "textures/item_textures/flare.png";

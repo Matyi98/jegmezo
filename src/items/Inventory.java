@@ -86,9 +86,11 @@ public class Inventory {
         }
     }
 
+    /**
+     * Megadja az inventory-ban található itemeket
+     * @return az inventory-ban található itemek
+     */
     public List<Item> getItems(){
         return items;
     }
-
-
 }

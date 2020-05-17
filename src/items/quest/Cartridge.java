@@ -26,6 +26,10 @@ public class Cartridge extends QuestItem {
      */
     public void ShowShort() { GameController.OutStream.print("c"); }
 
+    /**
+     * A patronhoz tartozó képfájl elérési útját adja meg
+     * @return Az elérési út
+     */
     @Override
     public String GetTexturePath() {
         return "textures/item_textures/patron.png";
