@@ -160,9 +160,7 @@ public abstract class Entity implements ITextured {
      * Interakcióba lép egy másik entitással.
      * @param otherEntity másik entitás.
      */
-    public void collideWith(Entity otherEntity){
-
-    }
+    public abstract void collideWith(Entity otherEntity);
 
     /**
      * Megváltoztatja az entitás alatt lévő mezőt.
@@ -177,5 +175,13 @@ public abstract class Entity implements ITextured {
      * Entitás életerejének csökkentése.
      */
     public abstract void decrementHP();
+
+    /**
+     *  Ezen metódus fölöldefiniálásával, lehet megadni annak a logikáját,
+     *  hogy a bemutatkozni kívánt Playerrel, mit tegyen azon Entity, akinek bemutatkozott.
+     *  Mivel egyelőre nem csinálnak egymással semmit, ezért üres implementációval rendelkezik.
+     * @param player Azon Player, aki ezen Player mezójére lépett.
+     */
+    public abstract void meetPlayer(Entity player);
 
 }

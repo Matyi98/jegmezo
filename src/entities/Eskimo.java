@@ -33,6 +33,8 @@ public class Eskimo extends Player {
         }
     }
 
+
+
     @Override
     public String GetTexturePath() {
         return "textures/entity_textures/eskimo.png";
