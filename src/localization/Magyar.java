@@ -42,6 +42,11 @@ public class Magyar extends Language {
     }
 
     @Override
+    public String Round() {
+        return "Kör: ";
+    }
+
+    @Override
     public String ActionPass() {
         return "Passz";
     }
