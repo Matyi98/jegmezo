@@ -78,6 +78,11 @@ public class StableIceField extends IceField{
         behaviour.destroyTent();
     }
 
+    /**
+     * A stabil mezőhöz tartozó képfájl elérési útját adja meg,
+     * a rajtalévő hószint függvényében.
+     * @return Az elérési út
+     */
     @Override
     public String GetTexturePath() {
         if(snowLevel > 0){

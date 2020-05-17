@@ -86,6 +86,10 @@ public class FieldBehaviourWithIgloo extends FieldBehaviour {
         GameController.OutStream.print("i");
     }
 
+    /**
+     * A mezőn lévő igluhoz tartozó képfájl elérési útját adja meg
+     * @return Az elérési út
+     */
     @Override
     public String GetTexturePath() {
         return "textures/item_textures/igloo_icon.png";

@@ -91,6 +91,10 @@ public class StandardFieldBehaviour extends FieldBehaviour {
 
     }
 
+    /**
+     * Sima mező, nem kell textúrázni
+     * @return üres (null)
+     */
     @Override
     public String GetTexturePath() {
         return null;

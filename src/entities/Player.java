@@ -276,16 +276,28 @@ public abstract class Player extends Entity {
         return inventory.getItems();
     }
 
+    /**
+     * A Player akciópontját adja meg
+     * @return Player akciópontját
+     */
     public int getActionPoints()
     {
         return this.actionPoints;
     }
 
+    /**
+     * A Player életerőpontját adja meg
+     * @return A Player életerőpontja
+     */
     public int getHealthPoints()
     {
         return this.healthPoints;
     }
 
+    /**
+     * Vissza adja hogy melyik írányba néz a játékos
+     * @return Az írány
+     */
     public int getDirection()
     {
         return actualDirection;

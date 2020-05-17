@@ -67,7 +67,4 @@ public abstract class IceField extends Field {
      */
     @Override
     public Entity selectEntity(){ return null; }
-
-
-
 }

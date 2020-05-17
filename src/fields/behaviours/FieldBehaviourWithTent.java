@@ -84,6 +84,10 @@ public class FieldBehaviourWithTent extends FieldBehaviour{
         GameController.OutStream.print("t");
     }
 
+    /**
+     * A mezőn lévó sátorhoz tartozó képfájl elérési útját adja meg
+     * @return Az elérési út
+     */
     @Override
     public String GetTexturePath() {
         return "textures/item_textures/tent.png";
