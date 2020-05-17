@@ -9,6 +9,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import game.GameController;
+import localization.Language;
+import main.Main;
 import views.scenes.mainWindow.GameScene;
 
 import java.io.File;
@@ -73,11 +75,12 @@ class Map {
  */
 public class MenuScene extends Scene {
 
-    private Button bStart = new Button("Játék indítás");
-    private Button bQuit = new Button("Kilépés");
+    private Button bStart = new Button(Language.Instance().MenuStart());
+    private Button bQuit = new Button(Language.Instance().MenuExit());
     private Label lSelMap = new Label();
     private ComboBox<String> cbPlayerCountSelect;
     private ComboBox<Map> cbMapSelect;
+    private ComboBox<Language.Languages> cbLangSelect;
     private VBox root = new VBox();
 
     /**
@@ -85,11 +88,11 @@ public class MenuScene extends Scene {
      */
     private ObservableList<String> playerNumbers =
             FXCollections.observableArrayList(
-                    "2 játékos",
-                    "3 játékos",
-                    "4 játékos",
-                    "5 játékos",
-                    "6 játékos"
+                    "2 "+ Language.Instance().Players(),
+                    "3 "+ Language.Instance().Players(),
+                    "4 "+ Language.Instance().Players(),
+                    "5 "+ Language.Instance().Players(),
+                    "6 "+ Language.Instance().Players()
             );
 
     /**
@@ -102,8 +105,15 @@ public class MenuScene extends Scene {
                     new Map("demo", "demo.txt", 2)
             );
 
+    private ObservableList<Language.Languages> langOptions =
+            FXCollections.observableArrayList(
+                    Language.Languages.Magyar,
+                    Language.Languages.English
+            );
+
     private VBox aMapInfoRow = new VBox();
     private VBox aNumPlayerRow = new VBox();
+    private VBox aLanguageRow = new VBox();
     private StackPane aStartExitRow = new  StackPane();
 
     /**
@@ -119,6 +129,7 @@ public class MenuScene extends Scene {
 
         root.getChildren().add(aMapInfoRow);
         root.getChildren().add(aNumPlayerRow);
+        root.getChildren().add(aLanguageRow);
         Pane placeholder = new Pane();
         VBox.setVgrow(placeholder, Priority.ALWAYS);
         root.getChildren().add(placeholder);
@@ -126,13 +137,19 @@ public class MenuScene extends Scene {
 
         //aNumPlayerRow
         aNumPlayerRow.setSpacing(5);
-        aNumPlayerRow.getChildren().add(new Label("Játékosok száma: "));
+        aNumPlayerRow.getChildren().add(new Label(Language.Instance().MenuPlayerCount()));
         aNumPlayerRow.getChildren().add(cbPlayerCountSelect = new ComboBox<>(playerNumbers));
 
         //aMapInfoRow
         aMapInfoRow.setSpacing(5);
-        aMapInfoRow.getChildren().add(new Label("Kiválasztott pálya: "));
+        aMapInfoRow.getChildren().add(new Label(Language.Instance().MenuSelectedMap()));
         aMapInfoRow.getChildren().add(cbMapSelect = new ComboBox<>(mapOptions));
+
+        //aLanguage
+        aLanguageRow.setSpacing(5);
+        aLanguageRow.getChildren().add(new Label(Language.Instance().MenuSchangeLang()));
+        aLanguageRow.getChildren().add(cbLangSelect = new ComboBox<>(langOptions));
+        cbLangSelect.getSelectionModel().select(Language.GetSelected());
 
         setCbChangeHandle();
 
@@ -177,6 +194,10 @@ public class MenuScene extends Scene {
                 bStart.setDisable(false);
             else
                 bStart.setDisable(true);
+        });
+        cbLangSelect.setOnAction(e ->   {
+            Language.Initialise(cbLangSelect.getValue());
+            Main.ExitToMenu();
         });
     }
 
