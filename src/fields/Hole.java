@@ -142,7 +142,7 @@ public class Hole extends Field {
     public Entity selectEntity() {
         ArrayList<String> names = new ArrayList<>();
         for(Entity e : entities){
-            names.add(e.getName());
+            names.add(e.getFancyName());
         }
 
         Dialog popup = new Dialog(Language.Instance().RescueQuestion(), names);
