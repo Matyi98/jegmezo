@@ -108,7 +108,8 @@ public class MenuScene extends Scene {
             FXCollections.observableArrayList(
                     Language.Languages.Magyar,
                     Language.Languages.English,
-                    Language.Languages.Русский
+                    Language.Languages.Русский,
+                    Language.Languages.Română
             );
 
     private VBox aMapInfoRow = new VBox();
