@@ -18,7 +18,7 @@ public abstract class Player extends Entity {
     /**
      * A játékos jelenlegi állapota.
      */
-    private PlayerState currentState = new NormalState(this);
+    protected PlayerState currentState = new NormalState(this);
     /**
      * A Player maximális akciópontjainak száma.
      */

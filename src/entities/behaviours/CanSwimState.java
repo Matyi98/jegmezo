@@ -38,4 +38,13 @@ public class CanSwimState extends PlayerState{
         player.setState(new NormalState(player));
         GameController.OutStream.println(player.getName() + " unequiped DivingSuit");
     }
+
+    /**
+     * Búvárruha megjelenítése az entityn.
+     * @return plusz sztring az elérési útba
+     */
+    @Override
+    public String GetTexturePath() {
+        return "_scuba";
+    }
 }

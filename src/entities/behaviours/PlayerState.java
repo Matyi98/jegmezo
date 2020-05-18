@@ -1,13 +1,14 @@
 package entities.behaviours;
 
 import entities.Player;
+import utility.ITextured;
 
 /**
  * A Player által képviselt állapotokat megvalósító implementációs osztályok őse.
  * Ezt a referencia típust tartalmazza a Player, ami tud különböző leszármazott
  * típusokra mutatni, lehetővé téve a Player különböző állapotaiba való áttérést.
  */
-public abstract class PlayerState {
+public abstract class PlayerState implements ITextured {
     /**
      * Azon Playerre referencia, amelyik Player állapotát megvalósítja
      * a PlayerState leszármazott osztálya.

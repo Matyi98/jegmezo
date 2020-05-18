@@ -27,4 +27,13 @@ public class SwimmingState extends PlayerState{
         GameController.OutStream.println(player.getName() + " climbed out");
         player.setState(new CanSwimState(player));
     }
+
+    /**
+     * Búvárruha megjelenítése az entityn.
+     * @return plusz sztring az elérési útba
+     */
+    @Override
+    public String GetTexturePath() {
+        return "_scuba";
+    }
 }

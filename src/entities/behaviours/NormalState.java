@@ -38,4 +38,13 @@ public class NormalState extends PlayerState {
         player.setState(new DrowningState(player));
         player.endTurn();
     }
+
+    /**
+     * Búvárruha megjelenítése az entityn.
+     * @return plusz sztring az elérési útba
+     */
+    @Override
+    public String GetTexturePath() {
+        return "";
+    }
 }

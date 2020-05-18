@@ -58,6 +58,7 @@ public class Eskimo extends Player {
      */
     @Override
     public String GetTexturePath() {
-        return "textures/entity_textures/eskimo.png";
+        String s = "textures/entity_textures/"+ currentState.GetTexturePath() +"eskimo.png";
+        return s;
     }
 }

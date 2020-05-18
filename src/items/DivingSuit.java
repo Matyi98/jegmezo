@@ -42,6 +42,6 @@ public class DivingSuit extends Item {
      */
     @Override
     public String GetTexturePath() {
-        return "textures/item_textures/scuba.png";
+        return "textures/item_textures/suit.png";
     }
 }

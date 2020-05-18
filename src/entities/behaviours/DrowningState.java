@@ -39,4 +39,13 @@ public class DrowningState extends PlayerState{
         GameController.OutStream.println(player.getName() +" rescued");
         player.setState(new NormalState(player));
     }
+
+    /**
+     * Búvárruha megjelenítése az entityn.
+     * @return plusz sztring az elérési útba
+     */
+    @Override
+    public String GetTexturePath() {
+        return "";
+    }
 }
