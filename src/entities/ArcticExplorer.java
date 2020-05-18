@@ -64,7 +64,7 @@ public class ArcticExplorer extends Player {
      */
     @Override
     public String GetTexturePath() {
-        String s = "textures/entity_textures/"+ currentState.GetTexturePath() +"explorer.png";
+        String s = "textures/entity_textures/explorer"+ currentState.GetTexturePath() +".png";
         return s;
     }
 }
