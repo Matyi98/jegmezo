@@ -34,6 +34,6 @@ public class SwimmingState extends PlayerState{
      */
     @Override
     public String GetTexturePath() {
-        return "_scuba";
+        return "_swimming";
     }
 }
