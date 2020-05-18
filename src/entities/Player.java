@@ -301,6 +301,12 @@ public abstract class Player extends Entity {
     public  int getMaxHealthPoints() {return this.maxHealthPoints;}
 
     /**
+     * Visszaadja a jatekos maximalis akciopontjat
+     * @return
+     */
+    public int getMaxActionPoints() {return this.MAX_ACTION_POINTS;}
+
+    /**
      * Vissza adja hogy melyik írányba néz a játékos
      * @return Az írány
      */

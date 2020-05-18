@@ -214,7 +214,7 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         //Player akciopont letrehozas labelkent
         //lekerdezese az actualPlayerbol
         Label actionPoints = new Label();
-        actionPoints.setText(Language.Selected().PlayerAP()+actualPlayer.getActionPoints());
+        actionPoints.setText(Language.Selected().PlayerAP()+actualPlayer.getActionPoints()+" / "+actualPlayer.getMaxActionPoints());
         actionPoints.setAlignment(Pos.TOP_LEFT);
         actionPoints.setFont(new Font("Arial", 20));
         actionPoints.setMaxSize(350, 25);
@@ -227,7 +227,7 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         //Player eleteropontjanak letrehozas labelkent
         //lekerdezzes az actualPlayertol
         Label lifePointsLabel = new Label();
-        lifePointsLabel.setText(Language.Selected().PlayerHP()+actualPlayer.getHealthPoints()+"/"+actualPlayer.getMaxHealthPoints());
+        lifePointsLabel.setText(Language.Selected().PlayerHP()+actualPlayer.getHealthPoints()+" / "+actualPlayer.getMaxHealthPoints());
         lifePointsLabel.setAlignment(Pos.TOP_LEFT);
         lifePointsLabel.setFont(new Font("Arial", 20));
         lifePointsLabel.setMaxSize(350, 25);
