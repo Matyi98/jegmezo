@@ -136,6 +136,11 @@ public abstract class Entity implements ITextured {
     public final void turn(int directionDelta){
         int numOfIndices = fieldUnder.getNeighbourCount();
 
+        if (numOfIndices == 1) {
+            actualDirection = 0;
+            return;
+        }
+
         actualDirection += directionDelta;
 
         if(actualDirection < 0)
