@@ -295,6 +295,12 @@ public abstract class Player extends Entity {
     }
 
     /**
+     * Visszaadja a jatekos maximalis eleteropontjat
+     * @return
+     */
+    public  int getMaxHealthPoints() {return this.maxHealthPoints;}
+
+    /**
      * Vissza adja hogy melyik írányba néz a játékos
      * @return Az írány
      */
