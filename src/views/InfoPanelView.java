@@ -154,7 +154,7 @@ public class InfoPanelView extends StackPane implements IUpdatable {
                     slotPane.addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent mouseEvent) {
-                         GameController.GetInstance().Execute("p use "+finI * 3 + finJ);
+                         GameController.GetInstance().Execute("p use "+(finI * 3 + finJ));
                     }
                 });
                 } else {
