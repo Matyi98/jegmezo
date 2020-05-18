@@ -13,6 +13,7 @@ import localization.Language;
 import main.Main;
 import views.scenes.mainWindow.GameScene;
 
+import java.io.IOException;
 import java.io.InputStream;
 
 /**
@@ -160,13 +161,22 @@ public class MenuScene extends Scene {
 
         //aStartExitRow
         bStart.setOnMouseClicked(mouseEvent -> {
-            GameController.Initialise(getMapFile(), getPlayerCount());
-            Stage stage = ((Stage)getWindow());
+            Stage stage = ((Stage) getWindow());
             stage.setTitle(cbMapSelect.getValue().toString(getPlayerCount()));
-            GameScene gs = new GameScene(getMapLayoutFile());
 
-            stage.setScene(gs);
+            try(InputStream is = getMapFile()) {
+                GameController.Initialise(is, getPlayerCount());
+            }
+            catch(IOException e){
 
+            }
+
+            try(InputStream is = getMapLayoutFile()){
+                GameScene gs = new GameScene(is);
+                stage.setScene(gs);
+            }catch(IOException e){
+
+            }
         });
         aStartExitRow.getChildren().add(bStart);
         StackPane.setAlignment(bStart, Pos.TOP_LEFT);

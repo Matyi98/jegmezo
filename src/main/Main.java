@@ -42,13 +42,14 @@ public class Main extends Application {
         final String pwd = System.getProperty("user.dir");
         File f = new File(pwd+"/maps/"+ sMap);
 
-        try {
-            FileInputStream fis = new FileInputStream(f);
+        try(FileInputStream fis = new FileInputStream(f)) {
             SceneReader sceneReader = new SceneReader(fis);
             sceneReader.LoadScene().Start(stdin);
         }catch (FileNotFoundException e) {
             e.printStackTrace();
             System.err.println(e.getMessage());
+        }catch (IOException e){
+
         }
 
     }

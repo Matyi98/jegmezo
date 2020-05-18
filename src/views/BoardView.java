@@ -9,6 +9,7 @@ import game.Board;
 import javafx.scene.shape.Line;
 import reader.LayoutReader;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -43,11 +44,10 @@ public class BoardView extends Pane implements IUpdatable {
      * @return Egyes fieldek koordinátái a rajzfelületen.
      */
     private ArrayList<Point2D> readFieldLayouts(InputStream file){
-        LayoutReader layoutReader;
-        try {
+        try{
+            LayoutReader layoutReader;
             layoutReader = new LayoutReader(file);
             return layoutReader.readCoords();
-
         } catch(IOException e) {
             e.printStackTrace();
             return null;
