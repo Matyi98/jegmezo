@@ -6,6 +6,7 @@ import localization.Language;
 import utility.Dialog;
 import utility.RandomNumber;
 import utility.ITextured;
+import views.scenes.mainWindow.GameScene;
 
 import java.util.*;
 
@@ -79,6 +80,7 @@ public class Board implements ITextured{
      * Hóvihar elindítása.
      */
     public void letItSnow() {
+        GameScene.UpdateAllViews();
         if (Dialog.AllowGUI) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle(Language.Selected().BlizzardShort());
