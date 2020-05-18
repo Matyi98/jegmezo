@@ -103,14 +103,9 @@ public class FieldView extends ImageStackPane {
             cState.setFill(Color.BLACK);
             StackPane.setAlignment(cState, Pos.BOTTOM_LEFT);
             cState.setTranslateX(-10);
-            String imagePath = data.GetStateTexturePath();
 
-            Image stateImage = null;
-            try(InputStream is = getClass().getClassLoader().getResourceAsStream(imagePath)){
-                stateImage = new Image(is);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            Image stateImage = data.GetStateTexturePath();
+
             cState.setFill(new ImagePattern(stateImage));
             cState.setStrokeWidth(2);
             cState.setStroke(Color.rgb(40, 40, 60));

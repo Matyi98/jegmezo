@@ -2,6 +2,7 @@ package entities;
 
 import game.GameController;
 import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
 import localization.Language;
 import utility.Dialog;
 
@@ -63,8 +64,7 @@ public class ArcticExplorer extends Player {
      * @return Az elérési út
      */
     @Override
-    public String GetTexturePath() {
-        String s = "textures/entity_textures/explorer"+ currentState.GetTexturePath() +".png";
-        return s;
+    public Image GetTexturePath() {
+        return currentState.GetTexturePath("explorer");
     }
 }

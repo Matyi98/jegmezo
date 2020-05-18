@@ -1,6 +1,8 @@
 package items;
 
 import game.GameController;
+import javafx.scene.image.Image;
+import utility.TurboTextureLoader;
 
 /**
  * Étel item. Életerejét növelheti a Player, ha megeszi.
@@ -44,7 +46,7 @@ public class Food extends Item {
      * @return Az elérési út
      */
     @Override
-    public String GetTexturePath() {
-        return "textures/item_textures/food.png";
+    public Image GetTexturePath() {
+        return TurboTextureLoader.GetItemTexture(TurboTextureLoader.ItemTextures.food);
     }
 }

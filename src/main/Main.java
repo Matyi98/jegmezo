@@ -5,6 +5,7 @@ import javafx.stage.Stage;
 import localization.Language;
 import reader.SceneReader;
 import utility.Dialog;
+import utility.TurboTextureLoader;
 import views.scenes.MenuScene;
 
 import java.io.*;
@@ -26,6 +27,7 @@ public class Main extends Application {
      * @param args A játék elindítása során megadott paraméterek.
      */
     public static void main(String[] args) {
+        TurboTextureLoader.Initialise();
         Language.Select(Language.Languages.Magyar);
         Dialog.AllowGUI = true;
         launch(args);

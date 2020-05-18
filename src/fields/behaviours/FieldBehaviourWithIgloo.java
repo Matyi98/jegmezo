@@ -3,6 +3,8 @@ package fields.behaviours;
 import entities.Entity;
 import fields.Field;
 import game.GameController;
+import javafx.scene.image.Image;
+import utility.TurboTextureLoader;
 
 import java.util.Collection;
 
@@ -91,7 +93,7 @@ public class FieldBehaviourWithIgloo extends FieldBehaviour {
      * @return Az elérési út
      */
     @Override
-    public String GetTexturePath() {
-        return "textures/item_textures/igloo_icon.png";
+    public Image GetTexturePath() {
+        return TurboTextureLoader.GetItemTexture(TurboTextureLoader.ItemTextures.igloo_icon);
     }
 }

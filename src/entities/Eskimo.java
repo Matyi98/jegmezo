@@ -1,6 +1,7 @@
 package entities;
 
 import game.GameController;
+import javafx.scene.image.Image;
 import localization.Language;
 
 /**
@@ -57,8 +58,7 @@ public class Eskimo extends Player {
      * @return Az elérési út
      */
     @Override
-    public String GetTexturePath() {
-        String s = "textures/entity_textures/eskimo"+ currentState.GetTexturePath() +".png";
-        return s;
+    public Image GetTexturePath() {
+        return currentState.GetTexturePath("eskimo");
     }
 }

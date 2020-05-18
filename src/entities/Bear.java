@@ -1,8 +1,10 @@
 package entities;
 
+import javafx.scene.image.Image;
 import localization.Language;
 import utility.RandomNumber;
 import game.GameController;
+import utility.TurboTextureLoader;
 
 /**
  * Jegesmedve osztály, amely az Entity-ből származik. Ha játékosokkal kerül egy mezőre, akkor megöli őket.
@@ -89,7 +91,7 @@ public class Bear extends Entity {
      * @return Az elérési út
      */
     @Override
-    public String GetTexturePath() {
-        return "textures/entity_textures/bear.png";
+    public Image GetTexturePath() {
+        return TurboTextureLoader.GetEntityTexture(TurboTextureLoader.EntityTextures.bear);
     }
 }

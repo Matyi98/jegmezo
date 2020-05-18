@@ -1,6 +1,8 @@
 package items.quest;
 
 import game.GameController;
+import javafx.scene.image.Image;
+import utility.TurboTextureLoader;
 
 /**
  * Egyik összegyűjtendő QuestItem.
@@ -31,7 +33,7 @@ public class Pistol extends QuestItem {
      * @return Az elérési út
      */
     @Override
-    public String GetTexturePath() {
-        return "textures/item_textures/pistol.png";
+    public Image GetTexturePath() {
+        return TurboTextureLoader.GetItemTexture(TurboTextureLoader.ItemTextures.pistol);
     }
 }

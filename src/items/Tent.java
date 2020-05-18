@@ -1,6 +1,8 @@
 package items;
 
 import game.GameController;
+import javafx.scene.image.Image;
+import utility.TurboTextureLoader;
 
 /**
  * Sátor item. Bármelyik IceField-re ráépíthető. Adott körben megvéd a hóvihartól,
@@ -40,7 +42,7 @@ public class Tent extends Item {
      * @return Az elérési út
      */
     @Override
-    public String GetTexturePath() {
-        return "textures/item_textures/tent.png";
+    public Image GetTexturePath() {
+        return TurboTextureLoader.GetItemTexture(TurboTextureLoader.ItemTextures.tent);
     }
 }

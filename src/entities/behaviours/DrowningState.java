@@ -2,7 +2,9 @@ package entities.behaviours;
 
 import entities.Player;
 import game.GameController;
+import javafx.scene.image.Image;
 import localization.Language;
+import utility.TurboTextureLoader;
 
 /**
  * A játékosokat megvalósító Player osztály,
@@ -45,7 +47,10 @@ public class DrowningState extends PlayerState{
      * @return plusz sztring az elérési útba
      */
     @Override
-    public String GetTexturePath() {
-        return "_drowning";
+    public Image GetTexturePath(String option) {
+        if (option.equals("eskimo"))
+            return TurboTextureLoader.GetEntityTexture(TurboTextureLoader.EntityTextures.eskimo_drowning);
+        else
+            return TurboTextureLoader.GetEntityTexture(TurboTextureLoader.EntityTextures.explorer_drowning);
     }
 }

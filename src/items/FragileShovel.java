@@ -1,6 +1,8 @@
 package items;
 
 import game.GameController;
+import javafx.scene.image.Image;
+import utility.TurboTextureLoader;
 
 /**
  * Törékeny ásó item. Adott számú használat után eltörik.
@@ -54,7 +56,7 @@ public class FragileShovel extends Item {
      * @return Az elérési út
      */
     @Override
-    public String GetTexturePath() {
-        return "textures/item_textures/fragile_shovel.png";
+    public Image GetTexturePath() {
+        return TurboTextureLoader.GetItemTexture(TurboTextureLoader.ItemTextures.fragile_shovel);
     }
 }

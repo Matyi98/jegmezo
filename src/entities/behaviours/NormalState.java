@@ -2,6 +2,8 @@ package entities.behaviours;
 
 import entities.Player;
 import game.GameController;
+import javafx.scene.image.Image;
+import utility.TurboTextureLoader;
 
 /**
  * A játékosokat megvalósító Player osztály, szárazföldön lévő és divingsuits nélküli
@@ -44,7 +46,10 @@ public class NormalState extends PlayerState {
      * @return plusz sztring az elérési útba
      */
     @Override
-    public String GetTexturePath() {
-        return "";
+    public Image GetTexturePath(String option) {
+        if (option.equals("eskimo"))
+            return TurboTextureLoader.GetEntityTexture(TurboTextureLoader.EntityTextures.eskimo);
+        else
+            return TurboTextureLoader.GetEntityTexture(TurboTextureLoader.EntityTextures.explorer);
     }
 }

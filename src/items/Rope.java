@@ -1,6 +1,8 @@
 package items;
 
 import game.GameController;
+import javafx.scene.image.Image;
+import utility.TurboTextureLoader;
 
 /**
  * Kötél item. Segítségével ki lehet húzni más játékosokat egy Hole típusú Field-ből.
@@ -41,7 +43,7 @@ public class Rope extends Item {
      * @return Az elérési út
      */
     @Override
-    public String GetTexturePath() {
-        return "textures/item_textures/rope.png";
+    public Image GetTexturePath() {
+        return TurboTextureLoader.GetItemTexture(TurboTextureLoader.ItemTextures.rope);
     }
 }

@@ -1,6 +1,8 @@
 package items;
 
 import game.GameController;
+import javafx.scene.image.Image;
+import utility.TurboTextureLoader;
 
 /**
  * Ásó item. Egyszerre sok hó eltakarítására képes.
@@ -43,7 +45,7 @@ public class Shovel extends Item {
      * @return Az elérési út
      */
     @Override
-    public String GetTexturePath() {
-        return "textures/item_textures/shovel.png";
+    public Image GetTexturePath() {
+        return TurboTextureLoader.GetItemTexture(TurboTextureLoader.ItemTextures.shovel);
     }
 }

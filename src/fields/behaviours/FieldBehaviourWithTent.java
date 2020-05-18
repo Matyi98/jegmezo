@@ -3,6 +3,8 @@ package fields.behaviours;
 import entities.Entity;
 import fields.Field;
 import game.GameController;
+import javafx.scene.image.Image;
+import utility.TurboTextureLoader;
 
 import java.util.Collection;
 
@@ -89,7 +91,7 @@ public class FieldBehaviourWithTent extends FieldBehaviour{
      * @return Az elérési út
      */
     @Override
-    public String GetTexturePath() {
-        return "textures/item_textures/tent.png";
+    public Image GetTexturePath() {
+        return TurboTextureLoader.GetItemTexture(TurboTextureLoader.ItemTextures.tent);
     }
 }

@@ -2,6 +2,8 @@ package entities.behaviours;
 
 import entities.Player;
 import game.GameController;
+import javafx.scene.image.Image;
+import utility.TurboTextureLoader;
 
 /**
  * A játékosokat megvalósító Player osztály,
@@ -33,7 +35,10 @@ public class SwimmingState extends PlayerState{
      * @return plusz sztring az elérési útba
      */
     @Override
-    public String GetTexturePath() {
-        return "_swimming";
+    public Image GetTexturePath(String option) {
+        if (option.equals("eskimo"))
+            return TurboTextureLoader.GetEntityTexture(TurboTextureLoader.EntityTextures.eskimo_swimming);
+        else
+            return TurboTextureLoader.GetEntityTexture(TurboTextureLoader.EntityTextures.explorer_swimming);
     }
 }

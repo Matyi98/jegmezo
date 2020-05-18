@@ -4,9 +4,11 @@ import entities.Entity;
 import fields.behaviours.StandardFieldBehaviour;
 import items.Item;
 import game.Board;
+import javafx.scene.image.Image;
 import localization.Language;
 import utility.Dialog;
 import game.GameController;
+import utility.TurboTextureLoader;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -156,7 +158,7 @@ public class Hole extends Field {
      * @return Az elérési út
      */
     @Override
-    public String GetTexturePath() {
-        return "textures/field_textures/water.png";
+    public Image GetTexturePath() {
+        return TurboTextureLoader.GetFieldTexture(TurboTextureLoader.FieldTextures.water);
     }
 }

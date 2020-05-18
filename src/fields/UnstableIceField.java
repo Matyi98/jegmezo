@@ -2,6 +2,8 @@ package fields;
 
 import entities.Entity;
 import game.GameController;
+import javafx.scene.image.Image;
+import utility.TurboTextureLoader;
 
 /**
  * UnstableIceField osztály. Csak adott számú Entity-t képes elbírni, ha túl sok Entity kerül rá
@@ -99,12 +101,12 @@ public class UnstableIceField extends IceField {
      * @return Az elérési út
      */
     @Override
-    public String GetTexturePath() {
+    public Image GetTexturePath() {
         if(snowLevel > 0){
-            return "textures/field_textures/snow.png";
+            return TurboTextureLoader.GetFieldTexture(TurboTextureLoader.FieldTextures.snow);
         }
         else {
-            return "textures/field_textures/unstableIce.png";
+            return TurboTextureLoader.GetFieldTexture(TurboTextureLoader.FieldTextures.unstableIce);
         }
     }
 }

@@ -2,6 +2,8 @@ package fields;
 
 import entities.Entity;
 import game.GameController;
+import javafx.scene.image.Image;
+import utility.TurboTextureLoader;
 
 /**
  * StableIceField osztály. Bármennyi Entity-t képes elbírni.
@@ -84,12 +86,12 @@ public class StableIceField extends IceField{
      * @return Az elérési út
      */
     @Override
-    public String GetTexturePath() {
+    public Image GetTexturePath() {
         if(snowLevel > 0){
-            return "textures/field_textures/snow.png";
+            return TurboTextureLoader.GetFieldTexture(TurboTextureLoader.FieldTextures.snow);
         }
         else {
-            return "textures/field_textures/ice.png";
+            return TurboTextureLoader.GetFieldTexture(TurboTextureLoader.FieldTextures.ice);
         }
     }
 }

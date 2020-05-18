@@ -22,14 +22,9 @@ public abstract class ImageStackPane extends StackPane {
 
     /**
      * Konstruktor.
-     * @param imagePath A kép elérési útja.
+     * @param img hivatkozás a képre
      */
-    public ImageStackPane(String imagePath) {
-        image = null;
-        try(InputStream is = getClass().getClassLoader().getResourceAsStream(imagePath)){
-            image = new Image(is);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public ImageStackPane(Image img) {
+        image = img;
     }
 }

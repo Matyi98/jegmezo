@@ -132,14 +132,8 @@ public class InfoPanelView extends StackPane implements IUpdatable {
                 //item,ha van betesszuk, ha nincs akkor
                 //kek hatterszint allitunk be
                 if (actualInventory.size() >= i * 3 + (j + 1)) {
-                    Image image = null;
-                    InputStream fis = getClass().getClassLoader().
-                            getResourceAsStream(actualInventory.get(i * 3 + j).GetTexturePath());
-                    try(InputStream is = fis){
-                        image = new Image(is);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    Image image = actualInventory.get(i * 3 + j).GetTexturePath();
+
                     ImageView pic = new ImageView();
                     pic.setFitHeight(80);
                     pic.setFitWidth(80);
@@ -420,23 +414,16 @@ public class InfoPanelView extends StackPane implements IUpdatable {
         playerPane.setMinSize(75,136);
         playerPane.setTranslateX(5);
         playerPane.setTranslateY(10);
-        Image image = null;
+        Image image = actualPlayer.GetTexturePath();
 
-        try(InputStream is = getClass().getClassLoader().getResourceAsStream(actualPlayer.GetTexturePath())){
-            image = new Image(is);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if(image != null)
-        {
-            ImageView pic = new ImageView();
-            pic.setFitHeight(136);
-            pic.setFitWidth(75);
-            pic.setPreserveRatio(true);
-            pic.setImage(image);
-            playerPane.getChildren().add(pic);
+        ImageView pic = new ImageView();
+        pic.setFitHeight(136);
+        pic.setFitWidth(75);
+        pic.setPreserveRatio(true);
+        pic.setImage(image);
+        playerPane.getChildren().add(pic);
 
-        }
+
         buttonPane.getChildren().add(playerPane);
     }
 

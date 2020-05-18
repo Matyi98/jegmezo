@@ -5,6 +5,7 @@ import fields.behaviours.FieldBehaviour;
 import fields.behaviours.StandardFieldBehaviour;
 import items.Item;
 import game.Board;
+import javafx.scene.image.Image;
 import utility.ITextured;
 
 import java.util.ArrayList;
@@ -342,7 +343,7 @@ public abstract class Field implements ITextured {
      * Megadja a mezőviselkedése alapján a hozzátartozó textúra elérési útvonalát
      * @return Az elérési út
      */
-    public String GetStateTexturePath(){
+    public Image GetStateTexturePath(){
         return behaviour.GetTexturePath();
     }
 }

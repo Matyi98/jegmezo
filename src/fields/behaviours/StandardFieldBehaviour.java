@@ -2,6 +2,7 @@ package fields.behaviours;
 
 import entities.Entity;
 import fields.Field;
+import javafx.scene.image.Image;
 
 import java.util.Collection;
 
@@ -96,7 +97,7 @@ public class StandardFieldBehaviour extends FieldBehaviour {
      * @return üres (null)
      */
     @Override
-    public String GetTexturePath() {
+    public Image GetTexturePath() {
         return null;
     }
 }
