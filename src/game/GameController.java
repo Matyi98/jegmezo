@@ -129,7 +129,9 @@ public class GameController {
                 currentPlayer = 0;
                 GameController.OutStream.println("End of round");
                 board.letItSnow();
+                GameScene.UpdateAllViews();
                 board.stepEntities();
+                GameScene.UpdateAllViews();
                 roundCounter++;
             }
 
@@ -259,6 +261,7 @@ public class GameController {
      */
     private void exit(String message) {
         if (gameRunning && Dialog.AllowGUI) {
+            GameScene.UpdateAllViews();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("GameOver");
             alert.setHeaderText(null);

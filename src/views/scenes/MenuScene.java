@@ -100,7 +100,8 @@ public class MenuScene extends Scene {
     private ObservableList<Map> mapOptions =
             FXCollections.observableArrayList(
                     new Map("Mega", "mega.txt", 6),
-                    new Map("IIT fogsz meghalni!", "tanszeki.txt", 3)
+                    new Map("IIT fogsz meghalni!", "tanszeki.txt", 3),
+                    new Map("Globális felmelegedés","floating.txt",2)
             );
 
     /**
