@@ -316,8 +316,7 @@ public abstract class Player extends Entity {
      * Jelzőpiyztoly használata.
      */
     public void useFlareGun(){
-        int numOfPlayersOnField = fieldUnder.getEntityCount();
-        gameController.win(numOfPlayersOnField);
+        gameController.win(fieldUnder);
     }
 
     /**

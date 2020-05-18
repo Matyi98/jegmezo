@@ -1,6 +1,7 @@
 package game;
 
 import entities.*;
+import fields.Field;
 import javafx.scene.control.Alert;
 import localization.Language;
 import main.Main;
@@ -236,9 +237,14 @@ public class GameController {
      * A játék megnyerése, ha a Player-ek eleget tettek a nyerési követelményeknek:
      * 1. Minden játékos legyen egyetlen egy mezőn.
      * 2. Legyen a játékosoknál az összes QuestItem.
-     * @param count játékosok száma egy adott mezőn.
+     * @param fieldUnder a kezedeményező játékos mezője
      */
-    public void win(int count) {
+    public void win(Field fieldUnder) {
+        int count = 0;
+        for (Player p : players)
+            if(p.getFieldUnder() == fieldUnder)
+                count++;
+
         if (count == players.size() && questItemCount == 3) {
             OutStream.println("Victory");
             exit(Language.Selected().WinMSG());
