@@ -94,6 +94,7 @@ public class Board implements ITextured{
         }
 
         chanceOfSnowing += 5;
+        if (chanceOfSnowing < 70) chanceOfSnowing = 70;
 
         for (Field field : fields) {
             if (RandomNumber.getNumber(100) < chanceOfSnowing) {
