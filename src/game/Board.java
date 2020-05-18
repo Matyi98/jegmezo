@@ -77,6 +77,10 @@ public class Board implements ITextured{
     }
 
     /**
+     * Havazás esélye.
+     */
+    private double chanceOfSnowing = 10; // ennyi% hogy esik-e a hó
+    /**
      * Hóvihar elindítása.
      */
     public void letItSnow() {
@@ -89,7 +93,6 @@ public class Board implements ITextured{
             alert.showAndWait();
         }
 
-        double chanceOfSnowing = 20; // ennyi% hogy esik-e a hó
         chanceOfSnowing += 5;
 
         for (Field field : fields) {
