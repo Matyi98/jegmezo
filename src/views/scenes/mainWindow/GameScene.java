@@ -9,8 +9,17 @@ import views.InfoPanelView;
 import java.io.InputStream;
 import java.util.ArrayList;
 
+/**
+ * Egy játékmenet ablakát reprezentáló osztály.
+ */
 public class GameScene extends Scene {
+    /**
+     * Abblak szélessége
+     */
     private static final double WIDTH = 1280;
+    /**
+     * Ablak magassága
+     */
     private static final double HEIGHT = 720;
 
     /**

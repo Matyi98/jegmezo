@@ -13,12 +13,17 @@ import java.util.*;
 /**
  * A játéktábla, amely a játékmenet összes Field-jét tartalmazza.
  */
-public class Board implements ITextured{
+public class Board {
     /**
      * Field-ek.
      */
     private ArrayList<Field> fields;
 
+    /**
+     * Visszaadja az adott indexen lévő mezőt.
+     * @param i mező UID
+     * @return mező az adott UID-del
+     */
     public Field getField(int i){
         return fields.get(i);
     }
@@ -116,8 +121,4 @@ public class Board implements ITextured{
         }
     }
 
-    @Override
-    public String GetTexturePath() {
-        return null;
-    }
 }
