@@ -46,6 +46,6 @@ public class DrowningState extends PlayerState{
      */
     @Override
     public String GetTexturePath() {
-        return "";
+        return "_drowning";
     }
 }
