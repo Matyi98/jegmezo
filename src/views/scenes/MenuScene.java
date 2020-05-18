@@ -103,7 +103,8 @@ public class MenuScene extends Scene {
                     new Map("IIT fogsz meghalni!", "tanszeki.txt", 3),
                     new Map("Globális felmelegedés","floating.txt",2),
                     new Map("Konferencia", "konference.txt",6),
-                    new Map("Россия", "russia.txt", 3)
+                    new Map("Россия", "russia.txt", 3),
+                    new Map("DevRoom", "devroom.txt",2)
             );
 
     /**
